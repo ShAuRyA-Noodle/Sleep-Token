@@ -1,0 +1,70 @@
+{
+  "metadata": {
+    "name": "Red Sea / Houthi Shipping Attacks",
+    "date": "2023-11-19",
+    "end_date": "2024-11-19",
+    "source": "UNCTAD / Drewry / Freightos / US CENTCOM",
+    "description": "Houthi rebel forces in Yemen began attacking commercial vessels transiting the Red Sea and Bab el-Mandeb strait in response to the Israel-Gaza conflict. The attacks forced major container lines (Maersk, MSC, CMA CGM, Hapag-Lloyd) to reroute around the Cape of Good Hope, adding approximately 3,500 nautical miles and 10+ days to Asia-Europe voyages. Container shipping rates surged 200-300%, and the disruption cascaded into port congestion, schedule unreliability, and manufacturing delays globally.",
+    "category": "geopolitical_disruption",
+    "tags": ["red_sea", "houthi", "maritime", "shipping", "chokepoint", "rerouting", "yemen"]
+  },
+  "disruption_params": {
+    "signal_id": "RED_SEA_2023",
+    "disruption_type": "geopolitical_disruption",
+    "severity": 0.65,
+    "affected_region": "global_maritime",
+    "affected_node_ids": [
+      "PORT_KAOHSIUNG",
+      "PORT_LONG_BEACH",
+      "WH_US_WEST",
+      "WH_TAIWAN",
+      "FAC_US",
+      "CUST_US"
+    ],
+    "trigger_day": 0,
+    "impact_day": 14,
+    "recovery_start_day": 180,
+    "resolved_day": 365,
+    "commodity_effects": {
+      "container_shipping": 3.00,
+      "crude_oil": 1.08,
+      "lng": 1.12,
+      "consumer_electronics": 1.06,
+      "semiconductors": 1.04,
+      "auto_parts": 1.07
+    }
+  },
+  "ground_truth": {
+    "total_damage_usd": null,
+    "duration_days": 365,
+    "peak_severity": 0.65,
+    "production_loss": {
+      "reroute_added_nautical_miles": 3500,
+      "reroute_added_transit_days": 10,
+      "container_rate_increase_pct": 250,
+      "red_sea_transit_drop_pct": 67,
+      "suez_canal_throughput_drop_pct": 45,
+      "vessels_attacked": 100,
+      "vessels_rerouting_pct": 90
+    },
+    "recovery_milestones": [
+      {"day": 0, "description": "First Houthi attacks on commercial vessels in Red Sea"},
+      {"day": 14, "description": "Major shipping lines announce Red Sea transit suspension and Cape rerouting"},
+      {"day": 30, "description": "US/UK launch Operation Prosperity Guardian; container rates spike 200%+"},
+      {"day": 60, "description": "Container rates peak at ~300% above pre-crisis; port congestion builds"},
+      {"day": 90, "description": "Schedule disruptions cascade; European manufacturing reports delays"},
+      {"day": 180, "description": "Market adapts to longer routes; rates stabilize at elevated levels"},
+      {"day": 365, "description": "Situation remains fluid; most carriers continue Cape routing"}
+    ],
+    "affected_industries": ["shipping", "retail", "automotive", "energy", "manufacturing"],
+    "share_of_global_trade_through_red_sea_pct": 15,
+    "share_of_container_trade_through_red_sea_pct": 30
+  },
+  "lessons_learned": [
+    "Maritime chokepoints remain highly vulnerable to asymmetric threats; a non-state actor with anti-ship missiles can disrupt 15% of global trade.",
+    "Cape of Good Hope rerouting absorbs the immediate safety risk but creates systemic capacity reduction, as the same number of ships cover longer routes with fewer annual rotations.",
+    "Container shipping rate volatility (+200-300%) demonstrates how thin the margin between adequate and insufficient global shipping capacity truly is.",
+    "Companies with nearshored or diversified supply chains experienced significantly less disruption than those dependent on Asia-to-Europe maritime lanes.",
+    "The Red Sea crisis, combined with the 2021 Suez blockage and pandemic-era port congestion, has accelerated investment in supply chain resilience, dual-sourcing, and digital control towers."
+  ]
+}

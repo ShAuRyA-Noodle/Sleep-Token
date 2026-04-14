@@ -1,0 +1,21 @@
+{
+  "source": "NOAA IBTRACS v04r00 (Western Pacific)",
+  "url": "https://www.ncei.noaa.gov/products/international-best-track-archive",
+  "years_covered": "1884-2024",
+  "total_records": 243495,
+  "unique_storms": 4289,
+  "taiwan": {
+    "severe_typhoons_per_year_avg": 3.6551724137931036,
+    "severe_typhoons_per_year_std": 1.6961271445974777,
+    "max_in_year": 7,
+    "years_analyzed": 29,
+    "total_severe_storms": 282
+  },
+  "intensity_stats": {
+    "wind_knots_mean": 91.40154298310065,
+    "wind_knots_std": 20.898189648487485,
+    "wind_knots_p50": 87.0,
+    "wind_knots_p95": 130.0,
+    "cat_5_fraction": 0.030492285084496695
+  }
+}

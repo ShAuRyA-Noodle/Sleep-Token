@@ -1,0 +1,186 @@
+{
+  "version": "1.0.0",
+  "description": "Maps each of the 15 disruption types to specific early warning signals with data sources and typical lead times.",
+  "indicators": {
+    "tropical_cyclone": {
+      "signals": [
+        "Storm formation detected in tropical disturbance tracking",
+        "NHC/JTWC track forecast cone intersects supplier regions",
+        "Wind speed projections exceed 64 knots (typhoon threshold)",
+        "Storm surge warnings issued for coastal facilities",
+        "Airline flight cancellation patterns in affected region"
+      ],
+      "data_sources": ["NOAA National Hurricane Center", "JTWC (Joint Typhoon Warning Center)", "IBTRACS historical dataset"],
+      "typical_lead_time_hours": 72,
+      "predictability": "high"
+    },
+    "earthquake": {
+      "signals": [
+        "NOT predictable — immediate detection only",
+        "Aftershock sequence modeling (USGS ShakeAlert)",
+        "Historical seismicity rate anomaly detection",
+        "Foreshock clustering patterns (low reliability)",
+        "Post-event: rapid damage assessment from satellite imagery"
+      ],
+      "data_sources": ["USGS FDSNWS earthquake API (earthquake.usgs.gov)", "Japan Meteorological Agency", "EMSC (European)"],
+      "typical_lead_time_hours": 0,
+      "predictability": "none (reactive only)"
+    },
+    "flooding": {
+      "signals": [
+        "River gauge levels exceeding flood stage thresholds",
+        "Rainfall forecast exceeding 200mm in 24-48 hours",
+        "Upstream reservoir release announcements",
+        "Soil saturation index exceeding critical levels",
+        "Flash flood warnings from national weather services"
+      ],
+      "data_sources": ["NOAA Advanced Hydrologic Prediction Service (AHPS)", "European Flood Awareness System (EFAS)", "National river gauge APIs"],
+      "typical_lead_time_hours": 48,
+      "predictability": "medium-high"
+    },
+    "wildfire": {
+      "signals": [
+        "NASA FIRMS hotspot density increase near supplier locations",
+        "Red flag warnings: wind forecast >25mph + relative humidity <15%",
+        "Fire Weather Index exceeding extreme threshold",
+        "Evacuation orders in supplier facility zones",
+        "Power utility preemptive shutoff announcements (PSPS)"
+      ],
+      "data_sources": ["NASA FIRMS (firms.modaps.eosdis.nasa.gov)", "NIFC InciWeb", "Cal Fire", "Australian BOM"],
+      "typical_lead_time_hours": 24,
+      "predictability": "medium"
+    },
+    "volcanic_eruption": {
+      "signals": [
+        "Seismic swarm detection beneath volcano",
+        "SO2 emission spike detected by satellite",
+        "Aviation color code change (from Green/Yellow to Orange/Red)",
+        "Ground deformation measured by InSAR",
+        "Volcanic tremor onset (continuous seismic signal)"
+      ],
+      "data_sources": ["Smithsonian Global Volcanism Program", "VAAC (Volcanic Ash Advisory Centers)", "USGS Volcano Hazards Program"],
+      "typical_lead_time_hours": 12,
+      "predictability": "medium"
+    },
+    "port_congestion": {
+      "signals": [
+        "Vessel queue length increasing >20% week-over-week",
+        "Average dwell time spike at target port",
+        "Container yard utilization exceeding 90%",
+        "Truck turn times increasing beyond 4-hour average",
+        "Blank sailing announcements from major carriers"
+      ],
+      "data_sources": ["MarineTraffic AIS data", "Port authority dashboards", "Freightos Baltic Index", "Container xChange"],
+      "typical_lead_time_hours": 168,
+      "predictability": "high"
+    },
+    "canal_disruption": {
+      "signals": [
+        "Vessel grounding or accident report in canal",
+        "Military activity near maritime chokepoint",
+        "Draft restriction announcements (drought affecting Panama Canal)",
+        "Sudden vessel traffic halt in AIS data",
+        "Canal authority emergency notices"
+      ],
+      "data_sources": ["Suez Canal Authority", "Panama Canal Authority", "MarineTraffic live tracking", "UKMTO maritime advisories"],
+      "typical_lead_time_hours": 0,
+      "predictability": "low (sudden events)"
+    },
+    "labor_strike": {
+      "signals": [
+        "Strike vote announcement by union",
+        "Union leadership public statements escalating rhetoric",
+        "Social media surge in labor-related keywords",
+        "Contract expiration date approaching without agreement",
+        "NLRB/labor board filings or mediator appointments"
+      ],
+      "data_sources": ["NLRB (US)", "GDELT news tone analysis", "Union press releases", "Social media monitoring"],
+      "typical_lead_time_hours": 336,
+      "predictability": "high"
+    },
+    "geopolitical_conflict": {
+      "signals": [
+        "Military movement reports from OSINT sources",
+        "Diplomatic recall or embassy evacuation advisories",
+        "GDELT conflict tone spike in bilateral relations",
+        "Abnormal military exercises near border regions",
+        "Civilian flight path diversions around conflict zones"
+      ],
+      "data_sources": ["ACLED conflict database", "GDELT Project", "OSINT aggregators", "US State Dept travel advisories"],
+      "typical_lead_time_hours": 720,
+      "predictability": "medium"
+    },
+    "sanctions_trade_policy": {
+      "signals": [
+        "Legislative draft leaks or committee hearings",
+        "Diplomatic statements hinting at trade restrictions",
+        "Pre-announcement news from trade policy reporters",
+        "Industry lobbying activity spike",
+        "Government-to-government negotiation breakdown reports"
+      ],
+      "data_sources": ["Federal Register", "Congressional Record", "EU Official Journal", "WTO dispute filings"],
+      "typical_lead_time_hours": 2160,
+      "predictability": "medium-high"
+    },
+    "pandemic": {
+      "signals": [
+        "WHO Disease Outbreak News (DON) alerts",
+        "ProMED-mail early warning reports",
+        "Abnormal absenteeism rates at supplier facilities",
+        "Border closure or quarantine announcements",
+        "Pharmaceutical supply surge orders (PPE, therapeutics)"
+      ],
+      "data_sources": ["WHO DON", "ProMED-mail", "GISAID genomic surveillance", "Johns Hopkins CSSE"],
+      "typical_lead_time_hours": 720,
+      "predictability": "low-medium (novel pathogens)"
+    },
+    "cyber_attack": {
+      "signals": [
+        "Reactive only — detect via supplier communication blackout",
+        "IT system outage reports from supplier contacts",
+        "Dark web chatter about targeted sector/company",
+        "Ransomware group claim on leak sites",
+        "Unusual network traffic patterns at supplier (if monitored)"
+      ],
+      "data_sources": ["CISA advisories", "MITRE ATT&CK", "FS-ISAC/sector ISACs", "Recorded Future"],
+      "typical_lead_time_hours": 0,
+      "predictability": "none (reactive)"
+    },
+    "supplier_financial_distress": {
+      "signals": [
+        "Credit rating downgrade (Moody's, S&P, Fitch)",
+        "Payment delay reports from other customers",
+        "Stock price drop exceeding 10% in 5 trading days",
+        "Altman Z-score entering distress zone (<1.81)",
+        "Key executive departures or board changes"
+      ],
+      "data_sources": ["SEC EDGAR filings", "Bloomberg/Reuters", "Dun & Bradstreet", "CreditSafe"],
+      "typical_lead_time_hours": 2160,
+      "predictability": "high"
+    },
+    "raw_material_shortage": {
+      "signals": [
+        "Commodity spot price spike exceeding 2 standard deviations",
+        "Mine or refinery incident reports",
+        "Export restriction announcements from producing countries",
+        "Inventory drawdown below 30-day supply industry-wide",
+        "Supplier allocation notices or force majeure declarations"
+      ],
+      "data_sources": ["FRED commodity series", "LME/COMEX exchange data", "USGS mineral commodity summaries", "Industry association reports"],
+      "typical_lead_time_hours": 1440,
+      "predictability": "medium"
+    },
+    "infrastructure_failure": {
+      "signals": [
+        "Extreme weather forecast for infrastructure-vulnerable region",
+        "Grid operator emergency alerts or rolling blackout warnings",
+        "Bridge/road closure notices from transportation authorities",
+        "Water treatment or utility failure reports",
+        "Aging infrastructure inspection failure reports"
+      ],
+      "data_sources": ["ERCOT (Texas grid)", "National weather services", "DOT infrastructure reports", "ASCE infrastructure report card"],
+      "typical_lead_time_hours": 48,
+      "predictability": "medium"
+    }
+  }
+}

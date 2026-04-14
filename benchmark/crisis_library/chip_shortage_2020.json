@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "name": "Global Semiconductor Shortage",
+    "date": "2020-09-01",
+    "end_date": "2023-06-30",
+    "source": "SIA / Gartner / IHS Markit / TSMC Annual Reports",
+    "description": "A confluence of COVID-19 demand shifts, work-from-home electronics surges, automotive chip cancellations-then-panic-buying, and fab capacity constraints triggered the most severe global semiconductor shortage in decades. TSMC, holding roughly 54% of the global foundry market, became the central bottleneck. The automotive industry alone lost an estimated $500B in revenue over the crisis, with lead times stretching from a normal 12 weeks to over 52 weeks for some components.",
+    "category": "supply_shortage",
+    "tags": ["semiconductor", "TSMC", "automotive", "COVID", "capacity_constraint", "foundry"]
+  },
+  "disruption_params": {
+    "signal_id": "CHIP_SHORTAGE_2020",
+    "disruption_type": "supply_shortage",
+    "severity": 0.70,
+    "affected_region": "global",
+    "affected_node_ids": [
+      "SUP_TSMC",
+      "SUP_SAMSUNG",
+      "WH_TAIWAN",
+      "WH_US_WEST",
+      "FAC_US",
+      "CUST_US"
+    ],
+    "trigger_day": 0,
+    "impact_day": 30,
+    "recovery_start_day": 365,
+    "resolved_day": 730,
+    "commodity_effects": {
+      "semiconductors": 2.10,
+      "microcontrollers": 3.50,
+      "power_management_ics": 2.80,
+      "display_drivers": 2.40,
+      "memory_dram": 1.45,
+      "silicon_wafers": 1.35
+    }
+  },
+  "ground_truth": {
+    "total_damage_usd": 500000000000,
+    "duration_days": 1035,
+    "peak_severity": 0.70,
+    "production_loss": {
+      "auto_revenue_lost_usd": 500000000000,
+      "vehicles_not_produced": 11300000,
+      "peak_lead_time_weeks": 52,
+      "normal_lead_time_weeks": 12,
+      "tsmc_market_share_pct": 54
+    },
+    "recovery_milestones": [
+      {"day": 0, "description": "Automakers cancel chip orders during COVID lockdowns"},
+      {"day": 30, "description": "Consumer electronics demand surges; fab capacity reallocated"},
+      {"day": 90, "description": "Auto industry attempts to re-order; discovers 6-month backlogs"},
+      {"day": 180, "description": "Global shortage acknowledged; governments begin CHIPS Act discussions"},
+      {"day": 365, "description": "New fab investments announced (TSMC Arizona, Intel Ohio, Samsung Texas)"},
+      {"day": 540, "description": "Legacy node shortages begin easing; advanced nodes remain constrained"},
+      {"day": 730, "description": "Broad normalization of supply; inventory levels recovering"}
+    ],
+    "affected_industries": ["automotive", "consumer_electronics", "industrial", "medical_devices", "telecom"],
+    "fab_utilization_peak_pct": 99.4,
+    "wafer_starts_increase_pct": 17
+  },
+  "lessons_learned": [
+    "Extreme market concentration (TSMC at 54% foundry share) creates systemic single-point-of-failure risk for the entire global economy.",
+    "Just-in-time ordering with zero buffer inventory converts a moderate demand shift into a catastrophic shortage via the bullwhip effect.",
+    "Automotive OEMs discovered they had no direct relationships with foundries and were de-prioritized behind higher-margin consumer electronics customers.",
+    "Long fab construction cycles (2-4 years) mean capacity cannot respond to demand shocks in real time; strategic reserves and dual-sourcing are essential.",
+    "Government intervention (US CHIPS Act, EU Chips Act) reflected recognition that semiconductor supply is a national security concern."
+  ]
+}

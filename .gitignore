@@ -1,4 +1,54 @@
+# Python
 *.egg-info/
 __pycache__/
 *.pyc
 .DS_Store
+.env
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tooling state
+.claude/
+
+# Stray pip version artifacts
+0.*/
+1.*/
+4.*/
+
+# Large data files (download instructions in README)
+rl/data/dataco.csv
+rl/data/dataco_access_logs.csv
+rl/data/dataco_description.csv
+rl/data/ibtracs_wp.csv
+rl/data/usgs_m55_30days.csv
+rl/data/archive_simulated/
+rl/data/offline_buffer*.npz
+rl/data/real_buffer.npz
+rl/data/real_train.npz
+rl/data/real_val.npz
+rl/data/real_test.npz
+
+# Trained model checkpoints (too large for git, regeneratable)
+rl/checkpoints/*.pt
+rl/checkpoints/*.zip
+rl/checkpoints/*.pkl
+rl/checkpoints/*.onnx
+rl/checkpoints/*.onnx.data
+rl/checkpoints/lora/
+
+# Logs
+*.log
+
+# Build artifacts
+build/
+dist/
+*.dll
+
+# AutoResearch results (regeneratable)
+rl/autoresearch_results/
+
+# Backup files
+*.bak

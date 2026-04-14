@@ -1,0 +1,89 @@
+{
+  "version": "1.0.0",
+  "description": "Red Sea / Bab el-Mandeb disruption calibration data for supply chain risk modeling. Sources: Freightos Baltic Index, UNCTAD, IMF PortWatch, carrier announcements.",
+  "route_data": {
+    "normal_route": "Suez Canal → Red Sea → Bab el-Mandeb → Gulf of Aden → Indian Ocean",
+    "reroute": "Cape of Good Hope (south of Africa)",
+    "additional_distance_nm": 3500,
+    "additional_transit_days": 10,
+    "normal_transit_asia_europe_days": 30,
+    "rerouted_transit_asia_europe_days": 40,
+    "source": "Maersk route announcements Dec 2023, Sea-Intelligence"
+  },
+  "cost_impact": {
+    "fuel_cost_increase_pct": 25,
+    "container_rate_increase_pct_range": [200, 300],
+    "average_40ft_container_rate_pre_crisis": 1500,
+    "average_40ft_container_rate_during_crisis": 5000,
+    "war_risk_insurance_premium_increase_pct": 50,
+    "annual_additional_shipping_cost_global": "$12-18B",
+    "source": "Freightos Baltic Index (FBX), Drewry World Container Index"
+  },
+  "trade_volume_impact": {
+    "global_trade_through_suez_pct": 12,
+    "global_trade_value_through_suez_annual": "$1T+",
+    "container_traffic_through_suez_pct": 30,
+    "oil_trade_through_suez_pct": 12,
+    "lng_trade_through_suez_pct": 8,
+    "suez_transits_per_day_normal": 70,
+    "suez_transits_per_day_during_crisis": 35,
+    "source": "UNCTAD 2024, Suez Canal Authority statistics"
+  },
+  "timeline": {
+    "initial_attacks": "November 2023",
+    "major_carrier_reroute_announcements": "December 2023",
+    "carriers_rerouting": ["Maersk", "MSC", "CMA CGM", "Hapag-Lloyd", "Evergreen", "COSCO"],
+    "us_uk_military_response": "January 2024 (Operation Prosperity Guardian)",
+    "ongoing_as_of": "2025",
+    "source": "UKMTO, MSCHOA advisories"
+  },
+  "monitoring_signals": [
+    "Vessel AIS signals disappearing in southern Red Sea / Bab el-Mandeb",
+    "Carrier route announcements (Maersk, MSC, CMA CGM schedule changes)",
+    "UKMTO/MSCHOA maritime security advisory updates",
+    "Houthi media statements (Arabic language monitoring via GDELT)",
+    "CENTCOM press releases on military operations",
+    "Insurance premium changes for Red Sea transit (war risk surcharge)",
+    "Freightos Baltic Index spot rate spikes",
+    "Container availability index at origin ports"
+  ],
+  "affected_trade_lanes": [
+    {
+      "lane": "Asia → Europe",
+      "impact": "highest — primary route through Suez",
+      "volume_pct_rerouted": 90,
+      "delay_days": 10
+    },
+    {
+      "lane": "Asia → US East Coast",
+      "impact": "high — Suez route competitive with Panama",
+      "volume_pct_rerouted": 60,
+      "delay_days": 7
+    },
+    {
+      "lane": "Middle East → Europe",
+      "impact": "severe — shortest route blocked",
+      "volume_pct_rerouted": 95,
+      "delay_days": 14
+    },
+    {
+      "lane": "Asia → Mediterranean",
+      "impact": "highest — no alternative via Panama competitive",
+      "volume_pct_rerouted": 95,
+      "delay_days": 12
+    }
+  ],
+  "supply_chain_nodes_affected": {
+    "ports_delayed": ["PORT_ROTTERDAM", "PORT_HAMBURG", "PORT_SINGAPORE", "PORT_JEDDAH"],
+    "sectors_impacted": ["automotive", "electronics", "energy", "consumer_goods", "chemicals"],
+    "inventory_impact": "3-5 day reduction in average inventory cover across European manufacturers"
+  },
+  "comparison_with_suez_2021": {
+    "suez_2021_duration_days": 6,
+    "suez_2021_type": "single vessel grounding (Ever Given)",
+    "suez_2021_trade_blocked_per_day": "$9.6B",
+    "red_sea_2023_type": "sustained security threat (ongoing)",
+    "red_sea_2023_duration": "months to years",
+    "key_difference": "Suez 2021 was acute and resolved; Red Sea 2023+ is chronic and ongoing"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "name": "Tohoku Earthquake and Tsunami",
+    "date": "2011-03-11",
+    "end_date": "2011-09-11",
+    "source": "Japan Meteorological Agency / World Bank / OICA",
+    "description": "A magnitude 9.0 undersea megathrust earthquake off the Pacific coast of Tohoku, Japan, triggered a devastating tsunami with waves up to 40m. The disaster caused roughly $235B in direct damage, crippled Japan's automotive and electronics supply chains for 6+ months, and exposed extreme concentration risk in single-source semiconductor and auto-parts suppliers located in the Tohoku and Kanto regions.",
+    "category": "natural_disaster",
+    "tags": ["earthquake", "tsunami", "japan", "automotive", "semiconductor", "nuclear"]
+  },
+  "disruption_params": {
+    "signal_id": "TOHOKU_2011",
+    "disruption_type": "natural_disaster",
+    "severity": 0.95,
+    "affected_region": "japan",
+    "affected_node_ids": [
+      "SUP_TSMC",
+      "SUP_SAMSUNG",
+      "WH_TAIWAN",
+      "PORT_KAOHSIUNG"
+    ],
+    "trigger_day": 0,
+    "impact_day": 0,
+    "recovery_start_day": 90,
+    "resolved_day": 180,
+    "commodity_effects": {
+      "semiconductors": 1.45,
+      "auto_parts": 1.60,
+      "silicon_wafers": 1.35,
+      "neon_gas": 1.20,
+      "flash_memory": 1.50
+    }
+  },
+  "ground_truth": {
+    "total_damage_usd": 235000000000,
+    "duration_days": 180,
+    "peak_severity": 0.95,
+    "gdp_impact_pct": -0.5,
+    "production_loss": {
+      "toyota_units_lost": 800000,
+      "global_auto_production_drop_pct": 13.0,
+      "semiconductor_fab_downtime_weeks": 8
+    },
+    "recovery_milestones": [
+      {"day": 14, "description": "Initial damage assessment completed"},
+      {"day": 30, "description": "Partial port operations resumed at Sendai"},
+      {"day": 60, "description": "50% of affected supplier capacity restored"},
+      {"day": 90, "description": "Major automotive OEMs resume partial production"},
+      {"day": 120, "description": "Semiconductor fabs return to 80% utilization"},
+      {"day": 180, "description": "Supply chain broadly normalized"}
+    ],
+    "affected_industries": ["automotive", "semiconductors", "electronics", "petrochemicals"],
+    "trade_volume_drop_pct": 7.5,
+    "vessels_delayed": 150
+  },
+  "lessons_learned": [
+    "Single-source dependency on Japan-based Tier-2 and Tier-3 suppliers created catastrophic hidden risk across automotive and electronics sectors.",
+    "Just-in-time inventory practices amplified disruption; companies with safety stock buffers recovered 40% faster.",
+    "Multi-tier supply chain mapping was nearly nonexistent pre-crisis; most OEMs had no visibility below Tier-1.",
+    "Nuclear meltdown at Fukushima Daiichi compounded logistics disruption with exclusion zones and power shortages.",
+    "Post-crisis, Toyota developed the RESCUE supply-chain risk database, mapping 400,000+ parts to geographic risk."
+  ]
+}

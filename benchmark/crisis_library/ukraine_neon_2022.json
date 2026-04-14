@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "name": "Ukraine Neon Gas Supply Disruption",
+    "date": "2022-02-24",
+    "end_date": "2023-02-24",
+    "source": "Techcet / SEMI / Reuters / US Department of Commerce",
+    "description": "Russia's invasion of Ukraine disrupted roughly 50% of the global supply of semiconductor-grade neon gas, a critical input for lithography processes in chip fabrication. Ukraine's Mariupol and Odesa plants (Ingas, Cryoin) supplied the majority of the world's purified neon. Prices surged over 600% in the weeks following the invasion. While large fabs like TSMC and Samsung had 3-6 month strategic reserves, smaller fabs and those dependent on spot markets faced immediate constraints.",
+    "category": "geopolitical_disruption",
+    "tags": ["ukraine", "russia", "neon_gas", "semiconductor", "geopolitical", "conflict", "rare_gases"]
+  },
+  "disruption_params": {
+    "signal_id": "UKRAINE_NEON_2022",
+    "disruption_type": "geopolitical_disruption",
+    "severity": 0.60,
+    "affected_region": "europe_east",
+    "affected_node_ids": [
+      "SUP_TSMC",
+      "SUP_SAMSUNG",
+      "WH_TAIWAN",
+      "FAC_US"
+    ],
+    "trigger_day": 0,
+    "impact_day": 7,
+    "recovery_start_day": 90,
+    "resolved_day": 365,
+    "commodity_effects": {
+      "neon_gas": 7.00,
+      "krypton": 3.50,
+      "xenon": 2.80,
+      "semiconductors": 1.12,
+      "palladium": 1.80,
+      "nickel": 2.50
+    }
+  },
+  "ground_truth": {
+    "total_damage_usd": null,
+    "duration_days": 365,
+    "peak_severity": 0.60,
+    "neon_supply_disrupted_pct": 50,
+    "peak_neon_price_increase_pct": 600,
+    "production_loss": {
+      "ukraine_neon_output_share_pct": 50,
+      "russia_neon_feedstock_share_pct": 30,
+      "major_fab_reserve_months": 6,
+      "small_fab_reserve_months": 1,
+      "lithography_neon_consumption_liters_per_wafer": 30
+    },
+    "recovery_milestones": [
+      {"day": 0, "description": "Russia invades Ukraine; Mariupol and Odesa neon plants halt production"},
+      {"day": 7, "description": "Spot neon prices begin rapid escalation"},
+      {"day": 30, "description": "Neon prices reach +600% over pre-war levels"},
+      {"day": 60, "description": "Alternative sources (China, US) begin ramping; still insufficient"},
+      {"day": 90, "description": "Major fabs begin qualifying alternative neon suppliers"},
+      {"day": 180, "description": "Non-Ukraine neon capacity expansion projects underway globally"},
+      {"day": 365, "description": "Supply broadly diversified; prices partially normalized but remain elevated"}
+    ],
+    "affected_industries": ["semiconductors", "lasers", "lighting", "aerospace", "medical_imaging"],
+    "alternative_supplier_regions": ["china", "united_states", "south_korea"]
+  },
+  "lessons_learned": [
+    "Critical semiconductor inputs like neon gas had extreme geographic concentration in a conflict zone, yet this was widely underappreciated until the crisis struck.",
+    "Strategic reserves at major fabs (TSMC, Samsung: 3-6 months) bought crucial time, validating buffer inventory strategies for critical materials.",
+    "The neon supply chain had a hidden Russia dependency: Ukraine purified neon, but much of the raw feedstock originated from Russian steel mills.",
+    "Post-crisis diversification to Chinese and US neon sources reduced Ukraine dependence from 50% to under 25% within 18 months.",
+    "Cascading geopolitical risks (conflict, sanctions, logistics disruption) can simultaneously affect multiple critical material inputs (neon, palladium, nickel, wheat)."
+  ]
+}

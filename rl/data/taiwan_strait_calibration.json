@@ -1,0 +1,86 @@
+{
+  "version": "1.0.0",
+  "description": "Taiwan Strait scenario calibration data for supply chain risk modeling. Sources: TSMC investor relations, Bloomberg Economics, SEMI Foundation, US DOC 100-day review.",
+  "semiconductor_concentration": {
+    "tsmc_global_foundry_share": 0.54,
+    "tsmc_advanced_node_share_sub7nm": 0.92,
+    "umc_global_foundry_share": 0.07,
+    "mediatek_fabless_market_share": 0.15,
+    "ase_global_packaging_share": 0.20,
+    "taiwan_total_foundry_share": 0.65,
+    "source": "SEMI Foundation 2023, TSMC 2023 Annual Report"
+  },
+  "shipping_impact": {
+    "primary_route": "Taiwan Strait → South China Sea → Malacca Strait",
+    "reroute": "South of Philippines → Pacific Ocean",
+    "reroute_additional_distance_nm": 800,
+    "reroute_additional_transit_days": 7,
+    "taiwan_ports_TEU_annual": 15200000,
+    "kaohsiung_port_global_ranking": 18,
+    "source": "Taiwan International Ports Corporation, Alphaliner"
+  },
+  "capacity_impact": {
+    "capacity_reduction_pct": 0.30,
+    "tsmc_fab_locations_taiwan": [
+      "Hsinchu (Fab 12, 15)",
+      "Taichung (Fab 15B)",
+      "Tainan (Fab 14, 18)",
+      "Kaohsiung (Fab 22)"
+    ],
+    "non_taiwan_tsmc_fabs": [
+      "Arizona (under construction, limited capacity)",
+      "Kumamoto, Japan (JASM, 12/16nm only)"
+    ],
+    "recovery_time_months_full_blockade": 18,
+    "source": "TSMC 2023 10-K, industry analysis"
+  },
+  "scenarios": {
+    "naval_exercise": {
+      "description": "PLA naval exercises around Taiwan, similar to August 2022",
+      "duration_days": 7,
+      "probability_annual": 0.15,
+      "severity": 0.3,
+      "shipping_impact": "minor delays, insurance premium spike",
+      "production_impact": "minimal direct impact",
+      "historical_precedent": "August 2022 PLA exercises after Pelosi visit"
+    },
+    "blockade": {
+      "description": "Naval blockade of major Taiwan ports, no kinetic action",
+      "duration_days": 90,
+      "probability_annual": 0.05,
+      "severity": 0.75,
+      "shipping_impact": "full reroute via south of Philippines, +7 days",
+      "production_impact": "export halt, domestic production continues",
+      "historical_precedent": "No direct precedent; modeled on partial Cuba 1962 analogy"
+    },
+    "conflict": {
+      "description": "Full kinetic conflict affecting Taiwan infrastructure",
+      "duration_days": 365,
+      "probability_annual": 0.02,
+      "severity": 1.0,
+      "shipping_impact": "complete halt of Taiwan maritime trade",
+      "production_impact": "total fab shutdown, global chip supply crisis",
+      "historical_precedent": "No direct precedent"
+    }
+  },
+  "economic_impact_estimates": {
+    "global_gdp_impact_first_year": "$2.6T",
+    "us_gdp_impact_first_year": "$600B",
+    "auto_industry_revenue_loss": "$80B annually during shortage",
+    "smartphone_production_decline": "40-60% reduction",
+    "source": "Bloomberg Economics 2023, BCG semiconductor report"
+  },
+  "monitoring_signals": [
+    "PLA naval vessel AIS gaps near Taiwan Strait",
+    "ROCAF ADIZ incursion reports (Taiwan MoD daily briefs)",
+    "US carrier strike group positioning (OSINT via MarineTraffic)",
+    "Semiconductor inventory pre-stocking by major buyers (Apple, Nvidia)",
+    "TSMC stock price volatility (>3 std dev moves)",
+    "Chinese state media rhetoric (GDELT tone analysis, People's Daily)"
+  ],
+  "supply_chain_nodes_affected": {
+    "direct": ["SUP_TSMC", "SUP_UMC", "SUP_ASE", "SUP_MEDIATEK"],
+    "tier_2": ["WH_TAIWAN", "PORT_KAOHSIUNG"],
+    "downstream": ["FAC_APPLE", "FAC_NVIDIA", "FAC_QUALCOMM", "FAC_AMD"]
+  }
+}

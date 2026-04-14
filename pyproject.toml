@@ -40,6 +40,23 @@ dev = [
     "pytest-asyncio>=0.21.0",
     "httpx>=0.25.0",
 ]
+rl = [
+    "torch>=2.1.0",
+    "gymnasium==0.29.1",
+    "stable-baselines3==2.2.1",
+    "sb3-contrib==2.2.1",
+    "d3rlpy==2.3.0",
+    "transformers>=4.36.0",
+    "scipy>=1.11.0",
+    "fredapi>=0.5.0",
+    "shap>=0.43.0",
+    "mlflow>=2.10.0",
+    "wandb>=0.16.0",
+]
+dashboard = [
+    "streamlit>=1.32.0",
+    "plotly>=5.18.0",
+]
 
 [build-system]
 requires = ["setuptools>=68.0", "wheel"]
@@ -50,5 +67,5 @@ testpaths = ["tests"]
 asyncio_mode = "auto"
 
 [tool.setuptools.packages.find]
-include = ["server*", "models*", "client*", "baseline*"]
+include = ["server*", "models*", "client*", "baseline*", "rl*", "dashboard*", "benchmark*"]
 exclude = ["tests*"]

@@ -1,0 +1,141 @@
+{
+  "source": "DataCo Smart Supply Chain (Kaggle)",
+  "url": "https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis",
+  "n_orders": 180519,
+  "n_customers": 20652,
+  "n_products": 118,
+  "n_countries": 164,
+  "date_range": {
+    "start": "1/1/2015 0:00",
+    "end": "9/9/2017 9:50"
+  },
+  "shipping": {
+    "real_days_mean": 3.4976539865609713,
+    "real_days_p50": 3.0,
+    "real_days_p95": 6.0,
+    "scheduled_days_mean": 2.931846509231715,
+    "late_delivery_rate": 0.5727928916069777,
+    "avg_delay_days_when_late": 1.6167408123791103,
+    "max_delay_days": 4.0
+  },
+  "financial": {
+    "avg_benefit_per_order_usd": 21.974988638594038,
+    "benefit_std": 104.4335257469866,
+    "loss_making_order_rate": 0.18714927514555255,
+    "avg_sales_per_customer_usd": 183.10760850778374,
+    "avg_profit_ratio": 0.12064663549026418
+  },
+  "customer_segments": {
+    "Consumer": 0.5179731773386735,
+    "Corporate": 0.30350821797151545,
+    "Home Office": 0.17851860468981104
+  },
+  "shipping_modes": {
+    "First Class": {
+      "avg_days": 2.0,
+      "avg_benefit": 23.122,
+      "late_risk": 0.953
+    },
+    "Same Day": {
+      "avg_days": 0.478,
+      "avg_benefit": 20.85,
+      "late_risk": 0.457
+    },
+    "Second Class": {
+      "avg_days": 3.991,
+      "avg_benefit": 21.306,
+      "late_risk": 0.766
+    },
+    "Standard Class": {
+      "avg_days": 3.996,
+      "avg_benefit": 21.999,
+      "late_risk": 0.381
+    }
+  },
+  "markets": {
+    "LATAM": 0.28580924999584534,
+    "Europe": 0.2783751294877547,
+    "Pacific Asia": 0.2285631983336934,
+    "USCA": 0.14291570416410462,
+    "Africa": 0.06433671801860193
+  },
+  "order_status_distribution": {
+    "COMPLETE": 0.32955533766528733,
+    "PENDING_PAYMENT": 0.22065267367977887,
+    "PROCESSING": 0.1213279488585689,
+    "PENDING": 0.11204914718118314,
+    "CLOSED": 0.10866446191259646,
+    "ON_HOLD": 0.05431007262393432,
+    "SUSPECTED_FRAUD": 0.02250178651554684,
+    "CANCELED": 0.020452140771885507,
+    "PAYMENT_REVIEW": 0.010486430791218653
+  },
+  "delivery_status_distribution": {
+    "Late delivery": 0.5482913155955883,
+    "Advance shipping": 0.23040233991989764,
+    "Shipping on time": 0.17835241719708175,
+    "Shipping canceled": 0.042953927287432345
+  },
+  "top_categories_by_sales": [
+    {
+      "category": "Computers",
+      "avg_sales_usd": 1500.0,
+      "late_risk": 0.507,
+      "profit_ratio": 0.117
+    },
+    {
+      "category": "Garden",
+      "avg_sales_usd": 532.58,
+      "late_risk": 0.558,
+      "profit_ratio": 0.143
+    },
+    {
+      "category": "Strength Training",
+      "avg_sales_usd": 494.554,
+      "late_risk": 0.577,
+      "profit_ratio": 0.059
+    },
+    {
+      "category": "Crafts",
+      "avg_sales_usd": 461.48,
+      "late_risk": 0.56,
+      "profit_ratio": 0.125
+    },
+    {
+      "category": "Cameras ",
+      "avg_sales_usd": 452.04,
+      "late_risk": 0.581,
+      "profit_ratio": 0.126
+    },
+    {
+      "category": "Basketball",
+      "avg_sales_usd": 404.468,
+      "late_risk": 0.552,
+      "profit_ratio": 0.108
+    },
+    {
+      "category": "Fishing",
+      "avg_sales_usd": 399.98,
+      "late_risk": 0.549,
+      "profit_ratio": 0.121
+    },
+    {
+      "category": "Children's Clothing",
+      "avg_sales_usd": 357.1,
+      "late_risk": 0.534,
+      "profit_ratio": 0.13
+    },
+    {
+      "category": "Sporting Goods",
+      "avg_sales_usd": 327.75,
+      "late_risk": 0.555,
+      "profit_ratio": 0.121
+    },
+    {
+      "category": "As Seen on  TV!",
+      "avg_sales_usd": 302.911,
+      "late_risk": 0.574,
+      "profit_ratio": 0.065
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DEMO_MODE=true
+      - OFFLINE_MODE=true
+    volumes:
+      - ./rl/checkpoints:/app/rl/checkpoints:ro
+      - ./rl/data:/app/rl/data:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - DEMO_MODE=true
+      - OFFLINE_MODE=true
+      - API_URL=http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
+    volumes:
+      - ./rl/checkpoints:/app/rl/checkpoints:ro
+      - ./rl/data:/app/rl/data:ro

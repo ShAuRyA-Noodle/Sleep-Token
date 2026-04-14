@@ -1,0 +1,5552 @@
+[
+  {
+    "storm_id": "1990008N01172",
+    "name": "KORYN",
+    "year": 1990,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 3.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990129N05138",
+    "name": "MARIAN",
+    "year": 1990,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 3.5,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990166N06141",
+    "name": "OFELIA",
+    "year": 1990,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990171N11148",
+    "name": "PERCY",
+    "year": 1990,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 12.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990205N16141",
+    "name": "STEVE",
+    "year": 1990,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 10.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990208N18132",
+    "name": "VERNON",
+    "year": 1990,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 9.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990216N29125",
+    "name": "WINONA",
+    "year": 1990,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990221N07162",
+    "name": "YANCY",
+    "year": 1990,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 7.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990228N15141",
+    "name": "ZOLA",
+    "year": 1990,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 5.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990232N13141",
+    "name": "BECKY",
+    "year": 1990,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990235N10152",
+    "name": "ABE",
+    "year": 1990,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 8.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990245N16149",
+    "name": "DOT",
+    "year": 1990,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 5.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990250N13157",
+    "name": "ED",
+    "year": 1990,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 9.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990251N06171",
+    "name": "FLO",
+    "year": 1990,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 9.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990261N12141",
+    "name": "GENE",
+    "year": 1990,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 8.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990271N13153",
+    "name": "HATTIE",
+    "year": 1990,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 8.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990287N13156",
+    "name": "KYLE",
+    "year": 1990,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 8.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990309N08167",
+    "name": "PAGE",
+    "year": 1990,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990310N07152",
+    "name": "MIKE",
+    "year": 1990,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 14.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990319N07197",
+    "name": "OWEN",
+    "year": 1990,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 16.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1990347N05173",
+    "name": "RUSS",
+    "year": 1990,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 14.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991077N03165",
+    "name": "TIM",
+    "year": 1991,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991124N05152",
+    "name": "WALT",
+    "year": 1991,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 15.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991163N11128",
+    "name": "YUNYA",
+    "year": 1991,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 3.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991187N06139",
+    "name": "ZEKE",
+    "year": 1991,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 2.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991194N11147",
+    "name": "AMY",
+    "year": 1991,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 4.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991196N06153",
+    "name": "BRENDAN",
+    "year": 1991,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991197N09248",
+    "name": "ENRIQUE",
+    "year": 1991,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991200N05157",
+    "name": "CAITLIN",
+    "year": 1991,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 9.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991220N10133",
+    "name": "FRED",
+    "year": 1991,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 5.5,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991220N20160",
+    "name": "ELLIE",
+    "year": 1991,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 5.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991226N18159",
+    "name": "GLADYS",
+    "year": 1991,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991243N05172",
+    "name": "IVY",
+    "year": 1991,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 9.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991251N12138",
+    "name": "KINNA",
+    "year": 1991,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 4.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991256N13171",
+    "name": "MIREILLE",
+    "year": 1991,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 23.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991257N16130",
+    "name": "NAT",
+    "year": 1991,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 6.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991274N08164",
+    "name": "PAT",
+    "year": 1991,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 11.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991274N14149",
+    "name": "ORCHID",
+    "year": 1991,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 12.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991289N06156",
+    "name": "RUTH",
+    "year": 1991,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 12.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991301N08173",
+    "name": "SETH",
+    "year": 1991,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 19.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991320N06171",
+    "name": "YURI",
+    "year": 1991,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 14.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1991329N04181",
+    "name": "ZELDA",
+    "year": 1991,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992003N03176",
+    "name": "AXEL",
+    "year": 1992,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 3.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992027N05206",
+    "name": "EKEKA",
+    "year": 1992,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 8.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992172N07144",
+    "name": "BOBBIE",
+    "year": 1992,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 9.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992174N13126",
+    "name": "CHUCK",
+    "year": 1992,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 3.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992188N07156",
+    "name": "ELI",
+    "year": 1992,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992198N13135",
+    "name": "GARY",
+    "year": 1992,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992212N05154",
+    "name": "JANIS",
+    "year": 1992,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 8.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992212N20135",
+    "name": "IRVING",
+    "year": 1992,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 1.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992216N06182",
+    "name": "KENT",
+    "year": 1992,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 19.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992236N07159",
+    "name": "OMAR",
+    "year": 1992,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 15.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992242N13166",
+    "name": "RYAN",
+    "year": 1992,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 16.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992248N19166",
+    "name": "SIBYL",
+    "year": 1992,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 10.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992259N11159",
+    "name": "TED",
+    "year": 1992,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992268N11193",
+    "name": "WARD",
+    "year": 1992,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 14.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992277N16140",
+    "name": "YVETTE",
+    "year": 1992,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 15.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992286N12115",
+    "name": "ANGELA",
+    "year": 1992,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992289N08135",
+    "name": "COLLEEN",
+    "year": 1992,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 10.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992289N09171",
+    "name": "BRIAN",
+    "year": 1992,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 6.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992298N10188",
+    "name": "DAN",
+    "year": 1992,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 15.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992302N06150",
+    "name": "ELSIE",
+    "year": 1992,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 14.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992311N06107",
+    "name": "NOT_NAMED",
+    "year": 1992,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992314N08141",
+    "name": "FORREST",
+    "year": 1992,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 7.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992318N06182",
+    "name": "GAY",
+    "year": 1992,
+    "max_wind_kts": 160.0,
+    "severity": 1.0,
+    "duration_days": 23.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1992318N11160",
+    "name": "HUNT",
+    "year": 1992,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 7.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993164N04160",
+    "name": "KORYN",
+    "year": 1993,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 10.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993185N09137",
+    "name": "LEWIS",
+    "year": 1993,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 3.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993199N10156",
+    "name": "NATHAN",
+    "year": 1993,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993207N19130",
+    "name": "PERCY",
+    "year": 1993,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993211N07161",
+    "name": "ROBYN",
+    "year": 1993,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 13.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993215N08154",
+    "name": "STEVE",
+    "year": 1993,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993221N12216",
+    "name": "KEONI",
+    "year": 1993,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 23.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993224N07153",
+    "name": "TASHA",
+    "year": 1993,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 4.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993229N10159",
+    "name": "VERNON",
+    "year": 1993,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 7.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993240N17142",
+    "name": "YANCY",
+    "year": 1993,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 7.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993250N17119",
+    "name": "ABE",
+    "year": 1993,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 7.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993253N06150",
+    "name": "BECKY",
+    "year": 1993,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993261N11131",
+    "name": "DOT",
+    "year": 1993,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 2.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993263N11168",
+    "name": "CECIL",
+    "year": 1993,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993270N07153",
+    "name": "ED",
+    "year": 1993,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993271N14134",
+    "name": "FLO",
+    "year": 1993,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993298N11154",
+    "name": "IRA",
+    "year": 1993,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 5.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993322N09137",
+    "name": "KYLE",
+    "year": 1993,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993331N05172",
+    "name": "LOLA",
+    "year": 1993,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 6.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993331N07108",
+    "name": "NOT_NAMED",
+    "year": 1993,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 1.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993336N05164",
+    "name": "MANNY",
+    "year": 1993,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 6.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1993353N05159",
+    "name": "NELL",
+    "year": 1993,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 3.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994088N09148",
+    "name": "OWEN",
+    "year": 1994,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 3.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994128N04155",
+    "name": "PAGE",
+    "year": 1994,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994186N09139",
+    "name": "TIM",
+    "year": 1994,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 5.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994191N08141",
+    "name": "ZEKE",
+    "year": 1994,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994192N05139",
+    "name": "WALT",
+    "year": 1994,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 11.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994211N12152",
+    "name": "DOUG",
+    "year": 1994,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994212N11240",
+    "name": "LI",
+    "year": 1994,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994215N30149",
+    "name": "ELLIE",
+    "year": 1994,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 9.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994222N11267",
+    "name": "JOHN",
+    "year": 1994,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 25.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994224N20152",
+    "name": "FRED",
+    "year": 1994,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 11.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994231N12157",
+    "name": "GLADYS",
+    "year": 1994,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 6.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994237N24167",
+    "name": "IVY",
+    "year": 1994,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 3.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994244N07151",
+    "name": "KINNA",
+    "year": 1994,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 6.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994251N10180",
+    "name": "MELISSA",
+    "year": 1994,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 8.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994259N12128",
+    "name": "ORCHID",
+    "year": 1994,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 15.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994263N17170",
+    "name": "PAT",
+    "year": 1994,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 6.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994273N08176",
+    "name": "SETH",
+    "year": 1994,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 12.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994287N08176",
+    "name": "VERNE",
+    "year": 1994,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 15.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994287N14156",
+    "name": "TERESA",
+    "year": 1994,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 6.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994291N12170",
+    "name": "WILDA",
+    "year": 1994,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 18.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994298N25161",
+    "name": "ZELDA",
+    "year": 1994,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 13.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1994345N06165",
+    "name": "AXEL",
+    "year": 1994,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 8.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995193N06156",
+    "name": "FAYE",
+    "year": 1995,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 9.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995206N15133",
+    "name": "GARY",
+    "year": 1995,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995215N12145",
+    "name": "HELEN",
+    "year": 1995,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995233N16115",
+    "name": "LOIS",
+    "year": 1995,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 3.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995236N10134",
+    "name": "KENT",
+    "year": 1995,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 9.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995240N24151",
+    "name": "MARK",
+    "year": 1995,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 4.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995250N09161",
+    "name": "OSCAR",
+    "year": 1995,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 9.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995252N08142",
+    "name": "POLLY",
+    "year": 1995,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 8.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995258N14115",
+    "name": "RYAN",
+    "year": 1995,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 10.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995264N06174",
+    "name": "SIBYL",
+    "year": 1995,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995277N07141",
+    "name": "TED",
+    "year": 1995,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 3.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995287N08163",
+    "name": "WARD",
+    "year": 1995,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 9.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995292N08150",
+    "name": "YVETTE",
+    "year": 1995,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995293N05177",
+    "name": "ANGELA",
+    "year": 1995,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 18.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1995294N05163",
+    "name": "ZACK",
+    "year": 1995,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 9.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996128N07138",
+    "name": "BART",
+    "year": 1996,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 10.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996186N19156",
+    "name": "DAN",
+    "year": 1996,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 6.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996192N19152",
+    "name": "EVE",
+    "year": 1996,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 8.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996201N07137",
+    "name": "GLORIA",
+    "year": 1996,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996202N17115",
+    "name": "FRANKIE",
+    "year": 1996,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 2.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996203N12152",
+    "name": "HERB",
+    "year": 1996,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 14.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996208N20165",
+    "name": "JOY",
+    "year": 1996,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996210N05156",
+    "name": "KIRK",
+    "year": 1996,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 14.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996227N08156",
+    "name": "NIKI",
+    "year": 1996,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 5.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996227N15176",
+    "name": "ORSON",
+    "year": 1996,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 14.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996232N21170",
+    "name": "PIPER",
+    "year": 1996,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996246N08148",
+    "name": "SALLY",
+    "year": 1996,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 6.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996252N11162",
+    "name": "TOM",
+    "year": 1996,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 5.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996254N13138",
+    "name": "VIOLET",
+    "year": 1996,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 19.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996260N19107",
+    "name": "WILLIE",
+    "year": 1996,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 2.5,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996261N08184",
+    "name": "YATES",
+    "year": 1996,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 17.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996268N15140",
+    "name": "ZANE",
+    "year": 1996,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 15.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996282N11162",
+    "name": "ABEL:BETH",
+    "year": 1996,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996291N17168",
+    "name": "CARLO",
+    "year": 1996,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 5.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996307N09154",
+    "name": "DALE",
+    "year": 1996,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 14.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1996353N05151",
+    "name": "FERN",
+    "year": 1996,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 6.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997099N06153",
+    "name": "ISA",
+    "year": 1997,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 18.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997146N09161",
+    "name": "MARIE",
+    "year": 1997,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997152N06171",
+    "name": "NESTOR",
+    "year": 1997,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 11.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997165N12139",
+    "name": "OPAL",
+    "year": 1997,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997167N06162",
+    "name": "PETER",
+    "year": 1997,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 4.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997196N08142",
+    "name": "ROSIE",
+    "year": 1997,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997202N04152",
+    "name": "TINA",
+    "year": 1997,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 9.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997210N15120",
+    "name": "VICTOR",
+    "year": 1997,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997217N06168",
+    "name": "WINNIE",
+    "year": 1997,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 17.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997221N03179",
+    "name": "YULE",
+    "year": 1997,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997232N14136",
+    "name": "AMBER",
+    "year": 1997,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 14.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997232N17115",
+    "name": "ZITA",
+    "year": 1997,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.5,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997238N11159",
+    "name": "BING",
+    "year": 1997,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 10.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997240N12193",
+    "name": "OLIWA",
+    "year": 1997,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 16.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997252N10171",
+    "name": "DAVID",
+    "year": 1997,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 11.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997261N13114",
+    "name": "FRITZ",
+    "year": 1997,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997265N10175",
+    "name": "GINGER",
+    "year": 1997,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 10.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997283N07177",
+    "name": "IVAN",
+    "year": 1997,
+    "max_wind_kts": 160.0,
+    "severity": 1.0,
+    "duration_days": 13.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997284N04179",
+    "name": "JOAN",
+    "year": 1997,
+    "max_wind_kts": 160.0,
+    "severity": 1.0,
+    "duration_days": 18.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997298N06140",
+    "name": "LINDA",
+    "year": 1997,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 3.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997299N07169",
+    "name": "KEITH",
+    "year": 1997,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 17.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997311N10151",
+    "name": "MORT",
+    "year": 1997,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1997333N06194",
+    "name": "PAKA-",
+    "year": 1997,
+    "max_wind_kts": 160.0,
+    "severity": 1.0,
+    "duration_days": 21.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998213N14128",
+    "name": "OTTO",
+    "year": 1998,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 2.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998235N17131",
+    "name": "REX",
+    "year": 1998,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 19.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998253N17150",
+    "name": "STELLA",
+    "year": 1998,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 3.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998258N19126",
+    "name": "TODD",
+    "year": 1998,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 4.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998259N17118",
+    "name": "VICKI",
+    "year": 1998,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 5.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998267N13134",
+    "name": "YANNI",
+    "year": 1998,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 3.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998281N11151",
+    "name": "ZEB",
+    "year": 1998,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 13.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998285N12149",
+    "name": "BABS",
+    "year": 1998,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 15.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998320N10102",
+    "name": "NOT_NAMED",
+    "year": 1998,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 1.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1998342N06141",
+    "name": "FAITH",
+    "year": 1998,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999111N08126",
+    "name": "KATE",
+    "year": 1999,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999116N14114",
+    "name": "LEO",
+    "year": 1999,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 4.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999151N09132",
+    "name": "MAGGIE",
+    "year": 1999,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 8.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999208N06139",
+    "name": "OLGA",
+    "year": 1999,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 5.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999217N11265",
+    "name": "DORA",
+    "year": 1999,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 22.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999230N12129",
+    "name": "SAM",
+    "year": 1999,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999231N30181",
+    "name": "TANYA",
+    "year": 1999,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 3.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999235N27140",
+    "name": "VIRGIL",
+    "year": 1999,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999253N17124",
+    "name": "YORK",
+    "year": 1999,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999260N20130",
+    "name": "BART",
+    "year": 1999,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 9.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999275N16135",
+    "name": "DAN",
+    "year": 1999,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 10.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "1999315N13127",
+    "name": "GLORIA",
+    "year": 1999,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000125N06136",
+    "name": "DAMREY",
+    "year": 2000,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 7.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000184N13133",
+    "name": "KIROGI",
+    "year": 2000,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 9.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000185N15117",
+    "name": "KAI-TAK",
+    "year": 2000,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 4.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000214N22155",
+    "name": "JELAWAT",
+    "year": 2000,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 17.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000222N14143",
+    "name": "EWINIAR",
+    "year": 2000,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 4.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000230N08139",
+    "name": "BILIS",
+    "year": 2000,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 7.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000237N08138",
+    "name": "PRAPIROON",
+    "year": 2000,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 3.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000245N14157",
+    "name": "SAOMAI",
+    "year": 2000,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 19.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000248N17117",
+    "name": "WUKONG",
+    "year": 2000,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 5.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000258N22138",
+    "name": "SONAMU",
+    "year": 2000,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 4.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000260N15178",
+    "name": "SHANSHAN",
+    "year": 2000,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 9.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000295N20146",
+    "name": "YAGI",
+    "year": 2000,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000299N08139",
+    "name": "XANGSANE",
+    "year": 2000,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 8.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000305N06136",
+    "name": "BEBINCA",
+    "year": 2000,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 4.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2000364N07130",
+    "name": "SOULIK",
+    "year": 2000,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 3.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001170N11138",
+    "name": "CHEBI",
+    "year": 2001,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 4.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001180N15118",
+    "name": "DURIAN",
+    "year": 2001,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001181N08141",
+    "name": "UTOR",
+    "year": 2001,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 6.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001202N23152",
+    "name": "KONG-REY",
+    "year": 2001,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 9.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001204N19127",
+    "name": "YUTU",
+    "year": 2001,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 3.5,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001206N14134",
+    "name": "TORAJI",
+    "year": 2001,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 6.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001212N10158",
+    "name": "MAN-YI",
+    "year": 2001,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 10.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001225N18146",
+    "name": "PABUK",
+    "year": 2001,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 10.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001238N16139",
+    "name": "WUTIP",
+    "year": 2001,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 9.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001246N19156",
+    "name": "DANAS",
+    "year": 2001,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 13.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001248N23125",
+    "name": "NARI",
+    "year": 2001,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 17.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001259N20138",
+    "name": "VIPA",
+    "year": 2001,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 5.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001260N14167",
+    "name": "FRANCISCO",
+    "year": 2001,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 7.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001264N21126",
+    "name": "LEKIMA",
+    "year": 2001,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 5.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001276N13146",
+    "name": "KROSA",
+    "year": 2001,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 8.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001284N16132",
+    "name": "HAIYAN",
+    "year": 2001,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001291N05158",
+    "name": "PODUL",
+    "year": 2001,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 13.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001309N10130",
+    "name": "LINGLING",
+    "year": 2001,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 6.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001347N04162",
+    "name": "FAXAI",
+    "year": 2001,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 10.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2001361N01106",
+    "name": "VAMEI",
+    "year": 2001,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002057N06156",
+    "name": "MITAG",
+    "year": 2002,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002133N03150",
+    "name": "HAGIBIS",
+    "year": 2002,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 7.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002155N20112",
+    "name": "NOGURI",
+    "year": 2002,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 3.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002178N04155",
+    "name": "CHATAAN",
+    "year": 2002,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 13.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002178N10139",
+    "name": "RAMMASUN",
+    "year": 2002,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 7.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002187N11160",
+    "name": "HALONG",
+    "year": 2002,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 11.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002195N11172",
+    "name": "FENGSHEN",
+    "year": 2002,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 20.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002200N21150",
+    "name": "FUNG-WONG",
+    "year": 2002,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002222N09163",
+    "name": "PHANFONE",
+    "year": 2002,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 13.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002234N14164",
+    "name": "RUSA",
+    "year": 2002,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 14.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002237N10202",
+    "name": "ELE",
+    "year": 2002,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 20.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002240N16155",
+    "name": "SINLAKU",
+    "year": 2002,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 16.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002268N15163",
+    "name": "HIGOS",
+    "year": 2002,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 8.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002282N10156",
+    "name": "BAVI",
+    "year": 2002,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002297N09206",
+    "name": "HUKO",
+    "year": 2002,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 14.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002298N17169",
+    "name": "MAYSAK",
+    "year": 2002,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002323N09155",
+    "name": "HAISHEN",
+    "year": 2002,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2002335N05166",
+    "name": "PONGSONA",
+    "year": 2002,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 10.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003098N03159",
+    "name": "KUJIRA",
+    "year": 2003,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 18.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003138N04148",
+    "name": "CHAN-HOM",
+    "year": 2003,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 8.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003158N08156",
+    "name": "SOUDELOR",
+    "year": 2003,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 5.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003196N05150",
+    "name": "IMBUDO",
+    "year": 2003,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 11.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003196N11137",
+    "name": "KONI",
+    "year": 2003,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003212N09150",
+    "name": "ETAU",
+    "year": 2003,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 9.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003212N12130",
+    "name": "MORAKOT",
+    "year": 2003,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003226N07156",
+    "name": "KROVANH",
+    "year": 2003,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 9.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003240N14230",
+    "name": "JIMENA",
+    "year": 2003,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 5.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003240N20139",
+    "name": "DUJUAN",
+    "year": 2003,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 8.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003247N10153",
+    "name": "MAEMI",
+    "year": 2003,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 11.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003259N13133",
+    "name": "CHOI-WAN",
+    "year": 2003,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 6.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003267N15140",
+    "name": "KOPPU",
+    "year": 2003,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 3.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003290N15132",
+    "name": "KETSANA",
+    "year": 2003,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 12.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003291N17147",
+    "name": "PARMA",
+    "year": 2003,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 17.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003302N11133",
+    "name": "MELOR",
+    "year": 2003,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003316N11141",
+    "name": "NEPARTAK",
+    "year": 2003,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 6.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2003319N13172",
+    "name": "LUPIT",
+    "year": 2003,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 18.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004093N07154",
+    "name": "SUDAL",
+    "year": 2004,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 18.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004134N07132",
+    "name": "NIDA",
+    "year": 2004,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004156N16117",
+    "name": "CONSON",
+    "year": 2004,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 6.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004158N07142",
+    "name": "CHANTHU",
+    "year": 2004,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 1.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004164N06139",
+    "name": "DIANMU",
+    "year": 2004,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 12.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004174N14146",
+    "name": "MINDULLE",
+    "year": 2004,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 8.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004177N12154",
+    "name": "TINGTING",
+    "year": 2004,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 5.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004206N20151",
+    "name": "NAMTHEUN",
+    "year": 2004,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 8.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004216N16166",
+    "name": "MERANTI",
+    "year": 2004,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004219N15137",
+    "name": "RANANIM",
+    "year": 2004,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 5.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004227N15141",
+    "name": "MEGI",
+    "year": 2004,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004230N09172",
+    "name": "CHABA",
+    "year": 2004,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 21.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004231N09147",
+    "name": "AERE",
+    "year": 2004,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 7.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004239N11171",
+    "name": "SONGDA",
+    "year": 2004,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 19.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004263N13153",
+    "name": "MEARI",
+    "year": 2004,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 13.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004275N14139",
+    "name": "MA-ON",
+    "year": 2004,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 7.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004284N07157",
+    "name": "TOKAGE",
+    "year": 2004,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 13.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004288N09164",
+    "name": "NOCK-TEN",
+    "year": 2004,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 16.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004319N10134",
+    "name": "MUIFA",
+    "year": 2004,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 11.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2004333N06154",
+    "name": "NANMADOL",
+    "year": 2004,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 8.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005013N05153",
+    "name": "KULAP",
+    "year": 2005,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005071N06152",
+    "name": "ROKE",
+    "year": 2005,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005107N07151",
+    "name": "SONCA",
+    "year": 2005,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 6.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005148N06156",
+    "name": "NESAT",
+    "year": 2005,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 15.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005192N22155",
+    "name": "HAITANG",
+    "year": 2005,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 11.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005211N09141",
+    "name": "MATSA",
+    "year": 2005,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 8.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005222N14131",
+    "name": "SANVU",
+    "year": 2005,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005229N21156",
+    "name": "GUCHOL",
+    "year": 2005,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005230N20144",
+    "name": "MAWAR",
+    "year": 2005,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 11.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005237N14148",
+    "name": "TALIM",
+    "year": 2005,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 8.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005241N15155",
+    "name": "NABI",
+    "year": 2005,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 15.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005248N08142",
+    "name": "KHANUN",
+    "year": 2005,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 7.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005262N13127",
+    "name": "DAMREY",
+    "year": 2005,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 3.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005262N20155",
+    "name": "SAOLA",
+    "year": 2005,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 7.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005268N19146",
+    "name": "LONGWANG",
+    "year": 2005,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 11.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005282N22138",
+    "name": "KIROGI",
+    "year": 2005,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 15.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005301N13117",
+    "name": "KAI-TAK",
+    "year": 2005,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 4.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2005316N05134",
+    "name": "BOLAVEN",
+    "year": 2005,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006128N09138",
+    "name": "CHANCHU",
+    "year": 2006,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 14.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006180N06140",
+    "name": "EWINIAR",
+    "year": 2006,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 12.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006198N08152",
+    "name": "KAEMI",
+    "year": 2006,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 5.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006209N13130",
+    "name": "PRAPIROON",
+    "year": 2006,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006216N07151",
+    "name": "SAOMAI",
+    "year": 2006,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 9.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006228N10218",
+    "name": "IOKE",
+    "year": 2006,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 29.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006252N13139",
+    "name": "SHANSHAN",
+    "year": 2006,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 12.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006259N19155",
+    "name": "YAGI",
+    "year": 2006,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 11.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006268N12129",
+    "name": "XANGSANE",
+    "year": 2006,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 9.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006282N13160",
+    "name": "SOULIK",
+    "year": 2006,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006298N12143",
+    "name": "CIMARON",
+    "year": 2006,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 10.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006311N16143",
+    "name": "CHEBI",
+    "year": 2006,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 5.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006329N06150",
+    "name": "DURIAN",
+    "year": 2006,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 11.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2006340N08142",
+    "name": "UTOR",
+    "year": 2006,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 9.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007090N06158",
+    "name": "KONG-REY",
+    "year": 2007,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 4.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007135N08147",
+    "name": "YUTU",
+    "year": 2007,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 7.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007188N04148",
+    "name": "MAN-YI",
+    "year": 2007,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 9.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007208N20155",
+    "name": "USAGI",
+    "year": 2007,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 9.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007216N18138",
+    "name": "PABUK",
+    "year": 2007,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007223N19136",
+    "name": "SEPAT",
+    "year": 2007,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 10.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007240N17153",
+    "name": "FITOW",
+    "year": 2007,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 16.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007249N24161",
+    "name": "DANAS",
+    "year": 2007,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007254N18140",
+    "name": "NARI",
+    "year": 2007,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 5.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007257N16134",
+    "name": "WIPHA",
+    "year": 2007,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 5.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007272N17125",
+    "name": "LEKIMA",
+    "year": 2007,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 3.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007274N18131",
+    "name": "KROSA",
+    "year": 2007,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 9.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007291N19148",
+    "name": "KAJIKI",
+    "year": 2007,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 4.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007306N18133",
+    "name": "PEIPAH",
+    "year": 2007,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 3.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007323N09128",
+    "name": "HAGIBIS",
+    "year": 2007,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 4.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2007324N10140",
+    "name": "MITAG",
+    "year": 2007,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 9.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008104N08128",
+    "name": "NEOGURI",
+    "year": 2008,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 6.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008128N07134",
+    "name": "RAMMASUN",
+    "year": 2008,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 7.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008135N12116",
+    "name": "HALONG",
+    "year": 2008,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008147N10141",
+    "name": "NAKRI",
+    "year": 2008,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 10.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008169N08135",
+    "name": "FENGSHEN",
+    "year": 2008,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 5.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008193N20126",
+    "name": "KALMAEGI",
+    "year": 2008,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 2.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008206N22133",
+    "name": "FUNG-WONG",
+    "year": 2008,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 4.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008229N13147",
+    "name": "NURI",
+    "year": 2008,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 6.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008252N16128",
+    "name": "SINLAKU",
+    "year": 2008,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 12.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008262N16142",
+    "name": "HAGUPIT",
+    "year": 2008,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 6.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008268N12140",
+    "name": "JANGMI",
+    "year": 2008,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 7.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2008343N16168",
+    "name": "DOLPHIN",
+    "year": 2008,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 4.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009121N13124",
+    "name": "KUJIRA",
+    "year": 2009,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 5.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009123N10111",
+    "name": "CHAN-HOM",
+    "year": 2009,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 2.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009164N10131",
+    "name": "LINFA",
+    "year": 2009,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009196N14129",
+    "name": "MOLAVE",
+    "year": 2009,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009215N20133",
+    "name": "MORAKOT",
+    "year": 2009,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 4.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009228N11163",
+    "name": "VAMCO",
+    "year": 2009,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 13.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009238N20151",
+    "name": "KROVANH",
+    "year": 2009,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009254N14130",
+    "name": "KOPPU",
+    "year": 2009,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009255N13155",
+    "name": "CHOI-WAN",
+    "year": 2009,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009268N14128",
+    "name": "KETSANA",
+    "year": 2009,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 3.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009270N10148",
+    "name": "PARMA",
+    "year": 2009,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 8.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009272N07164",
+    "name": "MELOR",
+    "year": 2009,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 14.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009287N10154",
+    "name": "LUPIT",
+    "year": 2009,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 13.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009299N12153",
+    "name": "MIRINAE",
+    "year": 2009,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2009325N06148",
+    "name": "NIDA",
+    "year": 2009,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 15.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010191N12138",
+    "name": "CONSON",
+    "year": 2010,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 4.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010198N15123",
+    "name": "CHANTHU",
+    "year": 2010,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 1.5,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010233N17119",
+    "name": "MINDULLE",
+    "year": 2010,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010240N15142",
+    "name": "KOMPASU",
+    "year": 2010,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010249N24125",
+    "name": "MERANTI",
+    "year": 2010,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010256N17137",
+    "name": "FANAPI",
+    "year": 2010,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 7.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010263N15149",
+    "name": "MALAKAS",
+    "year": 2010,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 4.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010285N13145",
+    "name": "MEGI",
+    "year": 2010,
+    "max_wind_kts": 160.0,
+    "severity": 1.0,
+    "duration_days": 17.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2010293N16147",
+    "name": "CHABA",
+    "year": 2010,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 9.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011140N08142",
+    "name": "SONGDA",
+    "year": 2011,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 10.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011192N18158",
+    "name": "MA-ON",
+    "year": 2011,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 13.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011205N12130",
+    "name": "NOCK-TEN",
+    "year": 2011,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011208N09145",
+    "name": "MUIFA",
+    "year": 2011,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 16.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011215N24164",
+    "name": "MERBOK",
+    "year": 2011,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 3.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011233N12129",
+    "name": "NANMADOL",
+    "year": 2011,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 8.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011253N20145",
+    "name": "ROKE",
+    "year": 2011,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 6.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011257N19154",
+    "name": "SONCA",
+    "year": 2011,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 5.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011266N13139",
+    "name": "NESAT",
+    "year": 2011,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 8.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2011270N18139",
+    "name": "NALGAE",
+    "year": 2011,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 5.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012141N11148",
+    "name": "SANVU",
+    "year": 2012,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 4.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012152N12130",
+    "name": "MAWAR",
+    "year": 2012,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 5.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012162N06150",
+    "name": "GUCHOL",
+    "year": 2012,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 9.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012201N15129",
+    "name": "VICENTE",
+    "year": 2012,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 2.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012209N11131",
+    "name": "SAOLA",
+    "year": 2012,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 4.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012209N25149",
+    "name": "DAMREY",
+    "year": 2012,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 2.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012215N23146",
+    "name": "HAIKUI",
+    "year": 2012,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 2.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012225N16133",
+    "name": "KAI-TAK",
+    "year": 2012,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 2.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012230N21126",
+    "name": "TEMBIN",
+    "year": 2012,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 15.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012232N13141",
+    "name": "BOLAVEN",
+    "year": 2012,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 12.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012254N09135",
+    "name": "SANBA",
+    "year": 2012,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 10.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012263N15141",
+    "name": "JELAWAT",
+    "year": 2012,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 15.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012279N15145",
+    "name": "PRAPIROON",
+    "year": 2012,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 14.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012296N06135",
+    "name": "SON-TINH",
+    "year": 2012,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 4.5,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2012331N03157",
+    "name": "BOPHA",
+    "year": 2012,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 15.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013178N09133",
+    "name": "RUMBIA",
+    "year": 2013,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013187N20156",
+    "name": "SOULIK",
+    "year": 2013,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 9.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013220N12137",
+    "name": "UTOR",
+    "year": 2013,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 9.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013227N08193",
+    "name": "PEWA",
+    "year": 2013,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013228N23124",
+    "name": "TRAMI",
+    "year": 2013,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013259N17132",
+    "name": "USAGI",
+    "year": 2013,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 8.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013262N14149",
+    "name": "PABUK",
+    "year": 2013,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 7.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013269N15118",
+    "name": "WUTIP",
+    "year": 2013,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 4.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013272N10135",
+    "name": "FITOW",
+    "year": 2013,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 7.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013274N18152",
+    "name": "DANAS",
+    "year": 2013,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 5.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013282N14132",
+    "name": "NARI",
+    "year": 2013,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 10.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013282N14149",
+    "name": "WIPHA",
+    "year": 2013,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 6.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013289N14149",
+    "name": "FRANCISCO",
+    "year": 2013,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 13.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013292N09162",
+    "name": "LEKIMA",
+    "year": 2013,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 9.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013301N13142",
+    "name": "KROSA",
+    "year": 2013,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 7.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013306N07162",
+    "name": "HAIYAN",
+    "year": 2013,
+    "max_wind_kts": 170.0,
+    "severity": 1.0,
+    "duration_days": 12.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2013324N07103",
+    "name": "LEHAR",
+    "year": 2013,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014058N09149",
+    "name": "FAXAI",
+    "year": 2014,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 1.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014117N10145",
+    "name": "TAPAH",
+    "year": 2014,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014184N08147",
+    "name": "NEOGURI",
+    "year": 2014,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 9.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014190N08154",
+    "name": "RAMMASUN",
+    "year": 2014,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 10.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014197N10137",
+    "name": "MATMO",
+    "year": 2014,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 8.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014204N10239",
+    "name": "GENEVIEVE",
+    "year": 2014,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 9.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014209N12152",
+    "name": "HALONG",
+    "year": 2014,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 16.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014248N19129",
+    "name": "FENGSHEN",
+    "year": 2014,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014254N10142",
+    "name": "KALMAEGI",
+    "year": 2014,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 6.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014271N10160",
+    "name": "PHANFONE",
+    "year": 2014,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 10.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014275N06166",
+    "name": "VONGFONG",
+    "year": 2014,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 15.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014303N13141",
+    "name": "NURI",
+    "year": 2014,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 8.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2014334N02156",
+    "name": "HAGUPIT",
+    "year": 2014,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 11.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015012N09146",
+    "name": "MEKKHALA",
+    "year": 2015,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015038N08158",
+    "name": "HIGOS",
+    "year": 2015,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 4.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015085N06162",
+    "name": "MAYSAK",
+    "year": 2015,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 13.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015122N07144",
+    "name": "NOUL",
+    "year": 2015,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.2,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015127N04158",
+    "name": "DOLPHIN",
+    "year": 2015,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 12.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015180N09160",
+    "name": "CHAN-HOM",
+    "year": 2015,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 10.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015183N13130",
+    "name": "LINFA",
+    "year": 2015,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 1.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015184N08172",
+    "name": "NANGKA",
+    "year": 2015,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 21.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015188N08194",
+    "name": "HALOLA",
+    "year": 2015,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 11.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015211N13162",
+    "name": "SOUDELOR",
+    "year": 2015,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 13.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015226N12151",
+    "name": "GONI",
+    "year": 2015,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 19.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015226N15164",
+    "name": "ATSANI",
+    "year": 2015,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 15.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015229N08212",
+    "name": "KILO",
+    "year": 2015,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 22.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015257N14152",
+    "name": "KROVANH",
+    "year": 2015,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 5.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015263N14148",
+    "name": "DUJUAN",
+    "year": 2015,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 8.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015273N12130",
+    "name": "MUJIGAE",
+    "year": 2015,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 2.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015274N17167",
+    "name": "CHOI-WAN",
+    "year": 2015,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015285N14151",
+    "name": "KOPPU",
+    "year": 2015,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 6.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015286N13161",
+    "name": "CHAMPI",
+    "year": 2015,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 15.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015321N04164",
+    "name": "IN-FA",
+    "year": 2015,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 11.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2015344N07145",
+    "name": "MELOR",
+    "year": 2015,
+    "max_wind_kts": 125.0,
+    "severity": 0.836,
+    "duration_days": 6.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016185N08145",
+    "name": "NEPARTAK",
+    "year": 2016,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 7.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016207N17116",
+    "name": "MIRINAE",
+    "year": 2016,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016212N12127",
+    "name": "NIDA",
+    "year": 2016,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 2.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016216N17149",
+    "name": "OMAIS",
+    "year": 2016,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016230N15138",
+    "name": "MINDULLE",
+    "year": 2016,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016230N25160",
+    "name": "LIONROCK",
+    "year": 2016,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 13.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016244N21123",
+    "name": "NAMTHEUN",
+    "year": 2016,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 4.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016253N13144",
+    "name": "MERANTI",
+    "year": 2016,
+    "max_wind_kts": 170.0,
+    "severity": 1.0,
+    "duration_days": 8.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016256N12146",
+    "name": "MALAKAS",
+    "year": 2016,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 12.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016266N11144",
+    "name": "MEGI",
+    "year": 2016,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 6.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016269N15165",
+    "name": "CHABA",
+    "year": 2016,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 7.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016278N16181",
+    "name": "SONGDA",
+    "year": 2016,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 6.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016287N13130",
+    "name": "SARIKA",
+    "year": 2016,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 7.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016288N07145",
+    "name": "HAIMA",
+    "year": 2016,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 10.0,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016305N10147",
+    "name": "MEARI",
+    "year": 2016,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016328N09130",
+    "name": "TOKAGE",
+    "year": 2016,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 2.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2016355N07146",
+    "name": "NOCK-TEN",
+    "year": 2016,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 7.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017182N15132",
+    "name": "NANMADOL",
+    "year": 2017,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017200N26162",
+    "name": "NORU",
+    "year": 2017,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 30.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017206N13129",
+    "name": "NESAT",
+    "year": 2017,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 3.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017223N16172",
+    "name": "BANYAN",
+    "year": 2017,
+    "max_wind_kts": 110.0,
+    "severity": 0.63,
+    "duration_days": 9.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017232N19130",
+    "name": "HATO",
+    "year": 2017,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 2.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017239N18147",
+    "name": "SANVU",
+    "year": 2017,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 4.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017252N14147",
+    "name": "TALIM",
+    "year": 2017,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 7.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017253N14130",
+    "name": "DOKSURI",
+    "year": 2017,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 3.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017284N15134",
+    "name": "KHANUN",
+    "year": 2017,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 2.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017288N09138",
+    "name": "LAN",
+    "year": 2017,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 9.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017292N13151",
+    "name": "SAOLA",
+    "year": 2017,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017304N11127",
+    "name": "DAMREY",
+    "year": 2017,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2017354N08134",
+    "name": "TEMBIN",
+    "year": 2017,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018082N04147",
+    "name": "JELAWAT",
+    "year": 2018,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 3.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018179N19134",
+    "name": "PRAPIROON",
+    "year": 2018,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 3.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018184N10147",
+    "name": "MARIA",
+    "year": 2018,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 12.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018202N21159",
+    "name": "WUKONG",
+    "year": 2018,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018204N15137",
+    "name": "JONGDARI",
+    "year": 2018,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 4.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018213N12245",
+    "name": "HECTOR",
+    "year": 2018,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 21.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018214N19153",
+    "name": "SHANSHAN",
+    "year": 2018,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 9.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018222N16147",
+    "name": "LEEPI",
+    "year": 2018,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018227N11145",
+    "name": "SOULIK",
+    "year": 2018,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 12.2,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018229N11160",
+    "name": "CIMARON",
+    "year": 2018,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 7.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018239N11161",
+    "name": "JEBI",
+    "year": 2018,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 13.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018250N12170",
+    "name": "MANGKHUT",
+    "year": 2018,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 17.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018263N12146",
+    "name": "TRAMI",
+    "year": 2018,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 16.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018271N06154",
+    "name": "KONG-REY",
+    "year": 2018,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 11.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018294N08161",
+    "name": "YUTU",
+    "year": 2018,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 15.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018311N07179",
+    "name": "USAGI",
+    "year": 2018,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2018324N05155",
+    "name": "MAN-YI",
+    "year": 2018,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 8.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019050N05163",
+    "name": "WUTIP",
+    "year": 2019,
+    "max_wind_kts": 145.0,
+    "severity": 1.0,
+    "duration_days": 13.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019213N17155",
+    "name": "FRANCISCO",
+    "year": 2019,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 2.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019214N15134",
+    "name": "LEKIMA",
+    "year": 2019,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 7.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019216N16147",
+    "name": "KROSA",
+    "year": 2019,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 6.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019242N14180",
+    "name": "FAXAI",
+    "year": 2019,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 6.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019243N06136",
+    "name": "LINGLING",
+    "year": 2019,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 8.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019260N20129",
+    "name": "TAPAH",
+    "year": 2019,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019268N10155",
+    "name": "MITAG",
+    "year": 2019,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 3.8,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019278N16165",
+    "name": "HAGIBIS",
+    "year": 2019,
+    "max_wind_kts": 160.0,
+    "severity": 1.0,
+    "duration_days": 13.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019288N16136",
+    "name": "NEOGURI",
+    "year": 2019,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019290N08169",
+    "name": "BUALOI",
+    "year": 2019,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 10.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019302N11118",
+    "name": "BULBUL:MATMO",
+    "year": 2019,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019306N10162",
+    "name": "HALONG",
+    "year": 2019,
+    "max_wind_kts": 165.0,
+    "severity": 1.0,
+    "duration_days": 9.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019308N13114",
+    "name": "NAKRI",
+    "year": 2019,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019314N12172",
+    "name": "FENGSHEN",
+    "year": 2019,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 5.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019314N14136",
+    "name": "KALMAEGI",
+    "year": 2019,
+    "max_wind_kts": 90.0,
+    "severity": 0.356,
+    "duration_days": 3.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019322N11144",
+    "name": "FUNG-WONG",
+    "year": 2019,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019329N09160",
+    "name": "KAMMURI",
+    "year": 2019,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 9.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2019354N05151",
+    "name": "PHANFONE",
+    "year": 2019,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 6.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020129N07134",
+    "name": "VONGFONG",
+    "year": 2020,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 3.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020213N15131",
+    "name": "HAGUPIT",
+    "year": 2020,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 1.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020222N15117",
+    "name": "MEKKHALA",
+    "year": 2020,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020234N19123",
+    "name": "BAVI",
+    "year": 2020,
+    "max_wind_kts": 100.0,
+    "severity": 0.493,
+    "duration_days": 6.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020239N13134",
+    "name": "MAYSAK",
+    "year": 2020,
+    "max_wind_kts": 120.0,
+    "severity": 0.767,
+    "duration_days": 8.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020244N25146",
+    "name": "HAISHEN",
+    "year": 2020,
+    "max_wind_kts": 135.0,
+    "severity": 0.973,
+    "duration_days": 10.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020270N17159",
+    "name": "KUJIRA",
+    "year": 2020,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020277N21141",
+    "name": "CHAN-HOM",
+    "year": 2020,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 4.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020291N06141",
+    "name": "SAUDEL",
+    "year": 2020,
+    "max_wind_kts": 75.0,
+    "severity": 0.151,
+    "duration_days": 2.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020296N09137",
+    "name": "MOLAVE",
+    "year": 2020,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 6.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020299N11144",
+    "name": "GONI",
+    "year": 2020,
+    "max_wind_kts": 170.0,
+    "severity": 1.0,
+    "duration_days": 6.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2020313N08135",
+    "name": "VAMCO",
+    "year": 2020,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 8.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021102N06144",
+    "name": "SURIGAE",
+    "year": 2021,
+    "max_wind_kts": 170.0,
+    "severity": 1.0,
+    "duration_days": 15.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021171N09152",
+    "name": "CHAMPI",
+    "year": 2021,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021197N17135",
+    "name": "IN-FA",
+    "year": 2021,
+    "max_wind_kts": 95.0,
+    "severity": 0.425,
+    "duration_days": 8.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021198N19117",
+    "name": "CEMPAKA",
+    "year": 2021,
+    "max_wind_kts": 80.0,
+    "severity": 0.219,
+    "duration_days": 2.0,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021248N11131",
+    "name": "CONSON",
+    "year": 2021,
+    "max_wind_kts": 65.0,
+    "severity": 0.014,
+    "duration_days": 1.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021248N12141",
+    "name": "CHANTHU",
+    "year": 2021,
+    "max_wind_kts": 155.0,
+    "severity": 1.0,
+    "duration_days": 12.8,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021265N11150",
+    "name": "MINDULLE",
+    "year": 2021,
+    "max_wind_kts": 140.0,
+    "severity": 1.0,
+    "duration_days": 14.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021295N09145",
+    "name": "MALOU",
+    "year": 2021,
+    "max_wind_kts": 85.0,
+    "severity": 0.288,
+    "duration_days": 5.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021333N11146",
+    "name": "NYATOH",
+    "year": 2021,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 4.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2021346N05145",
+    "name": "RAI",
+    "year": 2021,
+    "max_wind_kts": 150.0,
+    "severity": 1.0,
+    "duration_days": 10.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022097N04148",
+    "name": "MALAKAS",
+    "year": 2022,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 7.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022181N15115",
+    "name": "CHABA",
+    "year": 2022,
+    "max_wind_kts": 74.0,
+    "severity": 0.137,
+    "duration_days": 1.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022234N25152",
+    "name": "TOKAGE",
+    "year": 2022,
+    "max_wind_kts": 93.0,
+    "severity": 0.397,
+    "duration_days": 3.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022240N26149",
+    "name": "HINNAMNOR",
+    "year": 2022,
+    "max_wind_kts": 138.0,
+    "severity": 1.0,
+    "duration_days": 16.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022250N19137",
+    "name": "MUIFA",
+    "year": 2022,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 10.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022254N21160",
+    "name": "MERBOK",
+    "year": 2022,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022256N22139",
+    "name": "NANMADOL",
+    "year": 2022,
+    "max_wind_kts": 134.0,
+    "severity": 0.959,
+    "duration_days": 7.5,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022265N18135",
+    "name": "NORU",
+    "year": 2022,
+    "max_wind_kts": 138.0,
+    "severity": 1.0,
+    "duration_days": 7.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022269N22145",
+    "name": "KULAP",
+    "year": 2022,
+    "max_wind_kts": 64.0,
+    "severity": 0.0,
+    "duration_days": 1.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022271N22132",
+    "name": "ROKE",
+    "year": 2022,
+    "max_wind_kts": 84.0,
+    "severity": 0.274,
+    "duration_days": 1.8,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022288N19128",
+    "name": "NESAT",
+    "year": 2022,
+    "max_wind_kts": 89.0,
+    "severity": 0.342,
+    "duration_days": 5.2,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2022300N13131",
+    "name": "NALGAE",
+    "year": 2022,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 1.8,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023140N05149",
+    "name": "MAWAR",
+    "year": 2023,
+    "max_wind_kts": 159.0,
+    "severity": 1.0,
+    "duration_days": 19.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023157N13135",
+    "name": "GUCHOL",
+    "year": 2023,
+    "max_wind_kts": 89.0,
+    "severity": 0.342,
+    "duration_days": 7.5,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023196N17119",
+    "name": "TALIM",
+    "year": 2023,
+    "max_wind_kts": 70.0,
+    "severity": 0.082,
+    "duration_days": 2.5,
+    "region": "South China",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023203N14132",
+    "name": "DOKSURI",
+    "year": 2023,
+    "max_wind_kts": 128.0,
+    "severity": 0.877,
+    "duration_days": 10.2,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023208N13140",
+    "name": "KHANUN",
+    "year": 2023,
+    "max_wind_kts": 119.0,
+    "severity": 0.753,
+    "duration_days": 8.8,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023213N14257",
+    "name": "DORA",
+    "year": 2023,
+    "max_wind_kts": 130.0,
+    "severity": 0.904,
+    "duration_days": 22.0,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023220N24150",
+    "name": "LAN",
+    "year": 2023,
+    "max_wind_kts": 115.0,
+    "severity": 0.699,
+    "duration_days": 10.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023235N17151",
+    "name": "DAMREY",
+    "year": 2023,
+    "max_wind_kts": 64.0,
+    "severity": 0.0,
+    "duration_days": 1.0,
+    "region": "Japan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023236N20125",
+    "name": "SAOLA",
+    "year": 2023,
+    "max_wind_kts": 134.0,
+    "severity": 0.959,
+    "duration_days": 16.0,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023241N19141",
+    "name": "HAIKUI",
+    "year": 2023,
+    "max_wind_kts": 105.0,
+    "severity": 0.562,
+    "duration_days": 7.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023273N16134",
+    "name": "KOINU",
+    "year": 2023,
+    "max_wind_kts": 119.0,
+    "severity": 0.753,
+    "duration_days": 15.5,
+    "region": "Taiwan",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2023280N10154",
+    "name": "BOLAVEN",
+    "year": 2023,
+    "max_wind_kts": 154.0,
+    "severity": 1.0,
+    "duration_days": 9.2,
+    "region": "Western Pacific",
+    "disruption_type": "tropical_cyclone"
+  },
+  {
+    "storm_id": "2024146N11126",
+    "name": "EWINIAR",
+    "year": 2024,
+    "max_wind_kts": 93.0,
+    "severity": 0.397,
+    "duration_days": 3.5,
+    "region": "Philippines",
+    "disruption_type": "tropical_cyclone"
+  }
+]

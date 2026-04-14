@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "name": "Ever Given Suez Canal Blockage",
+    "date": "2021-03-23",
+    "end_date": "2021-03-29",
+    "source": "Suez Canal Authority / Lloyd's List / Allianz",
+    "description": "The 400m container ship Ever Given ran aground in the Suez Canal, completely blocking one of the world's most critical maritime chokepoints for 6 days. Approximately 12% of global trade flows through the canal. The blockage held up an estimated $9.6B per day in trade, delayed over 400 vessels, and caused weeks of downstream port congestion even after the canal reopened.",
+    "category": "logistics_disruption",
+    "tags": ["maritime", "suez_canal", "shipping", "port_congestion", "chokepoint"]
+  },
+  "disruption_params": {
+    "signal_id": "SUEZ_2021",
+    "disruption_type": "logistics_blockage",
+    "severity": 0.75,
+    "affected_region": "global_maritime",
+    "affected_node_ids": [
+      "PORT_KAOHSIUNG",
+      "PORT_LONG_BEACH",
+      "WH_US_WEST",
+      "WH_TAIWAN"
+    ],
+    "trigger_day": 0,
+    "impact_day": 0,
+    "recovery_start_day": 5,
+    "resolved_day": 6,
+    "commodity_effects": {
+      "container_shipping": 1.25,
+      "crude_oil": 1.06,
+      "lng": 1.08,
+      "semiconductors": 1.03,
+      "consumer_electronics": 1.05
+    }
+  },
+  "ground_truth": {
+    "total_damage_usd": 57600000000,
+    "duration_days": 6,
+    "peak_severity": 0.75,
+    "trade_blocked_per_day_usd": 9600000000,
+    "vessels_delayed": 422,
+    "production_loss": {
+      "estimated_cargo_delayed_teu": 450000,
+      "rerouted_via_cape_added_days": 12,
+      "port_congestion_weeks_after": 6
+    },
+    "recovery_milestones": [
+      {"day": 1, "description": "Initial refloating attempts fail; tug boats deployed"},
+      {"day": 3, "description": "Dredging operations intensify; some vessels begin rerouting via Cape of Good Hope"},
+      {"day": 6, "description": "Ever Given refloated, canal traffic resumes"},
+      {"day": 10, "description": "Backlog of 422 vessels cleared"},
+      {"day": 45, "description": "Downstream port congestion largely resolved"}
+    ],
+    "affected_industries": ["shipping", "oil_and_gas", "retail", "automotive", "agriculture"],
+    "canal_throughput_pct_of_global_trade": 12.0,
+    "daily_vessel_transits_normal": 50
+  },
+  "lessons_learned": [
+    "A single chokepoint failure can cascade globally within hours; 12% of world trade funnels through the 193km Suez Canal.",
+    "Short-duration, high-impact events create disproportionate downstream congestion that outlasts the primary disruption by weeks.",
+    "Container shipping rates spiked and remained elevated for months, demonstrating the inelasticity of maritime logistics capacity.",
+    "Companies with diversified routing (Cape of Good Hope pre-arrangements) absorbed the shock significantly better.",
+    "Real-time vessel tracking (AIS data) proved critical for rapid situational awareness and rerouting decisions."
+  ]
+}

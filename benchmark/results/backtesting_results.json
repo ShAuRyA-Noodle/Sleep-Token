@@ -1,0 +1,55 @@
+{
+  "chip_shortage_2020": {
+    "name": "2021 Semiconductor Shortage",
+    "source": "SEMI Foundation 2023, IHS Markit, Goldman Sachs",
+    "calibration": {
+      "mean_relative_error_pct": 58.8,
+      "per_metric": {
+        "revenue_loss_pct": {
+          "ground_truth": 0.12,
+          "simulated_mean": 0.0,
+          "simulated_std": 0.0,
+          "absolute_error": 0.12,
+          "relative_error_pct": 100.0
+        },
+        "inventory_depletion_rate": {
+          "ground_truth": 0.85,
+          "simulated_mean": 1.0,
+          "simulated_std": 0.0,
+          "absolute_error": 0.15,
+          "relative_error_pct": 17.6
+        }
+      },
+      "n_metrics": 2,
+      "is_credible": false
+    }
+  },
+  "suez_2021": {
+    "name": "2021 Suez Canal Blockage (Ever Given)",
+    "source": "Suez Canal Authority, Lloyd's List, Bloomberg",
+    "calibration": {
+      "mean_relative_error_pct": 100.0,
+      "per_metric": {
+        "revenue_loss_pct": {
+          "ground_truth": 0.02,
+          "simulated_mean": 0.0,
+          "simulated_std": 0.0,
+          "absolute_error": 0.02,
+          "relative_error_pct": 100.0
+        }
+      },
+      "n_metrics": 1,
+      "is_credible": false
+    }
+  },
+  "red_sea_2023": {
+    "name": "2023 Red Sea Attacks",
+    "source": "Freightos Baltic Index, UNCTAD 2024, Drewry",
+    "calibration": {
+      "mean_relative_error_pct": 0,
+      "per_metric": {},
+      "n_metrics": 0,
+      "is_credible": false
+    }
+  }
+}
