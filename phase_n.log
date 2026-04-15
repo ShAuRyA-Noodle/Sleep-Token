@@ -1,0 +1,21 @@
+2026-04-16 03:23:46,423 [INFO] === N/BC_v2 attempt 1/2 ===
+2026-04-16 03:23:49,118 [INFO] BC v2: 200 epochs, batch 1024, lr 0.0003, factorized head
+2026-04-16 03:23:51,123 [INFO]   BC ep   1/200 loss=3.8972 val type=0.702 node=0.387 full=0.288
+2026-04-16 03:24:04,240 [INFO]   BC ep  10/200 loss=1.7085 val type=0.865 node=0.397 full=0.364
+2026-04-16 03:24:21,263 [INFO]   BC ep  20/200 loss=1.6615 val type=0.865 node=0.404 full=0.374
+2026-04-16 03:24:40,394 [INFO]   BC ep  30/200 loss=1.6573 val type=0.865 node=0.400 full=0.370
+2026-04-16 03:24:57,494 [INFO]   BC ep  40/200 loss=1.6509 val type=0.865 node=0.404 full=0.373
+2026-04-16 03:25:13,598 [INFO]   BC ep  50/200 loss=1.6495 val type=0.864 node=0.405 full=0.375
+2026-04-16 03:25:29,232 [INFO]   BC ep  60/200 loss=1.6459 val type=0.865 node=0.406 full=0.370
+2026-04-16 03:25:51,159 [INFO]   BC ep  70/200 loss=1.6442 val type=0.865 node=0.405 full=0.370
+2026-04-16 03:26:08,040 [INFO]   BC ep  80/200 loss=1.6418 val type=0.864 node=0.403 full=0.369
+2026-04-16 03:26:26,401 [INFO]   BC ep  90/200 loss=1.6402 val type=0.865 node=0.407 full=0.373
+2026-04-16 03:26:45,794 [INFO]   BC ep 100/200 loss=1.6385 val type=0.866 node=0.408 full=0.373
+2026-04-16 03:27:02,363 [INFO]   BC ep 110/200 loss=1.6369 val type=0.866 node=0.408 full=0.372
+2026-04-16 03:27:17,239 [INFO]   BC ep 120/200 loss=1.6354 val type=0.868 node=0.406 full=0.374
+2026-04-16 03:27:31,867 [INFO]   BC ep 130/200 loss=1.6339 val type=0.868 node=0.407 full=0.373
+2026-04-16 03:27:50,775 [INFO]   BC ep 140/200 loss=1.6330 val type=0.868 node=0.407 full=0.375
+2026-04-16 03:28:08,436 [INFO]   BC ep 150/200 loss=1.6318 val type=0.868 node=0.406 full=0.374
+2026-04-16 03:28:27,839 [INFO]   BC ep 160/200 loss=1.6306 val type=0.868 node=0.407 full=0.374
+2026-04-16 03:28:47,206 [INFO]   BC ep 170/200 loss=1.6297 val type=0.867 node=0.409 full=0.374
+2026-04-16 03:29:11,866 [INFO]   BC ep 180/200 loss=1.6293 val type=0.868 node=0.407 full=0.373
