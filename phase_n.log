@@ -77,3 +77,4 @@
 2026-04-16 04:25:10,081 [INFO] TD3+BC v2: 300,000 steps, factorized, alpha_bc=2.5
 2026-04-16 04:25:10,094 [INFO]   TD3+BC step 1/300,000 q=0.278 val type=0.427 node=0.071 full=0.000
 2026-04-16 04:26:10,137 [INFO]   TD3+BC step 15,000/300,000 q=0.407 val type=0.864 node=0.404 full=0.370
+2026-04-16 04:27:11,953 [INFO]   TD3+BC step 30,000/300,000 q=0.433 val type=0.867 node=0.405 full=0.373
