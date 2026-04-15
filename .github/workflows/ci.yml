@@ -30,29 +30,33 @@ jobs:
       - name: Run core tests
         run: pytest tests/ -q --tb=short
 
+      - name: Install RL deps (CPU torch)
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install gymnasium==0.29.1
+
       - name: RL smoke test (import check)
         run: |
-          pip install gymnasium==0.29.1 torch --index-url https://download.pytorch.org/whl/cpu
-          python -c "
+          python - <<'PY'
           import gymnasium as gym
           import rl
           env = gym.make('SupplyMind-Easy-v1')
           obs, info = env.reset(seed=42)
-          assert obs.shape == (408,)
-          assert info['action_masks'].shape == (280,)
+          assert obs.shape == (408,), f'Bad obs shape: {obs.shape}'
+          assert info['action_masks'].shape == (280,), f'Bad mask shape: {info["action_masks"].shape}'
           obs2, r, term, trunc, info2 = env.step(env.action_space.sample())
           assert obs2.shape == (408,)
           print('RL smoke test passed!')
           env.close()
-          "
+          PY
 
       - name: API smoke test
         run: |
-          python -c "
+          python - <<'PY'
           from server.app import app
           from fastapi.testclient import TestClient
           client = TestClient(app)
           r = client.get('/health')
-          assert r.status_code == 200
+          assert r.status_code == 200, f'Bad status: {r.status_code}'
           print('API smoke test passed!')
-          "
+          PY
