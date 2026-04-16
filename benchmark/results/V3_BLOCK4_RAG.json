@@ -1,0 +1,47 @@
+{
+  "n_chunks": 1111,
+  "corpus_sources": {
+    "crisis_library": 10,
+    "noaa_top_storms": 200,
+    "dataco_patterns": 30,
+    "sec_10k_fortune500": 758,
+    "policy_papers_frbsf_frbny_bis": 113
+  },
+  "test_queries": 50,
+  "query_style": "loose marker-match on realistic phrasings (harder than v2 exact-phrase eval)",
+  "results": {
+    "bge_m3_biencoder": {
+      "precision_at_1": 0.44,
+      "precision_at_3": 0.52,
+      "mrr": 0.49
+    },
+    "bge_m3_reranked": {
+      "precision_at_1": 0.48,
+      "precision_at_3": 0.54,
+      "mrr": 0.523,
+      "reranker": "BGE-reranker-v2-m3"
+    },
+    "mxbai_embed_large_biencoder": {
+      "precision_at_1": 0.52,
+      "precision_at_3": 0.54,
+      "mrr": 0.537
+    },
+    "mxbai_embed_large_reranked": {
+      "precision_at_1": 0.54,
+      "precision_at_3": 0.60,
+      "mrr": 0.575,
+      "reranker": "BGE-reranker-v2-m3",
+      "notes": "BEST configuration observed in Block 4"
+    },
+    "snowflake_arctic_embed_l_v2": {
+      "status": "model load hung during initialization on Windows; deferred to follow-up (see FAILURE_TABLE)"
+    }
+  },
+  "best_config": "mxbai-embed-large + BGE-reranker-v2-m3",
+  "honest_comparison_to_v2": {
+    "v2_rag": "P@1=0.92 on 248-chunk corpus with exact-phrase queries",
+    "v3_rag": "P@1=0.54 on 1111-chunk corpus with loose-phrase realistic queries",
+    "note": "v3 corpus 4.5x larger, test phrasings more realistic (research-grade)"
+  },
+  "elapsed_min": 160.0
+}

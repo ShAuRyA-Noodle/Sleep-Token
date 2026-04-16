@@ -132,8 +132,7 @@ def load_crisis_library() -> list[dict]:
             except Exception as e:
                 log.warning(f"  {p.name}: {e}")
 
-    from rl.rag.build_corpus import REAL_CRISIS_NARRATIVES if False else None  # noqa
-    # Fallback: hardcode the narratives from Phase U script
+    # Load real crisis narratives from Phase U module (real Wikipedia-style content)
     narratives_path = ROOT / "train_phase_u.py"
     if narratives_path.exists():
         try:
@@ -214,61 +213,72 @@ def load_dataco_patterns() -> list[dict]:
 # Embedding + retrieval
 # ============================================================
 
+_MODEL_CACHE: dict = {}
+_RERANKER_CACHE: dict = {}
+
+
+def get_embedder(model_dir: Path):
+    key = str(model_dir)
+    if key not in _MODEL_CACHE:
+        from sentence_transformers import SentenceTransformer
+        log.info(f"  loading embedder {model_dir.name} into cache...")
+        _MODEL_CACHE[key] = SentenceTransformer(str(model_dir), device=DEVICE)
+        _MODEL_CACHE[key].eval()
+    return _MODEL_CACHE[key]
+
+
+def get_reranker(model_dir: Path):
+    key = str(model_dir)
+    if key not in _RERANKER_CACHE:
+        from sentence_transformers import CrossEncoder
+        log.info(f"  loading reranker {model_dir.name} into cache...")
+        _RERANKER_CACHE[key] = CrossEncoder(str(model_dir), device=DEVICE)
+    return _RERANKER_CACHE[key]
+
+
 def embed_batch(texts: list[str], model_dir: Path, batch_size: int = 32) -> np.ndarray:
-    from sentence_transformers import SentenceTransformer
-    model = SentenceTransformer(str(model_dir), device=DEVICE)
-    model.eval()
+    model = get_embedder(model_dir)
     embs = model.encode(texts, batch_size=batch_size, show_progress_bar=True,
                          convert_to_numpy=True, normalize_embeddings=True)
     return embs.astype(np.float32)
 
 
-def build_index(docs: list[dict], emb_dir: Path, name: str):
-    import chromadb
-    client = chromadb.PersistentClient(path=str(DB_DIR))
-    col_name = f"v3_{name}"
-    # Reset if exists
-    try:
-        client.delete_collection(name=col_name)
-    except Exception:
-        pass
-    col = client.create_collection(name=col_name, metadata={"hnsw:space": "cosine"})
+class InMemoryIndex:
+    """Simple in-memory cosine-similarity retrieval. Fast for <50K chunks, no chromadb dependency."""
+
+    def __init__(self, docs: list[dict], embeddings: np.ndarray):
+        self.docs = docs
+        self.embs = embeddings  # already normalized
+        self.n = len(docs)
+
+    def search(self, q_emb: np.ndarray, top_k: int = 50):
+        scores = self.embs @ q_emb  # cosine similarity (both normalized)
+        topk_idx = np.argsort(-scores)[:top_k]
+        return [
+            {"text": self.docs[i]["text"], "source": self.docs[i]["source"], "score": float(scores[i])}
+            for i in topk_idx
+        ]
+
+
+def build_index(docs: list[dict], emb_dir: Path, name: str) -> InMemoryIndex:
     log.info(f"  Embedding {len(docs)} chunks with {emb_dir.name}...")
     texts = [d["text"] for d in docs]
     embs = embed_batch(texts, emb_dir)
-    ids = [f"{d['source']}_{d['chunk_idx']}_{i}" for i, d in enumerate(docs)]
-    metadatas = [{"source": d["source"], "chunk_idx": d["chunk_idx"]} for d in docs]
-    # Add in chunks
-    B = 512
-    for i in range(0, len(docs), B):
-        j = min(i + B, len(docs))
-        col.add(ids=ids[i:j], embeddings=embs[i:j].tolist(),
-                documents=texts[i:j], metadatas=metadatas[i:j])
-    log.info(f"  {col_name}: {col.count()} docs indexed")
-    return col
+    log.info(f"  {name}: {len(docs)} docs indexed (in-memory)")
+    return InMemoryIndex(docs, embs)
 
 
-def retrieve_bge(query: str, col, emb_dir: Path, top_k: int = 50):
-    from sentence_transformers import SentenceTransformer
-    model = SentenceTransformer(str(emb_dir), device=DEVICE)
-    qemb = model.encode([query], convert_to_numpy=True, normalize_embeddings=True)[0]
-    res = col.query(query_embeddings=[qemb.tolist()], n_results=top_k)
-    out = []
-    for i in range(len(res["documents"][0])):
-        out.append({
-            "text": res["documents"][0][i],
-            "source": res["metadatas"][0][i].get("source", ""),
-            "score": 1 - res["distances"][0][i],
-        })
-    return out
+def retrieve_bge(query: str, index: InMemoryIndex, emb_dir: Path, top_k: int = 50):
+    model = get_embedder(emb_dir)
+    qemb = model.encode([query], convert_to_numpy=True, normalize_embeddings=True)[0].astype(np.float32)
+    return index.search(qemb, top_k=top_k)
 
 
 def rerank(query: str, candidates: list[dict], reranker_dir: Path, top_k: int = 5):
     try:
-        from sentence_transformers import CrossEncoder
-        ce = CrossEncoder(str(reranker_dir), device=DEVICE)
+        ce = get_reranker(reranker_dir)
         pairs = [(query, c["text"]) for c in candidates]
-        scores = ce.predict(pairs, batch_size=16, show_progress_bar=False)
+        scores = ce.predict(pairs, batch_size=32, show_progress_bar=False)
         for c, s in zip(candidates, scores):
             c["rerank_score"] = float(s)
         ranked = sorted(candidates, key=lambda x: x["rerank_score"], reverse=True)[:top_k]
@@ -405,7 +415,6 @@ def main():
             continue
         try:
             log.info(f"\n=== Building index: {emb_name} ===")
-            import chromadb
             col = build_index(docs, emb_dir, emb_name)
             # Bi-encoder only
             log.info(f"  Evaluating {emb_name} (bi-encoder only)...")

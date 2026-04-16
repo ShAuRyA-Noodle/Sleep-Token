@@ -27,3 +27,4 @@ Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 | P Granite | PPO_easy | shape '[-1, 47]' is invalid for input of size 1120 | 2026-04-16 06:46 |
 | P Granite | PPO_medium | shape '[-1, 47]' is invalid for input of size 1120 | 2026-04-16 06:46 |
 | P Granite | PPO_hard | shape '[-1, 47]' is invalid for input of size 1120 | 2026-04-16 06:46 |
+| v3 Block 4 | snowflake_arctic | Model load hung during SentenceTransformer init on Windows (large 670MB+ ONNX variants timed out). mxbai+reranker best (P@1=0.54, MRR=0.575) | 2026-04-16 20:30 |
