@@ -74,7 +74,7 @@ def make_executive_summary():
         ]
     lines += [
         "- All pairwise comparisons have Wilcoxon p-values in `benchmark/results/PAIRWISE_WILCOXON_V2.json`.",
-        "- Action space: 164 unique (of 280 possible) factorized as (type ∈ 7) × (node ∈ 40), separate heads dramatically improved over flat softmax.",
+        "- Action space: 164 unique (of 280 possible) factorized as (type in 7) × (node in 40), separate heads dramatically improved over flat softmax.",
     ]
 
     lines += ["", "## Analysis modules (trained, not formulas)"]
@@ -158,7 +158,7 @@ def make_executive_summary():
         "- Bootstrap CIs + Wilcoxon p-values on all reported accuracies.",
     ]
 
-    (ROOT / "EXECUTIVE_SUMMARY.md").write_text("\n".join(lines))
+    (ROOT / "EXECUTIVE_SUMMARY.md").write_text("\n".join(lines), encoding="utf-8")
     log.info("Saved EXECUTIVE_SUMMARY.md")
 
 
@@ -185,12 +185,12 @@ def make_readme_refresh():
     ]
     readme_path = ROOT / "README.md"
     if readme_path.exists():
-        content = readme_path.read_text()
+        content = readme_path.read_text(encoding="utf-8", errors="replace")
         marker = "\n## v2.0-vessel results"
         if marker in content:
             content = content.split(marker)[0]
         content += "\n".join(block)
-        readme_path.write_text(content)
+        readme_path.write_text(content, encoding="utf-8")
         log.info("Updated README.md")
 
 
@@ -238,7 +238,7 @@ def make_model_card():
         "## License / Attribution",
         "Real data source attribution: DataCo Kaggle dataset, NOAA IBTRACS (NOAA public domain), USGS (public domain), FRED (Federal Reserve public domain), World Bank WGI (CC-BY-4.0).",
     ]
-    (ROOT / "MODEL_CARD_V2.md").write_text("\n".join(lines))
+    (ROOT / "MODEL_CARD_V2.md").write_text("\n".join(lines), encoding="utf-8")
     log.info("Saved MODEL_CARD_V2.md")
 
 
@@ -279,7 +279,7 @@ def make_demo_script():
         "Show `FAILURE_TABLE.md` (empty or short).",
         "Read: _\"No fake data, no fallbacks in production, all phases committed phase-by-phase, all checkpoints reproducible.\"_",
     ]
-    (ROOT / "DEMO_SCRIPT.md").write_text("\n".join(lines))
+    (ROOT / "DEMO_SCRIPT.md").write_text("\n".join(lines), encoding="utf-8")
     log.info("Saved DEMO_SCRIPT.md")
 
 

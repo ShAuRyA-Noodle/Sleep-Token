@@ -409,3 +409,19 @@ supplymind/
 ## License
 
 MIT
+
+## v2.0-vessel results (real data, full retrain)
+
+| Agent | Full Acc | 95% CI | Type Acc | Node Acc |
+|---|---:|---|---:|---:|
+| Random | 0.0029 | [0.002, 0.004] | 0.1408 | 0.0251 |
+| Scripted_Alert | 0.0000 | [0.000, 0.000] | 0.2728 | 0.0504 |
+| BC_v2 | 0.3741 | [0.369, 0.379] | 0.8624 | 0.4081 |
+| CQL_v2 | 0.3742 | [0.368, 0.380] | 0.8614 | 0.4077 |
+| IQL_v2 | 0.3714 | [0.365, 0.377] | 0.8627 | 0.4072 |
+| TD3BC_v2 | 0.3744 | [0.369, 0.380] | 0.8631 | 0.4114 |
+| Federated_v2 | 0.3038 | [0.299, 0.309] | 0.7544 | 0.3746 |
+| BC_v1 | 0.0875 | [0.084, 0.091] | 0.7045 | 0.1128 |
+| CQL_v1 | 0.0675 | [0.065, 0.070] | 0.7176 | 0.0964 |
+
+See `EXECUTIVE_SUMMARY.md` for the full report and `FAILURE_TABLE.md` for deferred items.
