@@ -211,6 +211,52 @@ SupplyMind's v3.0-arcadia results evaluated against the best-known public benchm
 
 ---
 
+## 8.5. What we'd do with $1M of compute — ambition appendix
+
+The v3.0-arcadia work was done on one RTX 4080 laptop (12 GB VRAM, 15.7 GB system RAM) with zero cloud budget. Here's what we'd tackle with ~$1M of compute, ordered by scientific ROI:
+
+### $100K — Full-scale benchmark submission
+- **MTEB retrieval full submission**: run all 41 retrieval datasets on mxbai/BGE-M3/Snowflake + reranker on a single large node. Target: publishable leaderboard entry with our ensemble methodology.
+- **M5/M6 competition eligibility**: submit our Chronos+TimesFM+ARIMA+Prophet+Bates-Granger stack to the next M-competition as a zero-shot-plus-stacking baseline.
+- **BEIR zero-shot**: reranker scaling study on 18 datasets.
+
+### $200K — Full-data RL training
+- Replace the 100k-step MaskablePPO training with a 50M-step RecurrentPPO + IMPALA hybrid across 1024 parallel envs.
+- Train on **live disruption stream** (real-time NOAA + USGS + FRED + news-RAG injection) rather than pre-scripted scenarios.
+- Add Dreamer-V3 world-model rollouts for counter-factual "what if we had activated TSMC backup 3 days earlier" analysis.
+- Expected outcome: RL agent that actually routes global trade in real time.
+
+### $300K — Foundation-model fine-tuning
+- Fine-tune a Llama-3-70B + LoRA adapter on the **full DataCo + WGI + crisis-narrative** corpus (~500K examples) to produce a supply-chain-native base model. Distill to 8B-Q4 for laptop deployment.
+- Fine-tune Chronos-Bolt on commodity-specific data (WTI, copper, lithium, cobalt) for better conformal intervals.
+- Pretrain a supply-chain-native TabPFN (no 10K cap).
+
+### $200K — Graph scale-up
+- Replace the 40-node supply-chain graph with a **50,000-node global supplier network** from Bloomberg + S&P Capital IQ + Panjiva import/export records.
+- Train a real TGN (Temporal Graph Network) on 10 years of disruption propagation events.
+- Deploy GraphSAGE + Node2Vec ensemble as the v4 Provider module.
+
+### $100K — VL integration
+- Use Qwen-VL-7B (already verified in R1) on Sentinel-2 satellite imagery of the world's top 100 ports.
+- Detect anomalous ship-queue lengths, container pileups, flood damage, factory smoke patterns.
+- Fuse with LLM risk panel as a 5th modality.
+
+### $50K — Continuous evaluation infrastructure
+- Weights & Biases + MLflow hosted eval runs on every PR.
+- Nightly benchmark regression (R1–R6 all blocks) with CI95 drift alarms.
+- Public leaderboard at `bench.supplymind.dev`.
+
+### $50K — External validation
+- Hire 3 supply-chain analysts from McKinsey / BCG / Gartner for blind evaluation.
+- Run SupplyMind panel vs human analysts on 200 real current events.
+- Publish findings in an Operations Research journal.
+
+**Scientific claim we want to test at scale**: "A 13-model local stack can match enterprise supply-chain risk platforms at 1/1000th the operational cost while publishing all methodology as open source."
+
+With $1M we go from "laptop demo" to "field-deployable alternative to SAP IBP."
+
+---
+
 ## 9. Combined positioning statement
 
 SupplyMind v3.0-arcadia does not claim to top any single public leaderboard. It claims to:

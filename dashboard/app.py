@@ -1,7 +1,18 @@
 """
-SupplyMind Grand Finale Dashboard — Streamlit
+SupplyMind Grand Finale Dashboard — Streamlit (v2 analyst dashboard, DEPRECATED)
 
-Panels:
+⚠️  DEPRECATION NOTICE (v3.0-arcadia):
+This file is the v2-era analyst dashboard. The **canonical v3 dashboard** is
+at `v3_arcadia/85_infinite_baths/dashboard.py`, which aggregates every phase
+JSON (R1–R6) in one place.
+
+To use the current dashboard:
+    streamlit run v3_arcadia/85_infinite_baths/dashboard.py
+
+This file is kept for reference and v2 reproducibility only.
+
+────────────────────────────────────────────────────────────────────────────
+Original v2 panels (still functional but superseded):
   a) Supply chain network graph (Plotly scatter+lines, color by risk_score)
   b) Return distribution violin plot (QR-DQN 51 quantiles)
   c) Counterfactual panel ("Without this action: +$4.2M loss")
