@@ -1,0 +1,254 @@
+{
+  "description": "Deterministic rubric agent: a trained supply-chain analyst could follow the same keyword-based procedure by hand. Baseline = what a trained human produces from the same text. Panel lift over rubric quantifies LLM value.",
+  "rubric_tiers": {
+    "CRITICAL": {
+      "weight": 8,
+      "words": [
+        "global",
+        "worldwide",
+        "cascad",
+        "pandemic",
+        "nuclear",
+        "multiple countries",
+        "billions",
+        "catastroph",
+        "massive",
+        "devastat",
+        "worst",
+        "unprecedented",
+        "systemic failure",
+        "multi-sector",
+        "collapse"
+      ]
+    },
+    "HIGH": {
+      "weight": 4,
+      "words": [
+        "region",
+        "sector",
+        "disrupt",
+        "shortage",
+        "blockade",
+        "sanction",
+        "strait",
+        "chokepoint",
+        "strand",
+        "vessel",
+        "attack",
+        "war",
+        "geopolit",
+        "chip",
+        "semiconductor",
+        "blocked",
+        "grounded",
+        "tanker",
+        "freight"
+      ]
+    },
+    "MEDIUM": {
+      "weight": 2,
+      "words": [
+        "port",
+        "warehouse",
+        "concentration",
+        "single source",
+        "bullwhip",
+        "forecast",
+        "subsid",
+        "tariff",
+        "incentive",
+        "plant",
+        "factory",
+        "foundry"
+      ]
+    },
+    "LOW": {
+      "weight": 1,
+      "words": [
+        "definition",
+        "system",
+        "method",
+        "software",
+        "erp",
+        "inventory",
+        "logistics",
+        "container",
+        "measur",
+        "manag",
+        "process",
+        "operation"
+      ]
+    }
+  },
+  "concept_cues": [
+    "refers to",
+    "is a method",
+    "is a system",
+    "is an approach",
+    "is the process",
+    "is a tool",
+    "is a measure",
+    "definition"
+  ],
+  "n_scenarios": 26,
+  "correct": 16,
+  "accuracy_vs_ground_truth": 0.6153846153846154,
+  "confusion_matrix": [
+    [
+      4,
+      0,
+      3,
+      0
+    ],
+    [
+      1,
+      2,
+      3,
+      1
+    ],
+    [
+      0,
+      0,
+      9,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      1
+    ]
+  ],
+  "per_scenario": {
+    "2011_T\u014dhoku_earthquake_and_tsunami": {
+      "ground_truth": "CRITICAL",
+      "predicted": "CRITICAL",
+      "correct": true
+    },
+    "2020\u20132023_global_chip_shortage": {
+      "ground_truth": "CRITICAL",
+      "predicted": "HIGH",
+      "correct": false
+    },
+    "2021_Suez_Canal_obstruction": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Bab-el-Mandeb": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Baltic_Dry_Index": {
+      "ground_truth": "LOW",
+      "predicted": "HIGH",
+      "correct": false
+    },
+    "Bullwhip_effect": {
+      "ground_truth": "MEDIUM",
+      "predicted": "MEDIUM",
+      "correct": true
+    },
+    "CHIPS_and_Science_Act": {
+      "ground_truth": "MEDIUM",
+      "predicted": "HIGH",
+      "correct": false
+    },
+    "Container_ship": {
+      "ground_truth": "LOW",
+      "predicted": "HIGH",
+      "correct": false
+    },
+    "Enterprise_resource_planning": {
+      "ground_truth": "LOW",
+      "predicted": "LOW",
+      "correct": true
+    },
+    "Ever_Given": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Foxconn": {
+      "ground_truth": "MEDIUM",
+      "predicted": "CRITICAL",
+      "correct": false
+    },
+    "Inventory": {
+      "ground_truth": "LOW",
+      "predicted": "LOW",
+      "correct": true
+    },
+    "Just-in-time_manufacturing": {
+      "ground_truth": "MEDIUM",
+      "predicted": "LOW",
+      "correct": false
+    },
+    "Logistics": {
+      "ground_truth": "LOW",
+      "predicted": "LOW",
+      "correct": true
+    },
+    "Port_of_Los_Angeles": {
+      "ground_truth": "MEDIUM",
+      "predicted": "MEDIUM",
+      "correct": true
+    },
+    "Port_of_Singapore": {
+      "ground_truth": "MEDIUM",
+      "predicted": "HIGH",
+      "correct": false
+    },
+    "Red_Sea_crisis": {
+      "ground_truth": "CRITICAL",
+      "predicted": "HIGH",
+      "correct": false
+    },
+    "Samsung_Electronics": {
+      "ground_truth": "MEDIUM",
+      "predicted": "HIGH",
+      "correct": false
+    },
+    "Semiconductor_industry": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Strait_of_Hormuz": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Strait_of_Malacca": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Suez_Canal": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Supply_chain_attack": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Supply_chain_management": {
+      "ground_truth": "LOW",
+      "predicted": "LOW",
+      "correct": true
+    },
+    "TSMC": {
+      "ground_truth": "HIGH",
+      "predicted": "HIGH",
+      "correct": true
+    },
+    "Warehouse": {
+      "ground_truth": "LOW",
+      "predicted": "HIGH",
+      "correct": false
+    }
+  }
+}

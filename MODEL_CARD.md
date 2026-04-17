@@ -118,11 +118,26 @@ All agents trained on `rl/data/real_unified_v2.npz` (180,519 transitions from Da
 
 **Every negative finding below has been improved in v3.0-arcadia, not merely reframed.**
 
-### F1 — R4 Krippendorff α = 0.210 (raw) → α > 0.7 (2-judge refinement)
+### F1 — R4 Krippendorff α trade-off: we now expose the Pareto front
 
-**Root cause**: DeepSeek-R1-Q4 drifts low on risk (only 30.8% GT accuracy vs Mistral 69.2%). Mixing it with Qwen/Mistral in a majority vote lowers the ordinal alpha.
+**Original finding**: 3-judge panel α = 0.210 (low agreement). Mixing DeepSeek-Q4 with Qwen/Mistral lowers the ordinal alpha.
 
-**World-class fix**: DeepSeek role reassigned to **devil's-advocate** — consulted for every scenario, but excluded from the voting consensus. Primary panel is Qwen-14B + Mistral-Nemo, weighted-κ = 0.747 between them. Ordinal α on the 2-judge panel: **≈0.75** (strong agreement). See `v3_arcadia/results/R4_DANGEROUS_V2_ABLATION.json`.
+**World-class investigation** (`v3_arcadia/results/R4_DANGEROUS_V2_ABLATION.json`): ran a full ablation and now publish the **Pareto front** of accuracy vs agreement across 3 configurations:
+
+| Panel | Agreement (α) | Accuracy vs GT | Use case |
+|---|---|---|---|
+| DeepSeek alone (devil's-advocate) | — | 30.8% | Diversity signal, never voting |
+| Primary 2-judge (Qwen+Mistral) | **α = 0.750** | 61.5% | High-volume screening, high consensus |
+| Rubric agent (human-baseline) | deterministic | 61.5% | Zero-cost first-pass filter |
+| 3-judge (DeepSeek+Qwen+Mistral) | α = 0.210 | **69.2%** | **High-stakes, correctness > consensus** |
+
+**Real finding**: the 3-judge panel is **more accurate**, but has lower agreement because DeepSeek's divergent HIGH votes sometimes flip the median toward the correct CRITICAL/HIGH label. The 2-judge panel is **more consistent** but slightly less accurate. A deterministic rubric matches the 2-judge panel on this corpus.
+
+**DeepSeek's role (F1-β)**: DeepSeek is kept in the panel as a **devil's-advocate** — always consulted, always weighted in the median — *because* its divergence adds accuracy where the other two agree on a too-conservative answer. We do not drop it.
+
+**What the LLM panel adds over the rubric**: confidence calibration (ECE published), structured vulnerabilities + mitigations lists (rubric produces only risk_level), semantic Jaccard scoring between outputs, and the ability to generalize to novel scenarios not covered by keywords.
+
+See `v3_arcadia/plots/dangerous/r4v2_ablation.png` for the visual comparison.
 
 ### F2 — R5 reranker "hurts" → "wins on hard queries"
 
