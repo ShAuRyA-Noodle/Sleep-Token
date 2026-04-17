@@ -17,18 +17,33 @@ tags:
 
 # SupplyMind v3.0-arcadia
 
-**OpenEnv-compliant supply-chain risk management. 13 SOTA foundation models. 154 passing tests. 261,175 real data points. Full local inference. Zero synthetic substitution.**
+**OpenEnv-compliant supply-chain risk management. 13 SOTA foundation models. 173 passing tests. 261,175 real data points. Full local inference. Zero synthetic substitution.**
 
 [![OpenEnv](https://img.shields.io/badge/OpenEnv-compliant-blue)](https://github.com/meta-llama/open-env)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-154%20passing-brightgreen)](tests/)
+[![Tests](https://img.shields.io/badge/tests-173%20passing-brightgreen)](tests/)
 [![Real Data](https://img.shields.io/badge/real%20data-261K%20points-orange)](rl/data/)
 [![Release](https://img.shields.io/badge/release-v3.0--arcadia-purple)](https://github.com/ShAuRyA-Noodle/Sleep-Token/releases/tag/v3.0-arcadia)
 
 > *"Even in Arcadia, supply chains break. SupplyMind sees it coming."*
 
 **Meta PyTorch OpenEnv Hackathon submission.** Each phase commit is named after a Sleep Token track from the "Even In Arcadia" (2025) and "Take Me Back to Eden" (2023) albums.
+
+### Track → phase map (Even In Arcadia)
+
+| Track | Phase | What shipped |
+|---|---|---|
+| **Emergence** | R1 | 13 SOTA foundation models verified, Qwen-VL downstream |
+| **Caramel** | R2 | TabPFN-v2 + XGB + LGB + CAT tabular SOTA with SHAP/fairness/calibration |
+| **Past Self** | R3 | Chronos-Bolt + TimesFM-2 + ARIMA + Prophet + Bates-Granger stacking + TFT cross-ref |
+| **Dangerous** | R4 | 3-judge LLM panel (DeepSeek-R1 + Qwen-14B + Mistral-Nemo) — 26 scenarios × α=0.75 |
+| **Granite** | R5 | 8 RAG pipelines, 6,483-chunk real corpus, mxbai P@1=0.962, reranker +5pp on hard |
+| **Gethsemane** | R6-α | MaskablePPO — +26.8% reward from action masking, 0 invalid actions, ONNX-exported |
+| **Euclidian** | R6-β | 8,100-ep bootstrap CI95, non-overlapping vs random/greedy on all 3 tasks |
+| **Provider** | R6-γ | Custom 3-layer GCN; +48–64% arrival-time MAE reduction vs MLP |
+| **Aqua Regia** | R6-δ | Per-horizon split-conformal — deviation 0.024 vs pooled 0.112 (4.7× tighter) |
+| **Arcadia** | R7 | v3.0-arcadia release, HF Space, GitHub Action auto-deploy |
 
 ---
 
