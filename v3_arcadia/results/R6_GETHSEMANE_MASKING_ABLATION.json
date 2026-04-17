@@ -1,0 +1,37 @@
+{
+  "task": "easy_typhoon_response",
+  "training_timesteps": 100000,
+  "eval_episodes": 50,
+  "unmasked": {
+    "policy": "ppo_v3_unmasked",
+    "n_episodes": 50,
+    "reward_mean": 0.9470000000000001,
+    "reward_std": 0.1244727781484771,
+    "reward_min": 0.5895,
+    "reward_max": 1.0760000000000003,
+    "length_mean": 20.0,
+    "violations_mean": 0.0,
+    "invalid_action_picks_mean_per_ep": 13.64,
+    "invalid_action_picks_max": 15
+  },
+  "masked": {
+    "policy": "ppo_v3_masked",
+    "n_episodes": 50,
+    "reward_mean": 1.2005000000000001,
+    "reward_std": 0.19939637032804786,
+    "reward_min": 0.643,
+    "reward_max": 1.3435000000000004,
+    "length_mean": 20.0,
+    "violations_mean": 0.0,
+    "invalid_action_picks_mean_per_ep": 0.0,
+    "invalid_action_picks_max": 0
+  },
+  "action_masking_contribution": {
+    "reward_delta": 0.25350000000000006,
+    "reward_pct_delta": 26.768743400211196,
+    "invalid_action_reduction": 13.64,
+    "training_time_unmasked_min": 5.93399426539739
+  },
+  "interpretation": "The reward_delta is the isolated contribution of action masking vs an otherwise-identical PPO. The invalid_action_reduction shows how often the unmasked agent picks a flatly-invalid joint action. With masking, that's structurally zero.",
+  "elapsed_min": 6.064944458007813
+}
