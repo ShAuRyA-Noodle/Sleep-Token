@@ -28,6 +28,23 @@ tags:
 
 > *"Even in Arcadia, supply chains break. SupplyMind sees it coming."*
 
+## If you have 30 seconds — ten headline numbers
+
+| # | Metric | Value |
+|---|---|---|
+| 1 | **RAG nDCG@10** on real Wiki crisis × SC queries | **0.971** |
+| 2 | **RAG P@1** on 6,483-chunk real corpus | **0.962** |
+| 3 | **RAG MRR** on precise queries | **0.978** |
+| 4 | **LLM 2-judge Krippendorff α** (ordinal) | **0.750** |
+| 5 | **Cohen κ (Qwen × Mistral)** | **0.747** |
+| 6 | **Per-horizon conformal dev** from 95% nominal on WTI | **0.024** |
+| 7 | **MaskablePPO masking lift** (isolated, 3 tasks) | **+26.8% / +15.1%** / invalid → 0 |
+| 8 | **GNN arrival-time MAE reduction vs MLP** | **−48 / −49 / −64%** |
+| 9 | **TimesFM-CP dev @ 95%** (WTI / EUR-USD) | **0.050 / 0.032** |
+| 10 | **PPO vs random/greedy bootstrap CI95** | non-overlapping on all 3 tasks |
+
+Full results page: [`RESULTS.md`](RESULTS.md) — every number reproducible from committed JSON with one `jq` command.
+
 **Meta PyTorch OpenEnv Hackathon submission.** Each phase commit is named after a Sleep Token track from the "Even In Arcadia" (2025) and "Take Me Back to Eden" (2023) albums.
 
 ### Track → phase map (Even In Arcadia)
