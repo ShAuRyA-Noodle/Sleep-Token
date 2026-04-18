@@ -6,6 +6,8 @@
 
 This card covers **every model, every benchmark, every honest finding** across the SupplyMind codebase — the v1 simulated baseline, the v2 real-data retrain, and the v3 SOTA-stack rebuild. For raw results, see `v3_arcadia/results/`. For v2 history, see `docs/legacy/MODEL_CARD_V2.md`.
 
+**Companion docs**: [`BENCHMARKS_VS_PUBLIC.md`](BENCHMARKS_VS_PUBLIC.md) · [`EXTERNAL_CREDIBILITY.md`](EXTERNAL_CREDIBILITY.md) · [`PYTORCH_STORY.md`](PYTORCH_STORY.md) · [`FAILURE_TABLE.md`](FAILURE_TABLE.md) · [`AUDIT_PLAN.md`](AUDIT_PLAN.md) · [`FINAL_DEMO.md`](FINAL_DEMO.md) · [`DEPLOY_HF_SPACE.md`](DEPLOY_HF_SPACE.md) · [`demo/DEMO_TRANSCRIPT.md`](demo/DEMO_TRANSCRIPT.md) · [`challenges/R4_RUBRIC_CHALLENGE.md`](challenges/R4_RUBRIC_CHALLENGE.md).
+
 ---
 
 ## 1. Model inventory (80+ checkpoints, 13 foundation models, 30+ algorithms)
@@ -214,6 +216,17 @@ All six v2 training failures were due to PyTorch 2.11 + cu126 API breakages (`to
 ### F8 — v2 IQL/TD3+BC real-data collapse
 
 Honest finding: IQL_real_v2 and TD3+BC_real_v2 collapsed to ~0% full-match accuracy during real-data retrain. Root cause: DataCo action distribution is extremely imbalanced; offline critic-based methods over-estimated Q-values on rare actions. BC and CQL (with explicit pessimism) did not collapse. Kept in benchmark table to document that **not every SOTA algorithm transfers to domain-shifted tabular data** — valuable negative result. See `benchmark/legacy/BENCHMARK_REAL_V2.json`.
+
+### F9 — Action masking contribution quantified (R6-α isolated ablation)
+
+Honest question: how much of the PPO lift comes from action masking alone vs the rest of the stack? Ran an isolated ablation: same PPO, same 100k steps, same obs space — one with MaskablePPO, one plain. Result (`R6_GETHSEMANE_MASKING_ABLATION.json`):
+
+| | Reward mean ± std | Invalid picks / ep |
+|---|---|---|
+| Unmasked PPO | 0.947 ± 0.124 | 13.64 |
+| Masked PPO | 1.201 ± 0.199 | 0 (structural) |
+
+**Isolated lift: +26.8% reward, 13.64 → 0 invalid actions.** In-range with Huang et al. 2020 ("+10–30% typical"). Plot: `v3_arcadia/plots/gethsemane/r6_masking_ablation.png`.
 
 ---
 

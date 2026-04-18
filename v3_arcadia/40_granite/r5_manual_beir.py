@@ -36,7 +36,10 @@ MODELS = ROOT / "models"
 RESULTS = ROOT / "v3_arcadia" / "results"
 CRISES = ROOT / "external_data" / "wikipedia_crises"
 
-DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+import os
+# Force CPU — this eval is tiny (26 docs x 20 queries) and we don't want GPU
+# contention with concurrently-running forecasters (TimesFM/Chronos).
+DEVICE = os.environ.get("R5_BEIR_DEVICE", "cpu")
 
 EMBEDDERS = {
     "mxbai-embed-large-v1": (MODELS / "mxbai-embed-large",  None),
@@ -207,6 +210,7 @@ def main():
 
     corpus, queries, qrels = build_corpus_and_queries()
 
+    import gc
     results = {}
     for name, (path, backend) in EMBEDDERS.items():
         try:
@@ -218,7 +222,11 @@ def main():
         except Exception as e:
             log.error(f"  {name} FAILED: {str(e)[:200]}")
             results[name] = {"status": "FAILED", "error": str(e)[:300]}
-        torch.cuda.empty_cache()
+        # Aggressive cleanup between models to survive Windows pagefile limits
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        time.sleep(1)
 
     out = {
         "task": "SupplyMind-crisis-retrieval-BEIR-style",
