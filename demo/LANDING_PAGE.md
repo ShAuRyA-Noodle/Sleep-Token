@@ -18,6 +18,25 @@
 
 > *"Even in Arcadia, supply chains break. SupplyMind sees it coming."*
 
+![SupplyMind v3.0-arcadia hero card](../v3_arcadia/plots/hero_result_card.png)
+
+## Ten headline numbers (30-second read)
+
+| # | Metric | Value |
+|---|---|---|
+| 1 | RAG nDCG@10 (Snowflake, out-of-domain) | **0.971** |
+| 2 | RAG P@1 (mxbai bi-encoder, 6,483 chunks) | **0.962** |
+| 3 | RAG MRR (precise queries) | **0.978** |
+| 4 | LLM 2-judge Krippendorff α (ordinal) | **0.750** |
+| 5 | Cohen κ (Qwen × Mistral weighted) | **0.747** |
+| 6 | Per-horizon conformal dev on WTI @ 95% | **0.024** |
+| 7 | MaskablePPO masking lift (easy / hard) | **+26.8% / +15.1%** |
+| 8 | GNN arrival-time MAE reduction vs MLP | **−48 / −49 / −64%** |
+| 9 | TimesFM-CP dev @ 95% (WTI / EUR-USD) | **0.050 / 0.032** |
+| 10 | Tests passing | **173** (2m 14s) |
+
+Every number reproducible with `python scripts/run_all.py` against the committed JSONs.
+
 ---
 
 ## The problem (60-second read)
