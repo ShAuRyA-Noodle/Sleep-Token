@@ -1,19 +1,14 @@
 name: Deploy to HuggingFace Space
 
-# Automatically pushes the main branch to the HuggingFace Space remote.
-# REQUIRES: a repo secret HF_TOKEN with write access to Shaurya-Noodle/Supplymind.
+# Pushes repo contents to the HuggingFace Space via the huggingface_hub upload API.
+# Uses upload_folder (not git push) so LFS is handled automatically and any
+# historical divergence on the HF side is overwritten cleanly.
 #
-# To enable:
-#   1. Generate an HF token at https://huggingface.co/settings/tokens (Write role)
-#   2. GitHub repo → Settings → Secrets and variables → Actions → New repository secret
-#      Name: HF_TOKEN
-#      Value: hf_xxxxxxxxxxxxxxxxx
-#   3. Commit to main — this workflow will run and deploy.
+# REQUIRES: repo secret HF_TOKEN with Write access.
 
 on:
   push:
     branches: [main]
-    # Only deploy when relevant paths change (keeps HF quota low)
     paths:
       - 'server/**'
       - 'models.py'
@@ -21,58 +16,79 @@ on:
       - 'v3_arcadia/**'
       - 'README.md'
       - 'MODEL_CARD.md'
+      - 'RESULTS.md'
       - 'FINAL_DEMO.md'
       - 'BENCHMARKS_VS_PUBLIC.md'
       - 'PYTORCH_STORY.md'
+      - 'comparison.md'
       - 'Dockerfile*'
       - 'requirements*.txt'
       - 'pyproject.toml'
       - 'tests/**'
+      - 'scripts/**'
+      - 'demo/**'
+      - 'challenges/**'
+      - 'docs/**'
   workflow_dispatch:
-    # Manual trigger from the Actions tab
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - name: Checkout with LFS
+      - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          lfs: true
-          fetch-depth: 0  # full history for correct force-push
+          python-version: '3.11'
 
-      - name: Install huggingface-hub CLI
-        run: pip install -U "huggingface_hub[cli]"
+      - name: Install huggingface_hub
+        run: pip install -U "huggingface_hub>=0.25"
 
-      - name: Authenticate HF
+      - name: Upload to HF Space (skips _dump, .git, .github, large notebooks)
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          if [ -z "$HF_TOKEN" ]; then
-            echo "ERROR: HF_TOKEN secret not set. Add it at Settings → Secrets → Actions."
-            exit 1
-          fi
-          huggingface-cli login --token "$HF_TOKEN" --add-to-git-credential
+          python - <<'PY'
+          import os, sys
+          from huggingface_hub import HfApi
+          token = os.environ.get("HF_TOKEN")
+          if not token:
+              print("ERROR: HF_TOKEN is empty")
+              sys.exit(1)
+          api = HfApi(token=token)
+          api.upload_folder(
+              folder_path=".",
+              repo_id="Shaurya-Noodle/Supplymind",
+              repo_type="space",
+              commit_message="Deploy v3.0-arcadia from GitHub main",
+              ignore_patterns=[
+                  ".git/**",
+                  ".github/**",
+                  "_dump/**",
+                  "*.pyc",
+                  "__pycache__/**",
+                  ".pytest_cache/**",
+                  ".venv/**",
+                  "venv/**",
+                  "catboost_info/**",
+                  "notebooks/**",
+                  "models/**",
+                  "external_data/**",
+                  "rl/checkpoints/**",
+                  "rl/data/dataco.csv",
+                  "v3_arcadia/logs/**",
+                  "plots/v3/**.npy",
+              ],
+          )
+          print("HF Space upload complete.")
+          PY
 
-      - name: Configure git
+      - name: Smoke test
+        if: success()
         run: |
-          git config --global user.email "bot@supplymind.dev"
-          git config --global user.name "SupplyMind HF Deploy Bot"
-
-      - name: Add HF Space remote + push
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-          # Use HTTPS with token for push auth
-          git remote add hf "https://user:${HF_TOKEN}@huggingface.co/spaces/Shaurya-Noodle/Supplymind" || \
-            git remote set-url hf "https://user:${HF_TOKEN}@huggingface.co/spaces/Shaurya-Noodle/Supplymind"
-          # Fetch so we can do a safe force-with-lease
-          git fetch hf || true
-          # Push main to the HF Space repo
-          git push hf main --force-with-lease
-
-      - name: Post-deploy smoke test
-        run: |
-          sleep 30  # wait for HF Space rebuild (Docker)
+          sleep 45
           curl -fsS https://shaurya-noodle-supplymind.hf.space/health || \
-            echo "WARN: health check failed (Space may still be building)"
+            echo "WARN: health check returned non-200 (Space may still be rebuilding)"
