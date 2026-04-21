@@ -104,54 +104,61 @@ def _evaluate_policy(model: Any, device: str = "cuda") -> list[float]:
 
 # --- SAFE TO MODIFY BELOW ---
 
-def _curriculum_env(stage: str):
-    from sb3_contrib.common.wrappers import ActionMasker
-    task_map = {
-        "easy": "easy_typhoon_response",
-        "medium": "medium_multi_front",
-        "hard": "hard_cascading_crisis",
-    }
-    def _fn():
-        env = SupplyMindGymnasiumEnv(task_id=task_map[stage], training_mode=True, grade_reward=False)
-        env = FlatDiscreteEnv(env)
-        return ActionMasker(env, lambda e: e.unwrapped._compute_action_mask())
-    return _fn
+def build_policy_and_env(seed: int) -> tuple[Any, Any]:
+    """Build the policy and training environment.
 
-
-def build_policy_and_env(seed: int):
-    """Seed with easy task; training loop will cycle through curriculum."""
+    Default: MaskablePPO with standard 64-64 MLP on easy_typhoon_response.
+    Agent should mutate THIS function plus the training loop below.
+    """
     from sb3_contrib import MaskablePPO
+    from sb3_contrib.common.wrappers import ActionMasker
     from stable_baselines3.common.vec_env import DummyVecEnv
 
-    env = DummyVecEnv([_curriculum_env("easy")])
+    def _env_fn():
+        env = SupplyMindGymnasiumEnv(
+            task_id="easy_typhoon_response",
+            training_mode=True,
+            grade_reward=False,
+        )
+        env = FlatDiscreteEnv(env)
+        return ActionMasker(env, lambda e: e.unwrapped._compute_action_mask())
+
+    env = DummyVecEnv([_env_fn])
     env.seed(seed)
+
     model = MaskablePPO(
-        "MlpPolicy", env,
-        learning_rate=3e-4, n_steps=2048, batch_size=64, gamma=0.99,
-        gae_lambda=0.95, clip_range=0.2, ent_coef=0.01, vf_coef=0.5,
-        max_grad_norm=0.5, policy_kwargs={"net_arch": [128, 128]},
+        "MlpPolicy",
+        env,
+        learning_rate=3e-4,
+        n_steps=2048,
+        batch_size=64,
+        gamma=0.99,
+        gae_lambda=0.95,
+        clip_range=0.2,
+        ent_coef=0.1,
+        vf_coef=0.5,
+        max_grad_norm=0.5,
+        policy_kwargs={"net_arch": [256, 256], "activation_fn": torch.nn.ReLU},
         device="cuda" if torch.cuda.is_available() else "cpu",
-        seed=seed, verbose=0,
+        seed=seed,
+        verbose=0,
     )
     return model, env
 
 
-def train_policy(model, env, total_steps: int) -> None:
-    """Curriculum: 40% easy, 30% medium, 30% hard."""
-    from stable_baselines3.common.vec_env import DummyVecEnv
-    budget_easy = int(total_steps * 0.4)
-    budget_med = int(total_steps * 0.3)
-    budget_hard = total_steps - budget_easy - budget_med
+def train_policy(model: Any, env: Any, total_steps: int) -> None:
+    """Train for `total_steps` environment steps.
 
-    model.learn(total_timesteps=budget_easy, progress_bar=False, reset_num_timesteps=False)
-    model.set_env(DummyVecEnv([_curriculum_env("medium")]))
-    model.learn(total_timesteps=budget_med, progress_bar=False, reset_num_timesteps=False)
-    model.set_env(DummyVecEnv([_curriculum_env("hard")]))
-    model.learn(total_timesteps=budget_hard, progress_bar=False, reset_num_timesteps=False)
+    Agent may swap in curriculum learning, learning-rate schedule, callbacks,
+    reward shaping via wrappers, etc. — as long as the total_steps budget is
+    respected.
+    """
+    model.learn(total_timesteps=total_steps, progress_bar=False)
 
 
 def architecture_summary() -> str:
-    return "MaskablePPO [128,128] curriculum easy->med->hard (40/30/30 split)"
+    """One-line human-readable summary for the lab notebook."""
+    return "MaskablePPO MlpPolicy[256,256]+ReLU, lr=3e-4, n_steps=2048, gamma=0.99"
 
 # --- SAFE TO MODIFY ABOVE ---
 

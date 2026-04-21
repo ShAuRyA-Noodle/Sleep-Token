@@ -378,11 +378,25 @@ def run_hormuz_pipeline(req: ScenarioRequest) -> ScenarioResponse:
 if router is not None:
     @router.get("/health")
     def live_health() -> dict:
+        # All downstream calls wrapped so one dep failure doesn't 500 the whole route.
+        ollama_ok = False
+        try:
+            ollama_ok = _check_ollama()
+        except Exception as e:  # noqa: BLE001
+            logger.warning("ollama check errored: %s", e)
+        counts = {}
+        try:
+            counts = store.count_by_source()
+        except Exception as e:  # noqa: BLE001
+            logger.warning("event store count errored: %s", e)
         return {
             "status": "ok",
-            "ollama_available": _check_ollama(),
+            "ollama_available": ollama_ok,
             "event_store_db": str(store.DB_PATH),
-            "event_counts": store.count_by_source(),
+            "event_counts": counts,
+            "note": ("/live/* endpoints operate in degraded mode if Ollama isn't "
+                     "reachable. The crisis library + analog match + counterfactual "
+                     "still work via the deterministic rubric fallback."),
         }
 
     @router.get("/recent-events")
