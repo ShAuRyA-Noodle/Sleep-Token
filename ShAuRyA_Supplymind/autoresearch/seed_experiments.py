@@ -92,7 +92,8 @@ def _curriculum_env(stage: str):
     }
     def _fn():
         env = SupplyMindGymnasiumEnv(task_id=task_map[stage], training_mode=True, grade_reward=False)
-        return ActionMasker(env, lambda env: env.unwrapped._compute_action_mask())
+        env = FlatDiscreteEnv(env)
+        return ActionMasker(env, lambda e: e.unwrapped._compute_action_mask())
     return _fn
 
 
@@ -139,7 +140,7 @@ def _s4_recurrent_ppo(old: str) -> str:
     """Swap MaskablePPO for RecurrentPPO with LSTM."""
     new_block = '''
 def build_policy_and_env(seed: int):
-    """RecurrentPPO with LSTM memory (128 units)."""
+    """RecurrentPPO with LSTM memory (128 units). Flat-discrete for parity."""
     from sb3_contrib import RecurrentPPO
     from stable_baselines3.common.vec_env import DummyVecEnv
 
@@ -149,7 +150,7 @@ def build_policy_and_env(seed: int):
             training_mode=True,
             grade_reward=False,
         )
-        return env  # RecurrentPPO handles masking via info
+        return FlatDiscreteEnv(env)
 
     env = DummyVecEnv([_env_fn])
     env.seed(seed)
@@ -216,6 +217,7 @@ def build_policy_and_env(seed: int):
             training_mode=True,
             grade_reward=False,
         )
+        env = FlatDiscreteEnv(env)
         env = ActionDiversityWrapper(env, k=5, bonus=0.02)
         return ActionMasker(env, lambda e: e.unwrapped._compute_action_mask())
 

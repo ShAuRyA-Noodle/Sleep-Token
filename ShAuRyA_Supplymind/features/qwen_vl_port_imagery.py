@@ -101,7 +101,7 @@ def _ollama_has_vl() -> bool:
         return False
 
 
-def _call_ollama_vl(image_b64: str, prompt: str, model: str = "qwen2.5-vl:7b") -> dict:
+def _call_ollama_vl(image_b64: str, prompt: str, model: str = "qwen2.5vl:7b") -> dict:
     start = time.time()
     r = requests.post(
         f"{OLLAMA_URL}/api/chat",

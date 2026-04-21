@@ -50,8 +50,6 @@ def test_rubric_scoring_functions():
 
 def test_benchmark_reports_when_ollama_down():
     """Without Ollama the benchmark should report status cleanly, not crash."""
-    # Force-fail Ollama detection by pointing at a bad URL
-    import importlib
     ab._ollama_up_original = ab._ollama_up
     ab._ollama_up = lambda: False
     try:
@@ -59,3 +57,24 @@ def test_benchmark_reports_when_ollama_down():
         assert result["status"] == "ollama_down"
     finally:
         ab._ollama_up = ab._ollama_up_original
+
+
+def test_committed_real_result_shows_v5_beats_base():
+    """The committed R9_ANALYST_AB_V5.json must show v5 dominates base Qwen."""
+    from pathlib import Path
+    import json
+    results_path = Path(__file__).resolve().parents[1] / "features" / "R9_ANALYST_AB_V5.json"
+    if not results_path.exists():
+        import pytest
+        pytest.skip("R9_ANALYST_AB_V5.json not yet generated")
+    data = json.loads(results_path.read_text(encoding="utf-8"))
+    if data.get("status") != "ok":
+        import pytest
+        pytest.skip(f"A/B not yet run: status={data.get('status')}")
+    s = data["summary"]
+    # v5 must beat base on exact-risk accuracy by a non-trivial margin
+    assert s["exact_acc_lift"] >= 0.3, \
+        f"v5 should beat base by >=0.3 exact-acc; got {s['exact_acc_lift']}"
+    # v5 evidence coverage should exceed base (calibration working)
+    assert s["v5_evidence_mean"] > s["base_evidence_mean"], \
+        "v5 evidence coverage should exceed base"

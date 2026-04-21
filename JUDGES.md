@@ -5,25 +5,38 @@
 
 ## 30-second pitch
 
-**SupplyMind v4.0-arcadia-live** is an OpenEnv-compliant supply-chain risk management environment. 13 local SOTA foundation models, 261K real data points, 249+ passing tests, and — unique to v4 — a **live geopolitical pipeline** that polls real-time news from NewsAPI / GDELT / USGS / FRED and feeds a 3-judge LLM panel against the real 2026 Iran / Israel / Hormuz crisis.
+**SupplyMind v4.0-arcadia-live** is an OpenEnv-compliant supply-chain risk management environment. 13 local SOTA foundation models, 261K real data points, 250+ passing tests, and — unique to v4 — a **live geopolitical pipeline** that polls real-time news from NewsAPI / GDELT / USGS / FRED and feeds a 3-judge LLM panel against the real 2026 Iran / Israel / Hormuz crisis.
 
-## Top 10 headline numbers (every one reproducible in 30 seconds)
+### Real execution numbers (2026-04-22 run):
+- **supplymind-analyst:v5** wins **8/10 (80%)** exact-risk on the A/B benchmark vs base Qwen-2.5-14B **0/10 (0%)**. Evidence coverage **91.7% vs 0%**.
+- **Karpathy autoresearch** loop accepted 2/5 seed hypotheses; best CI95-lower **0.4548** (s2_higher_entropy).
+- **Qwen-VL-7B** real assessment of all 7 critical ports (Kaohsiung, Shanghai, Long Beach, Rotterdam, Jebel Ali, Haifa, Hodeidah) with mean confidence 0.786.
+- **Live Brent** ingested from FRED on 2026-04-21 at **$123.28/bbl** via the v4 realtime ingestor.
+- **SPOF F1**: legacy 0.949 → v2 **1.000** on 3 real supply-chain graphs.
+- **Stacking v2** on 60K DataCo rows: +0.0045 AUC vs legacy weighted voting.
+
+## 15 headline receipts (every one produces the real value in 30 seconds)
 
 ```bash
 # After `pip install -r requirements.txt`, run any of these:
-bash ShAuRyA_Supplymind/receipts/R5_GRANITE_mxbai_P1.reproduce.sh      # -> 0.9622
-bash ShAuRyA_Supplymind/receipts/R5_BEIR_snowflake_nDCG10.reproduce.sh # -> 0.9710
+bash ShAuRyA_Supplymind/receipts/R5_GRANITE_mxbai_P1.reproduce.sh        # -> 0.9622
+bash ShAuRyA_Supplymind/receipts/R5_GRANITE_mxbai_MRR.reproduce.sh       # -> 0.9780
+bash ShAuRyA_Supplymind/receipts/R5_BEIR_snowflake_nDCG10.reproduce.sh   # -> 0.9710
 bash ShAuRyA_Supplymind/receipts/R4_2JUDGE_Krippendorff_alpha.reproduce.sh  # -> 0.7499
-bash ShAuRyA_Supplymind/receipts/R6_MaskingAblation_easy_lift.reproduce.sh # -> 26.77
-bash ShAuRyA_Supplymind/receipts/R6_GCN_easy_MAE_vs_MLP.reproduce.sh   # -> 48.0247
-bash ShAuRyA_Supplymind/receipts/R6_AquaRegia_WTI_dev95.reproduce.sh   # -> 0.0238
-bash ShAuRyA_Supplymind/receipts/R3_TimesFM_CP_WTI_dev95.reproduce.sh  # -> 0.050
-bash ShAuRyA_Supplymind/receipts/V4_SPOF_V2_F1.reproduce.sh            # -> 1.0
-bash ShAuRyA_Supplymind/receipts/V4_STACKING_V2_lift_vs_WV.reproduce.sh # -> 0.001
-bash ShAuRyA_Supplymind/receipts/V4_Live_Brent_202604.reproduce.sh     # -> 123.28
+bash ShAuRyA_Supplymind/receipts/R4_Cohen_kappa_QwenMistral.reproduce.sh # -> 0.7474
+bash ShAuRyA_Supplymind/receipts/R6_MaskingAblation_easy_lift.reproduce.sh # -> 26.77 (%)
+bash ShAuRyA_Supplymind/receipts/R6_GCN_easy_MAE_vs_MLP.reproduce.sh     # -> 48.02 (%)
+bash ShAuRyA_Supplymind/receipts/R6_AquaRegia_WTI_dev95.reproduce.sh     # -> 0.0238
+bash ShAuRyA_Supplymind/receipts/R3_TimesFM_CP_WTI_dev95.reproduce.sh    # -> 0.0500
+bash ShAuRyA_Supplymind/receipts/V4_SPOF_V2_F1.reproduce.sh              # -> 1.0
+bash ShAuRyA_Supplymind/receipts/V4_STACKING_V2_lift_vs_WV.reproduce.sh  # -> 0.0045
+bash ShAuRyA_Supplymind/receipts/V4_Analyst_V5_Exact_Acc.reproduce.sh    # -> 0.8 (v5 exact lift vs base Qwen)
+bash ShAuRyA_Supplymind/receipts/V4_Autoresearch_Best_CI95.reproduce.sh  # -> 0.4548 (autoresearch winner)
+bash ShAuRyA_Supplymind/receipts/V4_Live_Brent_202604.reproduce.sh       # -> 123.28 ($/bbl on 2026-04-21)
+bash ShAuRyA_Supplymind/receipts/V4_Tests_Total.reproduce.sh             # -> pytest collection listing
 ```
 
-All 13 receipts are in `ShAuRyA_Supplymind/receipts/INDEX.md`.
+All 15 receipts are in `ShAuRyA_Supplymind/receipts/INDEX.md`.
 
 ## The live Hormuz demo (90 seconds, on my laptop)
 

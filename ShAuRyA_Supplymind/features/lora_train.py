@@ -135,8 +135,8 @@ class LoRAConfig:
     target_modules: tuple[str, ...] = ("q_proj", "v_proj", "k_proj", "o_proj")
     learning_rate: float = 2e-4
     n_epochs: int = 3
-    batch_size: int = 2
-    gradient_accumulation: int = 8
+    batch_size: int = 1
+    gradient_accumulation: int = 2
     max_seq_length: int = 2048
     warmup_ratio: float = 0.05
     weight_decay: float = 0.01
