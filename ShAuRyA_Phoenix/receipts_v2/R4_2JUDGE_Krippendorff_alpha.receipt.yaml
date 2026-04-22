@@ -1,0 +1,22 @@
+claim_id: R4_2JUDGE_Krippendorff_alpha
+claim: 2-judge (Qwen-14B + Mistral-Nemo) Krippendorff ordinal alpha on 26 scenarios equals 0.7499
+command: python -m v3_arcadia.30_dangerous.r4_ablation_and_baseline --out /tmp/r4_ab.json
+extraction: python -c "import json; print(json.load(open(r\"/tmp/r4_ab.json\")).get(\"agreement_primary_panel\",{}).get(\"krippendorff_alpha_ordinal\"))"
+expected: 0.7499
+comparator: ==
+expected_range: ''
+expected_regex: ''
+actual: <pending-first-run>
+exit_code: -1
+stdout_inline: ''
+stdout_sha256: ''
+stderr_tail: ''
+stdout_bytes: 0
+match: false
+comparator_note: ''
+runtime_s: 0.0
+timestamp_utc: <pending-first-run>
+hardware: <pending-first-run>
+python_version: ''
+platform: ''
+env_notes:

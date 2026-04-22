@@ -1,0 +1,28 @@
+{
+  "task_id": "easy_typhoon_response",
+  "severity": 0.85,
+  "brent_usd": 123.0,
+  "policy_names": [
+    "trained_maskable_ppo",
+    "no_action",
+    "greedy"
+  ],
+  "median_loss_usd": {
+    "trained": 37044000,
+    "no_action": 183235500,
+    "greedy": 183235500
+  },
+  "p95_loss_usd": {
+    "trained": 64731150,
+    "no_action": 183548700,
+    "greedy": 183548700
+  },
+  "savings_vs_no_action_usd": 135529200,
+  "savings_ci95_usd": [
+    126482445,
+    141601635
+  ],
+  "savings_pct": 74.0,
+  "n_rollouts": 20,
+  "generated_at": "2026-04-22T07:08:40Z"
+}

@@ -1,0 +1,22 @@
+claim_id: R5_GRANITE_mxbai_P1
+claim: mxbai-embed-large P@1 on 53 precise SupplyMind queries equals 0.9622
+command: python -m v3_arcadia.40_granite.r5_rag_beast --pipeline mxbai_bi --out /tmp/r5_granite_p1.json
+extraction: python -c "import json; print(json.load(open(r\"/tmp/r5_granite_p1.json\")).get(\"pipelines\",{}).get(\"P2_mxbai_bi\",{}).get(\"p1\"))"
+expected: 0.9622
+comparator: ==
+expected_range: ''
+expected_regex: ''
+actual: <pending-first-run>
+exit_code: -1
+stdout_inline: ''
+stdout_sha256: ''
+stderr_tail: ''
+stdout_bytes: 0
+match: false
+comparator_note: ''
+runtime_s: 0.0
+timestamp_utc: <pending-first-run>
+hardware: <pending-first-run>
+python_version: ''
+platform: ''
+env_notes:

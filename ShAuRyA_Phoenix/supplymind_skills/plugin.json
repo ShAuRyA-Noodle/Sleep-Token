@@ -1,0 +1,36 @@
+{
+  "name": "supplymind-skills",
+  "version": "1.0.0",
+  "description": "Claude Code skill pack for ML hackathon discipline: benchmark-runner, autoresearch-experiment, live-demo-orchestrator.",
+  "author": "ShAuRyA-Noodle",
+  "license": "MIT",
+  "homepage": "https://github.com/ShAuRyA-Noodle/Sleep-Token",
+  "keywords": [
+    "ml",
+    "benchmarking",
+    "reproducibility",
+    "autoresearch",
+    "karpathy-loop",
+    "live-demo",
+    "hackathon",
+    "supplymind"
+  ],
+  "skills": [
+    {
+      "name": "benchmark-runner",
+      "path": "benchmark-runner/SKILL.md",
+      "description": "TDD discipline for performance claims: RED baseline, implement, GREEN post-change, verify delta, receipt."
+    },
+    {
+      "name": "autoresearch-experiment",
+      "path": "autoresearch-experiment/SKILL.md",
+      "description": "Karpathy-pattern autonomous ML research loop: program.md + mutable candidate + fixed-budget runner + bootstrap-CI95 accept/reject + lab notebook."
+    },
+    {
+      "name": "live-demo-orchestrator",
+      "path": "live-demo-orchestrator/SKILL.md",
+      "description": "Pre/during/post live demo discipline with offline replay fallbacks, golden response capture, and backup video protocol."
+    }
+  ],
+  "attribution": "Methodology derived from Jesse Vincent's obra/superpowers (MIT)."
+}

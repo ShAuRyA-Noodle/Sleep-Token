@@ -67,6 +67,17 @@ v3_arcadia/checkpoints/gethsemane/best_*/
 ROLL-main/
 superpowers-main/
 
+# Phoenix v5 auto-generated state (keep source code, exclude heavy + auto-gen)
+ShAuRyA_Phoenix/.venv-roll/
+ShAuRyA_Phoenix/.venv/
+ShAuRyA_Phoenix/experiments/dpo_judge_v1/checkpoints/
+ShAuRyA_Phoenix/experiments/dpo_judge_v1/adapter/
+ShAuRyA_Phoenix/roll_integration/dpo_judge/adapter/
+ShAuRyA_Phoenix/**/__pycache__/
+ShAuRyA_Phoenix/**/*.pyc
+ShAuRyA_Phoenix/**/*.log
+ShAuRyA_Phoenix/receipts_v2/*.stdout
+
 # v4 arcadia-live auto-generated state
 ShAuRyA_Supplymind/realtime/events.db
 ShAuRyA_Supplymind/realtime/events.db-journal

@@ -1,0 +1,22 @@
+claim_id: R6_GCN_easy_MAE_vs_MLP
+claim: GCN beats MLP on easy graph by 48.02 percent MAE reduction
+command: python -m v3_arcadia.70_provider.r6_gnn_arrival_time --out /tmp/r6_gnn.json
+extraction: python -c "import json; print(round(100*json.load(open(r\"/tmp/r6_gnn.json\")).get(\"easy\",{}).get(\"mae_reduction_pct\",0),4))"
+expected: 48.0247
+comparator: ==
+expected_range: ''
+expected_regex: ''
+actual: <pending-first-run>
+exit_code: -1
+stdout_inline: ''
+stdout_sha256: ''
+stderr_tail: ''
+stdout_bytes: 0
+match: false
+comparator_note: ''
+runtime_s: 0.0
+timestamp_utc: <pending-first-run>
+hardware: <pending-first-run>
+python_version: ''
+platform: ''
+env_notes:
