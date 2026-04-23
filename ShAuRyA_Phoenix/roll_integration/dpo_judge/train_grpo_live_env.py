@@ -95,29 +95,71 @@ def _parse_assessment(completion: str) -> dict:
     return {"risk_level": "UNKNOWN", "confidence": 0.0}
 
 
-def make_env_reward_fn(env_url: str, timeout_s: float = 20.0):
-    """Build a GRPO-compatible reward function that calls the live env."""
+def make_env_reward_funcs(env_url: str, timeout_s: float = 20.0):
+    """Build THREE independent GRPO reward functions that each call the live env.
+
+    Per hackathon self-serve guide §7 ("multiple independent reward functions")
+    and §15 ("monitor individual reward function columns"), we expose
+    match/format/length as separate TRL reward functions so GRPOTrainer can log
+    each column separately. GRPOConfig.reward_weights=[0.7, 0.2, 0.1] folds them
+    back into the single training objective.
+
+    To avoid 3x HTTP calls per completion, we memoize the full /analyst/grade
+    response keyed by (scenario_id, completion_hash) — the first reward function
+    populates the cache, the other two read from it.
+    """
     client = SupplyMindClient(env_url, timeout_s=timeout_s)
-    http = client._client  # thin reuse of the underlying httpx.Client
+    http = client._client
+    cache: dict = {}
+
+    def _get_breakdown(sid: str, comp: str) -> dict:
+        key = (sid, hash(comp))
+        if key in cache:
+            return cache[key]
+        default = {"match": 0.0, "format": 0.0, "length": 0.0}
+        try:
+            r = http.post("/analyst/grade", json={
+                "scenario_id": sid,
+                "assessment": _parse_assessment(comp),
+                "raw_completion": comp,
+            })
+            if r.status_code == 200:
+                bd = r.json().get("breakdown", default)
+            else:
+                bd = default
+        except Exception as e:  # noqa: BLE001
+            logger.warning("[grpo_live_env] reward call failed: %s", e)
+            bd = default
+        cache[key] = bd
+        return bd
+
+    def match_reward(completions, scenario_id=None, **_):
+        scenario_id = scenario_id or [""] * len(completions)
+        return [float(_get_breakdown(s, c)["match"]) for c, s in zip(completions, scenario_id)]
+    match_reward.__name__ = "match"
+
+    def format_reward(completions, scenario_id=None, **_):
+        scenario_id = scenario_id or [""] * len(completions)
+        return [float(_get_breakdown(s, c)["format"]) for c, s in zip(completions, scenario_id)]
+    format_reward.__name__ = "format"
+
+    def length_reward(completions, scenario_id=None, **_):
+        scenario_id = scenario_id or [""] * len(completions)
+        return [float(_get_breakdown(s, c)["length"]) for c, s in zip(completions, scenario_id)]
+    length_reward.__name__ = "length"
+
+    return [match_reward, format_reward, length_reward], client
+
+
+# Back-compat alias + monolithic reward used by --dry-run display.
+def make_env_reward_fn(env_url: str, timeout_s: float = 20.0):
+    funcs, client = make_env_reward_funcs(env_url, timeout_s=timeout_s)
+    weights = [0.7, 0.2, 0.1]
 
     def reward_fn(completions, scenario_id, **_):
-        """Signature follows TRL GRPOTrainer: (list[str], list[str]) -> list[float]."""
-        rewards: list[float] = []
-        for comp, sid in zip(completions, scenario_id):
-            try:
-                r = http.post("/analyst/grade", json={
-                    "scenario_id": sid,
-                    "assessment": _parse_assessment(comp),
-                    "raw_completion": comp,
-                })
-                if r.status_code == 200:
-                    rewards.append(float(r.json()["reward"]))
-                else:
-                    rewards.append(0.0)  # env rejected the request
-            except Exception as e:  # noqa: BLE001  — treat network errors as zero reward
-                logger.warning("[grpo_live_env] reward call failed: %s", e)
-                rewards.append(0.0)
-        return rewards
+        per_component = [f(completions, scenario_id) for f in funcs]
+        return [sum(w * c[i] for w, c in zip(weights, per_component))
+                for i in range(len(completions))]
 
     return reward_fn, client
 
@@ -178,17 +220,31 @@ def main():
     # -------------------------------------------------------------------
     # 2. Roundtrip test: smoke the reward endpoint with a known-correct
     #    and known-wrong assessment to confirm reward ordering holds.
+    #    Exercises ALL 3 component reward functions — the ones GRPOTrainer
+    #    will log independently during training (guide §7 + §15).
     # -------------------------------------------------------------------
-    reward_fn, _ = make_env_reward_fn(args.env_url)
+    reward_funcs, _ = make_env_reward_funcs(args.env_url)
+    reward_weights = [0.7, 0.2, 0.1]
     test_scen = scenario_ids[0]
     correct_comp = ('{"risk_level": "CRITICAL", "confidence": 0.9, '
                     '"vulnerabilities": ["a","b","c"], '
                     '"mitigations": ["d","e","f"]}  ' * 3)
     wrong_comp = '{"risk_level": "LOW", "confidence": 0.3}  ' * 3
-    rewards = reward_fn([correct_comp, wrong_comp], [test_scen, test_scen])
-    logger.info("[grpo_live_env] smoke: correct=%.3f wrong=%.3f", rewards[0], rewards[1])
-    if not (rewards[0] > rewards[1]):
-        logger.error("[grpo_live_env] reward ordering broken — env returned %s", rewards)
+
+    per_component = [
+        fn([correct_comp, wrong_comp], [test_scen, test_scen]) for fn in reward_funcs
+    ]
+    # per_component[i] = [correct_score_i, wrong_score_i]
+    correct_total = sum(w * pc[0] for w, pc in zip(reward_weights, per_component))
+    wrong_total = sum(w * pc[1] for w, pc in zip(reward_weights, per_component))
+    comp_names = [fn.__name__ for fn in reward_funcs]
+    logger.info("[grpo_live_env] smoke components: %s",
+                {comp_names[i]: (per_component[i][0], per_component[i][1]) for i in range(3)})
+    logger.info("[grpo_live_env] smoke totals: correct=%.3f wrong=%.3f",
+                correct_total, wrong_total)
+    if not (correct_total > wrong_total):
+        logger.error("[grpo_live_env] reward ordering broken — correct=%.3f wrong=%.3f",
+                     correct_total, wrong_total)
         sys.exit(4)
 
     prompts = build_prompt_dataset(scenario_ids)
@@ -200,10 +256,16 @@ def main():
             "env_health": True,
             "n_scenarios": len(scenario_ids),
             "n_prompts": len(prompts),
-            "smoke_reward_correct": rewards[0],
-            "smoke_reward_wrong": rewards[1],
-            "reward_gap": rewards[0] - rewards[1],
-            "reward_source": "live HTTP POST /analyst/grade",
+            "reward_components": comp_names,
+            "reward_weights": reward_weights,
+            "smoke_per_component": {
+                comp_names[i]: {"correct": per_component[i][0],
+                                 "wrong": per_component[i][1]} for i in range(3)
+            },
+            "smoke_reward_correct": correct_total,
+            "smoke_reward_wrong": wrong_total,
+            "reward_gap": correct_total - wrong_total,
+            "reward_source": "live HTTP POST /analyst/grade (3 independent components)",
             "training_loop_connected_to_env": True,
         }
         print(json.dumps(summary, indent=2))
@@ -234,7 +296,7 @@ def main():
 
     ds = Dataset.from_list(prompts)
 
-    cfg = GRPOConfig(
+    cfg_kwargs = dict(
         output_dir=str(args.out),
         num_generations=args.gen,
         max_prompt_length=1024,
@@ -252,10 +314,16 @@ def main():
         remove_unused_columns=False,
         beta=0.04,
     )
+    # Older trl versions don't support reward_weights; add only if available so
+    # this trainer survives version drift on the onsite HF-compute image.
+    import inspect as _inspect
+    if "reward_weights" in _inspect.signature(GRPOConfig).parameters:
+        cfg_kwargs["reward_weights"] = reward_weights
+    cfg = GRPOConfig(**cfg_kwargs)
 
     trainer = GRPOTrainer(
         model=policy,
-        reward_funcs=reward_fn,
+        reward_funcs=reward_funcs,          # list of 3 — logged separately by TRL
         args=cfg,
         train_dataset=ds,
         tokenizer=tokenizer,
