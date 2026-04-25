@@ -1005,6 +1005,32 @@ async def analyst_holdout_eval(req: HoldoutEvalRequest) -> HoldoutEvalResponse:
 
 
 # ============================================================
+# /live/intel-fan-out — 20-source live fan-out (pass 6 C4)
+# ============================================================
+#
+# Concurrent ingest across the v1 baseline (5 sources) + v2 expansion
+# fleet (15 sources). Returns aggregated events with per-source counts +
+# uniform schema. Every event has a real raw_url to a public source.
+
+class FanOutResponse(BaseModel):
+    summary: dict
+    events: list[dict]
+
+
+@app.post("/live/intel-fan-out", response_model=FanOutResponse, tags=["live"])
+async def live_intel_fan_out(timeout_s: float = 45.0,
+                              parallel: int = 8) -> FanOutResponse:
+    """Fan out across all 20 real-data sources concurrently.
+
+    No synthetic substitution. Each source independent — failures don't
+    block successes. Per-source counts surfaced in `summary.n_events_per_source`.
+    """
+    from ShAuRyA_Supplymind.realtime.orchestrator_v2 import fan_out_all
+    result = fan_out_all(timeout_s=timeout_s, parallel=parallel)
+    return FanOutResponse(**result)
+
+
+# ============================================================
 # /agent/decide — IntegratedAgent single-call 5-stage pipeline
 # ============================================================
 #
