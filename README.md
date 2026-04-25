@@ -17,7 +17,7 @@ tags:
 
 # SupplyMind v3.0-arcadia
 
-**OpenEnv-compliant supply-chain risk management. 13 local SOTA foundation models + 18-model OpenRouter frontier panel. 272 passing tests (274 collected). 261,175 real data points. Full local inference with live env-connected HTTP reward oracle. Zero synthetic substitution in the reward path.**
+**OpenEnv-compliant supply-chain risk management. 13 local SOTA foundation models + 18-model OpenRouter frontier panel + 20-source real-data fan-out (NewsAPI / GDELT / USGS / FRED / MarineTraffic / WHO / NOAA NDBC + Tides / NASA EONET + FIRMS / EIA / GFW / SEC EDGAR / CISA KEV / HackerNews / Wikipedia pageviews / World Bank / OFAC / GDELT-Conflict / GDELT-Humanitarian). 272 passing tests (274 collected). 1500-event auto-cooked crisis library from real EMDAT data (16,812 disasters 2000-2026). 4-method Platinum counterfactual (paired-bootstrap MC + synthetic control + BSTS-lite + SCM do-calculus) calibrated against 6 published economic-impact anchors (Suez 2021 \$9.6B/day, Tohoku 2011 \$235B, Katrina 2005 \$200B, Fukushima 2011 \$187B, COVID-chip 2020-23 \$500B+, Texas freeze 2021 \$130B). Full local inference with live env-connected HTTP reward oracle. Zero synthetic substitution anywhere in the data or reward path.**
 
 [![OpenEnv](https://img.shields.io/badge/OpenEnv-compliant-blue)](https://github.com/meta-llama/open-env)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)

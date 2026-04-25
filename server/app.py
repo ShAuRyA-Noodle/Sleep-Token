@@ -1005,6 +1005,75 @@ async def analyst_holdout_eval(req: HoldoutEvalRequest) -> HoldoutEvalResponse:
 
 
 # ============================================================
+# /library/v2/search — auto-cooked 1500-event crisis library (pass 6 C5)
+# ============================================================
+
+
+class LibrarySearchRequest(BaseModel):
+    query: str = Field(..., description="Natural-language disruption description")
+    top_k: int = Field(5, ge=1, le=20)
+
+
+@app.post("/library/v2/search", tags=["library"])
+async def library_v2_search(req: LibrarySearchRequest) -> dict:
+    """Search the auto-cooked crisis library v2 (1500 EMDAT events,
+    mxbai-embed-large embeddings, FAISS HNSW index). Severity tiers
+    derived from real EMDAT death/damage/affected counts — no LLM,
+    no hand-set tiers.
+    """
+    try:
+        from ShAuRyA_Supplymind.scenarios.library_v2_search import search
+        matches = search(req.query, top_k=req.top_k)
+        return {
+            "query": req.query, "n_matches": len(matches),
+            "matches": matches,
+            "library_size": 1500,
+            "ground_truth_source": "EMDAT_2000-2026_deterministic_severity_rule",
+            "embedding_model": "mxbai-embed-large-v1",
+            "embedding_dim": 1024,
+            "inference_type": "live_faiss_search_real_emdat_data",
+        }
+    except FileNotFoundError as e:
+        raise HTTPException(503, f"crisis library v2 not cooked: {e}")
+    except Exception as e:  # noqa: BLE001
+        raise HTTPException(500, f"library v2 search failed: {type(e).__name__}: {e}")
+
+
+# ============================================================
+# /counterfactual/platinum — 4-method causal counterfactual (pass 6 C7)
+# ============================================================
+
+
+class PlatinumRequest(BaseModel):
+    target_event_id: str | None = Field(None, description="Optional EMDAT event id; auto if omitted")
+    task_id: str = Field("easy_typhoon_response")
+    severity_tier: str = Field("HIGH", pattern="^(LOW|MEDIUM|HIGH|CRITICAL)$")
+    n_episodes_mc: int = Field(20, ge=1, le=500)
+
+
+@app.post("/counterfactual/platinum", tags=["counterfactual"])
+async def counterfactual_platinum(req: PlatinumRequest) -> dict:
+    """Run all 4 Platinum counterfactual methods + cross-method consensus.
+
+    Methods:
+      A. Paired-bootstrap MC on the actual env
+      B. Synthetic Control via least-squares donor weighting (real EMDAT)
+      C. BSTS-lite ARIMA counterfactual
+      D. SCM do-calculus on the supply-chain graph
+
+    No magic constants. No 80% cap. Every assumption surfaced in `extra`.
+    Paper-anchor calibration list included.
+    """
+    from ShAuRyA_Phoenix.counterfactual_v2.platinum import estimate_savings
+    return estimate_savings(
+        target_event_id=req.target_event_id,
+        task_id=req.task_id,
+        severity_tier=req.severity_tier,
+        n_episodes_mc=req.n_episodes_mc,
+    )
+
+
+# ============================================================
 # /live/intel-fan-out — 20-source live fan-out (pass 6 C4)
 # ============================================================
 #
