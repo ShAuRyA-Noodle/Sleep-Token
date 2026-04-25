@@ -115,6 +115,15 @@ try:
 except Exception as _e:  # noqa: BLE001
     logger.info("v8 war-room router not mounted (%s) — continuing", _e)
 
+# v11 — Qwen-VL port-imagery card. Mounts /demo/port-imagery POST. Graceful no-op.
+try:
+    from ShAuRyA_Supplymind.realtime.port_imagery_router import router as _port_imagery_router
+    if _port_imagery_router is not None:
+        app.include_router(_port_imagery_router, tags=["port-imagery (v11)"])
+        logger.info("mounted port-imagery router (v11)")
+except Exception as _e:  # noqa: BLE001
+    logger.info("v11 port-imagery router not mounted (%s)", _e)
+
 
 # v5 arcadia-live-II (Phoenix) — mount OpenEnv Arena + Counterfactual Twin +
 # Hormuz offline replay. Each graceful-no-op independently.
