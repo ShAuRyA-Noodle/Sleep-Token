@@ -105,6 +105,16 @@ try:
 except Exception as _e:  # noqa: BLE001
     logger.info("v4 /live router not mounted (%s) — continuing with v3 endpoints", _e)
 
+# v8 — Hormuz War Room demo (additive, isolated). Mounts at app root so routes
+# live at /demo/hormuz-war-room and /demo/hormuz-war-room/ui. Graceful no-op.
+try:
+    from ShAuRyA_Supplymind.realtime.hormuz_war_room_router import router as _war_room_router
+    if _war_room_router is not None:
+        app.include_router(_war_room_router, tags=["war-room (v8)"])
+        logger.info("mounted Hormuz War Room router (v8)")
+except Exception as _e:  # noqa: BLE001
+    logger.info("v8 war-room router not mounted (%s) — continuing", _e)
+
 
 # v5 arcadia-live-II (Phoenix) — mount OpenEnv Arena + Counterfactual Twin +
 # Hormuz offline replay. Each graceful-no-op independently.

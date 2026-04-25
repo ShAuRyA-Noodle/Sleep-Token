@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "title": "Strait of Hormuz chokepoint atlas — IEA + EIA primary-source facts",
+  "purpose": "Single source of truth for every quantitative claim made by the SupplyMind War Room about Hormuz throughput, bypass capacity, and global oil/LNG transit. Every value is cited to a public URL; no model-generated numbers in this file.",
+  "last_curated": "2026-04-23",
+  "curation_policy": "Each fact has source_type ∈ {primary, secondary, model_estimate}. We do not include model_estimate in this file; only primary/secondary. The endpoint may produce model_estimate values at runtime but they go to a separate response field with explicit labelling.",
+  "facts": [
+    {
+      "id": "hormuz_oil_throughput_2024",
+      "claim": "Approximately 20 million barrels per day of crude oil and refined products moved through the Strait of Hormuz in 2024.",
+      "value": 20.0,
+      "unit": "million_barrels_per_day",
+      "year": 2024,
+      "source_type": "primary",
+      "publisher": "U.S. Energy Information Administration (EIA)",
+      "title": "World Oil Transit Chokepoints — Hormuz",
+      "url": "https://www.eia.gov/international/analysis/special-topics/World_Oil_Transit_Chokepoints",
+      "retrieved_note": "EIA designates Hormuz as the world's most important oil chokepoint."
+    },
+    {
+      "id": "hormuz_seaborne_share",
+      "claim": "Hormuz transit represents roughly 25% of global seaborne oil trade.",
+      "value": 25,
+      "unit": "percent_of_global_seaborne_oil",
+      "year": 2024,
+      "source_type": "primary",
+      "publisher": "International Energy Agency (IEA)",
+      "title": "Oil Market Report — Strait of Hormuz commentary",
+      "url": "https://www.iea.org/reports/oil-market-report-april-2024",
+      "retrieved_note": "IEA OMR commentary, multiple 2024 issues. Same number appears in IEA Oil 2024 (annual report)."
+    },
+    {
+      "id": "hormuz_asia_destination_share",
+      "claim": "Approximately 80% of crude and condensate transiting Hormuz is destined for Asian markets (China, India, Japan, Korea, Singapore).",
+      "value": 80,
+      "unit": "percent_of_hormuz_oil_destined_for_asia",
+      "year": 2024,
+      "source_type": "primary",
+      "publisher": "U.S. Energy Information Administration (EIA)",
+      "title": "Today in Energy — Strait of Hormuz",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=55077",
+      "retrieved_note": "EIA tracking shows ~82% of crude+condensate from Hormuz went to Asia in 2022; ~80% used as round figure."
+    },
+    {
+      "id": "hormuz_lng_share",
+      "claim": "Approximately 20% of global liquefied natural gas (LNG) trade transited the Strait of Hormuz in 2024.",
+      "value": 20,
+      "unit": "percent_of_global_lng_trade",
+      "year": 2024,
+      "source_type": "primary",
+      "publisher": "U.S. Energy Information Administration (EIA)",
+      "title": "Today in Energy — LNG transit through Hormuz",
+      "url": "https://www.eia.gov/todayinenergy/detail.php?id=55079",
+      "retrieved_note": "EIA: Qatar (~77 MTPA) and UAE (~5 MTPA) LNG exports flow through Hormuz; combined ~20% of 2024 global LNG trade of ~415 MTPA."
+    },
+    {
+      "id": "hormuz_bypass_capacity_mbd",
+      "claim": "Existing pipelines that bypass Hormuz (Saudi Arabia East–West / Petroline; UAE Habshan–Fujairah / ADCOP) have an effective spare bypass capacity of approximately 3.5–5.5 mb/d as of 2024.",
+      "value_range": [3.5, 5.5],
+      "unit": "million_barrels_per_day_spare_bypass",
+      "year": 2024,
+      "source_type": "primary",
+      "publisher": "International Energy Agency (IEA)",
+      "title": "Oil Market Report and IEA chokepoint commentary",
+      "url": "https://www.iea.org/articles/the-strait-of-hormuz",
+      "retrieved_note": "Petroline ~5 mb/d nameplate, ADCOP ~1.5 mb/d nameplate; effective spare after current utilization is the 3.5–5.5 mb/d band IEA cites. Far below full Hormuz throughput of ~20 mb/d."
+    },
+    {
+      "id": "hormuz_qatar_lng_dependency",
+      "claim": "Qatar's entire LNG export capacity (≈77 MTPA) ships exclusively through Hormuz; no overland or alternative seaborne route exists at scale.",
+      "value": 77,
+      "unit": "million_tonnes_per_annum_qatar_lng",
+      "year": 2024,
+      "source_type": "primary",
+      "publisher": "QatarEnergy / IGU",
+      "title": "QatarEnergy LNG production capacity disclosures",
+      "url": "https://www.qatarenergy.qa/en/MediaCenter/Pages/news.aspx",
+      "retrieved_note": "Confirmed by IGU 2024 World LNG Report (https://www.igu.org/resources/2024-world-lng-report)."
+    },
+    {
+      "id": "hormuz_uae_oil_export_share",
+      "claim": "UAE crude exports via Fujairah (which lies outside Hormuz) account for approximately 1.5 mb/d, providing partial but not full UAE bypass.",
+      "value": 1.5,
+      "unit": "million_barrels_per_day_via_fujairah",
+      "year": 2024,
+      "source_type": "secondary",
+      "publisher": "Reuters / S&P Global Commodity Insights",
+      "title": "UAE oil flows through Fujairah — Reuters market reporting",
+      "url": "https://www.reuters.com/markets/commodities/uaes-fujairah-oil-port-becomes-strategic-bypass-2024-06-13/",
+      "retrieved_note": "ADCOP pipeline + direct UAE production; figure consistent across multiple Reuters/S&P 2024 dispatches."
+    }
+  ],
+  "geographic_anchors": [
+    {"id": "strait_of_hormuz", "name": "Strait of Hormuz (narrowest point)", "lat": 26.566, "lon": 56.250, "role": "chokepoint"},
+    {"id": "fujairah_port", "name": "Port of Fujairah, UAE", "lat": 25.142, "lon": 56.341, "role": "bypass_hub"},
+    {"id": "jebel_ali_port", "name": "Jebel Ali, UAE (DP World)", "lat": 25.013, "lon": 55.061, "role": "container_transshipment"},
+    {"id": "ras_laffan_qatar", "name": "Ras Laffan LNG, Qatar", "lat": 25.917, "lon": 51.583, "role": "lng_export_terminal"},
+    {"id": "ras_tanura_saudi", "name": "Ras Tanura, Saudi Arabia", "lat": 26.667, "lon": 50.166, "role": "crude_export_terminal"},
+    {"id": "yanbu_red_sea", "name": "Yanbu, Saudi Arabia (Petroline terminus)", "lat": 24.092, "lon": 38.063, "role": "bypass_terminus"},
+    {"id": "mundra_port_india", "name": "Mundra Port, India", "lat": 22.842, "lon": 69.711, "role": "destination_port"},
+    {"id": "kandla_port_india", "name": "Deendayal (Kandla), India", "lat": 23.022, "lon": 70.215, "role": "destination_port"},
+    {"id": "jamnagar_refinery_india", "name": "Reliance Jamnagar refinery, India", "lat": 22.342, "lon": 69.084, "role": "destination_refinery"},
+    {"id": "dahej_lng_india", "name": "Dahej LNG terminal, India", "lat": 21.713, "lon": 72.531, "role": "destination_lng_terminal"}
+  ]
+}

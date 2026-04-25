@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SupplyMind · Hormuz War Room</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-0: #07090f;
+    --bg-1: #0c1018;
+    --bg-2: #131826;
+    --bg-3: #1a2030;
+    --bd:   #232a3d;
+    --fg-0: #e8edf6;
+    --fg-1: #aab3c5;
+    --fg-2: #6c7689;
+    --cyan: #22d3ee;
+    --amber:#fbbf24;
+    --zinc: #71717a;
+    --red:  #f87171;
+    --green:#34d399;
+    --violet:#a78bfa;
+  }
+  html, body { background: var(--bg-0); color: var(--fg-0);
+               font-family: 'Inter', system-ui, sans-serif;
+               font-feature-settings: "tnum" on, "ss01" on; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .panel { background: var(--bg-1); border: 1px solid var(--bd);
+           border-radius: 14px; }
+  .chip-live { color: var(--cyan); border-color: rgba(34,211,238,.4);
+               background: rgba(34,211,238,.08); }
+  .chip-model{ color: var(--amber); border-color: rgba(251,191,36,.4);
+               background: rgba(251,191,36,.08); }
+  .chip-scen { color: var(--zinc); border-color: rgba(113,113,122,.4);
+               background: rgba(113,113,122,.10); }
+  .chip-crit { color: var(--red); border-color: rgba(248,113,113,.4);
+               background: rgba(248,113,113,.10); }
+  .chip-good { color: var(--green); border-color: rgba(52,211,153,.4);
+               background: rgba(52,211,153,.10); }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 9px; border-radius: 999px;
+    border: 1px solid var(--bd);
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+  .grid-shell { display: grid; gap: 16px;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto auto; }
+  @media (max-width: 1100px) {
+    .grid-shell { grid-template-columns: 1fr; }
+  }
+  /* SVG map flow lines */
+  .flow { stroke-dasharray: 4 6; animation: flow 2.4s linear infinite; }
+  @keyframes flow { to { stroke-dashoffset: -200; } }
+  .pulse-ring {
+    transform-origin: center; animation: pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { r: 14; opacity: .9; }
+    100%{ r: 36; opacity: 0; }
+  }
+  .stage-pill { transition: all .25s ease; }
+  .stage-pill.done { background: rgba(52,211,153,.10); color: var(--green);
+                     border-color: rgba(52,211,153,.4); }
+  .stage-pill.run  { background: rgba(34,211,238,.10); color: var(--cyan);
+                     border-color: rgba(34,211,238,.4);
+                     animation: blink 1.2s ease-in-out infinite; }
+  @keyframes blink { 50% { opacity: .55; } }
+  table.dense th, table.dense td {
+    border-bottom: 1px solid var(--bd); padding: 8px 10px; text-align: left;
+    vertical-align: middle;
+  }
+  table.dense thead th {
+    text-transform: uppercase; font-size: 10px; letter-spacing: .08em;
+    color: var(--fg-2); font-weight: 600; background: var(--bg-2);
+    position: sticky; top: 0;
+  }
+  table.dense tr:hover td { background: rgba(34,211,238,.04); }
+  .bar-track { background: var(--bg-3); height: 6px; border-radius: 999px;
+               width: 100%; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 999px;
+              background: linear-gradient(90deg, var(--cyan), var(--violet)); }
+  .receipt-blob { font-family: 'JetBrains Mono', monospace; font-size: 11px;
+                  line-height: 1.5; word-break: break-all; }
+  .scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+  .scrollbar::-webkit-scrollbar-thumb { background: var(--bd); border-radius: 4px; }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  .flash { animation: flash 1.6s ease; }
+  @keyframes flash { 0% { background: rgba(34,211,238,.18); } 100% { background: transparent; } }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- ============================ TOP BAR ============================ -->
+<header class="sticky top-0 z-40 border-b border-[var(--bd)] backdrop-blur"
+        style="background: rgba(7,9,15,.85);">
+  <div class="max-w-[1500px] mx-auto px-6 py-4 flex flex-col gap-3
+              md:flex-row md:items-center md:justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl flex items-center justify-center"
+           style="background: linear-gradient(135deg, var(--cyan), var(--violet));">
+        <span class="font-bold text-lg text-[var(--bg-0)]">SM</span>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold leading-tight">
+          SupplyMind <span class="text-[var(--fg-2)]">·</span>
+          <span class="text-[var(--cyan)]">Hormuz War Room</span>
+        </h1>
+        <div class="text-xs text-[var(--fg-2)] mono">
+          v01 · live data · sha256-receipted ·
+          <span id="utc-clock"></span>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="chip chip-live"><span class="w-1.5 h-1.5 rounded-full bg-[var(--cyan)]"></span> live fact</span>
+      <span class="chip chip-model"><span class="w-1.5 h-1.5 rounded-full bg-[var(--amber)]"></span> model estimate</span>
+      <span class="chip chip-scen"><span class="w-1.5 h-1.5 rounded-full bg-[var(--zinc)]"></span> scenario assumption</span>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-[1500px] mx-auto px-6 py-6 space-y-6">
+
+  <!-- ============================ SCENARIO INPUT ============================ -->
+  <section class="panel p-5">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex-1">
+        <label class="text-xs font-semibold uppercase tracking-wider text-[var(--fg-2)]">
+          Scenario
+        </label>
+        <textarea id="scenario-text" rows="2" class="mt-2 w-full bg-[var(--bg-2)]
+                  border border-[var(--bd)] rounded-lg px-3 py-2 text-sm
+                  focus:outline-none focus:ring-1 focus:ring-[var(--cyan)]
+                  placeholder-[var(--fg-2)]">If Iran-Israel-US escalation restricts the Strait of Hormuz, what breaks first for India and the Gulf?</textarea>
+      </div>
+      <div class="grid grid-cols-3 md:flex md:items-end gap-3">
+        <div>
+          <label class="text-xs font-semibold uppercase tracking-wider text-[var(--fg-2)]">Severity</label>
+          <input id="severity" type="number" step="0.05" min="0" max="1" value="0.85"
+                 class="mt-1 w-24 mono bg-[var(--bg-2)] border border-[var(--bd)]
+                        rounded-lg px-3 py-2 text-sm focus:outline-none
+                        focus:ring-1 focus:ring-[var(--cyan)]">
+        </div>
+        <div>
+          <label class="text-xs font-semibold uppercase tracking-wider text-[var(--fg-2)]">Brent $/bbl</label>
+          <input id="brent" type="number" step="1" min="20" max="300" value="132"
+                 class="mt-1 w-24 mono bg-[var(--bg-2)] border border-[var(--bd)]
+                        rounded-lg px-3 py-2 text-sm focus:outline-none
+                        focus:ring-1 focus:ring-[var(--cyan)]">
+        </div>
+        <div>
+          <label class="text-xs font-semibold uppercase tracking-wider text-[var(--fg-2)]">Duration days</label>
+          <input id="duration" type="number" step="1" min="1" max="180" value="21"
+                 class="mt-1 w-24 mono bg-[var(--bg-2)] border border-[var(--bd)]
+                        rounded-lg px-3 py-2 text-sm focus:outline-none
+                        focus:ring-1 focus:ring-[var(--cyan)]">
+        </div>
+        <button id="run-btn" class="md:ml-2 mt-1 px-5 py-2 rounded-lg font-semibold
+                  text-[var(--bg-0)] transition active:scale-[.98]"
+                style="background: linear-gradient(135deg, var(--cyan), var(--violet));">
+          ▶ Run war room
+        </button>
+      </div>
+    </div>
+
+    <!-- Stage progress -->
+    <div id="stages" class="mt-5 flex flex-wrap items-center gap-2">
+      <span class="stage-pill chip" data-stage="signals">1 · live signals</span>
+      <span class="stage-pill chip" data-stage="analogs">2 · analog match</span>
+      <span class="stage-pill chip" data-stage="judges">3 · judges</span>
+      <span class="stage-pill chip" data-stage="sectors">4 · sector tables</span>
+      <span class="stage-pill chip" data-stage="cf">5 · counterfactual</span>
+      <span class="stage-pill chip" data-stage="receipt">6 · receipt</span>
+      <span class="ml-auto text-xs mono text-[var(--fg-2)]">
+        elapsed <span id="elapsed">—</span> s
+      </span>
+    </div>
+  </section>
+
+  <!-- ============================ HEADLINE / RISK BAR ============================ -->
+  <section id="headline" class="panel p-5 hidden">
+    <div class="grid md:grid-cols-4 gap-5">
+      <div>
+        <div class="text-xs uppercase tracking-wider text-[var(--fg-2)]">Risk level</div>
+        <div id="risk-level" class="mt-1 text-3xl font-bold">—</div>
+        <div id="risk-source" class="text-xs text-[var(--fg-2)] mt-1"></div>
+      </div>
+      <div>
+        <div class="text-xs uppercase tracking-wider text-[var(--fg-2)]">Composite confidence</div>
+        <div class="mt-1 flex items-baseline gap-2">
+          <span id="conf-pct" class="text-3xl font-bold mono text-[var(--cyan)]">—</span>
+          <span class="text-xs text-[var(--fg-2)]">judge·dispersion·signals</span>
+        </div>
+        <div class="bar-track mt-2"><div id="conf-bar" class="bar-fill" style="width:0%"></div></div>
+      </div>
+      <div>
+        <div class="text-xs uppercase tracking-wider text-[var(--fg-2)]">Brent projection p50</div>
+        <div id="brent-p50" class="mt-1 text-3xl font-bold mono text-[var(--amber)]">—</div>
+        <div id="brent-band" class="text-xs text-[var(--fg-2)] mt-1 mono"></div>
+      </div>
+      <div>
+        <div class="text-xs uppercase tracking-wider text-[var(--fg-2)]">P50 loss saving (with plan)</div>
+        <div id="cf-saved" class="mt-1 text-3xl font-bold mono text-[var(--green)]">—</div>
+        <div id="cf-pct" class="text-xs text-[var(--fg-2)] mt-1 mono"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ MAP + SIGNALS ============================ -->
+  <section class="grid-shell">
+
+    <!-- CHOKEPOINT MAP -->
+    <div class="panel p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-semibold">Chokepoint map · IEA / EIA cited</h2>
+        <span class="chip chip-live">14 nodes · 18 edges</span>
+      </div>
+      <div class="aspect-[16/10] bg-[var(--bg-2)] rounded-xl overflow-hidden border border-[var(--bd)]">
+        <svg id="map-svg" viewBox="0 0 1000 620" class="w-full h-full"></svg>
+      </div>
+      <div id="map-edge-info" class="mt-3 text-xs text-[var(--fg-1)] hidden"></div>
+      <div class="mt-3 grid grid-cols-2 md:grid-cols-3 gap-2" id="headline-facts">
+      </div>
+    </div>
+
+    <!-- LIVE SIGNALS + ANALOGS -->
+    <div class="panel p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-semibold">Live signals + historical analogs</h2>
+        <span id="signals-flag" class="chip chip-scen">awaiting</span>
+      </div>
+      <div id="analogs" class="space-y-2 max-h-[260px] overflow-y-auto scrollbar"></div>
+      <hr class="border-[var(--bd)] my-3">
+      <div class="text-xs uppercase tracking-wider text-[var(--fg-2)] mb-2">3-judge panel</div>
+      <div id="judges" class="space-y-2"></div>
+    </div>
+  </section>
+
+  <!-- ============================ INDIA + GULF TABLES ============================ -->
+  <section class="grid-shell">
+
+    <!-- INDIA TABLE -->
+    <div class="panel p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-semibold">India · sector impact ranking</h2>
+        <span class="chip chip-model">deterministic · cited</span>
+      </div>
+      <div class="overflow-x-auto scrollbar">
+        <table class="w-full dense text-sm">
+          <thead><tr>
+            <th>#</th><th>Sector</th><th>Score</th>
+            <th>Driver</th><th>1st symptom (d)</th><th>30d ₹ Cr (point)</th>
+          </tr></thead>
+          <tbody id="india-tbody"></tbody>
+        </table>
+      </div>
+      <div class="mt-2 text-xs text-[var(--fg-2)]">
+        Ranked by deterministic 4-channel score: structural dependency · severity · brent shock · duration overrun.
+      </div>
+    </div>
+
+    <!-- GULF TABLE -->
+    <div class="panel p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-semibold">UAE / Gulf · sector impact ranking</h2>
+        <span class="chip chip-model">deterministic · cited</span>
+      </div>
+      <div class="overflow-x-auto scrollbar">
+        <table class="w-full dense text-sm">
+          <thead><tr>
+            <th>#</th><th>Sector</th><th>Score</th>
+            <th>Bypass</th><th>1st symptom (d)</th><th>30d $M (point)</th>
+          </tr></thead>
+          <tbody id="gulf-tbody"></tbody>
+        </table>
+      </div>
+      <div class="mt-2 text-xs text-[var(--fg-2)]">
+        Score includes a bypass credit when Habshan-Fujairah / East-West / Cape route applies.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ACTIONS + CAVEATS ============================ -->
+  <section class="grid-shell">
+    <div class="panel p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-semibold">Recommended actions · OpenEnv-typed</h2>
+        <span class="chip chip-live">RAP-XC + hierarchical + conformal</span>
+      </div>
+      <div id="actions" class="space-y-2"></div>
+    </div>
+
+    <div class="panel p-5">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-semibold">Honest caveats · what we are NOT claiming</h2>
+        <span class="chip chip-scen">no AI fluff</span>
+      </div>
+      <ul id="caveats" class="space-y-2 text-sm text-[var(--fg-1)]"></ul>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER / RECEIPT BUTTON ============================ -->
+  <section class="flex items-center justify-between text-xs text-[var(--fg-2)] py-4">
+    <div>
+      Numbers cite published agency data (PPAC, IEA, EIA, ICIS, DGCA, ADNOC, DP World).
+      Live pipeline reuses /live/hormuz-closure. Sector tables are deterministic + replayable.
+    </div>
+    <button id="receipt-btn" class="px-4 py-2 rounded-lg border border-[var(--bd)]
+            bg-[var(--bg-2)] hover:border-[var(--cyan)] transition text-[var(--cyan)] mono">
+      ⊟ open receipt
+    </button>
+  </section>
+</main>
+
+<!-- ============================ RECEIPT DRAWER ============================ -->
+<aside id="drawer" class="fixed right-0 top-0 h-full w-full md:w-[520px]
+       bg-[var(--bg-1)] border-l border-[var(--bd)] transform translate-x-full
+       transition-transform duration-300 z-50 flex flex-col">
+  <div class="p-4 border-b border-[var(--bd)] flex items-center justify-between">
+    <div>
+      <div class="font-semibold">Receipt</div>
+      <div class="text-xs text-[var(--fg-2)] mono">sha256-anchored response</div>
+    </div>
+    <button id="drawer-close" class="text-[var(--fg-2)] hover:text-[var(--fg-0)]
+            text-xl leading-none">✕</button>
+  </div>
+  <div class="p-4 flex-1 overflow-y-auto scrollbar receipt-blob"
+       id="drawer-body"></div>
+  <div class="p-4 border-t border-[var(--bd)] flex items-center gap-2">
+    <button id="copy-btn" class="px-3 py-1.5 rounded border border-[var(--bd)]
+            text-xs hover:border-[var(--cyan)] hover:text-[var(--cyan)] transition">
+      copy json
+    </button>
+    <a id="dl-btn" download="hormuz-war-room-receipt.json"
+       class="px-3 py-1.5 rounded border border-[var(--bd)]
+              text-xs hover:border-[var(--cyan)] hover:text-[var(--cyan)] transition">
+      download
+    </a>
+  </div>
+</aside>
+
+<!-- ============================ SCRIPT ============================ -->
+<script>
+  // ---------- utility ----------
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => document.querySelectorAll(s);
+  const fmt = (x, d=2) => (x === null || x === undefined || Number.isNaN(x)) ? "—" : Number(x).toFixed(d);
+  const fmtUSD = (x) => (x === null || x === undefined) ? "—" : "$" + Number(x).toLocaleString();
+  const fmtINR = (x) => (x === null || x === undefined) ? "—" : "₹" + Number(x).toLocaleString() + " Cr";
+  let LAST_RECEIPT = null;
+
+  function tickClock() {
+    const d = new Date(); const z = (n) => String(n).padStart(2,"0");
+    $("#utc-clock").textContent =
+      d.getUTCFullYear()+"-"+z(d.getUTCMonth()+1)+"-"+z(d.getUTCDate())+
+      " "+z(d.getUTCHours())+":"+z(d.getUTCMinutes())+":"+z(d.getUTCSeconds())+"Z";
+  }
+  setInterval(tickClock, 500); tickClock();
+
+  function setStage(name, state) {
+    const el = document.querySelector(`.stage-pill[data-stage="${name}"]`);
+    if (el) { el.classList.remove("done","run");
+              if (state) el.classList.add(state); }
+  }
+  function resetStages() { $$(".stage-pill").forEach(e => e.classList.remove("done","run")); }
+
+  // ---------- chokepoint map render ----------
+  function renderMap(graph) {
+    const svg = $("#map-svg");
+    svg.innerHTML = "";
+    const W = 1000, H = 620;
+    const ns = "http://www.w3.org/2000/svg";
+    const colorByType = {
+      producer:   "#fbbf24",
+      bypass:     "#a78bfa",
+      bypass_node:"#a78bfa",
+      chokepoint: "#f87171",
+      consumer:   "#22d3ee",
+    };
+
+    // Edges first (under nodes)
+    graph.edges.forEach(e => {
+      const a = graph.nodes.find(n => n.id === e.src);
+      const b = graph.nodes.find(n => n.id === e.dst);
+      if (!a || !b) return;
+      const x1 = a.x*W, y1 = a.y*H, x2 = b.x*W, y2 = b.y*H;
+      const line = document.createElementNS(ns, "line");
+      line.setAttribute("x1", x1); line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2); line.setAttribute("y2", y2);
+      const flow = e.flow_mbd || 0;
+      const lng  = e.flow_lng_bcfd || 0;
+      const isBypass = (e.kind || "").startsWith("bypass");
+      line.setAttribute("stroke", isBypass ? "#a78bfa" : "#22d3ee");
+      line.setAttribute("stroke-width",
+                          Math.max(1.5, Math.min(7, (flow + lng*0.5))));
+      line.setAttribute("opacity", isBypass ? .6 : .55);
+      line.classList.add("flow");
+      line.style.cursor = "pointer";
+      line.addEventListener("click", () => {
+        const info = $("#map-edge-info");
+        const cap = e.capacity_mbd ? ` · cap ${e.capacity_mbd} mb/d` : "";
+        info.classList.remove("hidden"); info.classList.add("flash");
+        info.innerHTML =
+          `<span class="chip chip-live">edge</span> `+
+          `<span class="mono">${e.src} → ${e.dst}</span>` +
+          ` · ${e.kind} · ${flow ? flow+" mb/d" : ""}${lng ? lng+" Bcf/d LNG" : ""}${cap}`+
+          ` · <span class="text-[var(--fg-2)]">${e.agency || ""}</span>` +
+          (e.note ? `<div class="mt-1 text-[var(--fg-2)]">${e.note}</div>` : "");
+        setTimeout(()=>info.classList.remove("flash"), 1600);
+      });
+      svg.appendChild(line);
+    });
+
+    // Pulse on Hormuz
+    const choke = graph.nodes.find(n => n.type === "chokepoint");
+    if (choke) {
+      const cx = choke.x*W, cy = choke.y*H;
+      for (let i=0;i<2;i++) {
+        const c = document.createElementNS(ns,"circle");
+        c.setAttribute("cx", cx); c.setAttribute("cy", cy);
+        c.setAttribute("r", 14); c.setAttribute("fill", "none");
+        c.setAttribute("stroke", "#f87171"); c.setAttribute("stroke-width", "2");
+        c.setAttribute("style", `animation-delay:${i*0.8}s;`);
+        c.classList.add("pulse-ring");
+        svg.appendChild(c);
+      }
+    }
+
+    // Nodes
+    graph.nodes.forEach(n => {
+      const cx = n.x*W, cy = n.y*H;
+      const c = document.createElementNS(ns, "circle");
+      c.setAttribute("cx", cx); c.setAttribute("cy", cy);
+      c.setAttribute("r", n.type === "chokepoint" ? 10 : 7);
+      c.setAttribute("fill", colorByType[n.type] || "#aab3c5");
+      c.setAttribute("stroke", "#0c1018"); c.setAttribute("stroke-width", "2");
+      svg.appendChild(c);
+      const t = document.createElementNS(ns, "text");
+      t.setAttribute("x", cx + 12); t.setAttribute("y", cy + 4);
+      t.setAttribute("fill", "#e8edf6"); t.setAttribute("font-size", "13");
+      t.setAttribute("font-family", "Inter, system-ui");
+      t.setAttribute("font-weight", n.type === "chokepoint" ? "700" : "500");
+      t.textContent = n.label;
+      svg.appendChild(t);
+    });
+  }
+
+  function renderHeadlineFacts(facts) {
+    const box = $("#headline-facts");
+    box.innerHTML = "";
+    facts.forEach(f => {
+      const div = document.createElement("div");
+      div.className = "p-2 rounded-lg border border-[var(--bd)] bg-[var(--bg-2)]";
+      const val = (f.value !== undefined ? f.value :
+                   `${f.value_low}-${f.value_high}`);
+      div.innerHTML =
+        `<div class="text-xs text-[var(--fg-1)] leading-tight">${f.fact}</div>`+
+        `<div class="mt-1 flex items-center gap-1">`+
+        `  <span class="mono text-[var(--cyan)] text-sm font-semibold">${val} ${f.unit}</span>`+
+        `  <a href="${f.source}" target="_blank" rel="noopener"`+
+        `     class="ml-auto text-[10px] text-[var(--fg-2)] hover:text-[var(--cyan)]">${f.agency} ↗</a>`+
+        `</div>`;
+      box.appendChild(div);
+    });
+  }
+
+  // ---------- analogs + judges + actions ----------
+  function renderAnalogs(analogs, signalsUsed) {
+    const flag = $("#signals-flag");
+    flag.classList.remove("chip-scen","chip-live","chip-good","chip-crit");
+    if (signalsUsed > 0) {
+      flag.classList.add("chip-live");
+      flag.textContent = `${signalsUsed} live signals · 24h`;
+    } else {
+      flag.classList.add("chip-scen");
+      flag.textContent = "no live signals last 24h";
+    }
+    const box = $("#analogs"); box.innerHTML = "";
+    if (!analogs || !analogs.length) {
+      box.innerHTML = '<div class="text-xs text-[var(--fg-2)]">no analog matches</div>';
+      return;
+    }
+    analogs.forEach(a => {
+      const div = document.createElement("div");
+      div.className = "p-3 rounded-lg border border-[var(--bd)] bg-[var(--bg-2)]";
+      div.innerHTML = `
+        <div class="flex items-center justify-between gap-2">
+          <div class="font-medium text-sm">${a.name}</div>
+          <span class="mono text-xs text-[var(--cyan)]">sim ${fmt(a.similarity,3)}</span>
+        </div>
+        <div class="text-xs text-[var(--fg-2)] mt-1 mono">${a.date} · severity ${fmt(a.severity,2)} · ${a.event_id}</div>
+        <div class="text-xs text-[var(--fg-1)] mt-2">${a.summary || ""}</div>`;
+      box.appendChild(div);
+    });
+  }
+
+  function renderJudges(judges) {
+    const box = $("#judges"); box.innerHTML = "";
+    if (!judges || !judges.length) return;
+    judges.forEach(j => {
+      const div = document.createElement("div");
+      div.className = "p-3 rounded-lg border border-[var(--bd)] bg-[var(--bg-2)]";
+      div.innerHTML = `
+        <div class="flex items-center justify-between gap-2">
+          <div class="font-medium text-sm">${j.name}</div>
+          <div class="flex items-center gap-2">
+            <span class="chip ${j.risk_level === "CRITICAL" ? "chip-crit" :
+                                  j.risk_level === "HIGH" ? "chip-crit" :
+                                  j.risk_level === "MEDIUM" ? "chip-model" : "chip-good"}">${j.risk_level}</span>
+            <span class="mono text-xs text-[var(--cyan)]">conf ${fmt(j.confidence,2)}</span>
+          </div>
+        </div>
+        <div class="text-xs text-[var(--fg-1)] mt-2">${j.rationale || ""}</div>
+        <div class="mt-1 text-[10px] text-[var(--fg-2)] mono">${j.judge_source || ""} · ${j.latency_s}s</div>`;
+      box.appendChild(div);
+    });
+  }
+
+  function renderActions(actions) {
+    const box = $("#actions"); box.innerHTML = "";
+    if (!actions || !actions.length) {
+      box.innerHTML = '<div class="text-xs text-[var(--fg-2)]">no actions</div>';
+      return;
+    }
+    actions.forEach((a, i) => {
+      const div = document.createElement("div");
+      div.className = "p-3 rounded-lg border border-[var(--bd)] bg-[var(--bg-2)]";
+      div.innerHTML = `
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="mono text-[var(--fg-2)] text-xs">${String(i+1).padStart(2,"0")}</span>
+            <span class="font-medium text-sm">${a.action_type}${a.target ? " · "+a.target : ""}</span>
+          </div>
+          <div class="flex items-center gap-2 text-xs mono">
+            ${a.estimated_cost_usd != null ? `<span class="text-[var(--amber)]">cost ${fmtUSD(a.estimated_cost_usd)}</span>` : ""}
+            ${a.estimated_loss_avoided_usd != null ? `<span class="text-[var(--green)]">save ${fmtUSD(a.estimated_loss_avoided_usd)}</span>` : ""}
+          </div>
+        </div>
+        <div class="text-xs text-[var(--fg-1)] mt-1">${a.reason || ""}</div>`;
+      box.appendChild(div);
+    });
+  }
+
+  function renderCaveats(items) {
+    const ul = $("#caveats"); ul.innerHTML = "";
+    items.forEach(t => {
+      const li = document.createElement("li");
+      li.className = "flex gap-2";
+      li.innerHTML = `<span class="text-[var(--zinc)]">▸</span><span>${t}</span>`;
+      ul.appendChild(li);
+    });
+  }
+
+  // ---------- sector tables ----------
+  function scoreToColor(s) {
+    if (s >= 0.7) return "var(--red)";
+    if (s >= 0.5) return "var(--amber)";
+    if (s >= 0.3) return "var(--cyan)";
+    return "var(--green)";
+  }
+
+  function renderIndia(rows) {
+    const tb = $("#india-tbody"); tb.innerHTML = "";
+    rows.forEach(r => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td class="mono">${r.rank}</td>
+        <td>
+          <div class="font-medium">${r.display_name}</div>
+          <div class="text-xs text-[var(--fg-2)]">${r.feedstock_chain}</div>
+        </td>
+        <td>
+          <div class="flex items-center gap-2">
+            <span class="mono font-semibold" style="color:${scoreToColor(r.score)}">${fmt(r.score,3)}</span>
+            <div class="bar-track w-20"><div class="bar-fill" style="width:${r.score*100}%;background:${scoreToColor(r.score)}"></div></div>
+          </div>
+        </td>
+        <td class="text-xs">${r.dominant_driver.replace(/_/g," ")}</td>
+        <td class="mono">${r.projected_first_symptom_day}</td>
+        <td class="mono">${fmtINR(r.impact_inr_cr_30d_point)}</td>`;
+      tr.title = r.first_symptom + "\n\nSource: " + r.citation.agency + " · " + r.citation.url;
+      tb.appendChild(tr);
+    });
+  }
+
+  function renderGulf(rows) {
+    const tb = $("#gulf-tbody"); tb.innerHTML = "";
+    rows.forEach(r => {
+      const tr = document.createElement("tr");
+      const bypass = r.bypass_available ?
+        `<span class="chip chip-good">${(r.bypass_share*100).toFixed(0)}%</span>` :
+        `<span class="chip chip-crit">none</span>`;
+      tr.innerHTML = `
+        <td class="mono">${r.rank}</td>
+        <td>
+          <div class="font-medium">${r.display_name}</div>
+          <div class="text-xs text-[var(--fg-2)]">${r.feedstock_chain}</div>
+        </td>
+        <td>
+          <div class="flex items-center gap-2">
+            <span class="mono font-semibold" style="color:${scoreToColor(r.score)}">${fmt(r.score,3)}</span>
+            <div class="bar-track w-20"><div class="bar-fill" style="width:${r.score*100}%;background:${scoreToColor(r.score)}"></div></div>
+          </div>
+        </td>
+        <td>${bypass}</td>
+        <td class="mono">${r.projected_first_symptom_day}</td>
+        <td class="mono">$${(r.impact_usd_m_30d_point).toLocaleString()}M</td>`;
+      tr.title = r.first_symptom + "\n\nSource: " + r.citation.agency + " · " + r.citation.url;
+      tb.appendChild(tr);
+    });
+  }
+
+  // ---------- main run ----------
+  async function runWarRoom() {
+    const body = {
+      scenario_text: $("#scenario-text").value,
+      severity: parseFloat($("#severity").value),
+      brent_price_usd_bbl: parseFloat($("#brent").value),
+      duration_days: parseInt($("#duration").value, 10),
+      enable_llm_judges: true,
+      include_recent_signals: true,
+    };
+    resetStages();
+    ["signals","analogs","judges","sectors","cf","receipt"].forEach(s=>setStage(s,"run"));
+    $("#run-btn").disabled = true;
+    $("#run-btn").textContent = "running…";
+    const t0 = performance.now();
+    let resp;
+    try {
+      const r = await fetch("/demo/hormuz-war-room", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body),
+      });
+      if (!r.ok) throw new Error(`HTTP ${r.status}: ${(await r.text()).slice(0,200)}`);
+      resp = await r.json();
+    } catch (e) {
+      alert("war-room request failed:\n" + e.message);
+      $("#run-btn").disabled = false;
+      $("#run-btn").textContent = "▶ Run war room";
+      resetStages();
+      return;
+    }
+    LAST_RECEIPT = resp;
+    const elapsed = ((performance.now() - t0) / 1000).toFixed(2);
+    $("#elapsed").textContent = elapsed;
+
+    // Stage flags
+    setStage("signals", "done");
+    setStage("analogs", "done");
+    setStage("judges",  "done");
+    setStage("sectors", "done");
+    setStage("cf",      "done");
+    setStage("receipt", "done");
+
+    // Headline
+    $("#headline").classList.remove("hidden");
+    $("#risk-level").textContent = resp.live_pipeline.risk_level;
+    $("#risk-level").style.color = resp.live_pipeline.risk_level === "CRITICAL" ? "var(--red)" :
+                                    resp.live_pipeline.risk_level === "HIGH" ? "var(--red)" :
+                                    resp.live_pipeline.risk_level === "MEDIUM" ? "var(--amber)" : "var(--green)";
+    const flag = resp.data_source_flags.live_pipeline;
+    $("#risk-source").textContent = flag.replace(/_/g, " ");
+    const conf = resp.confidence.composite;
+    $("#conf-pct").textContent = (conf*100).toFixed(1) + "%";
+    $("#conf-bar").style.width = (conf*100).toFixed(1) + "%";
+    const proj = resp.live_pipeline.projection || {};
+    if (proj.brent_projection_usd_bbl_p50) {
+      $("#brent-p50").textContent = "$" + Number(proj.brent_projection_usd_bbl_p50).toFixed(1);
+      const lo = proj.brent_projection_usd_bbl_p10, hi = proj.brent_projection_usd_bbl_p90;
+      if (lo && hi) $("#brent-band").textContent = `p10-p90 [$${lo.toFixed(1)}, $${hi.toFixed(1)}]`;
+    }
+    const cf = resp.live_pipeline.counterfactual || {};
+    if (cf.savings_usd != null) {
+      $("#cf-saved").textContent = fmtUSD(cf.savings_usd);
+      $("#cf-pct").textContent = `${cf.savings_pct}% vs no-action P50 ${fmtUSD(cf.no_action_p50_loss_usd)}`;
+    }
+
+    renderMap(resp.chokepoint_graph);
+    renderHeadlineFacts(resp.live_facts_chokepoint);
+    renderAnalogs(resp.live_pipeline.analogs, resp.live_pipeline.signals_used_count);
+    renderJudges(resp.live_pipeline.judges);
+    renderIndia(resp.india_impact_table);
+    renderGulf(resp.gulf_impact_table);
+    renderActions(resp.live_pipeline.recommended_actions);
+    renderCaveats(resp.uncertainty_caveats);
+
+    $("#run-btn").disabled = false;
+    $("#run-btn").textContent = "▶ Run war room";
+  }
+
+  // ---------- receipt drawer ----------
+  function openDrawer() {
+    if (!LAST_RECEIPT) {
+      alert("Run the war room first.");
+      return;
+    }
+    const blob = JSON.stringify(LAST_RECEIPT, null, 2);
+    $("#drawer-body").innerHTML =
+      `<div class="mb-3"><span class="chip chip-live">sha256</span> `+
+      `<span class="mono break-all">${LAST_RECEIPT.receipt_sha256 || "—"}</span></div>` +
+      `<pre class="whitespace-pre-wrap">${escapeHtml(blob)}</pre>`;
+    const dl = $("#dl-btn");
+    dl.href = "data:application/json;charset=utf-8," + encodeURIComponent(blob);
+    $("#drawer").classList.remove("translate-x-full");
+  }
+  function closeDrawer() { $("#drawer").classList.add("translate-x-full"); }
+  function escapeHtml(s) {
+    return s.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  }
+
+  // ---------- bind ----------
+  $("#run-btn").addEventListener("click", runWarRoom);
+  $("#receipt-btn").addEventListener("click", openDrawer);
+  $("#drawer-close").addEventListener("click", closeDrawer);
+  $("#copy-btn").addEventListener("click", () => {
+    if (!LAST_RECEIPT) return;
+    navigator.clipboard.writeText(JSON.stringify(LAST_RECEIPT, null, 2));
+    $("#copy-btn").textContent = "copied ✓";
+    setTimeout(()=>$("#copy-btn").textContent = "copy json", 1200);
+  });
+
+  // ---------- pre-render the static IEA map on load ----------
+  fetch("/demo/hormuz-war-room/health").then(r=>r.json()).then(()=>{
+    // light initial map render to give a feel before run
+    fetch("/demo/hormuz-war-room", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ scenario_text: "preload",
+                              severity: 0.5, brent_price_usd_bbl: 90,
+                              duration_days: 7,
+                              enable_llm_judges: false,
+                              include_recent_signals: false })
+    }).then(r=>r.json()).then(j => {
+      renderMap(j.chokepoint_graph);
+      renderHeadlineFacts(j.live_facts_chokepoint);
+    }).catch(()=>{});
+  }).catch(()=>{});
+</script>
+</body>
+</html>

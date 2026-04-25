@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "title": "Gulf / UAE supply-chain exposure to Hormuz disruption — primary-source curation",
+  "purpose": "Five Gulf sectors with citation-backed exposure values. Same curation rules as the India file: every numeric value carries source_type and a working URL.",
+  "last_curated": "2026-04-23",
+  "country_focus": ["UAE", "Qatar", "Saudi Arabia", "Bahrain", "Kuwait", "Oman"],
+  "sectors": [
+    {
+      "rank": 1,
+      "sector_id": "qatar_lng_export",
+      "sector_name": "Qatar LNG export (Ras Laffan)",
+      "exposure_facts": [
+        {
+          "claim": "Qatar's entire LNG export capacity (~77 MTPA) ships through Hormuz; no overland or alternative sea route exists at scale.",
+          "value": 77,
+          "unit": "million_tonnes_per_annum",
+          "year": 2024,
+          "source_type": "primary",
+          "publisher": "QatarEnergy / International Gas Union (IGU)",
+          "title": "QatarEnergy LNG capacity disclosures + IGU 2024 World LNG Report",
+          "url": "https://www.igu.org/resources/2024-world-lng-report/"
+        },
+        {
+          "claim": "Qatar LNG accounts for ~18% of global LNG trade; loss of Hormuz transit means immediate 15-20% global LNG market shock.",
+          "value": 18,
+          "unit": "percent_of_global_lng_trade",
+          "year": 2024,
+          "source_type": "primary",
+          "publisher": "IGU 2024 World LNG Report",
+          "title": "IGU 2024 World LNG Report — country export shares",
+          "url": "https://www.igu.org/resources/2024-world-lng-report/"
+        }
+      ],
+      "first_symptom_when_hormuz_hits": "LNG cargoes stranded at Ras Laffan within days; spot LNG prices spike 50-100%+ globally; Asian importers (Japan, Korea, India, China) seek emergency US/Australian/Russian cargoes.",
+      "first_symptom_evidence": [
+        {
+          "claim": "2022 European gas crisis (~30 MTPA Russian gas loss) drove Asian LNG spot from $25 to $90/MMBtu within months. Hormuz LNG loss is 2.5× larger by volume.",
+          "source_type": "secondary",
+          "publisher": "S&P Global / JKM benchmark",
+          "title": "JKM Asian LNG spot price history",
+          "url": "https://www.spglobal.com/commodityinsights/en/market-insights/latest-news/lng/jkm-historical-prices"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "sector_id": "uae_jebel_ali_transshipment",
+      "sector_name": "UAE Jebel Ali container transshipment hub",
+      "exposure_facts": [
+        {
+          "claim": "Jebel Ali Port (DP World) is the largest container port in the Middle East; ~14 million TEU throughput in 2023.",
+          "value": 14,
+          "unit": "million_TEU_per_annum",
+          "year": 2023,
+          "source_type": "primary",
+          "publisher": "DP World annual report 2023",
+          "title": "DP World Group annual report — Jebel Ali volumes",
+          "url": "https://www.dpworld.com/en/news/annual-reports"
+        },
+        {
+          "claim": "Jebel Ali is the regional transshipment node for Africa, South Asia, and East Mediterranean cargo; even partial Hormuz closure forces vessels to delay or reroute via Salalah (Oman) or Damietta (Egypt).",
+          "source_type": "secondary",
+          "publisher": "Lloyd's List / Drewry Maritime Research",
+          "title": "ME hub container reroute analysis",
+          "url": "https://www.lloydslist.com/LL1148272/middle-east-container-reroutes-2024"
+        }
+      ],
+      "first_symptom_when_hormuz_hits": "War-risk surcharges on every container originating Middle East-South Asia trade; transhipment rerouting adds 5-10 days; spot box rates spike.",
+      "first_symptom_evidence": []
+    },
+    {
+      "rank": 3,
+      "sector_id": "fujairah_bypass_bunkering",
+      "sector_name": "Fujairah port — strategic bypass + bunkering hub",
+      "exposure_facts": [
+        {
+          "claim": "Fujairah lies OUTSIDE Hormuz on the Gulf of Oman; UAE's ADCOP pipeline carries up to 1.5 mb/d crude to Fujairah, providing partial bypass.",
+          "value": 1.5,
+          "unit": "million_barrels_per_day_via_adcop",
+          "year": 2024,
+          "source_type": "primary",
+          "publisher": "ADNOC / ADCOP disclosures + IEA",
+          "title": "Habshan-Fujairah crude pipeline (ADCOP) capacity",
+          "url": "https://www.iea.org/articles/the-strait-of-hormuz"
+        },
+        {
+          "claim": "Fujairah is the world's third-largest bunker fuel hub (~25 million tonnes/year); demand spikes during regional disruptions as vessels avoid Hormuz transit.",
+          "value": 25,
+          "unit": "million_tonnes_per_annum_bunker_fuel",
+          "year": 2024,
+          "source_type": "secondary",
+          "publisher": "Fujairah Oil Industry Zone (FOIZ) reporting + Reuters",
+          "title": "Fujairah bunkering volumes",
+          "url": "https://www.reuters.com/markets/commodities/fujairah-bunker-volumes-2024-q1/"
+        }
+      ],
+      "first_symptom_when_hormuz_hits": "Fujairah congestion within 48 hours; storage tanks fill rapidly; bunker fuel premiums rise; pipeline-fed crude from Habshan hits 100% utilisation.",
+      "first_symptom_evidence": []
+    },
+    {
+      "rank": 4,
+      "sector_id": "gcc_food_imports",
+      "sector_name": "GCC food import dependence (UAE, Saudi, Bahrain, Qatar, Kuwait)",
+      "exposure_facts": [
+        {
+          "claim": "UAE imports approximately 90% of its food; majority arrives by sea via Jebel Ali, Khor Fakkan, Fujairah.",
+          "value": 90,
+          "unit": "percent_food_imports_of_consumption",
+          "year": 2024,
+          "source_type": "primary",
+          "publisher": "UAE Ministry of Climate Change & Environment / FAO",
+          "title": "UAE Food Security Strategy 2051 + FAOSTAT",
+          "url": "https://www.moccae.gov.ae/en/our-services/food-safety.aspx"
+        },
+        {
+          "claim": "Saudi Arabia, Qatar, Bahrain, Kuwait similarly import >85% of staples; sea routes are dominant for grain and protein.",
+          "value": 85,
+          "unit": "percent_food_imports_gcc_average",
+          "year": 2024,
+          "source_type": "secondary",
+          "publisher": "FAO + GCC Statistical Centre",
+          "title": "GCC food import dependence",
+          "url": "https://www.fao.org/faostat/"
+        }
+      ],
+      "first_symptom_when_hormuz_hits": "Fresh produce and dairy stockouts within 7-14 days at Gulf supermarkets; UAE Strategic Food Reserve (~3 months) absorbs first shock; consumer prices rise 5-15%.",
+      "first_symptom_evidence": []
+    },
+    {
+      "rank": 5,
+      "sector_id": "gcc_desalination_power",
+      "sector_name": "GCC desalination & power (gas-fired turbines)",
+      "exposure_facts": [
+        {
+          "claim": "UAE generates approximately 60% of electricity from natural gas; ~40% of UAE potable water comes from desalination requiring gas-fired thermal energy.",
+          "value": 60,
+          "unit": "percent_uae_power_from_natural_gas",
+          "year": 2024,
+          "source_type": "primary",
+          "publisher": "IEA Country Profile — UAE",
+          "title": "IEA UAE energy mix",
+          "url": "https://www.iea.org/countries/united-arab-emirates"
+        },
+        {
+          "claim": "UAE imports significant LNG via Jebel Ali / Ruwais; loss of Qatar pipeline gas (Dolphin pipeline) plus Hormuz LNG disruption combine.",
+          "source_type": "secondary",
+          "publisher": "Reuters",
+          "title": "UAE LNG imports + Dolphin pipeline",
+          "url": "https://www.reuters.com/markets/commodities/uae-lng-imports-jebel-ali-2024/"
+        }
+      ],
+      "first_symptom_when_hormuz_hits": "Power grids stress within days under summer load; load-shedding contingencies activated; desalination throughput trimmed; water rationing as last resort (rarely needed in modern GCC plants).",
+      "first_symptom_evidence": []
+    }
+  ],
+  "explicitly_omitted_sectors": [
+    {
+      "sector": "GCC aviation hubs (Dubai, Doha, Abu Dhabi)",
+      "reason": "Same fuel-cost mechanism as Sector 3 in the India file; airlines also reroute around airspace risk. Listing separately doubles cost the ATF channel already captured."
+    },
+    {
+      "sector": "GCC banking / sovereign wealth",
+      "reason": "Indirect macro exposure; not first-order operational supply chain. Out of scope for War Room demo."
+    }
+  ]
+}

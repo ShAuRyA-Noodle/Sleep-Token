@@ -55,6 +55,7 @@ def _try_mount(path: str, import_path: str, attr: str = "router") -> bool:
 _arena_ok = _try_mount("/arena", "ShAuRyA_Phoenix.arena.router")
 _twin_ok = _try_mount("/twin", "ShAuRyA_Phoenix.counterfactual_twin.router")
 _replay_ok = _try_mount("/replay", "ShAuRyA_Phoenix.realtime_v5.replay_adapter")
+_war_room_ok = _try_mount("/demo", "ShAuRyA_Phoenix.war_room.router")
 
 
 @app.get("/phoenix/status", tags=["phoenix"])
@@ -66,6 +67,7 @@ def phoenix_status():
             "arena": _arena_ok,
             "twin": _twin_ok,
             "replay": _replay_ok,
+            "war_room": _war_room_ok,
         },
         "underlying_v4_app": getattr(app, "title", "unknown"),
     }
