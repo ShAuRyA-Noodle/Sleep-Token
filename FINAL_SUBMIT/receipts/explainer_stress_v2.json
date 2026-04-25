@@ -1,0 +1,358 @@
+{
+  "n_test": 50,
+  "passed": 50,
+  "pass_rate": 1.0,
+  "regenerated_once_success": 0,
+  "scenarios": [
+    {
+      "scenario": 0,
+      "action": "do_nothing",
+      "disruption": "cyber_attack",
+      "passed": true,
+      "length": 878
+    },
+    {
+      "scenario": 1,
+      "action": "expedite_order",
+      "disruption": "political_unrest",
+      "passed": true,
+      "length": 933
+    },
+    {
+      "scenario": 2,
+      "action": "issue_supplier_alert",
+      "disruption": "supplier_financial_distress",
+      "passed": true,
+      "length": 941
+    },
+    {
+      "scenario": 3,
+      "action": "activate_backup_supplier",
+      "disruption": "supplier_financial_distress",
+      "passed": true,
+      "length": 724
+    },
+    {
+      "scenario": 4,
+      "action": "reroute_shipment",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 905
+    },
+    {
+      "scenario": 5,
+      "action": "expedite_order",
+      "disruption": "political_unrest",
+      "passed": true,
+      "length": 980
+    },
+    {
+      "scenario": 6,
+      "action": "reroute_shipment",
+      "disruption": "supplier_financial_distress",
+      "passed": true,
+      "length": 1232
+    },
+    {
+      "scenario": 7,
+      "action": "hedge_commodity",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 729
+    },
+    {
+      "scenario": 8,
+      "action": "reroute_shipment",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 780
+    },
+    {
+      "scenario": 9,
+      "action": "increase_safety_stock",
+      "disruption": "canal_blockage",
+      "passed": true,
+      "length": 752
+    },
+    {
+      "scenario": 10,
+      "action": "reroute_shipment",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 789
+    },
+    {
+      "scenario": 11,
+      "action": "expedite_order",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 950
+    },
+    {
+      "scenario": 12,
+      "action": "expedite_order",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 1178
+    },
+    {
+      "scenario": 13,
+      "action": "do_nothing",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 802
+    },
+    {
+      "scenario": 14,
+      "action": "activate_backup_supplier",
+      "disruption": "port_strike",
+      "passed": true,
+      "length": 778
+    },
+    {
+      "scenario": 15,
+      "action": "reroute_shipment",
+      "disruption": "supplier_financial_distress",
+      "passed": true,
+      "length": 866
+    },
+    {
+      "scenario": 16,
+      "action": "reroute_shipment",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 1148
+    },
+    {
+      "scenario": 17,
+      "action": "do_nothing",
+      "disruption": "supplier_financial_distress",
+      "passed": true,
+      "length": 789
+    },
+    {
+      "scenario": 18,
+      "action": "activate_backup_supplier",
+      "disruption": "cyber_attack",
+      "passed": true,
+      "length": 949
+    },
+    {
+      "scenario": 19,
+      "action": "increase_safety_stock",
+      "disruption": "port_strike",
+      "passed": true,
+      "length": 744
+    },
+    {
+      "scenario": 20,
+      "action": "reroute_shipment",
+      "disruption": "political_unrest",
+      "passed": true,
+      "length": 779
+    },
+    {
+      "scenario": 21,
+      "action": "do_nothing",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 883
+    },
+    {
+      "scenario": 22,
+      "action": "issue_supplier_alert",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 910
+    },
+    {
+      "scenario": 23,
+      "action": "reroute_shipment",
+      "disruption": "cyclone",
+      "passed": true,
+      "length": 750
+    },
+    {
+      "scenario": 24,
+      "action": "hedge_commodity",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 944
+    },
+    {
+      "scenario": 25,
+      "action": "issue_supplier_alert",
+      "disruption": "cyclone",
+      "passed": true,
+      "length": 825
+    },
+    {
+      "scenario": 26,
+      "action": "expedite_order",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 1075
+    },
+    {
+      "scenario": 27,
+      "action": "do_nothing",
+      "disruption": "port_strike",
+      "passed": true,
+      "length": 600
+    },
+    {
+      "scenario": 28,
+      "action": "hedge_commodity",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 850
+    },
+    {
+      "scenario": 29,
+      "action": "increase_safety_stock",
+      "disruption": "supplier_financial_distress",
+      "passed": true,
+      "length": 760
+    },
+    {
+      "scenario": 30,
+      "action": "activate_backup_supplier",
+      "disruption": "canal_blockage",
+      "passed": true,
+      "length": 1011
+    },
+    {
+      "scenario": 31,
+      "action": "increase_safety_stock",
+      "disruption": "port_strike",
+      "passed": true,
+      "length": 741
+    },
+    {
+      "scenario": 32,
+      "action": "reroute_shipment",
+      "disruption": "supplier_financial_distress",
+      "passed": true,
+      "length": 832
+    },
+    {
+      "scenario": 33,
+      "action": "do_nothing",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 676
+    },
+    {
+      "scenario": 34,
+      "action": "issue_supplier_alert",
+      "disruption": "port_strike",
+      "passed": true,
+      "length": 1018
+    },
+    {
+      "scenario": 35,
+      "action": "do_nothing",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 820
+    },
+    {
+      "scenario": 36,
+      "action": "issue_supplier_alert",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 726
+    },
+    {
+      "scenario": 37,
+      "action": "reroute_shipment",
+      "disruption": "cyber_attack",
+      "passed": true,
+      "length": 1184
+    },
+    {
+      "scenario": 38,
+      "action": "increase_safety_stock",
+      "disruption": "port_strike",
+      "passed": true,
+      "length": 697
+    },
+    {
+      "scenario": 39,
+      "action": "issue_supplier_alert",
+      "disruption": "cyber_attack",
+      "passed": true,
+      "length": 1037
+    },
+    {
+      "scenario": 40,
+      "action": "reroute_shipment",
+      "disruption": "supplier_financial_distress",
+      "passed": true,
+      "length": 876
+    },
+    {
+      "scenario": 41,
+      "action": "increase_safety_stock",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 631
+    },
+    {
+      "scenario": 42,
+      "action": "expedite_order",
+      "disruption": "chip_shortage",
+      "passed": true,
+      "length": 913
+    },
+    {
+      "scenario": 43,
+      "action": "issue_supplier_alert",
+      "disruption": "political_unrest",
+      "passed": true,
+      "length": 906
+    },
+    {
+      "scenario": 44,
+      "action": "increase_safety_stock",
+      "disruption": "earthquake",
+      "passed": true,
+      "length": 812
+    },
+    {
+      "scenario": 45,
+      "action": "expedite_order",
+      "disruption": "political_unrest",
+      "passed": true,
+      "length": 797
+    },
+    {
+      "scenario": 46,
+      "action": "reroute_shipment",
+      "disruption": "port_strike",
+      "passed": true,
+      "length": 698
+    },
+    {
+      "scenario": 47,
+      "action": "reroute_shipment",
+      "disruption": "cyclone",
+      "passed": true,
+      "length": 697
+    },
+    {
+      "scenario": 48,
+      "action": "expedite_order",
+      "disruption": "political_unrest",
+      "passed": true,
+      "length": 902
+    },
+    {
+      "scenario": 49,
+      "action": "do_nothing",
+      "disruption": "cyber_attack",
+      "passed": true,
+      "length": 856
+    }
+  ]
+}

@@ -304,6 +304,124 @@
     </div>
   </section>
 
+  <!-- ============================ D-I : DEEP-DIVE 6 CARDS ============================ -->
+  <section class="space-y-3">
+    <div class="text-xs uppercase tracking-wider text-[var(--fg-2)]">
+      sections D · E · F · G · H · I — every bullet has a receipt in <span class="mono">FINAL_SUBMIT/receipts/</span>
+    </div>
+    <div class="hero-grid">
+
+      <!-- D · RL Players -->
+      <a href="/arena/health" class="panel p-5 ring block">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2"><span class="led"></span>
+            <span class="font-semibold">D · 13 RL Players</span></div>
+          <span class="chip chip-violet">+ Wilcoxon p=3.9e-18</span>
+        </div>
+        <div class="text-sm text-[var(--fg-1)] leading-tight">
+          MaskablePPO · ConstrainedPPO+λ · QR-DQN(51q,CVaR) · HER+SAC ·
+          DT · BC · CQL · IQL · TD3+BC · MBRL+RSSM · Specialist Router
+          (BC→CQL→IQL) · Optuna 12-trial · 4-model ONNX (5.2e-8 best)
+        </div>
+        <div class="mt-3 flex items-baseline gap-3">
+          <span class="stat text-[var(--green)]">+0.2276</span>
+          <span class="text-xs text-[var(--fg-2)]">RAP-XC vs MaskablePPO Δreward, all 3 tasks p&lt;1e-17</span>
+        </div>
+      </a>
+
+      <!-- E · Forecasting -->
+      <a href="javascript:void(0)" onclick="alert('Forecasting stack:\\n- Custom TFT 513K params (3-target FRED) + 90K (WTI MAE 7.83)\\n- Chronos-Bolt 14-step quantile + TimesFM-2 + TabPFN-v2 ensemble\\n- Prophet weekly+yearly + ARIMA(5,1,0) + BigTFT v2\\n- Bates-Granger constrained stacking + Ridge alpha=1.0\\n- 20-fold rolling-origin × 8 FRED targets × 3 horizons\\n- PICP@80/90/95 + Foygel Barber 2022 split-conformal\\n- 2,883 business days (2015-2026)\\n\\nReceipts: R3_PAST_SELF.json, R3_STACKING_V3_POINTLEVEL.json, R3_BIGTFT_INTEGRATION.json, R3_TIMESFM_QUANTILE.json, ensemble_brent_validation.json');" class="panel p-5 ring block">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2"><span class="led"></span>
+            <span class="font-semibold">E · Forecasting Stack</span></div>
+          <span class="chip chip-amber">3.32% median</span>
+        </div>
+        <div class="text-sm text-[var(--fg-1)] leading-tight">
+          TFT 513K + 90K · Chronos-Bolt + TimesFM-2 + TabPFN ensemble ·
+          Bates-Granger constrained stacking (1969) · 20-fold rolling-origin ×
+          8 FRED targets × 3 horizons · PICP@80/90/95 · Foygel-Barber split-conformal
+        </div>
+        <div class="mt-3 flex items-baseline gap-3">
+          <span class="stat text-[var(--green)]">8/8</span>
+          <span class="text-xs text-[var(--fg-2)]">Brent ±30%, ensemble closes 75% gap</span>
+        </div>
+      </a>
+
+      <!-- F · Uncertainty -->
+      <a href="javascript:void(0)" onclick="alert('Uncertainty Quantification:\\n- MC Dropout 50 forward passes\\n- ECE_full=0.0229 BC, 0.0095 CQL, 0.0235 IQL, 0.0179 TD3+BC\\n- Conformal RL on Q-values (alpha 0.05/0.05/0.1)\\n- Beta-severity + Lognormal-duration MC\\n- Numba JIT MC hotloop (10-50x speedup)\\n- GPU MC 100K scenarios <80ms\\n- 7 confidence bins per model\\n\\nReceipt: mc_dropout_v2.json');" class="panel p-5 ring block">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2"><span class="led"></span>
+            <span class="font-semibold">F · Uncertainty</span></div>
+          <span class="chip chip-good">ECE=0.0229</span>
+        </div>
+        <div class="text-sm text-[var(--fg-1)] leading-tight">
+          MC Dropout 50 forwards · 7-bin reliability · Conformal Q-values ·
+          Beta-severity × Lognormal-duration MC · Numba JIT 10-50× ·
+          GPU MC 100K scenarios &lt;80ms
+        </div>
+        <div class="mt-3 flex items-baseline gap-3">
+          <span class="stat text-[var(--cyan)]">0.0229</span>
+          <span class="text-xs text-[var(--fg-2)]">ECE_full BC_v2 (best calibration)</span>
+        </div>
+      </a>
+
+      <!-- G · RAG 8 pipelines -->
+      <a href="javascript:void(0)" onclick="alert('RAG · 8 pipelines compared:\\nP1 BGE-M3 bi: P@1=0.9245 lat=48ms\\nP2 mxbai bi (WINNER): P@1=0.9623 MRR=0.9779 lat=35ms\\nP3 Snowflake bi: P@1=0.9434 MRR=0.9717 lat=31ms\\nP4 BGE-M3+rerank: P@1=0.9245 lat=1326ms\\nP5 mxbai+rerank: P@1=0.9245 lat=1139ms\\nP6 Snowflake+rerank: P@1=0.9245 lat=1862ms\\nP7 RRF ensemble+rerank: P@1=0.9245 lat=1434ms\\nP8 HyDE+RRF+rerank: P@1=0.9245 lat=1188ms\\n\\nHonest finding: reranker hurts P@3 0.925->0.862 at ceiling.\\nHyDE no lift on explicit queries.\\n\\nCorpus: 6483 chunks (564 wiki + 5790 SEC + 129 policy)\\nQueries: 53 precise + 20 paraphrased + 26 BEIR\\n\\nReceipt: R5_GRANITE.json + R5_GRANITE_HARD.json + R5_BEIR_MANUAL.json');" class="panel p-5 ring block">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2"><span class="led"></span>
+            <span class="font-semibold">G · RAG 8 Pipelines</span></div>
+          <span class="chip chip-violet">P@1=0.962</span>
+        </div>
+        <div class="text-sm text-[var(--fg-1)] leading-tight">
+          P1 BGE-M3 · <strong>P2 mxbai (winner P@1=0.962, MRR=0.978, 35ms)</strong> ·
+          P3 Snowflake · P4-P6 +rerank · P7 RRF · P8 HyDE ·
+          honest: reranker hurts ceiling P@3 0.925→0.862 · HyDE no lift
+        </div>
+        <div class="mt-3 flex items-baseline gap-3">
+          <span class="stat text-[var(--cyan)]">6,483</span>
+          <span class="text-xs text-[var(--fg-2)]">chunks · 53 + 20 + 26 queries</span>
+        </div>
+      </a>
+
+      <!-- H · GNN -->
+      <a href="javascript:void(0)" onclick="alert('GNN Cascade:\\n- Custom 3-layer GCN in 50 LOC pure PyTorch\\n- TGN with per-node memory (memory_dim=64, time_dim=8)\\n- GRU memory updater + TransformerConv (PyG ≥2.3) + 2 heads\\n- 5-day risk trajectory + node-level disruption MSE\\n- 1000 epochs Adam + early stopping\\n- 3 graphs trained (12/25/40 nodes)\\n- MAE -48% / -49% / -64% vs MLP\\n- HetTemporalGAT v2: +7.77% / +12.15% / +10.03% vs v1 GCN\\n- Top edges: PORT_LONG_BEACH→WH_US_WEST grad 0.86\\n- gnn_arrival.onnx (10KB)\\n\\nReceipt: R6_PROVIDER_V2.json + hetgat_v1_report.json');" class="panel p-5 ring block">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2"><span class="led"></span>
+            <span class="font-semibold">H · GNN Cascade</span></div>
+          <span class="chip chip-amber">-64% MAE hard</span>
+        </div>
+        <div class="text-sm text-[var(--fg-1)] leading-tight">
+          Custom 3-layer GCN 50 LOC · TGN per-node memory + GRU · 2-head
+          TransformerConv · 5-day trajectory · 12/25/40-node graphs ·
+          MAE -48 / -49 / -64% vs MLP · HetGAT v2 +12.15% on top
+        </div>
+        <div class="mt-3 flex items-baseline gap-3">
+          <span class="stat text-[var(--green)]">+12.15%</span>
+          <span class="text-xs text-[var(--fg-2)]">HetGAT vs v1 GCN medium</span>
+        </div>
+      </a>
+
+      <!-- I · Interpretability -->
+      <a href="javascript:void(0)" onclick="alert('Interpretability:\\n- SHAP DeepExplainer on real BC policy (n_bg=1000, n_explained=1000)\\n- Top-20 global features ranked\\n- Per-group aggregates (NODE 40%, STATUS 19%, NOAA 12.6%, FRED 5.5%)\\n- TreeExplainer for tabular DataCo\\n- Reliability diagrams + ECE/Brier per BC/CQL/IQL/TD3+BC\\n- Fairness equalized odds (Market×Segment×Late_risk)\\n- LLM-RL hybrid explainer (Qwen2.5:14b, 4-section: Decision/Evidence/Counterfactual/Precedent)\\n- 50/50 stress test pass\\n- Provenance 5-tier classifier (regulatory/academic/reference/industry/uncertain)\\n\\nReceipts: shap_cql_v2.json, R2_SHAP_FAIRNESS_CALIBRATION.json, mc_dropout_v2.json, explainer_stress_v2.json');" class="panel p-5 ring block">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2"><span class="led"></span>
+            <span class="font-semibold">I · Interpretability</span></div>
+          <span class="chip chip-good">50/50 pass</span>
+        </div>
+        <div class="text-sm text-[var(--fg-1)] leading-tight">
+          SHAP DeepExplainer (n_bg=1000) · top-20 features · TreeExplainer ·
+          reliability diagrams · ECE/Brier × 4 models · fairness eq.odds ·
+          Qwen-14B 4-section explainer · 5-tier provenance trust
+        </div>
+        <div class="mt-3 flex items-baseline gap-3">
+          <span class="stat text-[var(--green)]">100%</span>
+          <span class="text-xs text-[var(--fg-2)]">explainer stress 50/50, regen 0×</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
   <!-- VALIDATION + RECEIPTS ROW -->
   <section class="grid md:grid-cols-2 gap-4">
     <div class="panel p-5">

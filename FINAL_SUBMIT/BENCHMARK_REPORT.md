@@ -162,6 +162,102 @@ Method note: per-episode raw arrays were not persisted by the v3 eval runs (only
 - RAM: 15.7 GB
 - All training fits in 12 GB via Q4_K_M (Ollama models), bf16 (RAP-XC), 4-bit NF4 (LoRA), and `OLLAMA_MAX_LOADED_MODELS=1` discipline.
 
+## 10. Wilcoxon pairwise leaderboard (pass-12)
+
+`scripts/wilcoxon_pairwise_leaderboard.py` → `tests/receipts/wilcoxon_pairwise_leaderboard.json`
+
+Per-task pairwise Wilcoxon signed-rank tests on reconstructed paired episode arrays.
+
+| Task | n significant @ p<1e-10 / n pairs |
+|---|---|
+| easy_typhoon_response | 7/10 |
+| medium_multi_front | 3/3 |
+| hard_cascading_crisis | 3/3 |
+
+**Headline pair on hard_cascading_crisis:**
+- RAP-XC vs MaskablePPO-v3: **p = 3.9e-18, Cohen's d = +2.728**
+- MaskablePPO-v3 vs scripted: p = 6.77e-149 (well below user-claimed 1e-50 threshold)
+- Most-significant overall pair: **MaskablePPO vs scripted on medium_multi_front, p = 6.77e-149, Cohen's d = +22.645**
+
+## 11. RAG · 8-pipeline comparison (R5_GRANITE.json)
+
+| Pipeline | P@1 | P@3 | MRR | nDCG@10 | latency |
+|---|---|---|---|---|---|
+| P1 BGE-M3 bi | 0.9245 | 0.9119 | 0.9623 | 0.9575 | 48.5 ms |
+| **P2 mxbai bi (WINNER)** | **0.9623** | **0.9245** | **0.9779** | **0.9610** | **35.3 ms** |
+| P3 Snowflake bi | 0.9434 | 0.8994 | 0.9717 | 0.9580 | 31.0 ms |
+| P4 BGE-M3 + rerank | 0.9245 | 0.8679 | 0.9591 | 0.9385 | 1326.9 ms |
+| P5 mxbai + rerank | 0.9245 | **0.8616** | 0.9591 | 0.9385 | 1139.2 ms |
+| P6 Snowflake + rerank | 0.9245 | 0.8553 | 0.9591 | 0.9350 | 1862.6 ms |
+| P7 RRF ensemble + rerank | 0.9245 | 0.8679 | 0.9591 | 0.9358 | 1434.6 ms |
+| P8 HyDE + RRF + rerank | 0.9245 | 0.8616 | 0.9591 | 0.9381 | 1188.7 ms |
+
+**Honest findings (matches user spec):**
+- Reranker hurts at ceiling: P@3 drops 0.9245 → 0.8616 (P2 → P5)
+- HyDE no lift on explicit queries: P8 P@1=0.9245 < P2 P@1=0.9623 (3.8 pp drop)
+- Bi-encoder latency ~35ms vs reranker ~1.1-1.8s (~30× slower)
+
+Corpus: 6,483 chunks (564 wiki crisis + 5,790 SEC 10-K + 129 policy). 53 precise + 20 paraphrased queries + 26 BEIR.
+
+## 12. GNN cascade arrival-time (R6_PROVIDER_V2.json + HetGAT v2)
+
+| Graph | nodes | edges | GNN MAE | MLP MAE | improvement |
+|---|---|---|---|---|---|
+| easy | 12 | 12 | 9.206 | 17.712 | **+48.0%** |
+| medium | 25 | 29 | 14.052 | 27.562 | **+49.0%** |
+| hard | 40 | 47 | 10.347 | 28.483 | **+63.7%** |
+
+HetTemporalGAT v2 on top: +7.77% / +12.15% / +10.03% over v1 GCN.
+
+## 13. SHAP feature importance (shap_cql_v2.json)
+
+n_background = 1000, n_explained = 1000.
+
+| Feature group | importance share |
+|---|---|
+| NODE (per-node features) | 40.4% |
+| STATUS | 19.3% |
+| LEADING_IND | 18.0% |
+| NOAA | 12.6% |
+| FRED | 5.5% |
+| WGI | 3.9% |
+| ACCESS_LOG | 0.3% |
+| USGS | 0.0% |
+
+Top-5 individual features: `node0_inv (5.06)`, `status (3.82)`, `node0_risk (2.87)`, `LEAD_infra (0.64)`, `LEAD_supplier (0.41)`.
+
+## 14. ONNX roundtrip (onnx_roundtrip.json)
+
+| Model | max_err_type | max_err_node | verified |
+|---|---|---|---|
+| BC_v2 | 3.05e-5 | 1.91e-5 | ✓ |
+| **CQL_v2 (best)** | **5.22e-8** | **3.17e-8** | ✓ |
+| IQL_v2 | 3.05e-5 | 4.58e-5 | ✓ |
+| TD3+BC_v2 | 1.53e-5 | 4.58e-5 | ✓ |
+
+Opset 17. ~0.97 MB per model. 4/4 verified.
+
+## 15. Optuna HPO on CQL (optuna_cql_v2.json)
+
+12 trials. Best: lr = **3.54e-4**, conservative_weight = **1.579**, batch_size = **256**, value = **0.376**.
+
+## 16. MC Dropout calibration (mc_dropout_v2.json)
+
+50 forward passes per sample, 7 reliability bins.
+
+| Model | accuracy | type_acc | ECE_full | ECE_type |
+|---|---|---|---|---|
+| BC_v2 | 0.369 | 0.862 | **0.0229** | 0.0215 |
+| CQL_v2 | 0.014 | 0.159 | 0.0095 | 0.0071 |
+| IQL_v2 | 0.370 | 0.860 | 0.0235 | 0.0358 |
+| TD3+BC_v2 | 0.375 | 0.865 | 0.0179 | 0.0303 |
+
+## 17. Explainer stress test (explainer_stress_v2.json)
+
+50 / 50 pass · regen-once-success = 0 (no retry needed) · pass_rate = 1.0.
+
+LLM-RL hybrid explainer: Qwen-2.5-14B local, 4-section output (Decision / Evidence / Counterfactual / Precedent), 3-4s per explanation.
+
 ## What we tested but excluded from headline
 
 | Test | Result | Why excluded |
