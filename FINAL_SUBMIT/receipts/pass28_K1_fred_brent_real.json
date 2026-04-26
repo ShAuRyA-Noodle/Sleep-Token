@@ -1,0 +1,335 @@
+{
+  "name": "K1_fred_brent_real_backfill",
+  "closes": "HONEST_LIMITATIONS L9 (synthetic Brent pre-history)",
+  "series": "DCOILBRENTEU (real FRED)",
+  "n_events_total": 8,
+  "n_events_with_real_data": 8,
+  "events": [
+    {
+      "event_id": "iran_sanctions_2018",
+      "event_date": "2018-05-08",
+      "anchor_value_published_usd": 75.43,
+      "n_pre_event_obs": 209,
+      "pre_event_brent_first_3": [
+        [
+          "2017-07-12",
+          46.73
+        ],
+        [
+          "2017-07-13",
+          47.65
+        ],
+        [
+          "2017-07-14",
+          47.89
+        ]
+      ],
+      "pre_event_brent_last_3": [
+        [
+          "2018-05-03",
+          73.45
+        ],
+        [
+          "2018-05-04",
+          74.75
+        ],
+        [
+          "2018-05-08",
+          74.16
+        ]
+      ],
+      "pre_event_brent_mean": 61.9388,
+      "pre_event_brent_min": 46.73,
+      "pre_event_brent_max": 75.92,
+      "rel_err_anchor_vs_mean_pct": 17.89,
+      "elapsed_s": 2.119,
+      "sha256_response_first_2k": "00fefe3a4edcc6f39a371498910954aa37e5f4cea263f6931f7827930e624a7c"
+    },
+    {
+      "event_id": "israel_hamas_2023",
+      "event_date": "2023-10-07",
+      "anchor_value_published_usd": 88.5,
+      "n_pre_event_obs": 206,
+      "pre_event_brent_first_3": [
+        [
+          "2022-12-12",
+          78.0
+        ],
+        [
+          "2022-12-13",
+          80.14
+        ],
+        [
+          "2022-12-14",
+          83.33
+        ]
+      ],
+      "pre_event_brent_last_3": [
+        [
+          "2023-10-04",
+          89.83
+        ],
+        [
+          "2023-10-05",
+          88.28
+        ],
+        [
+          "2023-10-06",
+          87.86
+        ]
+      ],
+      "pre_event_brent_mean": 82.1248,
+      "pre_event_brent_min": 71.03,
+      "pre_event_brent_max": 97.1,
+      "rel_err_anchor_vs_mean_pct": 7.2,
+      "elapsed_s": 0.719,
+      "sha256_response_first_2k": "38a9a19572f2f7d22424bb506c6b064da72f5032ce0f057001ea0121094284b5"
+    },
+    {
+      "event_id": "hormuz_tanker_2019",
+      "event_date": "2019-06-13",
+      "anchor_value_published_usd": 61.31,
+      "n_pre_event_obs": 208,
+      "pre_event_brent_first_3": [
+        [
+          "2018-08-17",
+          70.14
+        ],
+        [
+          "2018-08-20",
+          71.11
+        ],
+        [
+          "2018-08-21",
+          71.65
+        ]
+      ],
+      "pre_event_brent_last_3": [
+        [
+          "2019-06-11",
+          63.56
+        ],
+        [
+          "2019-06-12",
+          61.66
+        ],
+        [
+          "2019-06-13",
+          63.28
+        ]
+      ],
+      "pre_event_brent_mean": 68.5775,
+      "pre_event_brent_min": 50.57,
+      "pre_event_brent_max": 86.07,
+      "rel_err_anchor_vs_mean_pct": 11.85,
+      "elapsed_s": 0.677,
+      "sha256_response_first_2k": "a53132ff25f260bab288d5968182af1dbe72303f09bd1f512e71595a6553b61e"
+    },
+    {
+      "event_id": "houthi_red_sea_2023",
+      "event_date": "2023-11-19",
+      "anchor_value_published_usd": 81.3,
+      "n_pre_event_obs": 209,
+      "pre_event_brent_first_3": [
+        [
+          "2023-01-23",
+          87.54
+        ],
+        [
+          "2023-01-24",
+          85.25
+        ],
+        [
+          "2023-01-25",
+          85.08
+        ]
+      ],
+      "pre_event_brent_last_3": [
+        [
+          "2023-11-15",
+          82.4
+        ],
+        [
+          "2023-11-16",
+          77.73
+        ],
+        [
+          "2023-11-17",
+          81.22
+        ]
+      ],
+      "pre_event_brent_mean": 83.0733,
+      "pre_event_brent_min": 71.03,
+      "pre_event_brent_max": 97.1,
+      "rel_err_anchor_vs_mean_pct": 2.18,
+      "elapsed_s": 0.653,
+      "sha256_response_first_2k": "809969d7998aaf301f250c4b26966dbf9be3a7fa0f0af2e7cbf9f8179ed29ea2"
+    },
+    {
+      "event_id": "suez_2021",
+      "event_date": "2021-03-23",
+      "anchor_value_published_usd": 64.41,
+      "n_pre_event_obs": 212,
+      "pre_event_brent_first_3": [
+        [
+          "2020-05-27",
+          32.73
+        ],
+        [
+          "2020-05-28",
+          33.98
+        ],
+        [
+          "2020-05-29",
+          34.15
+        ]
+      ],
+      "pre_event_brent_last_3": [
+        [
+          "2021-03-19",
+          64.0
+        ],
+        [
+          "2021-03-22",
+          63.89
+        ],
+        [
+          "2021-03-23",
+          59.96
+        ]
+      ],
+      "pre_event_brent_mean": 47.7476,
+      "pre_event_brent_min": 32.73,
+      "pre_event_brent_max": 69.95,
+      "rel_err_anchor_vs_mean_pct": 25.87,
+      "elapsed_s": 0.673,
+      "sha256_response_first_2k": "be6585db6b21744fb9c0e8d218203d065fffa4bbd6be9026685a9413a2dafbc9"
+    },
+    {
+      "event_id": "taiwan_tension_2022",
+      "event_date": "2022-08-02",
+      "anchor_value_published_usd": 100.54,
+      "n_pre_event_obs": 209,
+      "pre_event_brent_first_3": [
+        [
+          "2021-10-06",
+          81.39
+        ],
+        [
+          "2021-10-07",
+          82.34
+        ],
+        [
+          "2021-10-08",
+          82.17
+        ]
+      ],
+      "pre_event_brent_last_3": [
+        [
+          "2022-07-29",
+          111.51
+        ],
+        [
+          "2022-08-01",
+          106.09
+        ],
+        [
+          "2022-08-02",
+          106.51
+        ]
+      ],
+      "pre_event_brent_mean": 99.5897,
+      "pre_event_brent_min": 69.53,
+      "pre_event_brent_max": 133.18,
+      "rel_err_anchor_vs_mean_pct": 0.95,
+      "elapsed_s": 0.642,
+      "sha256_response_first_2k": "af2da0b1ab6f43c197e5c488a847fd66549a141ff62cf5a9c74124a48f26b6ce"
+    },
+    {
+      "event_id": "thailand_floods_2011",
+      "event_date": "2011-10-15",
+      "anchor_value_published_usd": 110.2,
+      "n_pre_event_obs": 205,
+      "pre_event_brent_first_3": [
+        [
+          "2010-12-20",
+          91.31
+        ],
+        [
+          "2010-12-21",
+          93.11
+        ],
+        [
+          "2010-12-22",
+          93.55
+        ]
+      ],
+      "pre_event_brent_last_3": [
+        [
+          "2011-10-12",
+          112.44
+        ],
+        [
+          "2011-10-13",
+          112.45
+        ],
+        [
+          "2011-10-14",
+          114.33
+        ]
+      ],
+      "pre_event_brent_mean": 110.8536,
+      "pre_event_brent_min": 91.31,
+      "pre_event_brent_max": 126.64,
+      "rel_err_anchor_vs_mean_pct": 0.59,
+      "elapsed_s": 0.656,
+      "sha256_response_first_2k": "0c482988ec96bd472945fa65bfaf3d6c8373a364ddfc3717c4f134893f6858ae"
+    },
+    {
+      "event_id": "tohoku_2011",
+      "event_date": "2011-03-11",
+      "anchor_value_published_usd": 113.84,
+      "n_pre_event_obs": 208,
+      "pre_event_brent_first_3": [
+        [
+          "2010-05-17",
+          73.87
+        ],
+        [
+          "2010-05-18",
+          75.12
+        ],
+        [
+          "2010-05-19",
+          71.86
+        ]
+      ],
+      "pre_event_brent_last_3": [
+        [
+          "2011-03-09",
+          115.19
+        ],
+        [
+          "2011-03-10",
+          114.07
+        ],
+        [
+          "2011-03-11",
+          114.07
+        ]
+      ],
+      "pre_event_brent_mean": 85.3292,
+      "pre_event_brent_min": 67.18,
+      "pre_event_brent_max": 116.89,
+      "rel_err_anchor_vs_mean_pct": 25.04,
+      "elapsed_s": 0.596,
+      "sha256_response_first_2k": "8941a71ee43f214968bc628b5ada7ed0d526206b17d24f0e968c3b78d565a8fc"
+    }
+  ],
+  "no_synthetic_substitution": true,
+  "_block_id": "K1",
+  "_block_name": "fred_brent_real",
+  "_block_elapsed_s": 7.2,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T02:36:34Z"
+}

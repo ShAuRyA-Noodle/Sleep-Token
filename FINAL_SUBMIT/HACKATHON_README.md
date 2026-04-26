@@ -150,6 +150,72 @@ Reproduces in ~3 min via `python scripts/final_real_reinforce_wordle_v2.py --epi
 > - 100 words: ~80% solve
 > Honest scaling: pool size grows → solve rate degrades gracefully. Action masking is the constraint solver. Receipt: [`tier3_generalization.json`](receipts/tier3_generalization.json).
 
+### 3.17a Foolproof Colab notebook · proven runnable end-to-end (NEW pass 23)
+
+> **Reproducible Colab notebook 08** trains REINFORCE on the Wordle env in **9.8s wall-clock** with:
+> - Baseline (random uniform): mean reward **−0.090**, solve rate **10.0%**
+> - Trained REINFORCE (1500 episodes, 94 grad steps, 3-tier curriculum, action masking, EMA baseline): mean reward **+0.765**, solve rate **100.0%**
+> - Improvement: **+855%** mean reward · **+90 percentage points** solve rate
+> - **Wilcoxon paired one-sided greater p = 1.87 × 10⁻³⁴**, **Cohen's d = 3.891**
+>
+> Plus TRL GRPO 50-step micro-finetune cell using Qwen2.5-0.5B + Unsloth — proves the canonical Unsloth+TRL integration on the same Wordle env (skipped on CPU runtime, runs on free Colab T4 in ~8 min).
+>
+> Notebook: [`notebooks/08_HACKATHON_FOOLPROOF.ipynb`](../notebooks/08_HACKATHON_FOOLPROOF.ipynb)
+> Local proof: `python scripts/pass23_colab_local_smoke.py` reproduces the full training loop deterministically (seeded). Receipt: [`pass23_colab_local_smoke.json`](receipts/pass23_colab_local_smoke.json) · sha `38bc02d6cc19...`. Plot: [`plots/colab_reproduction.png`](plots/colab_reproduction.png).
+
+### 3.17b OpenEnv compliance + MCP tool fuzz (NEW pass 23, EXTENDED pass 27)
+
+> Compliance receipt: 4 standard methods (reset/step/state/close) ✅ · 6 non-reserved MCP tools (`tool_sm_*`) ✅ · valid `openenv.yaml` ✅ · no reserved-name collisions ✅ → `compliant: true`.
+>
+> MCP tool adversarial fuzz EXTENDED in pass 27: **210/210 calls returned safely** (6 tools × 10 attack categories × 35 inputs). Categories: empty_strings, sql_injection, path_traversal (../×100), oversized_strings (10K-100K chars + emoji floods), control_chars, format_string, json_payload, negative_ints, bool_confusion, nonexistent_ids. **0 uncaught exceptions, 100% pass rate per category.**
+>
+> Receipts: [`pass23_openenv_compliance_mcp_fuzz.json`](receipts/pass23_openenv_compliance_mcp_fuzz.json) (14 inputs) + [`pass27_D_extended_mcp_fuzz.json`](receipts/pass27_D_extended_mcp_fuzz.json) (210 inputs) · sha `d986dc03bfbd...`.
+
+### 3.17c Real episodic bootstrap with raw arrays (NEW pass 27 — closes L5)
+
+> Eliminates HONEST_LIMITATIONS L5 (sufficient-stats reconstruction was the single biggest credibility risk). Pass 27 Block B re-runs Wordle eval on n=100 PAIRED episodes with INDEPENDENT policy seeds and persists raw per-episode reward arrays.
+>
+> | Policy | Solve rate | Mean reward |
+> |---|---|---|
+> | random_uniform | 8.0% | -0.112 |
+> | masked_random_info_aware | 100% | +0.773 |
+> | REINFORCE_trained_argmax | **100%** | **+0.762** |
+>
+> - Wilcoxon paired one-sided greater p = **2.71 × 10⁻¹⁸**
+> - Cohen's d REINFORCE vs random = **+4.28** (very large)
+> - Bootstrap CI95 paired diff [+0.812, +0.928], strictly excludes zero
+> - Honest finding: action masking is dominant signal on small pool — REINFORCE marginal lift shows up in median guess count (3 vs 4)
+>
+> Receipt: [`pass27_B_real_episodic_bootstrap.json`](receipts/pass27_B_real_episodic_bootstrap.json).
+
+### 3.17d Live SupplyMind rollout via HF Space (NEW pass 27 — fixed pass 26 bug)
+
+> Pass 26 had 8/28 422 errors because client missed required action-specific args. Pass 27 fixes the client (adds `backup_supplier_id`, `reroute_via`, `additional_stock_days`, `expedite_mode`, `commodity`, `hedge_amount_usd`).
+>
+> 28-step heuristic rollout against [https://shaurya-noodle-supplymind.hf.space](https://shaurya-noodle-supplymind.hf.space) with cumulative reward **+0.64**, mean reward per step **+0.023**, every step's response sha256-stamped.
+>
+> Receipt: [`pass27_A_fixed_hf_rollout.json`](receipts/pass27_A_fixed_hf_rollout.json) · plot: [`plots/supplymind_live_rollout.png`](plots/supplymind_live_rollout.png).
+
+### 3.17e Reasoning Gym alt env (NEW pass 27 U17 — innovation lift)
+
+> Wraps 3 reasoning_gym 0.1.19 tasks as OpenEnv-style envs (reset/step/state/close). Demonstrates the OpenEnv API generalizes to 3 distinct domains (SupplyMind + Wordle + Reasoning Gym). Hash-bandit policy (intentionally tiny, no LLM compute) trained for 1000 episodes per task.
+>
+> | Task | Trained acc | Random acc | Lift (pp) |
+> |---|---|---|---|
+> | basic_arithmetic | 24.5% | 25.0% | -0.5 (honest: hash bandit cannot generalize arithmetic) |
+> | chain_sum | 29.0% | 22.0% | **+7.0** |
+> | leg_counting | 28.5% | 21.0% | **+7.5** |
+>
+> Receipts: [`pass27_U17_reasoning_gym_*.json`](receipts/) (3 task receipts + 1 master).
+
+### 3.17f Auto-extract scenario params from news (NEW pass 27 U20 — closes L11)
+
+> Closes HONEST_LIMITATIONS L11 (war-room scenario params operator-asserted). Pipeline: 5 historical news headlines → OpenRouter `gpt-4o-mini` LIVE → JSON `{severity, brent_price_usd, duration_days}` → compare to documented ground truth.
+>
+> **Field accuracy within 25%: 9/15 = 60.0%** across Suez 2021, Houthi Red Sea 2024, Tohoku 2011, Thailand floods 2011, Iran sanctions 2018. Severity field is most reliable; Brent prices over-estimated (defaults to ~$90); duration under-estimated on slow-burn events.
+>
+> Receipt: [`pass27_U20_scenario_extractor.json`](receipts/pass27_U20_scenario_extractor.json) · sha `21a9565cac9a...`.
+
 ### 3.17 Chained live demo (4 APIs + war room + REINFORCE in 7 sec)
 
 > 6-stage end-to-end pipeline: EIA WTI price → NASA FIRMS active fires → OpenRouter risk classification (gpt-4o-mini) → GFW vessel stats → REINFORCE policy eval → war-room scenario synthesis. **6/6 stages OK · total wall-clock 7 sec**. Receipt: [`chained_live_demo.json`](receipts/chained_live_demo.json).

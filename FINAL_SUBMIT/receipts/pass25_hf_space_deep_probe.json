@@ -1,0 +1,50 @@
+{
+  "name": "pass25_hf_space_deep_probe",
+  "env_url": "https://shaurya-noodle-supplymind.hf.space",
+  "n_endpoints_tested": 5,
+  "n_endpoints_200_OK": 4,
+  "pct_live": 80.0,
+  "results": {
+    "GET /health": {
+      "status_code": 200,
+      "ok": true,
+      "elapsed_s": 1.402,
+      "response_sha256_first_1k": "b7017975d4e063c096ac628ef76ca89762ffcc3d24e366b04bc192f42d604570",
+      "n_bytes": 65,
+      "preview": "{\"status\":\"healthy\",\"environment\":\"supplymind\",\"version\":\"1.0.0\"}"
+    },
+    "GET /tasks": {
+      "status_code": 200,
+      "ok": true,
+      "elapsed_s": 1.16,
+      "response_sha256_first_1k": "03134eda6d608c423fc6b7e16537e1f1dab1964413c96a5b5526d05e922b98f2",
+      "n_bytes": 6365,
+      "preview": "{\"tasks\":[{\"task_id\":\"easy_typhoon_response\",\"name\":\"Typhoon Response\",\"difficulty\":\"easy\",\"description\":\"Manage a semiconductor supply chain through a single typhoon disruption affecting Taiwan. Your"
+    },
+    "GET /state": {
+      "status_code": 200,
+      "ok": true,
+      "elapsed_s": 1.123,
+      "response_sha256_first_1k": "eea4ad89f4923b6969060e5ff6aac28695e4b84a52aa114e463b3e4c8bd022cc",
+      "n_bytes": 137,
+      "preview": "{\"episode_id\":\"\",\"step_count\":0,\"task_id\":\"\",\"task_name\":\"\",\"task_difficulty\":\"\",\"total_steps\":0,\"is_done\":false,\"cumulative_reward\":0.0}"
+    },
+    "POST /reset": {
+      "status_code": 200,
+      "ok": true,
+      "elapsed_s": 1.216,
+      "response_sha256_first_1k": "5cd244396c3a8df33661f3dca7fbe7e7754def698e24265b7d665496f4a54b50",
+      "n_bytes": 4568,
+      "preview": "{\"current_day\":0,\"days_remaining\":30,\"active_signals\":[],\"new_signals\":[],\"node_statuses\":[{\"node_id\":\"SUP_TSMC\",\"name\":\"TSMC Fab 14 (Tainan)\",\"node_type\":\"supplier\",\"tier\":1,\"country\":\"Taiwan\",\"is_op"
+    },
+    "POST /wordle/reset": {
+      "status_code": 404,
+      "ok": false,
+      "elapsed_s": 1.135,
+      "response_sha256_first_1k": "37ec4665a8102d115ffd1ac20dae94c98b4dac64b0c1a68228aa2a531caeb35d",
+      "n_bytes": 22,
+      "preview": null
+    }
+  },
+  "_generated_at_utc": "2026-04-26T01:15:13Z"
+}

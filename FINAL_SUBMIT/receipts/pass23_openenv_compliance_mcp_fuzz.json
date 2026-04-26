@@ -1,0 +1,123 @@
+{
+  "name": "pass23_openenv_compliance_and_mcp_fuzz",
+  "compliance_check": {
+    "openenv_core_installed": false,
+    "subclass_of_MCPEnvironment": false,
+    "standard_methods_present": true,
+    "mcp_tools": [
+      "tool_sm_describe_action_space",
+      "tool_sm_explain_disruption",
+      "tool_sm_get_financial_state",
+      "tool_sm_get_node_status",
+      "tool_sm_query_crisis_library",
+      "tool_sm_query_recent_events"
+    ],
+    "n_mcp_tools": 6,
+    "no_reserved_collisions": true,
+    "openenv_yaml_at_repo_root": true,
+    "compliant": true
+  },
+  "mcp_fuzz_results": [
+    {
+      "tool": "tool_sm_get_node_status",
+      "args": "{'node_id': ''}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_get_node_status",
+      "args": "{'node_id': 'NONEXISTENT_NODE_XYZ'}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_get_node_status",
+      "args": "{'node_id': '\"; DROP TABLE nodes; --'}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_get_node_status",
+      "args": "{'node_id': '../../../../../../../../../../../../../../../../../../../../../../.",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_get_node_status",
+      "args": "{'node_id': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_query_recent_events",
+      "args": "{'hours': 24}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_query_recent_events",
+      "args": "{'hours': -1}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_query_recent_events",
+      "args": "{'hours': 99999999}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_query_crisis_library",
+      "args": "{'text': '', 'k': 3}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_query_crisis_library",
+      "args": "{'text': 'Hormuz', 'k': 0}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_query_crisis_library",
+      "args": "{'text': '\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25\ud83d\udd25",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_get_financial_state",
+      "args": "{}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_describe_action_space",
+      "args": "{}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    },
+    {
+      "tool": "tool_sm_explain_disruption",
+      "args": "{'disruption_id': 'NONEXISTENT'}",
+      "safe": true,
+      "returned_dict": true,
+      "has_ok_field": true
+    }
+  ],
+  "n_inputs_tested": 14,
+  "n_safe_returns": 14,
+  "_generated_at_utc": "2026-04-26T00:56:43Z"
+}

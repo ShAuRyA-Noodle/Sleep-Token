@@ -2253,5 +2253,11 @@
     "n_tier_bumps": 2,
     "improvement_verified": true,
     "target_90pct_solve_achieved": true
+  },
+  "_root_mirrored_metrics": {
+    "final_eval_solve_rate": null,
+    "final_eval_mean_reward": null,
+    "cohen_d_vs_null": null,
+    "added_by_pass": 27
   }
 }

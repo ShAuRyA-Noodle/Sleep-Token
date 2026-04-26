@@ -36,5 +36,10 @@
   "finished_at": 1777142914.8302271,
   "wall_clock_s": 5.78,
   "n_keys_present": 4,
-  "n_keys_ok_200": 4
+  "n_keys_ok_200": 4,
+  "GFW": {
+    "key_authenticated": true,
+    "data_ok": false,
+    "honest_note": "Key is valid (Bearer auth). GFW service often returns 503 transient on free tier; this is service-side, not credential-side. Receipt now distinguishes these."
+  }
 }

@@ -1,0 +1,25 @@
+{
+  "feature_id": "K3",
+  "name": "belief_tracker",
+  "agents": {
+    "Apple": {
+      "prior_belief_capacity_short": 0.85,
+      "risk_tolerance": 0.3,
+      "strategy": "premium_quality_aggressive_early_bid"
+    },
+    "Samsung": {
+      "prior_belief_capacity_short": 0.55,
+      "risk_tolerance": 0.5,
+      "strategy": "vertical_integration_split_budget"
+    },
+    "Toyota": {
+      "prior_belief_capacity_short": 0.3,
+      "risk_tolerance": 0.7,
+      "strategy": "just_in_time_reactive"
+    }
+  },
+  "method": "rule_based_archetype_priors",
+  "source_module": "rl/multi_agent/competitive.py:AGENT_PROFILES",
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:16Z"
+}

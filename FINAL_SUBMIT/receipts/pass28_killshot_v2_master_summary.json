@@ -1,0 +1,70 @@
+{
+  "pass": 28,
+  "blocks": [
+    {
+      "id": "28.A",
+      "name": "local_scenario_extractor",
+      "receipt": "pass28_A_local_scenario_extractor.json",
+      "sha256_24": "d8d7105b5ad493342c479388",
+      "elapsed_s": 28.67
+    },
+    {
+      "id": "28.B",
+      "name": "six_judge_panel",
+      "receipt": "pass28_B_six_judge_panel.json",
+      "sha256_24": "050d061c42fafa7a9017391d",
+      "elapsed_s": 1241.13
+    },
+    {
+      "id": "28.C",
+      "name": "hard_tier_rollout",
+      "receipt": "pass28_C_hard_tier_rollout.json",
+      "sha256_24": "5f79193f3014ab77e8cb2805",
+      "elapsed_s": 91.04
+    },
+    {
+      "id": "28.D",
+      "name": "combined_attack_gauntlet",
+      "receipt": "pass28_D_combined_attack_gauntlet.json",
+      "sha256_24": "524bb9e6a4619593b6d6b59f",
+      "elapsed_s": 14.72
+    },
+    {
+      "id": "28.E",
+      "name": "conformal_32k",
+      "receipt": "pass28_E_conformal_32k.json",
+      "sha256_24": "3571634d3b4561c67414e0b6",
+      "elapsed_s": 0.0
+    },
+    {
+      "id": "28.F",
+      "name": "process_super_plot",
+      "receipt": "pass28_F_process_super_plot.json",
+      "sha256_24": "8c10326e4079a46a2ebddd9c",
+      "elapsed_s": 0.61
+    },
+    {
+      "id": "28.G",
+      "name": "cross_env_transfer",
+      "receipt": "pass28_G_cross_env_transfer.json",
+      "sha256_24": "1089ae7cc2f1c2fb59fe9cda",
+      "elapsed_s": 0.24
+    },
+    {
+      "id": "28.I",
+      "name": "license_audit",
+      "receipt": "pass28_I_license_audit.json",
+      "sha256_24": "9b51c1cb6714d8039d464497",
+      "elapsed_s": 0.0
+    },
+    {
+      "id": "28.J",
+      "name": "reinforce_longer",
+      "receipt": "pass28_J_reinforce_longer.json",
+      "sha256_24": "f2918158485dc2562c37e8a0",
+      "elapsed_s": 21.07
+    }
+  ],
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T03:04:44Z"
+}

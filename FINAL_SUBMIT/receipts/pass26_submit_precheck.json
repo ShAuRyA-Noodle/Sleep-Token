@@ -1,0 +1,59 @@
+{
+  "name": "SUBMIT_PRECHECK",
+  "n_checks_total": 9,
+  "n_checks_pass": 9,
+  "pass_pct": 100.0,
+  "all_minimum_requirements_satisfied": true,
+  "checks": [
+    {
+      "id": "M1_openenv_compliance",
+      "ok": true,
+      "evidence": "FINAL_SUBMIT\\receipts\\pass23_openenv_compliance_mcp_fuzz.json"
+    },
+    {
+      "id": "M2_colab_notebook_08",
+      "ok": true,
+      "size_bytes": 26779
+    },
+    {
+      "id": "M2_colab_notebook_09",
+      "ok": true,
+      "size_bytes": 18435
+    },
+    {
+      "id": "M3_real_training_evidence",
+      "ok": true,
+      "trained_solve_rate": 1.0,
+      "wilcoxon_p": 1.8694527270539467e-34,
+      "cohens_d": 3.890562695151114
+    },
+    {
+      "id": "M4_plots_committed",
+      "ok": true,
+      "n_plots": 12
+    },
+    {
+      "id": "M5_story_readme",
+      "ok": true,
+      "size_bytes": 10130
+    },
+    {
+      "id": "M6_hf_space_live",
+      "ok": true,
+      "live_endpoints": 4,
+      "tested_endpoints": 5
+    },
+    {
+      "id": "M7_receipts_count",
+      "ok": true,
+      "n_receipts": 96
+    },
+    {
+      "id": "M8_adversarial_defense",
+      "ok": true,
+      "n_attacks_blocked_documented": "19/19"
+    }
+  ],
+  "_pass": 26,
+  "_generated_at_utc": "2026-04-26T01:27:39Z"
+}

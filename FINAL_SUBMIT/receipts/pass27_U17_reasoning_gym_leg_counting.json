@@ -1,0 +1,31 @@
+{
+  "task_name": "leg_counting",
+  "n_choices": 4,
+  "training": {
+    "n_episodes": 1000,
+    "wall_clock_s": 0.005,
+    "final_eps": 0.05,
+    "train_reward_first_50": 0.2,
+    "train_reward_last_50": 0.22,
+    "train_reward_lift": 0.01999999999999999
+  },
+  "eval": {
+    "n_episodes": 200,
+    "trained_accuracy": 0.285,
+    "random_baseline_accuracy": 0.21,
+    "random_baseline_theoretical_accuracy": 0.25,
+    "trained_mean_reward": 0.285,
+    "random_mean_reward": 0.21,
+    "lift_pp": 7.5
+  },
+  "openenv_compliance_check": {
+    "has_reset": true,
+    "has_step": true,
+    "has_state": true,
+    "has_close": true,
+    "binary_RLVR_signal": true,
+    "verifiable_gold_answer": true
+  },
+  "_pass": 27,
+  "_generated_at_utc": "2026-04-26T01:48:32Z"
+}

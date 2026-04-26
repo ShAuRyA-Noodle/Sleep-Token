@@ -1,0 +1,598 @@
+{
+  "name": "live_hf_space_hard_tier_60step_rollout",
+  "supersedes": "pass27_A only ran easy_typhoon_response (30 steps)",
+  "rollout": {
+    "env_url": "https://shaurya-noodle-supplymind.hf.space",
+    "task_id": "hard_cascading_crisis",
+    "seed": 42,
+    "steps": [
+      {
+        "step": 0,
+        "action_type": "do_nothing",
+        "target": "SUP_TSMC",
+        "reward": 0.05,
+        "cumulative_reward": 0.05,
+        "done": false,
+        "elapsed_s": 1.23,
+        "response_sha256_first_1k": "b0db4c652a39af22a9810b1039e1285ec6ea69770b9b96953fed622a5ed9d12c"
+      },
+      {
+        "step": 1,
+        "action_type": "issue_supplier_alert",
+        "target": "SUP_SAMSUNG",
+        "reward": 0.05,
+        "cumulative_reward": 0.1,
+        "done": false,
+        "elapsed_s": 1.213,
+        "response_sha256_first_1k": "d84ce4fc9f498ede1d348275f4d0183ccac63a71215307e62928eccce2f17584"
+      },
+      {
+        "step": 2,
+        "action_type": "activate_backup_supplier",
+        "target": "SUP_FOXCONN",
+        "reward": 0.0,
+        "cumulative_reward": 0.1,
+        "done": false,
+        "elapsed_s": 1.3,
+        "response_sha256_first_1k": "5fa115c507579d45e62cdc7542f699a335b0b1dd78c8f92617c170bf697215d3"
+      },
+      {
+        "step": 3,
+        "action_type": "increase_safety_stock",
+        "target": "SUP_INTEL",
+        "reward": 0.0,
+        "cumulative_reward": 0.1,
+        "done": false,
+        "elapsed_s": 1.592,
+        "response_sha256_first_1k": "2af49b43505c3fb0768a7daca581256d7c634d6fae6e5fa516040c32e38aa58a"
+      },
+      {
+        "step": 4,
+        "action_type": "reroute_shipment",
+        "target": "SUP_TOYOTA",
+        "reward": 0.0,
+        "cumulative_reward": 0.1,
+        "done": false,
+        "elapsed_s": 1.6,
+        "response_sha256_first_1k": "4f46b07320aaf8195eb72bf9e9e125935c95700be1f337fc5f3519da5b704f9f"
+      },
+      {
+        "step": 5,
+        "action_type": "expedite_order",
+        "target": "SUP_TSMC",
+        "reward": 0.0,
+        "cumulative_reward": 0.1,
+        "done": false,
+        "elapsed_s": 1.51,
+        "response_sha256_first_1k": "c4ac21eadc6d57300a1e2dff2b6e0df92efbaa654ddbd84c67117f224ccf4e66"
+      },
+      {
+        "step": 6,
+        "action_type": "hedge_commodity",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.004550000000000012,
+        "cumulative_reward": 0.09545,
+        "done": false,
+        "elapsed_s": 1.509,
+        "response_sha256_first_1k": "bdaeeb979c9619f63b483251f0b8155dbf606fdf39159907d1eca591e92f7d90"
+      },
+      {
+        "step": 7,
+        "action_type": "do_nothing",
+        "target": "SUP_FOXCONN",
+        "reward": 0.05,
+        "cumulative_reward": 0.14545,
+        "done": false,
+        "elapsed_s": 1.466,
+        "response_sha256_first_1k": "dc528165bb6268d0289a23025cc3b2c3272d6975c08c3df032595ab1c1ee0ffe"
+      },
+      {
+        "step": 8,
+        "action_type": "issue_supplier_alert",
+        "target": "SUP_INTEL",
+        "reward": 0.05,
+        "cumulative_reward": 0.19545,
+        "done": false,
+        "elapsed_s": 1.452,
+        "response_sha256_first_1k": "7a78d172ec9ef0d3d5d3b23e223dfedd05ad6500b087f1f0adaa188bdcfd13c5"
+      },
+      {
+        "step": 9,
+        "action_type": "activate_backup_supplier",
+        "target": "SUP_TOYOTA",
+        "reward": -0.0030000000000000096,
+        "cumulative_reward": 0.19245,
+        "done": false,
+        "elapsed_s": 1.436,
+        "response_sha256_first_1k": "9fc89fd2216edd1fec2e7f0b392738c99db389fc8d906f98d3c7b60d377d6a93"
+      },
+      {
+        "step": 10,
+        "action_type": "increase_safety_stock",
+        "target": "SUP_TSMC",
+        "reward": -0.005999999999999978,
+        "cumulative_reward": 0.18645000000000003,
+        "done": false,
+        "elapsed_s": 1.552,
+        "response_sha256_first_1k": "90316eebe06fdfc2e9df6ff5eb6ff2b76ac2575294eaaa880635cf0d445c5db0"
+      },
+      {
+        "step": 11,
+        "action_type": "reroute_shipment",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.0052500000000000185,
+        "cumulative_reward": 0.18120000000000003,
+        "done": false,
+        "elapsed_s": 1.497,
+        "response_sha256_first_1k": "fbe0cbbf0ce8963a97e432f0d23c673119559dbcbc6063b36d200ef1309ce483"
+      },
+      {
+        "step": 12,
+        "action_type": "expedite_order",
+        "target": "SUP_FOXCONN",
+        "reward": -0.0007499999999999937,
+        "cumulative_reward": 0.18045000000000003,
+        "done": false,
+        "elapsed_s": 1.572,
+        "response_sha256_first_1k": "2f7d60c8d1c392c3c1ecf7ab30808210c1863aaacef608594744d6a3dc9c07f6"
+      },
+      {
+        "step": 13,
+        "action_type": "hedge_commodity",
+        "target": "SUP_INTEL",
+        "reward": -0.004049999999999998,
+        "cumulative_reward": 0.17640000000000003,
+        "done": false,
+        "elapsed_s": 1.553,
+        "response_sha256_first_1k": "a48b3fc6ee53c2f9d67dd6d8ba91dd2aafeceedf85c01c846c4b898199164ec8"
+      },
+      {
+        "step": 14,
+        "action_type": "do_nothing",
+        "target": "SUP_TOYOTA",
+        "reward": -0.20999999999999996,
+        "cumulative_reward": -0.033599999999999935,
+        "done": false,
+        "elapsed_s": 1.577,
+        "response_sha256_first_1k": "8c2fdc58c23a0010dd76828fbcb208d55eed8708faed32b4830a8c5790ff5856"
+      },
+      {
+        "step": 15,
+        "action_type": "issue_supplier_alert",
+        "target": "SUP_TSMC",
+        "reward": 0.048249999999999994,
+        "cumulative_reward": 0.014650000000000059,
+        "done": false,
+        "elapsed_s": 1.616,
+        "response_sha256_first_1k": "80f1760777d22ade909f02779b75ecb829d913bd145cedce7bcbf3cbc2ed0a0f"
+      },
+      {
+        "step": 16,
+        "action_type": "activate_backup_supplier",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.03499999999999999,
+        "cumulative_reward": -0.02034999999999993,
+        "done": false,
+        "elapsed_s": 1.573,
+        "response_sha256_first_1k": "a6311717c4c82025222b8af6660a5fcba48f3d9261afb748902035a7c9386fde"
+      },
+      {
+        "step": 17,
+        "action_type": "increase_safety_stock",
+        "target": "SUP_FOXCONN",
+        "reward": -0.003249999999999996,
+        "cumulative_reward": -0.023599999999999927,
+        "done": false,
+        "elapsed_s": 1.637,
+        "response_sha256_first_1k": "0ee3d967c6148e6946c4e065c770c271ee01f7d25cb16bd04f8bd893788f61a7"
+      },
+      {
+        "step": 18,
+        "action_type": "reroute_shipment",
+        "target": "SUP_INTEL",
+        "reward": -0.0027500000000000024,
+        "cumulative_reward": -0.02634999999999993,
+        "done": false,
+        "elapsed_s": 1.593,
+        "response_sha256_first_1k": "8b395a44e1da2dcf83c8401dcd267ae5881f4bc9f5c8785675229486b0e1f900"
+      },
+      {
+        "step": 19,
+        "action_type": "expedite_order",
+        "target": "SUP_TOYOTA",
+        "reward": -0.36024999999999996,
+        "cumulative_reward": -0.3865999999999999,
+        "done": false,
+        "elapsed_s": 1.728,
+        "response_sha256_first_1k": "5321d45b243bedc9eb0a311a3d9c5bb2bd31d74433c9305345468ce157fbb22b"
+      },
+      {
+        "step": 20,
+        "action_type": "hedge_commodity",
+        "target": "SUP_TSMC",
+        "reward": -0.0032999999999999904,
+        "cumulative_reward": -0.38989999999999986,
+        "done": false,
+        "elapsed_s": 1.579,
+        "response_sha256_first_1k": "b455513ceb7bc318951cc1adc6a77ef1a8190e673d1ef8fb0984ab6c73b75f13"
+      },
+      {
+        "step": 21,
+        "action_type": "do_nothing",
+        "target": "SUP_SAMSUNG",
+        "reward": 0.04725,
+        "cumulative_reward": -0.34264999999999984,
+        "done": false,
+        "elapsed_s": 1.619,
+        "response_sha256_first_1k": "c41199495c1ea023596af1632d076eb0821755f72c3d97ddf4d1f68a6c56c393"
+      },
+      {
+        "step": 22,
+        "action_type": "issue_supplier_alert",
+        "target": "SUP_FOXCONN",
+        "reward": 0.04725,
+        "cumulative_reward": -0.29539999999999983,
+        "done": false,
+        "elapsed_s": 1.844,
+        "response_sha256_first_1k": "57725c1d0c4a9d1d98dc060f3ee93ee897bdc607dd83bb73f9ddf39a4eb7ffee"
+      },
+      {
+        "step": 23,
+        "action_type": "activate_backup_supplier",
+        "target": "SUP_INTEL",
+        "reward": -0.002249999999999995,
+        "cumulative_reward": -0.2976499999999998,
+        "done": false,
+        "elapsed_s": 2.094,
+        "response_sha256_first_1k": "fd335a65648d5a319926f559654b0ccb57af7f812064dfd46a04c4ba07c93d17"
+      },
+      {
+        "step": 24,
+        "action_type": "increase_safety_stock",
+        "target": "SUP_TOYOTA",
+        "reward": -0.0025000000000000022,
+        "cumulative_reward": -0.3001499999999998,
+        "done": false,
+        "elapsed_s": 1.631,
+        "response_sha256_first_1k": "2773062fe05df610259978ceba2148d6f91810b1afda9e22e795e512e60db0a8"
+      },
+      {
+        "step": 25,
+        "action_type": "reroute_shipment",
+        "target": "SUP_TSMC",
+        "reward": -0.001999999999999995,
+        "cumulative_reward": -0.3021499999999998,
+        "done": false,
+        "elapsed_s": 1.726,
+        "response_sha256_first_1k": "75700e6c37ed9b28b80b877b16642dc5557c897df5ef450b77c375ff2a9acd52"
+      },
+      {
+        "step": 26,
+        "action_type": "expedite_order",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.04366666666666669,
+        "cumulative_reward": -0.3458166666666665,
+        "done": false,
+        "elapsed_s": 1.643,
+        "response_sha256_first_1k": "185ad972d6eb628b05f0d62a80d9446f43e1cda0c5ab5ae014c9b6f3aff45a20"
+      },
+      {
+        "step": 27,
+        "action_type": "hedge_commodity",
+        "target": "SUP_FOXCONN",
+        "reward": -0.04346666666666667,
+        "cumulative_reward": -0.38928333333333315,
+        "done": false,
+        "elapsed_s": 1.781,
+        "response_sha256_first_1k": "40a52cbc1bd8543e229d89270f9cf6a51f874b219020be8408a0542acac9dcb4"
+      },
+      {
+        "step": 28,
+        "action_type": "do_nothing",
+        "target": "SUP_INTEL",
+        "reward": 0.006833333333333351,
+        "cumulative_reward": -0.3824499999999998,
+        "done": false,
+        "elapsed_s": 1.747,
+        "response_sha256_first_1k": "5a5be8b75a0699f798d099f71fba69aba47608df01414793b2bd73ddb757403e"
+      },
+      {
+        "step": 29,
+        "action_type": "issue_supplier_alert",
+        "target": "SUP_TOYOTA",
+        "reward": -0.03458333333333333,
+        "cumulative_reward": -0.41703333333333314,
+        "done": false,
+        "elapsed_s": 1.831,
+        "response_sha256_first_1k": "f4e1072d1f30d5f3412d6a3abbb0aa3c63b7b0dd40b0f7510827ef591730ab2d"
+      },
+      {
+        "step": 30,
+        "action_type": "activate_backup_supplier",
+        "target": "SUP_TSMC",
+        "reward": 0.27991666666666665,
+        "cumulative_reward": -0.1371166666666665,
+        "done": false,
+        "elapsed_s": 1.673,
+        "response_sha256_first_1k": "18c1220fb0ae1265b5726333a9b25c68b7deb2242436188d65b4ab841675ca24"
+      },
+      {
+        "step": 31,
+        "action_type": "increase_safety_stock",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.08258333333333333,
+        "cumulative_reward": -0.21969999999999984,
+        "done": false,
+        "elapsed_s": 1.649,
+        "response_sha256_first_1k": "a3997e709a143d2b735534d4c6b6f8f4f505300a0a048c08c5d368de6593b1ad"
+      },
+      {
+        "step": 32,
+        "action_type": "reroute_shipment",
+        "target": "SUP_FOXCONN",
+        "reward": -0.08333333333333333,
+        "cumulative_reward": -0.30303333333333315,
+        "done": false,
+        "elapsed_s": 1.725,
+        "response_sha256_first_1k": "7d90a8e9b38fd3a600a244dc3a2aaa5dfb0c8a140bf431722743dc7454c973da"
+      },
+      {
+        "step": 33,
+        "action_type": "expedite_order",
+        "target": "SUP_INTEL",
+        "reward": 0.18341666666666662,
+        "cumulative_reward": -0.11961666666666654,
+        "done": false,
+        "elapsed_s": 1.854,
+        "response_sha256_first_1k": "374365aab785f56b61bba670f41fb29d4041cd11394ac4457ed77488766c8172"
+      },
+      {
+        "step": 34,
+        "action_type": "hedge_commodity",
+        "target": "SUP_TOYOTA",
+        "reward": -0.08338333333333332,
+        "cumulative_reward": -0.20299999999999985,
+        "done": false,
+        "elapsed_s": 1.787,
+        "response_sha256_first_1k": "7c728b1d95e0324d7b1b5718320ea61fbd83909cd3d7b394620f218c0d1fcf84"
+      },
+      {
+        "step": 35,
+        "action_type": "do_nothing",
+        "target": "SUP_TSMC",
+        "reward": -0.07525,
+        "cumulative_reward": -0.27824999999999983,
+        "done": false,
+        "elapsed_s": 1.632,
+        "response_sha256_first_1k": "f8b8386d253b166b280445bc1fd9d61b0fd985e5322ea82f6c67cbb014e3dcda"
+      },
+      {
+        "step": 36,
+        "action_type": "issue_supplier_alert",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.07475,
+        "cumulative_reward": -0.3529999999999998,
+        "done": false,
+        "elapsed_s": 1.723,
+        "response_sha256_first_1k": "93dbb05c38d9833385f3364ebb6a62b9604002f9fe6f05a50ec14c8b0b3a9c0d"
+      },
+      {
+        "step": 37,
+        "action_type": "activate_backup_supplier",
+        "target": "SUP_FOXCONN",
+        "reward": -0.12075000000000001,
+        "cumulative_reward": -0.47374999999999984,
+        "done": false,
+        "elapsed_s": 1.803,
+        "response_sha256_first_1k": "0a5da6d09d3325b172b486a08858b89d0859c8b5be1ef8fd31b963ac0452d3b7"
+      },
+      {
+        "step": 38,
+        "action_type": "increase_safety_stock",
+        "target": "SUP_INTEL",
+        "reward": -0.16316666666666668,
+        "cumulative_reward": -0.6369166666666666,
+        "done": false,
+        "elapsed_s": 1.573,
+        "response_sha256_first_1k": "f9b2a4e48234046f7f629011593837727bd2c9d5baa74a6310b38363edcb24b3"
+      },
+      {
+        "step": 39,
+        "action_type": "reroute_shipment",
+        "target": "SUP_TOYOTA",
+        "reward": -0.16366666666666668,
+        "cumulative_reward": -0.8005833333333332,
+        "done": false,
+        "elapsed_s": 1.597,
+        "response_sha256_first_1k": "ef36bbc376ef6238e993198167df66c187984828865ef63bbf4e3c73801425ac"
+      },
+      {
+        "step": 40,
+        "action_type": "expedite_order",
+        "target": "SUP_TSMC",
+        "reward": -0.16416666666666668,
+        "cumulative_reward": -0.9647499999999999,
+        "done": false,
+        "elapsed_s": 1.713,
+        "response_sha256_first_1k": "c62b19802713fd5b351b79f085f55006e37b5b915bbf690820d9b53bb36264f9"
+      },
+      {
+        "step": 41,
+        "action_type": "hedge_commodity",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.14796666666666664,
+        "cumulative_reward": -1.1127166666666666,
+        "done": false,
+        "elapsed_s": 1.617,
+        "response_sha256_first_1k": "953ab673ae3671f4fb6eab6b8e2bfcc90d1f2442bb51e739eb764d52b134a126"
+      },
+      {
+        "step": 42,
+        "action_type": "do_nothing",
+        "target": "SUP_FOXCONN",
+        "reward": -0.11541666666666665,
+        "cumulative_reward": -1.2281333333333333,
+        "done": false,
+        "elapsed_s": 1.582,
+        "response_sha256_first_1k": "74f6a5bdd44527eef81b620b21cb1093f2db4e0db9f0931eeb834e875efd8bdb"
+      },
+      {
+        "step": 43,
+        "action_type": "issue_supplier_alert",
+        "target": "SUP_INTEL",
+        "reward": -0.11541666666666665,
+        "cumulative_reward": -1.34355,
+        "done": false,
+        "elapsed_s": 1.513,
+        "response_sha256_first_1k": "d742c4d545e642ddb5738a72ac415cee143b983dcccf8ce32133dbb5336cea42"
+      },
+      {
+        "step": 44,
+        "action_type": "activate_backup_supplier",
+        "target": "SUP_TOYOTA",
+        "reward": -0.16591666666666666,
+        "cumulative_reward": -1.5094666666666667,
+        "done": false,
+        "elapsed_s": 1.543,
+        "response_sha256_first_1k": "bb69f4d587283c286b43bc0c455b97cb8c1824dad229965d12b652e367abae21"
+      },
+      {
+        "step": 45,
+        "action_type": "increase_safety_stock",
+        "target": "SUP_TSMC",
+        "reward": -0.16591666666666666,
+        "cumulative_reward": -1.6753833333333334,
+        "done": false,
+        "elapsed_s": 1.383,
+        "response_sha256_first_1k": "8d91712f704a06d476472e8473ec7c3c00f6df9c6fa07e049a3a2b618bff835a"
+      },
+      {
+        "step": 46,
+        "action_type": "reroute_shipment",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.16616666666666668,
+        "cumulative_reward": -1.8415500000000002,
+        "done": false,
+        "elapsed_s": 1.471,
+        "response_sha256_first_1k": "9f8c45b2b1bae09d3244f542b4d58fcc4b23cb99669123ea942c62f6244dde3a"
+      },
+      {
+        "step": 47,
+        "action_type": "expedite_order",
+        "target": "SUP_FOXCONN",
+        "reward": -0.16616666666666668,
+        "cumulative_reward": -2.007716666666667,
+        "done": false,
+        "elapsed_s": 1.491,
+        "response_sha256_first_1k": "b2645da1861f49d089b7058bcaaed3d2904a1ab68d36d05d45c951ebfc76952b"
+      },
+      {
+        "step": 48,
+        "action_type": "hedge_commodity",
+        "target": "SUP_INTEL",
+        "reward": -0.16671666666666668,
+        "cumulative_reward": -2.174433333333334,
+        "done": false,
+        "elapsed_s": 1.48,
+        "response_sha256_first_1k": "46ef06e203dd74cd8b1c22290ee921da0d5768f4998920d8e9530470e83b6581"
+      },
+      {
+        "step": 49,
+        "action_type": "do_nothing",
+        "target": "SUP_TOYOTA",
+        "reward": -0.11516666666666663,
+        "cumulative_reward": -2.2896000000000005,
+        "done": false,
+        "elapsed_s": 1.522,
+        "response_sha256_first_1k": "7611a9dca73dc0de1df1f5846b8e6881c85368111891271c9fe5201c3ea37289"
+      },
+      {
+        "step": 50,
+        "action_type": "issue_supplier_alert",
+        "target": "SUP_TSMC",
+        "reward": -0.11666666666666665,
+        "cumulative_reward": -2.406266666666667,
+        "done": false,
+        "elapsed_s": 1.428,
+        "response_sha256_first_1k": "fe000fd4c7e08dd745ebbd8f43470a787a33e6a797b319fd35b94030b1ddb11b"
+      },
+      {
+        "step": 51,
+        "action_type": "activate_backup_supplier",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.16666666666666669,
+        "cumulative_reward": -2.5729333333333337,
+        "done": false,
+        "elapsed_s": 1.427,
+        "response_sha256_first_1k": "59b0beb1f7f45486f155eafef2317f6795394d1c23372307685387df2b3224e9"
+      },
+      {
+        "step": 52,
+        "action_type": "increase_safety_stock",
+        "target": "SUP_FOXCONN",
+        "reward": -0.16666666666666669,
+        "cumulative_reward": -2.7396000000000003,
+        "done": false,
+        "elapsed_s": 1.38,
+        "response_sha256_first_1k": "7c3178459241e03f19e69eae52ef2acbd37f22eb7f67ff85b143e9bd3a207d64"
+      },
+      {
+        "step": 53,
+        "action_type": "reroute_shipment",
+        "target": "SUP_INTEL",
+        "reward": -0.16666666666666669,
+        "cumulative_reward": -2.9062666666666668,
+        "done": false,
+        "elapsed_s": 1.478,
+        "response_sha256_first_1k": "ed830ea5b160ebf4d845120b65a37a8a88feafd241577d37affe5cd3175e9fac"
+      },
+      {
+        "step": 54,
+        "action_type": "expedite_order",
+        "target": "SUP_TOYOTA",
+        "reward": -0.16666666666666669,
+        "cumulative_reward": -3.0729333333333333,
+        "done": false,
+        "elapsed_s": 1.353,
+        "response_sha256_first_1k": "83745f2637fe9583cb58e67cd1d09d580125179d6071ffcdfbbfdd39bb86d389"
+      },
+      {
+        "step": 55,
+        "action_type": "hedge_commodity",
+        "target": "SUP_TSMC",
+        "reward": -0.16696666666666665,
+        "cumulative_reward": -3.2399,
+        "done": false,
+        "elapsed_s": 1.447,
+        "response_sha256_first_1k": "9c1fa75017f26e048551f7814bfd3edafec7aa7d249c8ac8aebb9827c1d236b1"
+      },
+      {
+        "step": 56,
+        "action_type": "do_nothing",
+        "target": "SUP_SAMSUNG",
+        "reward": -0.11666666666666665,
+        "cumulative_reward": -3.3565666666666667,
+        "done": true,
+        "elapsed_s": 1.14,
+        "response_sha256_first_1k": "a99f3a3c9106d8015f70732e514b0747a86dbd2661607276105d9275fb961aa1"
+      }
+    ],
+    "errors": [],
+    "reset": {
+      "status_code": 200,
+      "elapsed_s": 1.327,
+      "n_bytes": 12502,
+      "response_sha256_first_1k": "c7e4a19ad4f28d6eb6d38e57e94a4525ce9c8caa742fd501f276a45e84dba84e"
+    },
+    "episode_terminated_at_step": 56,
+    "n_steps_executed": 57,
+    "n_steps_200_OK": 57,
+    "cumulative_reward": -3.3565666666666667,
+    "mean_reward_per_step": -0.058887134502923974
+  },
+  "_block_id": "28.C",
+  "_block_name": "hard_tier_rollout",
+  "_block_elapsed_s": 91.04,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T03:04:07Z"
+}

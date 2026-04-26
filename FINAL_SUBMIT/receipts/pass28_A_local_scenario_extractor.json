@@ -1,0 +1,200 @@
+{
+  "name": "U20_v2_local_ollama_scenario_extractor",
+  "supersedes": "pass27_U20_scenario_extractor.json (was OpenRouter gpt-4o-mini)",
+  "model": "local Ollama qwen2.5:14b",
+  "no_openrouter_spend": true,
+  "results": [
+    {
+      "id": "suez_2021",
+      "headline": "EVERGREEN container ship runs aground blocking Suez Canal in both directions",
+      "ground_truth": {
+        "severity": 0.9,
+        "brent_price_usd": 64,
+        "duration_days": 6
+      },
+      "extracted": {
+        "severity": 0.8,
+        "brent_price_usd": 75,
+        "duration_days": 10
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.8,
+          "ground_truth": 0.9,
+          "rel_err_pct": 11.11,
+          "within_25pct": true
+        },
+        "brent_price_usd": {
+          "extracted": 75.0,
+          "ground_truth": 64.0,
+          "rel_err_pct": 17.19,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 10.0,
+          "ground_truth": 6.0,
+          "rel_err_pct": 66.67,
+          "within_25pct": false
+        }
+      },
+      "n_fields_within_25pct": 2,
+      "elapsed_s": 10.357,
+      "sha256_response": "c06ffd5c9b744ab57db2fac823c5d15080147c9f712daa2a193177041316b340"
+    },
+    {
+      "id": "houthi_red_sea_2024",
+      "headline": "Houthi forces strike commercial vessels in Red Sea, major shipping lines reroute around Africa",
+      "ground_truth": {
+        "severity": 0.7,
+        "brent_price_usd": 78,
+        "duration_days": 90
+      },
+      "extracted": {
+        "severity": 0.7,
+        "brent_price_usd": 85,
+        "duration_days": 30
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.7,
+          "ground_truth": 0.7,
+          "rel_err_pct": 0.0,
+          "within_25pct": true
+        },
+        "brent_price_usd": {
+          "extracted": 85.0,
+          "ground_truth": 78.0,
+          "rel_err_pct": 8.97,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 30.0,
+          "ground_truth": 90.0,
+          "rel_err_pct": 66.67,
+          "within_25pct": false
+        }
+      },
+      "n_fields_within_25pct": 2,
+      "elapsed_s": 4.492,
+      "sha256_response": "065e0df7f5f6dc564a6c0fa9294cd956e6809c8ea25dc32262370e2b5e2d0483"
+    },
+    {
+      "id": "tohoku_2011",
+      "headline": "9.0 magnitude earthquake and tsunami hits Tohoku Japan, Fukushima nuclear plant damaged",
+      "ground_truth": {
+        "severity": 1.0,
+        "brent_price_usd": 110,
+        "duration_days": 60
+      },
+      "extracted": {
+        "severity": 0.95,
+        "brent_price_usd": 120,
+        "duration_days": 365
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.95,
+          "ground_truth": 1.0,
+          "rel_err_pct": 5.0,
+          "within_25pct": true
+        },
+        "brent_price_usd": {
+          "extracted": 120.0,
+          "ground_truth": 110.0,
+          "rel_err_pct": 9.09,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 365.0,
+          "ground_truth": 60.0,
+          "rel_err_pct": 508.33,
+          "within_25pct": false
+        }
+      },
+      "n_fields_within_25pct": 2,
+      "elapsed_s": 4.597,
+      "sha256_response": "7b54a223adaa4ebfb4661025ce5790b2e29bc0f3a04ef700c62ff65f84913cac"
+    },
+    {
+      "id": "thailand_floods_2011",
+      "headline": "Severe monsoon flooding inundates 7 industrial parks in Ayutthaya Thailand, hard drive supply collapses",
+      "ground_truth": {
+        "severity": 0.6,
+        "brent_price_usd": 110,
+        "duration_days": 45
+      },
+      "extracted": {
+        "severity": 0.9,
+        "brent_price_usd": 105,
+        "duration_days": 30
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.9,
+          "ground_truth": 0.6,
+          "rel_err_pct": 50.0,
+          "within_25pct": false
+        },
+        "brent_price_usd": {
+          "extracted": 105.0,
+          "ground_truth": 110.0,
+          "rel_err_pct": 4.55,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 30.0,
+          "ground_truth": 45.0,
+          "rel_err_pct": 33.33,
+          "within_25pct": false
+        }
+      },
+      "n_fields_within_25pct": 1,
+      "elapsed_s": 4.572,
+      "sha256_response": "b44595a59fbc66c62e2c5a1617efe473f2be57f79f56cf09ffc1016ac2ab80b8"
+    },
+    {
+      "id": "iran_sanctions_2018",
+      "headline": "US re-imposes sanctions on Iran oil exports, secondary sanctions threatened against buyers",
+      "ground_truth": {
+        "severity": 0.5,
+        "brent_price_usd": 75,
+        "duration_days": 180
+      },
+      "extracted": {
+        "severity": 0.8,
+        "brent_price_usd": 85,
+        "duration_days": 180
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.8,
+          "ground_truth": 0.5,
+          "rel_err_pct": 60.0,
+          "within_25pct": false
+        },
+        "brent_price_usd": {
+          "extracted": 85.0,
+          "ground_truth": 75.0,
+          "rel_err_pct": 13.33,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 180.0,
+          "ground_truth": 180.0,
+          "rel_err_pct": 0.0,
+          "within_25pct": true
+        }
+      },
+      "n_fields_within_25pct": 2,
+      "elapsed_s": 4.539,
+      "sha256_response": "0f2e1a416f559f5a58e28c56257755c20ca8a77d120832b5e565993867245893"
+    }
+  ],
+  "field_accuracy_within_25pct": "9/15",
+  "field_accuracy_pct": 60.0,
+  "_block_id": "28.A",
+  "_block_name": "local_scenario_extractor",
+  "_block_elapsed_s": 28.67,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T02:41:55Z"
+}

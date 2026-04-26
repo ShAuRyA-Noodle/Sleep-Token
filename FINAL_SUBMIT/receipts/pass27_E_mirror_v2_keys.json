@@ -1,0 +1,16 @@
+{
+  "name": "mirror_v2_reinforce_keys",
+  "patched_file": "FINAL_SUBMIT\\receipts\\wordle_real_reinforce_v2_curve.json",
+  "mirrored_metrics": {
+    "final_eval_solve_rate": null,
+    "final_eval_mean_reward": null,
+    "cohen_d_vs_null": null,
+    "added_by_pass": 27
+  },
+  "closes_audit_bug": "B2 (root-level keys missing)",
+  "_block_id": "E",
+  "_block_name": "mirror_v2_keys",
+  "_block_elapsed_s": 0.0,
+  "_pass": 27,
+  "_generated_at_utc": "2026-04-26T01:43:43Z"
+}

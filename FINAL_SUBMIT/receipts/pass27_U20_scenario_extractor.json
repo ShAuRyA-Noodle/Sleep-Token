@@ -1,0 +1,213 @@
+{
+  "name": "scenario_auto_extract_v1",
+  "closes_honest_limitation": "L11 (war-room scenario params operator-asserted)",
+  "model": "openai/gpt-4o-mini via OpenRouter (live)",
+  "n_headlines_tested": 5,
+  "n_skipped_api_error": 0,
+  "field_accuracy_within_25pct": "9/15",
+  "field_accuracy_pct": 60.0,
+  "results": [
+    {
+      "id": "suez_2021",
+      "headline": "EVERGREEN container ship runs aground blocking Suez Canal in both directions",
+      "ground_truth": {
+        "severity": 0.9,
+        "brent_price_usd": 64,
+        "duration_days": 6
+      },
+      "extracted": {
+        "severity": 0.8,
+        "brent_price_usd": 90,
+        "duration_days": 7
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.8,
+          "ground_truth": 0.9,
+          "abs_err": 0.1,
+          "rel_err_pct": 11.11,
+          "within_25pct": true
+        },
+        "brent_price_usd": {
+          "extracted": 90.0,
+          "ground_truth": 64.0,
+          "abs_err": 26.0,
+          "rel_err_pct": 40.62,
+          "within_25pct": false
+        },
+        "duration_days": {
+          "extracted": 7.0,
+          "ground_truth": 6.0,
+          "abs_err": 1.0,
+          "rel_err_pct": 16.67,
+          "within_25pct": true
+        }
+      },
+      "n_fields_within_25pct": 2,
+      "elapsed_s": 2.452,
+      "response_sha256": "aa9b9b0487bb5b6b58e6951fa45849d8737ed52cf51793ca8ffc3bc9bfc08e75"
+    },
+    {
+      "id": "houthi_red_sea_2024",
+      "headline": "Houthi forces strike commercial vessels in Red Sea, major shipping lines reroute around Africa",
+      "ground_truth": {
+        "severity": 0.7,
+        "brent_price_usd": 78,
+        "duration_days": 90
+      },
+      "extracted": {
+        "severity": 0.7,
+        "brent_price_usd": 90,
+        "duration_days": 30
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.7,
+          "ground_truth": 0.7,
+          "abs_err": 0.0,
+          "rel_err_pct": 0.0,
+          "within_25pct": true
+        },
+        "brent_price_usd": {
+          "extracted": 90.0,
+          "ground_truth": 78.0,
+          "abs_err": 12.0,
+          "rel_err_pct": 15.38,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 30.0,
+          "ground_truth": 90.0,
+          "abs_err": 60.0,
+          "rel_err_pct": 66.67,
+          "within_25pct": false
+        }
+      },
+      "n_fields_within_25pct": 2,
+      "elapsed_s": 1.012,
+      "response_sha256": "d36622e54cc68a40198ba8d055c70f2308081ca7401b5fa5f70ab3be883af853"
+    },
+    {
+      "id": "tohoku_2011",
+      "headline": "9.0 magnitude earthquake and tsunami hits Tohoku Japan, Fukushima nuclear plant damaged",
+      "ground_truth": {
+        "severity": 1.0,
+        "brent_price_usd": 110,
+        "duration_days": 60
+      },
+      "extracted": {
+        "severity": 1.0,
+        "brent_price_usd": 120,
+        "duration_days": 30
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 1.0,
+          "ground_truth": 1.0,
+          "abs_err": 0.0,
+          "rel_err_pct": 0.0,
+          "within_25pct": true
+        },
+        "brent_price_usd": {
+          "extracted": 120.0,
+          "ground_truth": 110.0,
+          "abs_err": 10.0,
+          "rel_err_pct": 9.09,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 30.0,
+          "ground_truth": 60.0,
+          "abs_err": 30.0,
+          "rel_err_pct": 50.0,
+          "within_25pct": false
+        }
+      },
+      "n_fields_within_25pct": 2,
+      "elapsed_s": 1.322,
+      "response_sha256": "50cc03db3d7419f559a2242df4b0c7eeca1a188c7cccf6459d2afb8af9bf3a8e"
+    },
+    {
+      "id": "thailand_floods_2011",
+      "headline": "Severe monsoon flooding inundates 7 industrial parks in Ayutthaya Thailand, hard drive supply collapses",
+      "ground_truth": {
+        "severity": 0.6,
+        "brent_price_usd": 110,
+        "duration_days": 45
+      },
+      "extracted": {
+        "severity": 0.8,
+        "brent_price_usd": 90,
+        "duration_days": 30
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.8,
+          "ground_truth": 0.6,
+          "abs_err": 0.2,
+          "rel_err_pct": 33.33,
+          "within_25pct": false
+        },
+        "brent_price_usd": {
+          "extracted": 90.0,
+          "ground_truth": 110.0,
+          "abs_err": 20.0,
+          "rel_err_pct": 18.18,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 30.0,
+          "ground_truth": 45.0,
+          "abs_err": 15.0,
+          "rel_err_pct": 33.33,
+          "within_25pct": false
+        }
+      },
+      "n_fields_within_25pct": 1,
+      "elapsed_s": 1.427,
+      "response_sha256": "901e1140d7ad36949cfaacea199bcc34191d5ed776017d48fbf2c50eb09f2b68"
+    },
+    {
+      "id": "iran_sanctions_2018",
+      "headline": "US re-imposes sanctions on Iran oil exports, secondary sanctions threatened against buyers",
+      "ground_truth": {
+        "severity": 0.5,
+        "brent_price_usd": 75,
+        "duration_days": 180
+      },
+      "extracted": {
+        "severity": 0.8,
+        "brent_price_usd": 90,
+        "duration_days": 180
+      },
+      "field_evaluation": {
+        "severity": {
+          "extracted": 0.8,
+          "ground_truth": 0.5,
+          "abs_err": 0.3,
+          "rel_err_pct": 60.0,
+          "within_25pct": false
+        },
+        "brent_price_usd": {
+          "extracted": 90.0,
+          "ground_truth": 75.0,
+          "abs_err": 15.0,
+          "rel_err_pct": 20.0,
+          "within_25pct": true
+        },
+        "duration_days": {
+          "extracted": 180.0,
+          "ground_truth": 180.0,
+          "abs_err": 0.0,
+          "rel_err_pct": 0.0,
+          "within_25pct": true
+        }
+      },
+      "n_fields_within_25pct": 2,
+      "elapsed_s": 1.178,
+      "response_sha256": "4716de362b5bb74ef1d98212d0dee7760937433c4699d8b290a760be26be4d56"
+    }
+  ],
+  "_pass": 27,
+  "_generated_at_utc": "2026-04-26T01:49:35Z"
+}

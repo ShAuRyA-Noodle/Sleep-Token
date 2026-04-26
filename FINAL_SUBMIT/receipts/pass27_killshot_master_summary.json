@@ -1,0 +1,62 @@
+{
+  "pass": 27,
+  "blocks": [
+    {
+      "id": "A",
+      "name": "fixed_hf_rollout",
+      "receipt": "pass27_A_fixed_hf_rollout.json",
+      "sha256_24": "d7ef89d1f282191fdeb7b5d3",
+      "elapsed_s": 24.05
+    },
+    {
+      "id": "B",
+      "name": "real_episodic_bootstrap",
+      "receipt": "pass27_B_real_episodic_bootstrap.json",
+      "sha256_24": "2c5482b43a54dfc85a5ebe1d",
+      "elapsed_s": 13.2
+    },
+    {
+      "id": "C",
+      "name": "tier3_degradation_curve",
+      "receipt": "pass27_C_tier3_degradation.json",
+      "sha256_24": "fcd5a64511b3ecdde36dc380",
+      "elapsed_s": 8.9
+    },
+    {
+      "id": "D",
+      "name": "extended_mcp_fuzz",
+      "receipt": "pass27_D_extended_mcp_fuzz.json",
+      "sha256_24": "d986dc03bfbdc064b2b45a2b",
+      "elapsed_s": 9.62
+    },
+    {
+      "id": "E",
+      "name": "mirror_v2_keys",
+      "receipt": "pass27_E_mirror_v2_keys.json",
+      "sha256_24": "22000cd2fa55e4637d31c4f2",
+      "elapsed_s": 0.0
+    },
+    {
+      "id": "F",
+      "name": "gfw_honesty",
+      "receipt": "pass27_F_gfw_honesty.json",
+      "sha256_24": "c335825ad9ebca01f465f1c1",
+      "elapsed_s": 0.0
+    },
+    {
+      "id": "G",
+      "name": "conformal_v3_full_payload",
+      "receipt": "pass27_G_conformal_v3_full.json",
+      "sha256_24": "8cf709a48008f1ecb286b084",
+      "elapsed_s": 0.0
+    },
+    {
+      "id": "H",
+      "name": "cold_open_doc",
+      "error": "UnicodeEncodeError: 'charmap' codec can't encode character '\\u2264' in position 45: character maps to <undefined>",
+      "elapsed_s": 0.0
+    }
+  ],
+  "_pass": 27,
+  "_generated_at_utc": "2026-04-26T01:43:43Z"
+}

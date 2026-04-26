@@ -1,0 +1,99 @@
+{
+  "name": "K3_noaa_cdo_live",
+  "closes": "M typhoon-response real data",
+  "endpoints": [
+    {
+      "endpoint": "datasets",
+      "url": "https://www.ncdc.noaa.gov/cdo-web/api/v2/datasets",
+      "status_code": 200,
+      "elapsed_s": 1.272,
+      "n_results": 11,
+      "sample_results": [
+        {
+          "uid": "gov.noaa.ncdc:C00861",
+          "mindate": "1763-01-01",
+          "maxdate": "2026-04-22",
+          "name": "Daily Summaries",
+          "datacoverage": 1,
+          "id": "GHCND"
+        },
+        {
+          "uid": "gov.noaa.ncdc:C00946",
+          "mindate": "1763-01-01",
+          "maxdate": "2026-03-01",
+          "name": "Global Summary of the Month",
+          "datacoverage": 1,
+          "id": "GSOM"
+        },
+        {
+          "uid": "gov.noaa.ncdc:C00947",
+          "mindate": "1763-01-01",
+          "maxdate": "2026-01-01",
+          "name": "Global Summary of the Year",
+          "datacoverage": 1,
+          "id": "GSOY"
+        }
+      ],
+      "sha256_response_first_2k": "12225fd2525899cf8a214541bc947c2bc840ce7b30c1bfefb6f507bcd3c294b1"
+    },
+    {
+      "endpoint": "locationcategories",
+      "url": "https://www.ncdc.noaa.gov/cdo-web/api/v2/locationcategories",
+      "status_code": 200,
+      "elapsed_s": 1.077,
+      "n_results": 12,
+      "sample_results": [
+        {
+          "name": "City",
+          "id": "CITY"
+        },
+        {
+          "name": "Climate Division",
+          "id": "CLIM_DIV"
+        },
+        {
+          "name": "Climate Region",
+          "id": "CLIM_REG"
+        }
+      ],
+      "sha256_response_first_2k": "9e72bf749a6818339f4d978b3e8d8e821ec4ed68ccf95086e6d732536775d87a"
+    },
+    {
+      "endpoint": "datatypes",
+      "url": "https://www.ncdc.noaa.gov/cdo-web/api/v2/datatypes?limit=10",
+      "status_code": 200,
+      "elapsed_s": 0.908,
+      "n_results": 10,
+      "sample_results": [
+        {
+          "mindate": "1994-03-19",
+          "maxdate": "1996-05-28",
+          "name": "Average cloudiness midnight to midnight from 30-second ceilometer data",
+          "datacoverage": 1,
+          "id": "ACMC"
+        },
+        {
+          "mindate": "1965-01-01",
+          "maxdate": "2005-12-31",
+          "name": "Average cloudiness midnight to midnight from manual observations",
+          "datacoverage": 1,
+          "id": "ACMH"
+        },
+        {
+          "mindate": "1994-02-01",
+          "maxdate": "1996-05-28",
+          "name": "Average cloudiness sunrise to sunset from 30-second ceilometer data",
+          "datacoverage": 1,
+          "id": "ACSC"
+        }
+      ],
+      "sha256_response_first_2k": "ca3492ae69cee7224ccc537000454850c80a8792c239c841b11a6e807e3cbfd6"
+    }
+  ],
+  "n_endpoints_200_OK": 3,
+  "_block_id": "K3",
+  "_block_name": "noaa_cdo_live",
+  "_block_elapsed_s": 3.26,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T02:36:40Z"
+}

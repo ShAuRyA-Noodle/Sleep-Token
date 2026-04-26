@@ -1,0 +1,20 @@
+{
+  "feature_ids": [
+    "D15_DQN",
+    "D16_QRDQN",
+    "D17_TRPO",
+    "D18_Decision_Transformer"
+  ],
+  "status": "documented_queued_no_data",
+  "reason": "Full grid run requires SB3 + sb3-contrib + d3rlpy across 3 difficulty tiers. Compute budget reserved for U1 real episodic bootstrap which is higher impact.",
+  "stub_anchor_models_available": {
+    "DQN": "stable-baselines3.DQN (MIT licensed)",
+    "QRDQN": "sb3-contrib.QRDQN (MIT)",
+    "TRPO": "sb3-contrib.TRPO (MIT)",
+    "Decision_Transformer": "d3rlpy.algos.DecisionTransformer (MIT)"
+  },
+  "post_pass22_runnable": true,
+  "honest_disclosure": "Maintains 16/27 no_data cell honesty rather than fabricating numbers",
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:32Z"
+}

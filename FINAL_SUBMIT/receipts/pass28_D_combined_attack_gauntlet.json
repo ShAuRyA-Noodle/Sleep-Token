@@ -1,0 +1,34 @@
+{
+  "name": "combined_attack_gauntlet_v3",
+  "components": {
+    "reward_hack_attacks": {
+      "source": "adversarial_20_attack_gauntlet.json",
+      "n": 19,
+      "blocked": 19,
+      "blocked_pct": 100.0
+    },
+    "mcp_fuzz": {
+      "source": "pass27_D_extended_mcp_fuzz.json",
+      "n_calls": 210,
+      "blocked": 210,
+      "blocked_pct": 100.0
+    },
+    "prompt_injection_attacks": {
+      "source": "pass28_inline",
+      "n": 40,
+      "blocked": 40,
+      "blocked_pct": 100.0,
+      "exceptions": []
+    }
+  },
+  "totals": {
+    "total_attacks": 269,
+    "total_blocked": 269,
+    "total_blocked_pct": 100.0
+  },
+  "_block_id": "28.D",
+  "_block_name": "combined_attack_gauntlet",
+  "_block_elapsed_s": 14.72,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T03:04:22Z"
+}

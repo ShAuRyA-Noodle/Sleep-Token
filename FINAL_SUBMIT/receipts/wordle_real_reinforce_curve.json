@@ -1030,5 +1030,7 @@
     "real_gradient_updates": 100,
     "real_episodes": 1600,
     "improvement_verified": true
-  }
+  },
+  "_superseded_by": "wordle_real_reinforce_v2_curve.json",
+  "_supersede_reason": "v2 adds action masking + 3-tier curriculum + bigger net + LayerNorm; lifts solve from 36% to 95.5-97% with Cohen d 5.13 vs v1 0.27"
 }

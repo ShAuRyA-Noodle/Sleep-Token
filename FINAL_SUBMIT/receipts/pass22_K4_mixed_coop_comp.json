@@ -1,0 +1,14 @@
+{
+  "feature_id": "K4",
+  "name": "mixed_coop_comp_setting",
+  "type": "implicit_signaling_via_prices",
+  "demonstration": {
+    "competitive_axis": "shared TSMC capacity (zero-sum on wafers)",
+    "cooperative_axis": "price discovery (positive-sum information)",
+    "evidence_step1": "Toyota bids $0 in step 1, free-rides on Apple+Samsung price signal",
+    "evidence_step2": "step-2 price = 2.291x baseline (information leakage)"
+  },
+  "source_module": "rl/multi_agent/competitive.py",
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:16Z"
+}

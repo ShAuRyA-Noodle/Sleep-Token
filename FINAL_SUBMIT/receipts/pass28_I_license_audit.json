@@ -1,0 +1,118 @@
+{
+  "name": "license_audit_v1",
+  "project_license": "MIT",
+  "n_deps_audited": 21,
+  "all_mit_compatible": true,
+  "audit": [
+    {
+      "dep": "torch",
+      "license": "BSD-3-Clause",
+      "mit_compatible": true
+    },
+    {
+      "dep": "numpy",
+      "license": "BSD-3-Clause",
+      "mit_compatible": true
+    },
+    {
+      "dep": "scipy",
+      "license": "BSD-3-Clause",
+      "mit_compatible": true
+    },
+    {
+      "dep": "scikit-learn",
+      "license": "BSD-3-Clause",
+      "mit_compatible": true
+    },
+    {
+      "dep": "matplotlib",
+      "license": "Matplotlib (BSD-style)",
+      "mit_compatible": true
+    },
+    {
+      "dep": "transformers",
+      "license": "Apache 2.0",
+      "mit_compatible": true
+    },
+    {
+      "dep": "trl",
+      "license": "Apache 2.0",
+      "mit_compatible": true
+    },
+    {
+      "dep": "peft",
+      "license": "Apache 2.0",
+      "mit_compatible": true
+    },
+    {
+      "dep": "unsloth",
+      "license": "Apache 2.0",
+      "mit_compatible": true
+    },
+    {
+      "dep": "bitsandbytes",
+      "license": "MIT",
+      "mit_compatible": true
+    },
+    {
+      "dep": "stable-baselines3",
+      "license": "MIT",
+      "mit_compatible": true
+    },
+    {
+      "dep": "sb3-contrib",
+      "license": "MIT",
+      "mit_compatible": true
+    },
+    {
+      "dep": "d3rlpy",
+      "license": "MIT",
+      "mit_compatible": true
+    },
+    {
+      "dep": "fastapi",
+      "license": "MIT",
+      "mit_compatible": true
+    },
+    {
+      "dep": "uvicorn",
+      "license": "BSD-3-Clause",
+      "mit_compatible": true
+    },
+    {
+      "dep": "pydantic",
+      "license": "MIT",
+      "mit_compatible": true
+    },
+    {
+      "dep": "httpx",
+      "license": "BSD-3-Clause",
+      "mit_compatible": true
+    },
+    {
+      "dep": "ollama (server)",
+      "license": "MIT",
+      "mit_compatible": true
+    },
+    {
+      "dep": "openenv-core",
+      "license": "Apache 2.0",
+      "mit_compatible": true
+    },
+    {
+      "dep": "reasoning-gym",
+      "license": "Apache 2.0",
+      "mit_compatible": true
+    },
+    {
+      "dep": "faiss-cpu",
+      "license": "MIT",
+      "mit_compatible": true
+    }
+  ],
+  "_block_id": "28.I",
+  "_block_name": "license_audit",
+  "_block_elapsed_s": 0.0,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T03:04:22Z"
+}

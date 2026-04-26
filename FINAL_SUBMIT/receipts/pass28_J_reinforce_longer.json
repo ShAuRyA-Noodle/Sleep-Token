@@ -1,0 +1,29 @@
+{
+  "name": "reinforce_longer_v2",
+  "supersedes": "wordle_real_reinforce_v2_curve.json (was 1500 ep, 256 hidden)",
+  "config": {
+    "n_episodes": 3000,
+    "hidden": 384,
+    "n_layers": 4,
+    "tiers": [
+      5,
+      10,
+      20,
+      50
+    ],
+    "max_tier_reached": 3
+  },
+  "training_wall_clock_s": 20.64,
+  "deterministic_eval": {
+    "n_episodes": 200,
+    "solve_rate": 1.0,
+    "mean_reward": 0.7905166666666666,
+    "std_reward": 0.07644903712786565
+  },
+  "target_solve_rate_>=0.97": true,
+  "_block_id": "28.J",
+  "_block_name": "reinforce_longer",
+  "_block_elapsed_s": 21.07,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T03:04:44Z"
+}

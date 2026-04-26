@@ -1,0 +1,12 @@
+{
+  "feature_id": "K5",
+  "name": "communication_channel",
+  "channel_type": "implicit_price_signal",
+  "bandwidth_bits_per_step": "log2(price_levels)~3-4",
+  "noise_model": "AR(1) jitter on price_signal",
+  "explicit_messaging": false,
+  "rationale": "Real-world supply-chain agents reveal beliefs through bid sizing, not chat",
+  "source_module": "rl/multi_agent/competitive.py",
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:16Z"
+}

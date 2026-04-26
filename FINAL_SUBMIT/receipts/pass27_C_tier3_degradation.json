@@ -1,0 +1,40 @@
+{
+  "name": "tier3_degradation_curve_v2",
+  "supersedes": "tier3_generalization.json (B7 bug: 50w and 100w identical)",
+  "training_pool": "20-word in-distribution",
+  "eval_pools": [
+    20,
+    50,
+    102
+  ],
+  "results": [
+    {
+      "pool_size": 20,
+      "n_eval_episodes": 80,
+      "solve_rate": 1.0,
+      "mean_reward": 0.8854583333333335,
+      "std_reward": 0.10771134747555618
+    },
+    {
+      "pool_size": 50,
+      "n_eval_episodes": 80,
+      "solve_rate": 1.0,
+      "mean_reward": 0.8266666666666668,
+      "std_reward": 0.07328786469198781
+    },
+    {
+      "pool_size": 102,
+      "n_eval_episodes": 80,
+      "solve_rate": 1.0,
+      "mean_reward": 0.8078749999999999,
+      "std_reward": 0.0601254331238731
+    }
+  ],
+  "monotonic_degradation": true,
+  "interpretation": "Action masking provides constraint propagation, so degradation is graceful but real. In-distribution pool 20 solves at ~100%; out-of-distribution pools degrade as policy must guess targets it wasn't trained on.",
+  "_block_id": "C",
+  "_block_name": "tier3_degradation_curve",
+  "_block_elapsed_s": 8.9,
+  "_pass": 27,
+  "_generated_at_utc": "2026-04-26T01:43:33Z"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "pass22_api_freshness",
+  "n_keys_probed": 2,
+  "n_keys_ok": 2,
+  "results": {
+    "OPENROUTER": {
+      "status_code": 200,
+      "ok": true,
+      "n_bytes": 410486,
+      "response_sha256_first_1k": "26fa7fdccc25a0ec27257bb0fe040cea363c00c07250bd98cbf55560b8b038bb"
+    },
+    "EIA_WTI": {
+      "status_code": 200,
+      "ok": true,
+      "wti_spot_usd_bbl_latest": "91.06",
+      "n_bytes": 2020,
+      "response_sha256_first_1k": "2f1fa6d6d9d68e58d9c719743c51e15c5a9c36b1c46a19f33929cff9e3eaeeb1",
+      "B1_bug_fixed": true,
+      "field_used": "response.data[0].value (RWTC daily series)"
+    }
+  },
+  "B1_wti_parsing_fix_applied": true,
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:34Z"
+}

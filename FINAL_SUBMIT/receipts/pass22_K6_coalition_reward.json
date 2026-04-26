@@ -1,0 +1,19 @@
+{
+  "feature_id": "K6",
+  "name": "coalition_reward_shaping",
+  "coalitions_observed": [
+    {
+      "members": [
+        "Apple",
+        "Samsung"
+      ],
+      "type": "bid_floor_coalition",
+      "evidence": "both bid heavily in step 1, jointly exhaust capacity"
+    }
+  ],
+  "shaping_term": "individual_revenue - 0.1 * coalition_overlap_penalty",
+  "purpose": "discourage cartel behavior in low-capacity rounds",
+  "source_module": "rl/multi_agent/competitive.py",
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:16Z"
+}

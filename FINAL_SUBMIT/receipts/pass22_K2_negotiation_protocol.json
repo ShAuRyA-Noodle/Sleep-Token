@@ -1,0 +1,37 @@
+{
+  "feature_id": "K2",
+  "name": "negotiation_protocol",
+  "mechanism": "sealed_bid_pro_rata_clearing",
+  "round_1": {
+    "bids": {
+      "Apple": 15399999.999999998,
+      "Samsung": 3500000.0,
+      "Toyota": 0.0
+    },
+    "allocations": {
+      "Apple": 407.4074074074074,
+      "Samsung": 92.59259259259258,
+      "Toyota": 0.0
+    },
+    "clearing_price_usd_per_wafer": 37801.5
+  },
+  "round_2": {
+    "bids": {
+      "Apple": 3300000.0,
+      "Samsung": 2800000.0,
+      "Toyota": 1833333.3333333333
+    },
+    "allocations": {},
+    "price_inflation_pct": 129.1
+  },
+  "real_world_anchor": "2021 chip shortage - Apple/Samsung/Toyota dynamic",
+  "annual_procurement_usd": {
+    "Apple": 87000000000.0,
+    "Samsung": 62000000000.0,
+    "Toyota": 45000000000.0
+  },
+  "source_module": "rl/multi_agent/competitive.py",
+  "consolidated_under": "F2_multi_agent_apple_samsung_toyota.json",
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:16Z"
+}

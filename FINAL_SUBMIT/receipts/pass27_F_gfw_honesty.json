@@ -1,0 +1,10 @@
+{
+  "name": "gfw_key_honesty_patch",
+  "patched_file": "FINAL_SUBMIT\\receipts\\api_keys_live_proof.json",
+  "closes_audit_bug": "B4 (GFW marked ok=true even when 503 transient)",
+  "_block_id": "F",
+  "_block_name": "gfw_honesty",
+  "_block_elapsed_s": 0.0,
+  "_pass": 27,
+  "_generated_at_utc": "2026-04-26T01:43:43Z"
+}

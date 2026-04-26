@@ -1,0 +1,32 @@
+{
+  "name": "U17_reasoning_gym_master_summary",
+  "framework": "reasoning_gym 0.1.19 (Procaccia-style RLVE)",
+  "openenv_wrapper": "ReasoningGymOpenEnvWrapper(task, n_choices)",
+  "policy": "HashBanditPolicy(n_buckets=64, n_actions=4, lr=0.5)",
+  "n_tasks_tested": 3,
+  "tasks": [
+    "basic_arithmetic",
+    "chain_sum",
+    "leg_counting"
+  ],
+  "headline": {
+    "basic_arithmetic": {
+      "trained_acc": 0.245,
+      "random_acc": 0.25,
+      "lift_pp": -0.5
+    },
+    "chain_sum": {
+      "trained_acc": 0.29,
+      "random_acc": 0.22,
+      "lift_pp": 7.000000000000001
+    },
+    "leg_counting": {
+      "trained_acc": 0.285,
+      "random_acc": 0.21,
+      "lift_pp": 7.5
+    }
+  },
+  "innovation_claim": "Multi-environment RLVE coverage: SupplyMind (real-world supply chain) + Wordle (canonical RLVR) + Reasoning Gym (general-purpose verifiable reasoning). Single submission demonstrates transfer of OpenEnv API across 3 distinct domains.",
+  "_pass": 27,
+  "_generated_at_utc": "2026-04-26T01:48:32Z"
+}

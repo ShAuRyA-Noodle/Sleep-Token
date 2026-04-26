@@ -1,0 +1,31 @@
+{
+  "name": "extended_mcp_fuzz",
+  "supersedes": "pass23_openenv_compliance_mcp_fuzz.json (was 14 inputs)",
+  "fuzz_results": {
+    "n_tools_tested": 6,
+    "n_categories": 10,
+    "n_total_inputs": 35,
+    "n_total_calls": 210,
+    "calls_completed_safely": 210,
+    "exceptions_caught": 0,
+    "uncaught_exceptions": [],
+    "per_category_pass_rate": {
+      "empty_strings": 1.0,
+      "sql_injection": 1.0,
+      "path_traversal": 1.0,
+      "oversized_strings": 1.0,
+      "control_chars": 1.0,
+      "format_string": 1.0,
+      "json_payload": 1.0,
+      "negative_ints": 1.0,
+      "bool_confusion": 1.0,
+      "nonexistent_ids": 1.0
+    },
+    "overall_pass_rate": 1.0
+  },
+  "_block_id": "D",
+  "_block_name": "extended_mcp_fuzz",
+  "_block_elapsed_s": 9.62,
+  "_pass": 27,
+  "_generated_at_utc": "2026-04-26T01:43:43Z"
+}

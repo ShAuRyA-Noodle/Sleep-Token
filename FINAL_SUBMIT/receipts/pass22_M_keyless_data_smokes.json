@@ -1,0 +1,58 @@
+{
+  "feature_ids": [
+    "M2",
+    "M3",
+    "M9",
+    "M14",
+    "M15",
+    "M18"
+  ],
+  "n_sources_probed": 6,
+  "n_ok_200": 5,
+  "results": {
+    "M2_GDELT_2": {
+      "status_code": null,
+      "ok": false,
+      "error": "<urlopen error _ssl.c:989: The handshake operation timed out>",
+      "transient": true
+    },
+    "M3_USGS_quakes": {
+      "status_code": 200,
+      "ok": true,
+      "n_bytes": 42812,
+      "response_sha256_first_1k": "1cfa363438a47e51b5d558e98ad53c582cf5638a50c4352198ba3f2516073ee4",
+      "elapsed_s": 1.586
+    },
+    "M9_OSM_nominatim": {
+      "status_code": 200,
+      "ok": true,
+      "n_bytes": 469,
+      "response_sha256_first_1k": "4ade9da4a83e0aa2c565fcecb29106458df250e2a538354506af440ac5336605",
+      "elapsed_s": 1.319
+    },
+    "M14_World_Bank": {
+      "status_code": 200,
+      "ok": true,
+      "n_bytes": 321,
+      "response_sha256_first_1k": "b97d230e875e2ded48dd7c7e419c7d2d89f61173e0dfee2a7c6c1e2444fb1986",
+      "elapsed_s": 0.562
+    },
+    "M15_Wikipedia": {
+      "status_code": 200,
+      "ok": true,
+      "n_bytes": 2441,
+      "response_sha256_first_1k": "fa0dd99767205996ce007b89aa9a3b3bc0e36927be3b5295a5d416d741619e7e",
+      "elapsed_s": 0.488
+    },
+    "M18_HackerNews": {
+      "status_code": 200,
+      "ok": true,
+      "n_bytes": 4501,
+      "response_sha256_first_1k": "a89217e8f66fe0d2c1a989e9ae54975567e76694338d9cd19d0e6618bece6b51",
+      "elapsed_s": 0.835
+    }
+  },
+  "method": "live_http_fetch_keyless_sources_with_10s_timeout",
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:32Z"
+}

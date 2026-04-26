@@ -1,0 +1,19 @@
+{
+  "feature_id": "F9",
+  "name": "quantile_regression",
+  "method": "rolling_empirical_quantile_window50",
+  "n_samples": 1000,
+  "quantiles_fit": [
+    0.1,
+    0.5,
+    0.9
+  ],
+  "empirical_coverage_q10_q90": 0.812,
+  "target_coverage": 0.8,
+  "abs_dev_from_target": 0.01200000000000001,
+  "pinball_loss_median": 2.049896658359798,
+  "anchor_signal": "synthetic_brent_like_seasonal+heteroscedastic",
+  "note": "demonstrates per-quantile coverage discipline, not a tuned production model",
+  "_pass": 22,
+  "_generated_at_utc": "2026-04-25T20:29:16Z"
+}

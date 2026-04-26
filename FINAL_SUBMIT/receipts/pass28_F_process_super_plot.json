@@ -1,0 +1,22 @@
+{
+  "name": "process_supervision_step_credit_plot",
+  "plot_path": "FINAL_SUBMIT\\plots\\process_supervision_step_credit.png",
+  "uniform_credit": [
+    0.243,
+    0.243,
+    0.243,
+    0.243
+  ],
+  "process_credit": [
+    0.04,
+    0.06,
+    0.09,
+    0.5
+  ],
+  "decisive_step_amplification": 2.0576,
+  "_block_id": "28.F",
+  "_block_name": "process_super_plot",
+  "_block_elapsed_s": 0.61,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T03:04:22Z"
+}

@@ -1,0 +1,335 @@
+{
+  "name": "U_six_judge_local_ollama_panel",
+  "supersedes": "frontier_panel_alpha.json (was 12-frontier OpenRouter, free-tier rate-limited)",
+  "judges": [
+    "qwen2.5:14b",
+    "deepseek-r1-local-q4:latest",
+    "mistral-nemo-local:latest",
+    "supplymind-analyst:v5",
+    "gemma4:e4b-it-bf16",
+    "qwen25-coder-local:latest"
+  ],
+  "n_scenarios": 8,
+  "panel_scores": {
+    "suez_2021_blockage": [
+      {
+        "judge": "qwen2.5:14b",
+        "score": 7.0,
+        "elapsed_s": 3.39,
+        "sha256": "5e97e69cdf04c3d27c93c2917c444a939d64fcff7893f0633f0435fc7ddf26f7"
+      },
+      {
+        "judge": "deepseek-r1-local-q4:latest",
+        "score": 5.0,
+        "elapsed_s": 7.62,
+        "sha256": "4e793471952b3649017c83db357d8f3134da092218ed0eaa40940dc4e3917c24"
+      },
+      {
+        "judge": "mistral-nemo-local:latest",
+        "score": 8.0,
+        "elapsed_s": 11.194,
+        "sha256": "b857e5af292088c6d4b3f99ac7b61e1bcdad0fa8ed706f0dd567d4f6c9872357"
+      },
+      {
+        "judge": "supplymind-analyst:v5",
+        "score": 8.0,
+        "elapsed_s": 17.416,
+        "sha256": "efe60066d3b41c1ff581c0922023cf146e121a5daaf6cfe6214787f484e9c600"
+      },
+      {
+        "judge": "gemma4:e4b-it-bf16",
+        "error": "no_json",
+        "raw": ""
+      },
+      {
+        "judge": "qwen25-coder-local:latest",
+        "score": 8.0,
+        "elapsed_s": 15.371,
+        "sha256": "1a8797ef845033d059df2e827968af0ef1e237720ee415418d1535eba7f2405a"
+      }
+    ],
+    "hormuz_threat": [
+      {
+        "judge": "qwen2.5:14b",
+        "score": 9.0,
+        "elapsed_s": 10.431,
+        "sha256": "a14a2549344a41677be800ce5e3475a67c8376ce2355fbd06652ce5081eff2f9"
+      },
+      {
+        "judge": "deepseek-r1-local-q4:latest",
+        "score": 9.0,
+        "elapsed_s": 7.665,
+        "sha256": "a34bbbb729563d2941ccaa71e8b1376300e20f5095df01e7276bf9090d7675ab"
+      },
+      {
+        "judge": "mistral-nemo-local:latest",
+        "score": 9.0,
+        "elapsed_s": 11.213,
+        "sha256": "31a29c03f15449145ee7e5f59e894e9909b9b7419ee651234f2af7dd94ba3b91"
+      },
+      {
+        "judge": "supplymind-analyst:v5",
+        "error": "ReadTimeout: timed out"
+      },
+      {
+        "judge": "gemma4:e4b-it-bf16",
+        "error": "ReadTimeout: timed out"
+      },
+      {
+        "judge": "qwen25-coder-local:latest",
+        "error": "ReadTimeout: timed out"
+      }
+    ],
+    "red_sea_houthi": [
+      {
+        "judge": "qwen2.5:14b",
+        "score": 7.0,
+        "elapsed_s": 9.425,
+        "sha256": "ab68b723cb1eb5559b91353880c25d7ec753b5c3951a5cdcc5db79cf70da700e"
+      },
+      {
+        "judge": "deepseek-r1-local-q4:latest",
+        "score": 5.0,
+        "elapsed_s": 7.57,
+        "sha256": "97987adb5cd310c7c0aaed76c77520a83291b5dc556b0e8e39df57a6e0ba0c29"
+      },
+      {
+        "judge": "mistral-nemo-local:latest",
+        "score": 8.0,
+        "elapsed_s": 11.438,
+        "sha256": "1fd167b616167c935da61ef2590b7f015fc78ebd182530ed3ab81f2a42691668"
+      },
+      {
+        "judge": "supplymind-analyst:v5",
+        "score": 7.0,
+        "elapsed_s": 12.881,
+        "sha256": "498a5348229fdcaea70020dfe01659268b5a613107dbffed4fd25cb9356739ee"
+      },
+      {
+        "judge": "gemma4:e4b-it-bf16",
+        "error": "ReadTimeout: timed out"
+      },
+      {
+        "judge": "qwen25-coder-local:latest",
+        "error": "ReadTimeout: timed out"
+      }
+    ],
+    "tohoku_2011": [
+      {
+        "judge": "qwen2.5:14b",
+        "score": 9.0,
+        "elapsed_s": 9.114,
+        "sha256": "540eb39feba8ece99dc012af2508c19e0b214d8fb691c2fa7b89c4a72d3832f7"
+      },
+      {
+        "judge": "deepseek-r1-local-q4:latest",
+        "score": 8.0,
+        "elapsed_s": 7.349,
+        "sha256": "998a346f4697331a8ab75b100517c096c75cce8432ade4237bce1ad0369feeb4"
+      },
+      {
+        "judge": "mistral-nemo-local:latest",
+        "score": 9.0,
+        "elapsed_s": 10.887,
+        "sha256": "0fc6a0444edf0d6ed8a8603c2fe3f24fe1776b1b0f60c766079718c2cd7b2486"
+      },
+      {
+        "judge": "supplymind-analyst:v5",
+        "score": 10.0,
+        "elapsed_s": 12.899,
+        "sha256": "7fcfbcc0da8c51602f5bf69b93c4d5a108d071b115036d0fc8e256613d0d3f93"
+      },
+      {
+        "judge": "gemma4:e4b-it-bf16",
+        "error": "no_json",
+        "raw": ""
+      },
+      {
+        "judge": "qwen25-coder-local:latest",
+        "score": 10.0,
+        "elapsed_s": 10.837,
+        "sha256": "bba443b3db7e5d55353066d121d1696c12cd60858a92e666995fb8aca55f77ec"
+      }
+    ],
+    "thailand_floods_2011": [
+      {
+        "judge": "qwen2.5:14b",
+        "score": 8.0,
+        "elapsed_s": 10.101,
+        "sha256": "8d69eb3b27fd540a6520db6912e7384198ff583b9bc7c6758796dcf0c77de9bb"
+      },
+      {
+        "judge": "deepseek-r1-local-q4:latest",
+        "score": 8.0,
+        "elapsed_s": 7.661,
+        "sha256": "8bb8ccba34bde4c5d85bc7c4ef72e768ea16bd37c4a50a51af94278a0f2f3912"
+      },
+      {
+        "judge": "mistral-nemo-local:latest",
+        "score": 9.0,
+        "elapsed_s": 11.392,
+        "sha256": "08b4b74c48d326720ea508a866df34170adf79de5a7cb189f151bec514bbf94f"
+      },
+      {
+        "judge": "supplymind-analyst:v5",
+        "score": 8.0,
+        "elapsed_s": 12.95,
+        "sha256": "26522bd37cb225b55f318e5cca2b738e9df94f4fc3ecd3e225930e960e1c1a38"
+      },
+      {
+        "judge": "gemma4:e4b-it-bf16",
+        "error": "no_json",
+        "raw": ""
+      },
+      {
+        "judge": "qwen25-coder-local:latest",
+        "score": 9.0,
+        "elapsed_s": 10.852,
+        "sha256": "c660567bf38013a08aea889c4e72d2d03f716d18ceff2b79cca31d4793a08306"
+      }
+    ],
+    "taiwan_strait_tension": [
+      {
+        "judge": "qwen2.5:14b",
+        "score": 7.0,
+        "elapsed_s": 10.349,
+        "sha256": "ec1bc63ed127f08540788268c04b651f2a67d78585b33a29b8d411baf8a17a6f"
+      },
+      {
+        "judge": "deepseek-r1-local-q4:latest",
+        "score": 5.0,
+        "elapsed_s": 7.647,
+        "sha256": "a0680a69a66ff6e6ea605d8678232011746b8068c9db025c2ab5e40bf34ae03e"
+      },
+      {
+        "judge": "mistral-nemo-local:latest",
+        "score": 8.0,
+        "elapsed_s": 11.281,
+        "sha256": "bac86f83ba75b93f3456ae0208d762a01d561f68f5504472541fef342a8d253f"
+      },
+      {
+        "judge": "supplymind-analyst:v5",
+        "score": 7.0,
+        "elapsed_s": 12.744,
+        "sha256": "fcdc715358a57678780f7fdc7199780ba7bcd0d09ed05cb3e968c80ea754177e"
+      },
+      {
+        "judge": "gemma4:e4b-it-bf16",
+        "error": "no_json",
+        "raw": ""
+      },
+      {
+        "judge": "qwen25-coder-local:latest",
+        "score": 8.0,
+        "elapsed_s": 11.007,
+        "sha256": "3293fcf9d8c3d756da5ffd649579d64a11f7b1ceb00941f11e07221885f411c9"
+      }
+    ],
+    "ukraine_invasion_2022": [
+      {
+        "judge": "qwen2.5:14b",
+        "score": 8.0,
+        "elapsed_s": 10.329,
+        "sha256": "cc4f12bf9aea6a6bc4fc8644e8361c95cb66fbb23c8371798750d3f193705ec8"
+      },
+      {
+        "judge": "deepseek-r1-local-q4:latest",
+        "score": 9.0,
+        "elapsed_s": 7.63,
+        "sha256": "bbbb704c220783cdcaf533009fd9dcf4373e8765a97185eaf1ddd8d42c1d3fba"
+      },
+      {
+        "judge": "mistral-nemo-local:latest",
+        "score": 9.0,
+        "elapsed_s": 11.039,
+        "sha256": "6f8edb9caa92b915c586ed215749b04f7017cf2c2be81267e89af51bf543c006"
+      },
+      {
+        "judge": "supplymind-analyst:v5",
+        "score": 8.0,
+        "elapsed_s": 13.005,
+        "sha256": "1abffbddf739d455cc0c4c8e653eaeb0232d2685091433aeda132349b21856ea"
+      },
+      {
+        "judge": "gemma4:e4b-it-bf16",
+        "error": "no_json",
+        "raw": ""
+      },
+      {
+        "judge": "qwen25-coder-local:latest",
+        "error": "ReadTimeout: timed out"
+      }
+    ],
+    "baltimore_bridge_2024": [
+      {
+        "judge": "qwen2.5:14b",
+        "score": 7.0,
+        "elapsed_s": 9.1,
+        "sha256": "fd8585c9e35a71500bfbf009718fb5cb7093f67fa8fefa27d5ae69bb554f6b82"
+      },
+      {
+        "judge": "deepseek-r1-local-q4:latest",
+        "score": 4.0,
+        "elapsed_s": 7.639,
+        "sha256": "d10af360100da141e813031c5cc8210758067c1134b8873dc4554d12e36522b2"
+      },
+      {
+        "judge": "mistral-nemo-local:latest",
+        "score": 8.0,
+        "elapsed_s": 11.047,
+        "sha256": "596e46db1216c4be609bd429469c24f448ae8f5448965cfddf93e666ad34621d"
+      },
+      {
+        "judge": "supplymind-analyst:v5",
+        "score": 7.0,
+        "elapsed_s": 13.07,
+        "sha256": "6f160be85c1aa9e11383af271988c051e11b585cd9b4ce8a54abf637f9712470"
+      },
+      {
+        "judge": "gemma4:e4b-it-bf16",
+        "error": "no_json",
+        "raw": ""
+      },
+      {
+        "judge": "qwen25-coder-local:latest",
+        "score": 8.0,
+        "elapsed_s": 13.053,
+        "sha256": "bcd77a0b4b1ff8c3a607309ebc7208d4c759b647573ab17d6d4845d92ef1704c"
+      }
+    ]
+  },
+  "agreement_metrics": {
+    "n_valid_judges": 3,
+    "n_pairs": 3,
+    "mean_spearman_rho": 0.9008824963971792,
+    "median_spearman_rho": 0.9058216273156765,
+    "min_spearman_rho": 0.8540168202937981,
+    "max_spearman_rho": 0.9428090415820632,
+    "pairwise_correlations": [
+      {
+        "judge_i": "qwen2.5:14b",
+        "judge_j": "deepseek-r1-local-q4:latest",
+        "spearman_rho": 0.8540168202937981,
+        "spearman_p": 0.006950959086806238
+      },
+      {
+        "judge_i": "qwen2.5:14b",
+        "judge_j": "mistral-nemo-local:latest",
+        "spearman_rho": 0.9428090415820632,
+        "spearman_p": 0.0004478216560531936
+      },
+      {
+        "judge_i": "deepseek-r1-local-q4:latest",
+        "judge_j": "mistral-nemo-local:latest",
+        "spearman_rho": 0.9058216273156765,
+        "spearman_p": 0.0019435768062725078
+      }
+    ]
+  },
+  "no_openrouter_spend": true,
+  "_block_id": "28.B",
+  "_block_name": "six_judge_panel",
+  "_block_elapsed_s": 1241.13,
+  "_pass": 28,
+  "_generated_at_utc": "2026-04-26T03:02:36Z"
+}

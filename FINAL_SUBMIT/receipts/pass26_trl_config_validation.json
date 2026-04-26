@@ -1,0 +1,18 @@
+{
+  "name": "trl_config_validation",
+  "notebook": "notebooks/09_LLAMA_GRPO_FOOLPROOF.ipynb",
+  "grpo_config_present": true,
+  "required_args_present": [
+    "output_dir",
+    "max_steps",
+    "per_device_train_batch_size",
+    "num_generations",
+    "learning_rate",
+    "bf16"
+  ],
+  "required_args_missing": [],
+  "config_valid": true,
+  "trl_version_pinned": true,
+  "_pass": 26,
+  "_generated_at_utc": "2026-04-26T01:27:39Z"
+}

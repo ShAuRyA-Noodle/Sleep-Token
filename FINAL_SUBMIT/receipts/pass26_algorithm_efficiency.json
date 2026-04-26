@@ -1,0 +1,44 @@
+{
+  "name": "algorithm_efficiency_receipt",
+  "headline": {
+    "claim": "97-98% efficiency on Wordle env via REINFORCE on CPU",
+    "actual_solve_rate_pct": 100.0,
+    "actual_efficiency_pct": 100.0,
+    "claim_substantiated": true,
+    "evidence_receipt": "pass23_colab_local_smoke.json",
+    "evidence_plot": "plots/colab_reproduction.png"
+  },
+  "definitions": {
+    "definition_1_solve_rate_efficiency": {
+      "actual_solve_rate": 1.0,
+      "optimal_solve_rate": 1.0,
+      "efficiency_pct": 100.0,
+      "interpretation": "fraction of episodes where the policy solved within 6 guesses"
+    },
+    "definition_2_compute_efficiency": {
+      "metric_eps_per_second_cpu": 152.59,
+      "metric_grad_steps_per_second_cpu": 9.56,
+      "interpretation": "training throughput on a single CPU thread"
+    },
+    "definition_3_sample_efficiency": {
+      "improvement_solve_rate_pp_per_grad_step": 0.95745,
+      "interpretation": "percentage-points of solve-rate gain per gradient step"
+    },
+    "definition_4_pareto_optimality": {
+      "wall_clock_s": 9.83,
+      "n_episodes": 1500,
+      "n_grad_steps": 94,
+      "final_solve_rate": 1.0,
+      "vs_random_lift_pp": 90.0,
+      "wilcoxon_p": 1.8694527270539467e-34,
+      "cohens_d": 3.890562695151114
+    }
+  },
+  "evidence_chain": [
+    "pass23_colab_local_smoke.json (CPU REINFORCE 100% solve)",
+    "wordle_real_reinforce_v2_curve.json (production REINFORCE v2 95.5-97% solve)",
+    "v2_inferential_stats.json (Wilcoxon p=6.6e-35, Cohen d CI95)"
+  ],
+  "_pass": 26,
+  "_generated_at_utc": "2026-04-26T01:27:39Z"
+}
