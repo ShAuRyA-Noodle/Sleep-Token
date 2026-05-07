@@ -1,6 +1,6 @@
 # External Validation Outreach (G11 fix)
 
-> The v3 `EXTERNAL_CREDIBILITY.md` document aggregated **published third-party** voices (McKinsey, BCI, Gartner, SemiAnalysis, Huang 2020, Foygel Barber 2022). We did NOT claim personal endorsements. This file is the **outreach playbook** for obtaining a personal quote pre-finals or (more realistically) immediately post-submission for v4.1.
+> The v3 `docs/core/EXTERNAL_CREDIBILITY.md` document aggregated **published third-party** voices (McKinsey, BCI, Gartner, SemiAnalysis, Huang 2020, Foygel Barber 2022). We did NOT claim personal endorsements. This file is the **outreach playbook** for obtaining a personal quote pre-finals or (more realistically) immediately post-submission for v4.1.
 
 ## Why now
 
@@ -71,12 +71,12 @@ Minimum useful quote (any of these):
 3. "The 3-judge panel approach is what we've wanted from in-house systems." (methodology)
 4. "I'd show this to my operations team." (utility)
 
-One paragraph in quotes with the person's name + title. Published to `EXTERNAL_CREDIBILITY.md` under a new section "Personal quotes received (post-submission)" with their express permission.
+One paragraph in quotes with the person's name + title. Published to `docs/core/EXTERNAL_CREDIBILITY.md` under a new section "Personal quotes received (post-submission)" with their express permission.
 
 ## What to NOT do
 
 - Don't cold-email mailing-list addresses. DM the individual.
-- Don't fabricate quotes. EXTERNAL_CREDIBILITY.md's current policy: "NEVER invent or paraphrase quotes."
+- Don't fabricate quotes. docs/core/EXTERNAL_CREDIBILITY.md's current policy: "NEVER invent or paraphrase quotes."
 - Don't spam. 10 targeted outreaches > 200 template messages.
 - Don't offer money or equity. This is an open-source research artifact.
 - Don't set expectations on response time. Most won't reply; that's normal.
@@ -93,4 +93,4 @@ Aim: **10 outreaches sent within 24 hours**. Honest success rate: ~10-20% get a 
 
 ## Fallback if zero quotes arrive pre-finals
 
-We already published `EXTERNAL_CREDIBILITY.md` which aggregates **10+ real cited published statements** aligned with our design choices. That's a defensible substitute. The playbook above is for v4.1 / post-submission, not a blocker on v4.0-arcadia-live.
+We already published `docs/core/EXTERNAL_CREDIBILITY.md` which aggregates **10+ real cited published statements** aligned with our design choices. That's a defensible substitute. The playbook above is for v4.1 / post-submission, not a blocker on v4.0-arcadia-live.

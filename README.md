@@ -135,7 +135,7 @@ The live Hormuz pipeline ingested 3,911 real 2026 news articles on launch day an
 | 9 | **TimesFM-CP dev @ 95%** (WTI / EUR-USD) | **0.050 / 0.032** |
 | 10 | **PPO vs random/greedy bootstrap CI95** | non-overlapping on all 3 tasks |
 
-Full results page: [`RESULTS.md`](RESULTS.md) — every number reproducible from committed JSON with one `jq` command.
+Full results page: [`docs/v3/RESULTS.md`](docs/v3/RESULTS.md) — every number reproducible from committed JSON with one `jq` command.
 
 **Meta PyTorch OpenEnv Hackathon submission.** Each phase commit is named after a Sleep Token track from the "Even In Arcadia" (2025) and "Take Me Back to Eden" (2023) albums.
 
@@ -168,7 +168,7 @@ Full results page: [`RESULTS.md`](RESULTS.md) — every number reproducible from
 | **Conformal** | Split-conformal with per-horizon q̂ | Empirical coverage within ±2pp of nominal |
 | **Production** | FastAPI + MCP JSON-RPC + WebSocket + Docker | 12 HTTP endpoints + 5 v3 endpoints (`/assess`, `/forecast`, `/rag`, `/rl/act`, `/health`) |
 
-Full phase log: [`v3_arcadia/95_arcadia/README.md`](v3_arcadia/95_arcadia/README.md) · Unified card: [`MODEL_CARD.md`](MODEL_CARD.md) · Hackathon demo plan: [`FINAL_DEMO.md`](FINAL_DEMO.md) · Audit matrix: [`AUDIT_PLAN.md`](AUDIT_PLAN.md).
+Full phase log: [`v3_arcadia/95_arcadia/README.md`](v3_arcadia/95_arcadia/README.md) · Unified card: [`docs/v3/MODEL_CARD.md`](docs/v3/MODEL_CARD.md) · Hackathon demo plan: [`docs/v3/FINAL_DEMO.md`](docs/v3/FINAL_DEMO.md) · Audit matrix: [`docs/v4/AUDIT_PLAN.md`](docs/v4/AUDIT_PLAN.md).
 
 ---
 
@@ -224,7 +224,7 @@ uvicorn server.app:app --host 0.0.0.0 --port 8000
 # Then: curl -X POST http://localhost:8000/reset?task_id=easy_typhoon_response
 ```
 
-Full stack with GPU + Ollama: see [`MODEL_CARD.md` §6](MODEL_CARD.md#6-reproducibility).
+Full stack with GPU + Ollama: see [`docs/v3/MODEL_CARD.md` §6](docs/v3/MODEL_CARD.md#6-reproducibility).
 
 ---
 
@@ -312,7 +312,7 @@ Global supply chain disruptions cost an estimated **$184 billion in 2023** alone
 
 SupplyMind simulates an AI agent operating as a **supply chain risk manager** navigating these real-world disruptions. The agent receives early-warning disruption signals (typhoons, port strikes, sanctions, cascading geopolitical crises) and must take actions -- activating backup suppliers, rerouting shipments, hedging commodity exposure, expediting orders -- to minimize financial impact on a global supply chain network, all within a limited budget.
 
-**Every parameter is calibrated against published industry data** -- not synthetic estimates. See [DATA_SOURCES.md](DATA_SOURCES.md) for full citations. Key calibration points:
+**Every parameter is calibrated against published industry data** -- not synthetic estimates. See [docs/core/DATA_SOURCES.md](docs/core/DATA_SOURCES.md) for full citations. Key calibration points:
 
 - **Company financials**: TSMC $87.1B revenue (2024 earnings), Apple ~25% of TSMC ($22B/yr, TrendForce), Samsung SDI $20B, CATL $50B, Bosch $55B (annual reports)
 - **Semiconductor costs**: TSMC N5 wafer $16,000-$17,000 (SemiAnalysis), lead times 16-20 weeks (Susquehanna Financial Group)
@@ -616,7 +616,7 @@ supplymind/
 ├── pyproject.toml         # Project config with entry points
 ├── requirements.txt       # Python dependencies
 ├── uv.lock                # Deterministic dependency lock
-├── DATA_SOURCES.md        # Real-world calibration sources (40+ citations)
+├── docs/                  # Project docs split by version (v3, v4, core, dev_log)
 └── README.md
 ```
 
@@ -640,4 +640,4 @@ MIT
 | BC_v1 | 0.0875 | [0.084, 0.091] | 0.7045 | 0.1128 |
 | CQL_v1 | 0.0675 | [0.065, 0.070] | 0.7176 | 0.0964 |
 
-See `EXECUTIVE_SUMMARY.md` for the full report and `FAILURE_TABLE.md` for deferred items.
+See `docs/v3/EXECUTIVE_SUMMARY.md` for the full report and `_dump/FAILURE_TABLE.md` for deferred items.

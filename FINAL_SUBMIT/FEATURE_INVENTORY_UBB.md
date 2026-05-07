@@ -74,7 +74,7 @@ Bullet-by-bullet status across U/V/W/X/Y/Z/AA/BB (~180 bullets). Same legend as 
 | 46 | Non-root appuser UID 1000 | ✅ | Dockerfile RUN useradd |
 | 47 | HEALTHCHECK curl /health every 30s | ✅ | Dockerfile HEALTHCHECK |
 | 48 | uvicorn server.app:app entry | ✅ | Dockerfile CMD |
-| 49 | HF Space at huggingface.co/spaces/Shaurya-Noodle/Supplymind | ✅ | `DEPLOY_HF_SPACE.md` |
+| 49 | HF Space at huggingface.co/spaces/Shaurya-Noodle/Supplymind | ✅ | `docs/v3/DEPLOY_HF_SPACE.md` |
 | 50 | ONNX <5e-5 roundtrip 4 models | ✅ | `onnx_roundtrip.json` (BC 3.05e-5, CQL 5.22e-8, IQL 3.05e-5, TD3+BC 1.53e-5) all <5e-5 |
 | 51 | .gitignore excludes 159GB models/ | ✅ | `.gitignore` line `models/` |
 | 52 | <2GB container size | ✅ | DEPLOY_HF_SPACE notes |
@@ -153,7 +153,7 @@ Bullet-by-bullet status across U/V/W/X/Y/Z/AA/BB (~180 bullets). Same legend as 
 | 107 | 15+ disruption taxonomy | ✅ | `server/data/disruptions.json` |
 | 108 | 15 leading indicators with correlations | ✅ | `rl/leading_indicators.py` |
 | 109 | FRED state[400:407] features | ✅ | `rl/state_builder.py` slice |
-| 110 | 40+ industry citations DATA_SOURCES.md | ✅ | `DATA_SOURCES.md` |
+| 110 | 40+ industry citations docs/core/DATA_SOURCES.md | ✅ | `docs/core/DATA_SOURCES.md` |
 
 **Y: 21 ✅ + 2 ⚠️ = 23/23 = 100%**
 
@@ -164,20 +164,20 @@ Bullet-by-bullet status across U/V/W/X/Y/Z/AA/BB (~180 bullets). Same legend as 
 | # | Doc | Status | Path |
 |---|---|---|---|
 | 111 | README.md (40KB) | ✅ | repo root |
-| 112 | SUPPLYMIND_BLUEPRINT.md (81KB) | ✅ | repo root |
-| 113 | ALIENWARE_KICKOFF.md (53KB) | ✅ | repo root |
-| 114 | AUDIT_PLAN.md (22KB) | ✅ | repo root |
+| 112 | docs/core/SUPPLYMIND_BLUEPRINT.md (81KB) | ✅ | repo root |
+| 113 | docs/dev_log/ALIENWARE_KICKOFF.md (53KB) | ✅ | repo root |
+| 114 | docs/v4/AUDIT_PLAN.md (22KB) | ✅ | repo root |
 | 115 | MODEL_CARD.md (19KB) | ✅ | repo root |
-| 116 | PYTORCH_STORY.md | ✅ | repo root |
-| 117 | BENCHMARKS_VS_PUBLIC.md | ✅ | repo root |
-| 118 | DATA_SOURCES.md | ✅ | repo root |
-| 119 | EXTERNAL_CREDIBILITY.md | ✅ | repo root |
-| 120 | JUDGES.md | ✅ | repo root |
-| 121 | FINAL_DEMO.md | ✅ | repo root |
-| 122 | DEMO_SCRIPT.md | ✅ | repo root |
-| 123 | DEPLOY_HF_SPACE.md | ✅ | repo root |
-| 124 | EXECUTIVE_SUMMARY.md | ✅ | repo root |
-| 125 | RESULTS.md | ✅ | repo root |
+| 116 | docs/v3/PYTORCH_STORY.md | ✅ | repo root |
+| 117 | docs/v3/BENCHMARKS_VS_PUBLIC.md | ✅ | repo root |
+| 118 | docs/core/DATA_SOURCES.md | ✅ | repo root |
+| 119 | docs/core/EXTERNAL_CREDIBILITY.md | ✅ | repo root |
+| 120 | docs/v4/JUDGES.md | ✅ | repo root |
+| 121 | docs/v3/FINAL_DEMO.md | ✅ | repo root |
+| 122 | docs/v3/DEMO_SCRIPT.md | ✅ | repo root |
+| 123 | docs/v3/DEPLOY_HF_SPACE.md | ✅ | repo root |
+| 124 | docs/v3/EXECUTIVE_SUMMARY.md | ✅ | repo root |
+| 125 | docs/v3/RESULTS.md | ✅ | repo root |
 | 126 | CLONE_AND_STUDY.md | ✅ | docs/ |
 | 127 | FINAL_AUDIT_REPORT.md | ✅ | docs/ |
 | 128 | MULTI_TURN_GRPO_ROADMAP.md | ✅ | docs/ |
@@ -263,7 +263,7 @@ Bullet-by-bullet status across U/V/W/X/Y/Z/AA/BB (~180 bullets). Same legend as 
 | 190 | Honest fallback labeling | ✅ | `data_source_flags.live_pipeline = "deterministic_rubric_fallback"` |
 | 191 | judge_source field | ✅ | `_call_ollama_judge: judge_source = ollama:<model>` |
 | 192 | Scenario JSON ingestion_note | ✅ | crisis library schema |
-| 193 | 4-minute judge path designed | ✅ | `JUDGES.md` |
+| 193 | 4-minute judge path designed | ✅ | `docs/v4/JUDGES.md` |
 | 194 | 30-second receipt verification target | ✅ | `framework.py` design |
 | 195 | Sleep Token thesis "Even in Arcadia, disruptions happen" | ✅ | tagline in docs |
 

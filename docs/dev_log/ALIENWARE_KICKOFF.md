@@ -532,7 +532,7 @@ W&B free tier: unlimited runs, unlimited storage, public dashboards. Create acco
 # Calibrates disruption probability in environment
 ```
 
-### Blueprint-Sourced Enrichments (from SUPPLYMIND_BLUEPRINT.md)
+### Blueprint-Sourced Enrichments (from docs/core/SUPPLYMIND_BLUEPRINT.md)
 
 **1. Dependency Scoring Formula (rl/data/dependency_scoring.py)**
 
@@ -945,7 +945,7 @@ SupplyMind achieves **18% mean relative error** against the 2021 semiconductor s
 torch.onnx.export(policy, dummy_input, "supplymind_policy.onnx", opset_version=17)
 ```
 
-MODEL_CARD.md: training data, evaluation metrics, intended use, limitations, ethical considerations.
+docs/v3/MODEL_CARD.md: training data, evaluation metrics, intended use, limitations, ethical considerations.
 
 ---
 
@@ -1033,7 +1033,7 @@ Large datasets go in `rl/data/` (gitignored, regenerate on each machine).
 
 ## Complete Feature Coverage Status
 
-Every item from `adaptive-tickling-bubble.md`, `supplymind_plan.md`, and `SUPPLYMIND_BLUEPRINT.md` — reconciled.
+Every item from `adaptive-tickling-bubble.md`, `supplymind_plan.md`, and `docs/core/SUPPLYMIND_BLUEPRINT.md` — reconciled.
 
 ### Core Environment & Compliance
 

@@ -137,11 +137,11 @@ Three upstream ships:
 
 ## Speaker notes / contingency
 
-- If asked "what would you do with $1M compute?": see BENCHMARKS_VS_PUBLIC.md §
+- If asked "what would you do with $1M compute?": see docs/v3/BENCHMARKS_VS_PUBLIC.md §
   ambition appendix.
 - If live demo fails: "We have three paths — live, replay, video. Pivoting to
   replay now." Show `?replay=1` endpoint or `DEMO_BACKUP_2026_04_24.mp4`.
 - If asked "how is this different from Coding-Agent Bench / MiniGrid /
-  MuJoCo": see `comparison.md`.
+  MuJoCo": see `docs/v3/comparison.md`.
 - If asked "what's your win probability": 60–75 % top 3 with plan executed,
   85-92 % top 10 locked, interview opportunity > 90 %.

@@ -193,7 +193,7 @@ Export your trained PyTorch model to ONNX format. This means it can run in any l
 
 Use torch.onnx.export with the policy's mlp_extractor, a dummy input, opset_version=17, input_names=["supply_chain_state"], output_names=["action_logits", "value"], and dynamic_axes for batch_size. Save to rl/checkpoints/supplymind_policy.onnx.
 
-Add a model card (MODEL_CARD.md) in the style of HuggingFace model cards: training data, evaluation metrics, intended use, limitations, ethical considerations. Meta engineers who work on PyTorch and open source will recognize this immediately as production-thinking.
+Add a model card (docs/v3/MODEL_CARD.md) in the style of HuggingFace model cards: training data, evaluation metrics, intended use, limitations, ethical considerations. Meta engineers who work on PyTorch and open source will recognize this immediately as production-thinking.
 
 Takes 1 hour. Pure prestige, minimal effort.
 
@@ -380,7 +380,7 @@ Every one of these takes less than 2 hours and dramatically raises perceived qua
 - Type hints on every function. from typing import Optional, Tuple, Dict. Especially in rl/ directory.
 - pyproject.toml with optional dependency groups: [project.optional-dependencies] with rl = [torch, gymnasium, ...] and dashboard = [streamlit, plotly, ...]. Professional Python packaging.
 - CONTRIBUTING.md — yes, even for a hackathon. Two paragraphs. Shows you've thought about this as a real project.
-- MODEL_CARD.md — HuggingFace style. Training data section, intended use, limitations, ethical considerations. The ethical considerations section alone will make Meta judges pause and respect it.
+- docs/v3/MODEL_CARD.md — HuggingFace style. Training data section, intended use, limitations, ethical considerations. The ethical considerations section alone will make Meta judges pause and respect it.
 - Benchmarks table in README with confidence intervals. Not just "RL: 0.82". Show: "RL (PPO): 0.82 ± 0.04 (n=5 seeds)" vs "LLM (GPT-4o): 0.62 ± 0.07". Error bars signal statistical rigor.
 - docker-compose.yml that brings up the dashboard and API together. Judges can clone and docker compose up and see everything running. That's the kind of thing that wins.
 
@@ -1428,6 +1428,6 @@ After everything — both previous responses and this one — here is exactly wh
 
 **The ML (what impresses FAIR engineers):** Behavior Cloning → TD3+BC → CQL → IQL (all offline) → PPO → SAC+HER (hard task) → QR-DQN CVaR → Decision Transformer → Ensemble. 9 agents with full statistical comparison (Wilcoxon, Friedman, bootstrap CI). Ablation study proving each component's contribution. TFT commodity forecasting integrated as forward-looking state features. TGN for dynamic graph learning. SHAP explainability. RAG crisis docs. LoRA LLaMA 3 8B on HuggingFace. GPU Monte Carlo 100K scenarios in 80ms. Neural surrogate world model. Counterfactual engine. MC Dropout uncertainty. Optuna HPO sweep.
 
-**The production signals:** FastAPI endpoint with typed Pydantic models, ONNX export, TorchScript export, W&B training dashboard (public URL), MLflow experiment tracking, GitHub Actions CI (154 tests + smoke test), Docker, ReadTheDocs, PyPI, MODEL_CARD.md, CONTRIBUTING.md.
+**The production signals:** FastAPI endpoint with typed Pydantic models, ONNX export, TorchScript export, W&B training dashboard (public URL), MLflow experiment tracking, GitHub Actions CI (154 tests + smoke test), Docker, ReadTheDocs, PyPI, docs/v3/MODEL_CARD.md, CONTRIBUTING.md.
 
 **The demo:** 3-minute timed narrative with a live What-If scenario builder, agent face-off mode (4 agents same episode), return distribution violin plot updating per step, counterfactual panel, SHAP waterfall chart, GNN attention edge weights, DT risk appetite slider, GPU Monte Carlo speed comparison panel, Hindi explainer toggle.

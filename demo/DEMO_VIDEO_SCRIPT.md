@@ -158,5 +158,5 @@ huggingface.co/spaces/Shaurya-Noodle/Supplymind
 
 - [ ] Captions (auto + human-edited) for accessibility
 - [ ] Thumbnail: PPO sign-flip chart with "SupplyMind v3" overlay
-- [ ] Description: links to GitHub, HF Space, MODEL_CARD.md, FINAL_DEMO.md
+- [ ] Description: links to GitHub, HF Space, docs/v3/MODEL_CARD.md, docs/v3/FINAL_DEMO.md
 - [ ] Tag: #OpenEnv #PyTorch #SupplyChain #RL #LLM #Hackathon

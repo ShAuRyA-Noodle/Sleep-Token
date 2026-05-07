@@ -5,7 +5,7 @@ v5 receipts emit a full audit packet:
 
     command:       exact shell command
     extraction:    how we distilled the numeric claim
-    expected:      the value committed to in the paper / README / JUDGES.md
+    expected:      the value committed to in the paper / README / docs/v4/JUDGES.md
     actual:        what we observed when we last ran
     exit_code:     process exit code
     stdout:        full stdout (or truncated w/ sha256)

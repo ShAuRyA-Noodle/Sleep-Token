@@ -87,7 +87,7 @@ You explicitly said: "apart from framing them or hiding them we should do such t
 | R4 DeepSeek 31% GT acc | "DeepSeek drifts low" | Fix DeepSeek role to devil's-advocate (flag high-risk cases intentionally) | **R4-β** | Reframes "weakness" as feature: DeepSeek catches cases others miss |
 | R4 no human baseline | "Judges can't calibrate 69.2%" | Deterministic rubric agent as human-ceiling proxy | **R4-γ** | Clear lift quantification: panel vs rubric |
 | R5 reranker hurts | "Doc-level gold + precise queries saturate bi-encoder" | Hard paraphrased query set shows reranker regime | **R5-α** | Reranker wins on hard set (+5-10pp P@1) |
-| R5 no public comparison | Missing | MTEB subset eval | **R5-β** | Published comparison row in `BENCHMARKS_VS_PUBLIC.md` |
+| R5 no public comparison | Missing | MTEB subset eval | **R5-β** | Published comparison row in `docs/v3/BENCHMARKS_VS_PUBLIC.md` |
 | R6 Provider easy F1=1.000 | "Task trivially learnable" | Arrival-time regression (continuous target, noisy lead-times) | **R6-ε** | Non-trivial MAE, GNN beats MLP baseline by >30% |
 | R6 Aqua Regia under-coverage | "Pooled residuals grow with horizon" | Per-horizon-step conformal | **R6-ζ** | Empirical coverage within ±2pp of nominal across all targets |
 | R6 v2 PPO incompat | "sb3 2.2.1 vs older checkpoint" | Document + skip, add v3-unmasked ablation | **R6-δ** | Clear action-masking contribution quantified |
@@ -139,13 +139,13 @@ You confirmed you restarted HF Space. You want a phoenix rebuild covering all pr
 | `rl/analysis/spof.py` GNN | Trained | Keep |
 | `rl/cuda/` action mask kernel | Windows-deferred | Document + future action |
 | `rl/fast_engine/fast_monte_carlo.py` | Numba-JIT | Keep |
-| `SUPPLYMIND_BLUEPRINT.md` 82 KB | Complete | Keep |
-| `ALIENWARE_KICKOFF.md` 55 KB | Complete | Keep |
+| `docs/core/SUPPLYMIND_BLUEPRINT.md` 82 KB | Complete | Keep |
+| `docs/dev_log/ALIENWARE_KICKOFF.md` 55 KB | Complete | Keep |
 | `README.md` 427 lines | v2-led | **Rewrite** to v3-led |
-| `DATA_SOURCES.md` | 40+ citations | Keep |
-| `DEMO_SCRIPT.md` | 6-scene v2 script | **Extend** with v3 scenes (record video) |
-| `EXECUTIVE_SUMMARY.md` | v2 | Keep as v2 history, add v3 summary |
-| 3 `MODEL_CARD*.md` | Multiple | **Unify** into single `MODEL_CARD.md` |
+| `docs/core/DATA_SOURCES.md` | 40+ citations | Keep |
+| `docs/v3/DEMO_SCRIPT.md` | 6-scene v2 script | **Extend** with v3 scenes (record video) |
+| `docs/v3/EXECUTIVE_SUMMARY.md` | v2 | Keep as v2 history, add v3 summary |
+| 3 `MODEL_CARD*.md` | Multiple | **Unify** into single `docs/v3/MODEL_CARD.md` |
 | 3 reports (`REPORT_*.md`) | Complete | Keep |
 | `FAILURE_TABLE.md` | Old entries | Clean resolved entries to appendix |
 | `AUTORESEARCH_SUMMARY.md` | Basic | Keep |
@@ -170,9 +170,9 @@ You confirmed you restarted HF Space. You want a phoenix rebuild covering all pr
 | Documentation | A | S | Add MODEL_CARD unified + PYTORCH_STORY + BENCHMARKS_VS_PUBLIC |
 | CI/CD | A- | A+ | Add v3 smoke + HF-deploy action |
 
-### DIRECTIVE 6 — "KILLER gaps go to FINAL_DEMO.md — solidify + fix, make them world-class"
+### DIRECTIVE 6 — "KILLER gaps go to docs/v3/FINAL_DEMO.md — solidify + fix, make them world-class"
 
-| Killer | FINAL_DEMO.md slot | Fix action |
+| Killer | docs/v3/FINAL_DEMO.md slot | Fix action |
 |---|---|---|
 | No demo video | §5 | Record per 8-scene script in FINAL_DEMO |
 | HF Space unverified | §6 | Smoke test after push |
@@ -192,9 +192,9 @@ You confirmed you restarted HF Space. You want a phoenix rebuild covering all pr
 | v2 fragility table 6+ failures | - | Annotate resolutions |
 | training_report 6/16 FAILED | - | Annotate each with v3 fix commit |
 | R4 no human baseline | - | R4-γ: rubric agent |
-| No public benchmark comparison | - | `BENCHMARKS_VS_PUBLIC.md` (M5, BEIR, MTEB, MuJoCo) |
+| No public benchmark comparison | - | `docs/v3/BENCHMARKS_VS_PUBLIC.md` (M5, BEIR, MTEB, MuJoCo) |
 | Negative findings framing | - | Per Directive 3 fixes |
-| `MODEL_CARD.md` empty | - | Unified version |
+| `docs/v3/MODEL_CARD.md` empty | - | Unified version |
 | `MODEL_CARD_V2.md` + `_REAL.md` different | - | Archive in `docs/legacy/` |
 | Old training logs | - | Move to `scripts/legacy/` |
 | Old `fix_*.py`, `improve_everything.py` | - | Move to `scripts/legacy/` |
@@ -215,7 +215,7 @@ You confirmed you restarted HF Space. You want a phoenix rebuild covering all pr
 | Tier 2 item | Action |
 |---|---|
 | OpenEnv compliance test | `tests/test_openenv_compliance.py` |
-| PyTorch story doc | `PYTORCH_STORY.md` |
+| PyTorch story doc | `docs/v3/PYTORCH_STORY.md` |
 | 2-judge R4 ablation | R4-α |
 | R6 learning curves | R6-α |
 | Dockerize Damocles | `Dockerfile.damocles` + compose entry |
@@ -226,7 +226,7 @@ You confirmed you restarted HF Space. You want a phoenix rebuild covering all pr
 |---|---|
 | Notion/GitBook landing | Link from HF + GitHub README |
 | Sleep Token theme in pitch | Opening slide + quote |
-| $1M-compute appendix | `BENCHMARKS_VS_PUBLIC.md` appendix |
+| $1M-compute appendix | `docs/v3/BENCHMARKS_VS_PUBLIC.md` appendix |
 | Colab notebook | `notebooks/04_v3_colab.ipynb` |
 | Social media thread | Draft in `demo/social.md` |
 | External SC professional quote | Stretch goal |
@@ -245,10 +245,10 @@ You confirmed you restarted HF Space. You want a phoenix rebuild covering all pr
 ## Execution Plan (ordered batches, committed separately)
 
 ### Batch 1 — Hygiene & Unification (~2 hours)
-- Create `AUDIT_PLAN.md` (this file) ✅
-- Create `FINAL_DEMO.md` (demo-focused) ✅
+- Create `docs/v4/AUDIT_PLAN.md` (this file) ✅
+- Create `docs/v3/FINAL_DEMO.md` (demo-focused) ✅
 - Rewrite `README.md` v3-led
-- Write unified `MODEL_CARD.md`
+- Write unified `docs/v3/MODEL_CARD.md`
 - Move clutter to `scripts/legacy/`
 - Archive `MODEL_CARD_V2.md` + `MODEL_CARD_REAL.md` to `docs/legacy/`
 - Unify dashboards (shim old)
@@ -290,8 +290,8 @@ You confirmed you restarted HF Space. You want a phoenix rebuild covering all pr
 - Commit: **"R2 Caramel upgraded to A+: proper stacking beats best single"**
 
 ### Batch 7 — Public benchmarks + PyTorch story (~2 hours)
-- `BENCHMARKS_VS_PUBLIC.md` with M5, BEIR, MTEB, MuJoCo
-- `PYTORCH_STORY.md` custom GCN + MaskablePPO + CUDA + TFT + Numba + ONNX + MC Dropout
+- `docs/v3/BENCHMARKS_VS_PUBLIC.md` with M5, BEIR, MTEB, MuJoCo
+- `docs/v3/PYTORCH_STORY.md` custom GCN + MaskablePPO + CUDA + TFT + Numba + ONNX + MC Dropout
 - Commit: **"Public-benchmark comparison + PyTorch story"**
 
 ### Batch 8 — OpenEnv compliance + CI (~1 hour)
@@ -336,8 +336,8 @@ Before executing Batch 1, confirm every point below has a corresponding action a
 - [x] Negative findings → IMPROVED (Directive 3, 11 findings fixed)
 - [x] Full project Part 2 — Phoenix HF rebuild (Directive 4)
 - [x] Part 3 grades → S/A+ (Directive 5)
-- [x] Killer gaps → FINAL_DEMO.md (Directive 6, 6 killers covered)
-- [x] Serious gaps → FINAL_DEMO.md + fix (Directive 7, all moderate items)
+- [x] Killer gaps → docs/v3/FINAL_DEMO.md (Directive 6, 6 killers covered)
+- [x] Serious gaps → docs/v3/FINAL_DEMO.md + fix (Directive 7, all moderate items)
 - [x] Tier 1 MUST DO (Directive 8)
 - [x] Tier 2 RECOMMENDED (Directive 9)
 - [x] Tier 3 NICE TO HAVE (Directive 10)

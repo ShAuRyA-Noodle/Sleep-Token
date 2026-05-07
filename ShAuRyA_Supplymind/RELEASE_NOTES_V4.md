@@ -112,7 +112,7 @@ Minimal. Only additive changes:
 
 ```bash
 # Stage everything
-git add ShAuRyA_Supplymind/ JUDGES.md .env.example .gitignore server/app.py \
+git add ShAuRyA_Supplymind/ docs/v4/JUDGES.md .env.example .gitignore server/app.py \
          notebooks/05_v4_hormuz_live.ipynb
 
 # Review
@@ -156,7 +156,7 @@ git tag v4.0-arcadia-live -m "v4.0-arcadia-live release"
 
 ## Judges' path in one glance
 
-1. `JUDGES.md` (repo root) — 4-minute quick reference
+1. `docs/v4/JUDGES.md` (repo root) — 4-minute quick reference
 2. `ShAuRyA_Supplymind/docs/LIVE_DEMO_HORMUZ.md` — the 90-second live demo
 3. `ShAuRyA_Supplymind/docs/PREPRINT.md` — technical abstract
 4. `ShAuRyA_Supplymind/receipts/INDEX.md` — 13 one-command headline verifications

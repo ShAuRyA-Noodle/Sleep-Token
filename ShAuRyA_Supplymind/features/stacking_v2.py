@@ -3,7 +3,7 @@ stacking_v2.py — G15 fix. Proper meta-learner stacking over base tabular model
 
 The v2-era "Ensemble_WV" (weighted voting) at 37.52% failed to beat best
 individual TD3+BC_v2 at 37.44% — within CI95 overlap. The documented issue
-(AUDIT_PLAN.md R2-alpha): naive voting can't exploit base-learner complementarity.
+(docs/v4/AUDIT_PLAN.md R2-alpha): naive voting can't exploit base-learner complementarity.
 
 This module implements the canonical fix: stacking with out-of-fold (OOF)
 predictions fed to a meta-learner.

@@ -46,7 +46,7 @@ Every single phase line in the plan has been addressed. Each row shows Plan ID �
 | 1.4 | LLMJudgeRewardWorker bridge | `supplymind_judge_worker.py` — drop-in ROLL `LLMJudgeRewardWorker` subclass calling our 3 judges via Ollama; auto-registers when ROLL imports; standalone fallback stub. | `roll_integration/reward_bridge/` | **done** |
 | 1.5 (stretch) | Agentic-RL config | `configs/agentic_supplymind_gigpo.yaml` — GiGPO step-wise, HFStrategy, LoRA r=8, MCP tool list for forecast/RAG/RL-policy endpoints. | `roll_integration/configs/` | **done (config-ready, training pending)** |
 | SupplyMind-as-ROLL-env | First-class env | `supplymind_roll_env.py` wrapping `SupplyMindEnvironment` with ROLL-native metadata + factory `make()` + auto-registration hook. | `roll_integration/env/` | **done** |
-| 2.1 | HF Space deploy | Deferred — HF token not present in env; documented path in `upstream_prs/` + v4's `DEPLOY_HF_SPACE.md` | — | **blocked (awaits user HF creds)** |
+| 2.1 | HF Space deploy | Deferred — HF token not present in env; documented path in `upstream_prs/` + v4's `docs/v3/DEPLOY_HF_SPACE.md` | — | **blocked (awaits user HF creds)** |
 | 2.2 | Demo video | Script fully written (`DEMO_VIDEO_SCRIPT_V5.md`) with 6-scene structure, exact terminal commands, fallback protocol. Recording needs your Mac + mic. | `docs/` | **script done; recording pending (Mac)** |
 | 2.3 | Pitch deck v2 | 8-slide Markdown deck with speaker notes + contingency answers | `docs/PITCH_DECK_V5.md` | **done** |
 | 2.4 | Publish skill pack | Local pack + `plugin.json` + attribution ready. Marketplace PR needs gh auth + maintainer ping. | `supplymind_skills/` | **built (marketplace submission pending your auth)** |
@@ -186,7 +186,7 @@ Script at `ShAuRyA_Phoenix/docs/DEMO_VIDEO_SCRIPT_V5.md`. Exact commands, 6 scen
 
 ### Blocker 4 — HF Space deploy (your HF token, ~1-2 h)
 
-Follow `DEPLOY_HF_SPACE.md`. Once the Space is green, update the URL in `JUDGES_V5.md` (it's placeholder right now). Smoke-test all endpoints:
+Follow `docs/v3/DEPLOY_HF_SPACE.md`. Once the Space is green, update the URL in `JUDGES_V5.md` (it's placeholder right now). Smoke-test all endpoints:
 
 ```bash
 SPACE=https://<your-space>.hf.space

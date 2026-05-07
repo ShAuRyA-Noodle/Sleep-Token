@@ -1,6 +1,6 @@
 # docs/legacy/ — archived documentation
 
-Pre-v3 documentation preserved for provenance. For current docs see root `README.md`, `MODEL_CARD.md`, `FINAL_DEMO.md`, `AUDIT_PLAN.md`.
+Pre-v3 documentation preserved for provenance. For current docs see root `README.md`, `docs/v3/MODEL_CARD.md`, `docs/v3/FINAL_DEMO.md`, `docs/v4/AUDIT_PLAN.md`.
 
 - `MODEL_CARD_V2.md`, `MODEL_CARD_REAL.md`: earlier model cards superseded by unified `../MODEL_CARD.md`.
 - `REPORT_REAL_DATA.md`, `REPORT_SIMULATED_DATA.md`, `REPORT_REAL_V2.md`: v1/v2 training reports.

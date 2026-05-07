@@ -220,7 +220,7 @@ All agents × all tasks × 5 seeds. Confidence intervals. Publication-quality ch
 (Target scores — actual will vary)
 
 ### 4.3 ONNX Export + Model Card
-**New file:** `rl/export_onnx.py`, `MODEL_CARD.md`
+**New file:** `rl/export_onnx.py`, `docs/v3/MODEL_CARD.md`
 
 Export policy to ONNX for cross-platform deployment. Model card in HuggingFace style with training data, evaluation metrics, intended use, limitations, ethical considerations.
 
@@ -306,7 +306,7 @@ benchmark/
 # Modified (minimal, additive):
   pyproject.toml                 # Add [rl], [dashboard] optional deps
   README.md                      # Add ML sections, benchmark results
-  MODEL_CARD.md                  # HuggingFace style model card
+  docs/v3/MODEL_CARD.md                  # HuggingFace style model card
   .github/workflows/ci.yml       # CI pipeline
 ```
 

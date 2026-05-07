@@ -285,7 +285,7 @@ def benchmark(v5_model: str, base_model: str) -> dict:
         "summary": summary,
         "note": ("v5 target: exact_acc_lift > 0 AND evidence_coverage_mean > base. "
                  "Historical v3 A/B win rate was only 12% vs base Qwen (per "
-                 "docs/legacy/AUTORESEARCH_SUMMARY.md + EXECUTIVE_SUMMARY.md §supplymind-analyst)."),
+                 "docs/legacy/AUTORESEARCH_SUMMARY.md + docs/v3/EXECUTIVE_SUMMARY.md §supplymind-analyst)."),
     }
 
 

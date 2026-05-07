@@ -104,7 +104,7 @@ Expected response:
 
 1. **"Show me the live Hormuz assessment with the judge panel."** — 90 seconds, on my laptop, hitting real 2026 NewsAPI + FRED Brent.
 2. **"Which of your results is the most surprising?"** — Honest answer: R6 Aqua Regia per-horizon conformal (0.024 dev from 95% nominal on oil, 4.7x tighter than pooled). It's textbook methodology realized on real FRED data.
-3. **"Where does SupplyMind fail?"** — See `BENCHMARKS_VS_PUBLIC.md` §8 (honest limitations) and the R2 stacking null result (`ShAuRyA_Supplymind/features/R15_STACKING_V2.json`). When base learners hit a 0.97+ AUC ceiling, stacking doesn't beat best single. We publish the null.
+3. **"Where does SupplyMind fail?"** — See `docs/v3/BENCHMARKS_VS_PUBLIC.md` §8 (honest limitations) and the R2 stacking null result (`ShAuRyA_Supplymind/features/R15_STACKING_V2.json`). When base learners hit a 0.97+ AUC ceiling, stacking doesn't beat best single. We publish the null.
 
 ## If anything fails
 

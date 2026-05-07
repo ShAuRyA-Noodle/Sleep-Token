@@ -13,7 +13,7 @@ This directory contains the **v4 arcadia-live** layer being built on top of v3.0
 | `scenarios/` | Real 2024-2026 crisis library (Iran-Israel, Hormuz, Red Sea Houthi, Taiwan Strait) with full citations |
 | `features/` | 10 new unique features F1-F10 (Qwen-VL port imagery, multi-agent, conformal RL, Pareto carbon, provenance graph, receipts, etc.) |
 | `deploy/` | HF Space v4 Dockerfile + deploy scripts + GitHub Actions updates |
-| `docs/` | v4 docs: program.md for autoresearch, JUDGES.md, arxiv-style preprint, external quotes |
+| `docs/` | v4 docs: program.md for autoresearch, docs/v4/JUDGES.md, arxiv-style preprint, external quotes |
 | `tests/` | v4 integration + unit tests |
 | `receipts/` | F10 reproducibility receipt system — every headline number gets `.receipt` + `.reproduce.sh` |
 
@@ -27,7 +27,7 @@ This directory contains the **v4 arcadia-live** layer being built on top of v3.0
 | **Phase G-Fix** | Gaps G2-G15 (HF deploy, Qwen-VL, multi-agent, DT v3, LoRA, SPOF, analyst, arxiv, CUDA, ensemble) | pending |
 | **Phase L3** | 10 unique features F1-F10 | pending |
 | **Phase L4** | Deploy + pitch + Colab (video deferred per user — recorded on Mac at end) | pending |
-| **Phase L5** | Polish + JUDGES.md + external quotes | pending |
+| **Phase L5** | Polish + docs/v4/JUDGES.md + external quotes | pending |
 | **Final** | v4.0-arcadia-live tag + GitHub release | pending |
 
 ## Commit naming (Sleep Token v4 tracks, unused so far)

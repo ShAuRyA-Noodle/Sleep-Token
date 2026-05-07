@@ -15,19 +15,14 @@ on:
       - 'openenv.yaml'
       - 'v3_arcadia/**'
       - 'README.md'
-      - 'MODEL_CARD.md'
-      - 'RESULTS.md'
-      - 'FINAL_DEMO.md'
-      - 'BENCHMARKS_VS_PUBLIC.md'
-      - 'PYTORCH_STORY.md'
-      - 'comparison.md'
+      - 'docs/**'
       - 'Dockerfile*'
       - 'requirements*.txt'
       - 'pyproject.toml'
       - 'tests/**'
       - 'scripts/**'
       - 'demo/**'
-      - 'challenges/**'
+      - 'FINAL_SUBMIT/**'
   workflow_dispatch:
 
 jobs:

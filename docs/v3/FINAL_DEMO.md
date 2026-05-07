@@ -21,7 +21,7 @@ This document is the **single source of truth** for everything a judge will see,
 | GNN | Custom 3-layer GCN + **arrival-time regression (+48-64% vs MLP)** | **S** | `R6_PROVIDER.json`, `R6_PROVIDER_V2.json` |
 | Production API | FastAPI + MCP + WebSocket + 3 Dockerfiles + compose | **A+** | `server/app.py`, `v3_arcadia/90_damocles/app.py`, `Dockerfile.damocles` |
 | Tests | **173 passing** in ~2 min | **S** | `pytest tests/ -q` |
-| Docs | 150+ MD files, unified card, PyTorch story, BENCHMARKS_VS_PUBLIC | **S** | `README.md`, `MODEL_CARD.md`, `PYTORCH_STORY.md`, `BENCHMARKS_VS_PUBLIC.md`, `FINAL_DEMO.md`, `AUDIT_PLAN.md` |
+| Docs | 150+ MD files, unified card, PyTorch story, BENCHMARKS_VS_PUBLIC | **S** | `README.md`, `docs/v3/MODEL_CARD.md`, `docs/v3/PYTORCH_STORY.md`, `docs/v3/BENCHMARKS_VS_PUBLIC.md`, `docs/v3/FINAL_DEMO.md`, `docs/v4/AUDIT_PLAN.md` |
 | CI/CD | GitHub Actions + OpenEnv compliance + v3 smoke | **A+** | `.github/workflows/ci.yml` |
 | Deploy | HF Space push pending (Batch 10) | target **A+** | https://huggingface.co/spaces/Shaurya-Noodle/Supplymind |
 | Demo assets | 3-min video script + 5-slide pitch + Colab + DEMO_VIDEO_SCRIPT | **A** | `demo/PITCH_DECK.md`, `demo/DEMO_VIDEO_SCRIPT.md`, `notebooks/04_v3_quickstart_colab.ipynb` |
@@ -36,7 +36,7 @@ A hackathon judge has **4 minutes** per submission average. The journey we optim
 2. **Watch 3-min demo video** — sees the full stack end-to-end in 3 minutes
 3. **Click "Try live API"** — hits deployed Streamlit + FastAPI demo
 4. **Glance at pitch deck** — 5 slides, problem → solution → benchmarks → honest findings → call to action
-5. **Optionally deep-dive** — reads `MODEL_CARD.md`, `PYTORCH_STORY.md`, `BENCHMARKS_VS_PUBLIC.md`, `REPORT_REAL_DATA.md`
+5. **Optionally deep-dive** — reads `docs/v3/MODEL_CARD.md`, `docs/v3/PYTORCH_STORY.md`, `docs/v3/BENCHMARKS_VS_PUBLIC.md`, `REPORT_REAL_DATA.md`
 
 Every artifact must be navigable from the HF Space landing page.
 
@@ -46,19 +46,19 @@ Every artifact must be navigable from the HF Space landing page.
 
 | # | Gap | Status | Fix commit |
 |---|---|---|---|
-| K1 | No demo video | ❌ `DEMO_SCRIPT.md` exists but not recorded | plan in §5 |
+| K1 | No demo video | ❌ `docs/v3/DEMO_SCRIPT.md` exists but not recorded | plan in §5 |
 | K2 | HF Space deployment was down | 🔄 user restarted; needs v3 push | Phoenix-rebuild plan in §6 |
 | K3 | v3 not visible on HF Space | ❌ HF deploy is v2 | §6 deploys v3 adapter |
 | K4 | Top-level README leads with v2 | ✅ FIXED in this commit | README rewrite |
-| K5 | Two narratives (v2 + v3) confuse | ✅ unified in README + MODEL_CARD.md | this commit |
+| K5 | Two narratives (v2 + v3) confuse | ✅ unified in README + docs/v3/MODEL_CARD.md | this commit |
 | K6 | Two dashboards (dashboard/ + v3_arcadia/85_infinite_baths/) | ✅ merged into one | §4 |
-| K7 | Empty MODEL_CARD.md | ✅ FIXED — unified v3 card | this commit |
+| K7 | Empty docs/v3/MODEL_CARD.md | ✅ FIXED — unified v3 card | this commit |
 | K8 | Clutter in repo root | ✅ moved to `scripts/legacy/` | this commit |
-| K9 | No formal paper/PDF | ⚠️ replaced by `MODEL_CARD.md` + `BENCHMARKS_VS_PUBLIC.md` | §7 |
+| K9 | No formal paper/PDF | ⚠️ replaced by `docs/v3/MODEL_CARD.md` + `docs/v3/BENCHMARKS_VS_PUBLIC.md` | §7 |
 | K10 | No pitch deck | ⚠️ plan in §5 (1-page PDF via Markdown→PDF) | §5 |
 | K11 | training_report.json shows 6 v2 failures | ✅ annotated as "resolved in v3, kept for honesty" | §4 |
 | K12 | No human baseline on R4 | ✅ FIXED — `R4_DANGEROUS_V2_HUMAN_BASELINE.json` | §3 |
-| K13 | No public-benchmark comparison | ✅ FIXED — `BENCHMARKS_VS_PUBLIC.md` | §3 |
+| K13 | No public-benchmark comparison | ✅ FIXED — `docs/v3/BENCHMARKS_VS_PUBLIC.md` | §3 |
 | K14 | R4 Krippendorff α = 0.210 looks weak | ✅ 2-judge ablation shows α > 0.7 when DeepSeek excluded | §3 |
 | K15 | R5 reranker-doesn't-help reads as bug | ✅ hard-query benchmark shows reranker wins by +X pp there | §3 |
 | K16 | R3 ensemble worse than best individual | ✅ constrained-stacking ensemble beats best | §3 |
@@ -119,7 +119,7 @@ Every artifact must be navigable from the HF Space landing page.
 ### F10. External credibility → real cited published sources
 **Original**: No third-party endorsements available pre-submission.
 
-**World-class improvement**: `EXTERNAL_CREDIBILITY.md` aggregates 10+ real cited quotes from McKinsey, BCI, Gartner, CSCMP, SemiAnalysis, Lloyd's, MT-Bench, Huang 2020, Foygel Barber 2022 — each validating a specific design choice. No invented endorsements.
+**World-class improvement**: `docs/core/EXTERNAL_CREDIBILITY.md` aggregates 10+ real cited quotes from McKinsey, BCI, Gartner, CSCMP, SemiAnalysis, Lloyd's, MT-Bench, Huang 2020, Foygel Barber 2022 — each validating a specific design choice. No invented endorsements.
 
 ### F11. Video substitute for read-only judges
 **Original**: Demo video is time-expensive for judges to consume.
@@ -131,7 +131,7 @@ Every artifact must be navigable from the HF Space landing page.
 ## 4. Repo hygiene + unification (this commit)
 
 - `README.md` rewritten: top section leads with **v3.0-arcadia**, v2 moved to "History" section.
-- `MODEL_CARD.md` populated: unified card covering v1/v2/v3 with current SOTA results table.
+- `docs/v3/MODEL_CARD.md` populated: unified card covering v1/v2/v3 with current SOTA results table.
 - Root clutter moved to `scripts/legacy/`:
   - `fix_all.py`, `fix_all_fragilities.py`, `fix_remaining.py`, `improve_everything.py`
   - `*.log` files from root
@@ -228,11 +228,11 @@ huggingface.co/spaces/Shaurya-Noodle/Supplymind/
 ├── Dockerfile                 # new v3-aware build
 ├── requirements.txt           # slim runtime deps
 ├── requirements-rl.txt        # optional RL deps
-├── FINAL_DEMO.md              # this file
-├── MODEL_CARD.md              # unified
-├── BENCHMARKS_VS_PUBLIC.md    # public-benchmark comparison
-├── PYTORCH_STORY.md           # PyTorch narrative
-└── DATA_SOURCES.md            # 40+ citations
+├── docs/v3/FINAL_DEMO.md              # this file
+├── docs/v3/MODEL_CARD.md              # unified
+├── docs/v3/BENCHMARKS_VS_PUBLIC.md    # public-benchmark comparison
+├── docs/v3/PYTORCH_STORY.md           # PyTorch narrative
+└── docs/core/DATA_SOURCES.md            # 40+ citations
 ```
 
 ### Excluded from HF Space (kept in GitHub only):
@@ -275,7 +275,7 @@ Hackathon is titled "Meta **PyTorch** OpenEnv". PyTorch-specific wins to surface
 6. **Numba-JIT MC engine** — `rl/fast_engine/fast_monte_carlo.py` — <0.01 ms empty sim, <100 ms 10k-rollout.
 7. **MC Dropout calibration on BC** — `rl/forecasting/mc_dropout_eval.py`. Low-uncertainty quartile: 99.76% acc, high: 55.92%. Proves epistemic uncertainty is learned.
 
-Full narrative: `PYTORCH_STORY.md`.
+Full narrative: `docs/v3/PYTORCH_STORY.md`.
 
 ---
 
@@ -283,14 +283,14 @@ Full narrative: `PYTORCH_STORY.md`.
 
 | Block | Hours | Tasks |
 |---|---|---|
-| A | 0–4 | FINAL_DEMO.md + README + MODEL_CARD + repo hygiene + commit |
+| A | 0–4 | docs/v3/FINAL_DEMO.md + README + MODEL_CARD + repo hygiene + commit |
 | B | 4–6 | R4 2-judge ablation + human-baseline rubric agent |
 | C | 6–8 | R5 hard-query benchmark |
 | D | 8–10 | R3 constrained-stacking ensemble |
 | E | 10–12 | R6 Aqua Regia per-horizon conformal |
 | F | 12–14 | R6 Provider 3-hop task |
 | G | 14–16 | R2 stacking v2 (TabPFN pre-cache) |
-| H | 16–18 | BENCHMARKS_VS_PUBLIC.md + PYTORCH_STORY.md |
+| H | 16–18 | docs/v3/BENCHMARKS_VS_PUBLIC.md + docs/v3/PYTORCH_STORY.md |
 | I | 18–20 | tests/test_openenv_compliance.py + CI updates |
 | J | 20–22 | Dockerize Damocles v3 |
 | K | 22–26 | Push to HF Space + verify live + smoke tests |

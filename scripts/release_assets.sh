@@ -44,11 +44,11 @@ gh release create "$TAG" \
 - **3× ONNX-exported PPO policies** (0.97 MB each, verified via onnxruntime)
 
 ## Documentation
-- `MODEL_CARD.md` — unified model card with every benchmark
-- `PYTORCH_STORY.md` — non-trivial PyTorch engineering
-- `BENCHMARKS_VS_PUBLIC.md` — honest comparison to M5/MTEB/MuJoCo
-- `FINAL_DEMO.md` — demo script + judge path
-- `AUDIT_PLAN.md` — full coverage matrix of v3 audit directives
+- `docs/v3/MODEL_CARD.md` — unified model card with every benchmark
+- `docs/v3/PYTORCH_STORY.md` — non-trivial PyTorch engineering
+- `docs/v3/BENCHMARKS_VS_PUBLIC.md` — honest comparison to M5/MTEB/MuJoCo
+- `docs/v3/FINAL_DEMO.md` — demo script + judge path
+- `docs/v4/AUDIT_PLAN.md` — full coverage matrix of v3 audit directives
 - `FAILURE_TABLE.md` — every v1/v2 failure with v3 resolution link
 
 ## Artifacts attached
@@ -94,9 +94,9 @@ gh release upload "$TAG" demo/PITCH_DECK.md --repo "$REPO" --clobber || true
 [ -f demo/supplymind_v3_demo.mp4 ] && gh release upload "$TAG" demo/supplymind_v3_demo.mp4 --repo "$REPO" --clobber
 
 # Unified docs
-gh release upload "$TAG" MODEL_CARD.md --repo "$REPO" --clobber
-gh release upload "$TAG" PYTORCH_STORY.md --repo "$REPO" --clobber
-gh release upload "$TAG" BENCHMARKS_VS_PUBLIC.md --repo "$REPO" --clobber
-gh release upload "$TAG" FINAL_DEMO.md --repo "$REPO" --clobber
+gh release upload "$TAG" docs/v3/MODEL_CARD.md --repo "$REPO" --clobber
+gh release upload "$TAG" docs/v3/PYTORCH_STORY.md --repo "$REPO" --clobber
+gh release upload "$TAG" docs/v3/BENCHMARKS_VS_PUBLIC.md --repo "$REPO" --clobber
+gh release upload "$TAG" docs/v3/FINAL_DEMO.md --repo "$REPO" --clobber
 
 echo "✅ Release populated. Visit: https://github.com/$REPO/releases/tag/$TAG"

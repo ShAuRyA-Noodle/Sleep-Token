@@ -37,7 +37,7 @@ cp .env.example .env
 Read these three files in order — they give you the thesis in 10 minutes.
 
 1. **[README.md](../README.md)** — headline claims + 10 numbers + hackathon evidence table. Lines 33-80 are the finals submission; skim the rest.
-2. **[JUDGES.md](../JUDGES.md)** — the 4-minute version. Every receipt linked.
+2. **[docs/v4/JUDGES.md](../JUDGES.md)** — the 4-minute version. Every receipt linked.
 3. **[docs/FINAL_AUDIT_REPORT.md](FINAL_AUDIT_REPORT.md)** — the unified 60-row limitation ledger across 3 audit sources. For every claim, where the evidence lives.
 
 ---

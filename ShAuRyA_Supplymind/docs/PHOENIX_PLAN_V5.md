@@ -39,7 +39,7 @@ The hackathon grades **the environment + the agent + the open-source contributio
 | Pillar | Headline number | Receipt |
 |---|---|---|
 | OpenEnv compliance | 19 formal tests pass in 2s | `tests/test_openenv_compliance.py` |
-| Real data | 261,175 points from 8 cited public sources | `DATA_SOURCES.md` |
+| Real data | 261,175 points from 8 cited public sources | `docs/core/DATA_SOURCES.md` |
 | 13 SOTA models locally | all verified, Q4_K_M quantized where needed | `v3_arcadia/results/R1_VERIFIED.json` |
 | RAG | mxbai P@1 = **0.962**, MRR **0.978**, BEIR nDCG@10 **0.971** | `R5_GRANITE_mxbai_P1.reproduce.sh` |
 | LLM 2-judge panel | Krippendorff α = **0.750**, Cohen κ = **0.747** | `R4_2JUDGE_Krippendorff_alpha.reproduce.sh` |
@@ -48,7 +48,7 @@ The hackathon grades **the environment + the agent + the open-source contributio
 | Conformal PIs | Per-horizon dev @ 95% = **0.024** (4.7× tighter than pooled) | `R6_AquaRegia_WTI_dev95.reproduce.sh` |
 | Forecasting | TimesFM-CP dev @ 95% **0.050 / 0.032** on WTI & EUR-USD | `R3_TimesFM_CP_WTI_dev95.reproduce.sh` |
 | Reproducibility | 13 one-bash-command receipts, 40 committed JSONs | `ShAuRyA_Supplymind/receipts/INDEX.md` |
-| Honest limitations | stacking null result on ≥0.97 ceiling, DeepSeek 31% GT acc | `V4_STACKING_V2_lift_vs_WV.reproduce.sh`, `BENCHMARKS_VS_PUBLIC.md` §8 |
+| Honest limitations | stacking null result on ≥0.97 ceiling, DeepSeek 31% GT acc | `V4_STACKING_V2_lift_vs_WV.reproduce.sh`, `docs/v3/BENCHMARKS_VS_PUBLIC.md` §8 |
 
 ---
 
@@ -58,7 +58,7 @@ The hackathon grades **the environment + the agent + the open-source contributio
 |---|---|---|---|---|
 | R1 | **Autoresearch loop crashes on all 5 seeds** | `autoresearch/state.json`: every hypothesis `"status": "rejected", "reason": "status=crash; no valid scores"`, `wall_clock_s ~5`, `best: null` | **CRITICAL** — our flagship unique feature doesn't converge | 4–6 h |
 | R2 | Live Hormuz pipeline needs venue Wi-Fi | NewsAPI/GDELT/FRED all require network; rate limits at demo time | Demo could fail mid-pitch | 3–4 h |
-| R3 | HF Space deployment unverified | `DEPLOY_HF_SPACE.md` is a plan, no confirmed live URL | Can't hand judges a URL | 2–3 h |
+| R3 | HF Space deployment unverified | `docs/v3/DEPLOY_HF_SPACE.md` is a plan, no confirmed live URL | Can't hand judges a URL | 2–3 h |
 | R4 | Demo video not recorded | `demo/DEMO_VIDEO_SCRIPT.md` = script only | Pitch lacks asynchronous artifact | 2–3 h |
 | R5 | No "try-it-yourself" path for the env | Gradio leaderboard exists but no "drop your agent, get CI95" flow | Judges can only read, not play | 4–6 h |
 | R6 | Round 1 problem statement alignment unknown | 200+ problems on Scaler page; unclear which one we submitted against | Narrative may drift from judge rubric | user confirms |
@@ -95,7 +95,7 @@ The hackathon grades **the environment + the agent + the open-source contributio
 - A judge uploads `policy.pt` (any PyTorch nn.Module with `forward(obs) → action`).
 - Server runs **50 episodes per task × 3 tasks** (easy, medium, hard) and returns: reward mean + bootstrap CI95, violations/ep, latency, comparison against our MaskablePPO baseline on the same seeds.
 - Pre-populated leaderboard: MaskablePPO (ours), PPO, A2C, RecurrentPPO, Random, Greedy.
-- Prompt for judges in JUDGES.md: *"Bring your own PyTorch policy, drop it in /arena, see where you land."*
+- Prompt for judges in docs/v4/JUDGES.md: *"Bring your own PyTorch policy, drop it in /arena, see where you land."*
 - **Why this wins**: turns a static env into a playable product; directly aligns with hackathon's "environment design" axis; Meta engineers and judges can use it in the room.
 
 #### P1.B — Live Counterfactual Digital Twin (4 h)
@@ -117,10 +117,10 @@ The hackathon grades **the environment + the agent + the open-source contributio
 
 | Step | What | Est |
 |---|---|---|
-| P2.A | HF Space deploy per `DEPLOY_HF_SPACE.md`. Smoke test 12 endpoints including `/arena` and `/live/*`. Put live URL in `JUDGES.md`. | 3 h |
+| P2.A | HF Space deploy per `docs/v3/DEPLOY_HF_SPACE.md`. Smoke test 12 endpoints including `/arena` and `/live/*`. Put live URL in `docs/v4/JUDGES.md`. | 3 h |
 | P2.B | Record 3-min demo video on user's Mac: Hormuz live → autoresearch notebook → OpenEnv Arena → reproducibility receipts. | 3 h |
 | P2.C | Pitch deck v2 (8 slides): (1) OpenEnv env, (2) 13-model stack, (3) Karpathy autoresearch, (4) live Hormuz, (5) OpenEnv Arena, (6) reproducibility, (7) honest limitations, (8) roadmap. | 2 h |
-| P2.D | End-to-end dry run: fresh venv → clone → `pip install` → run JUDGES.md's 4-minute path → 5 receipts → pytest. Retime to <4 min. | 2 h |
+| P2.D | End-to-end dry run: fresh venv → clone → `pip install` → run docs/v4/JUDGES.md's 4-minute path → 5 receipts → pytest. Retime to <4 min. | 2 h |
 | P2.E | Travel prep: `.env` rotated, laptop+charger+USB, mobile hotspot test, offline replay verified. | 2 h |
 
 **Exit criteria for Phase 2**: HF Space green, demo video uploaded to Drive + YouTube unlisted, pitch deck printed, dry-run <4min.
@@ -173,7 +173,7 @@ Ordered by judge-impact-per-hour. Pick 3–5 to actually ship.
 2. **API keys in `.env` right now**: are `NEWSAPI_KEY`, `FRED_API_KEY`, `HF_TOKEN`, `OPENAI_API_KEY` (optional) populated and working? I need to verify the live pipeline works *today* before we lose time.
 3. **Travel + venue**: flying to Bangalore Apr 25? Hotel Wi-Fi plan? Mobile hotspot backup? Is the Alienware laptop (the one with the RTX 4080) the travel machine, or a different laptop?
 4. **Team**: solo or with 1–2 teammates? With partners I'd parallelize Phase 1. Hackathon allows teams up to 3.
-5. **HF Space**: is there a live URL already, or does it need a Phoenix rebuild per `DEPLOY_HF_SPACE.md`?
+5. **HF Space**: is there a live URL already, or does it need a Phoenix rebuild per `docs/v3/DEPLOY_HF_SPACE.md`?
 6. **Mac recording**: is the Mac set up (Keynote / OBS / ScreenFlow) for the demo video shoot?
 7. **Ollama models**: are `qwen2.5:14b-instruct-q4_K_M`, `mistral-nemo:12b-instruct-q4_K_M`, `deepseek-r1-local-q4` all loaded and warm? (Needed for 3-judge panel in the live demo.)
 
@@ -187,7 +187,7 @@ Ordered by judge-impact-per-hour. Pick 3–5 to actually ship.
 - No untested code in the 90-second demo path. If it's in the demo, it has a test.
 - No API dependencies without an offline fallback. Every live feature has a replay cache.
 - No skipping OpenEnv compliance tests. Those 19 tests are the first signal judges check.
-- No renaming / reorganizing the existing structure. `JUDGES.md` paths are already advertised.
+- No renaming / reorganizing the existing structure. `docs/v4/JUDGES.md` paths are already advertised.
 - No untagged commits during finals. Every commit = Sleep Token track name + phase marker (Rain, The Summoning, Vore, Chokehold, DYWTYLM, Ascensionism, Arcadia II).
 - No `--no-verify`, no hook skipping, no force-pushes to main.
 
@@ -319,7 +319,7 @@ Vendored copy at `superpowers-main/superpowers-main/` is current (v5.0.7, Mar 31
     - `autoresearch-experiment` (maps to our autoresearch/ module — plan → run → receipt)
     - `live-demo-orchestrator` (pre-demo checklist, fallback, post-demo receipt)
     
-    Publish to `obra/superpowers-marketplace` + Claude Code plugins marketplace. Add to `JUDGES.md`: *"Judges: install `supplymind-skills` in your Claude Code to reproduce our methodology."* **This is a second open-source artifact, on top of the upstream OpenEnv/ROLL PRs.**
+    Publish to `obra/superpowers-marketplace` + Claude Code plugins marketplace. Add to `docs/v4/JUDGES.md`: *"Judges: install `supplymind-skills` in your Claude Code to reproduce our methodology."* **This is a second open-source artifact, on top of the upstream OpenEnv/ROLL PRs.**
 
 2. **Adopt `writing-plans` + `subagent-driven-development` for the 48-hour finals** — Every hour of on-campus work starts with a bite-sized plan in `docs/superpowers/plans/2026-04-25-<phase>.md`, executed by subagents, receipt-verified. Git log becomes a TDD-discipline artifact judges can read. I already structured the Phoenix Plan this way; we formalize it at finals.
 

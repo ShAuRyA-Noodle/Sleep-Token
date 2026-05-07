@@ -26,7 +26,7 @@ Format: **Q** = the objection · **A** = the rebuttal · **Receipt** = the on-di
 
 **Q5**. "Why supply chain over a research-paper-novel domain?"
 **A**. Picked deliberately: (1) supply-chain has crisp economic verifiers (Brent prices, agency-published loss bands), (2) it has rich partial observability (20 live data sources), (3) it's professionally relevant (Theme 3 explicit fit). And it's underexplored in OpenEnv community — most submissions are grid worlds or web tasks.
-**Receipt**: `DATA_SOURCES.md` lists 20 sources with their epistemic role.
+**Receipt**: `docs/core/DATA_SOURCES.md` lists 20 sources with their epistemic role.
 
 ---
 

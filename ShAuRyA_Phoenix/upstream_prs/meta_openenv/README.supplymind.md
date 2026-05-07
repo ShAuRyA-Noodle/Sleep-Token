@@ -88,7 +88,7 @@ All MaskablePPO CIs strictly above all baselines on all three tasks.
 - Wikipedia crisis articles: 26 curated
 
 Simulation parameters (lead times, dual-sourcing premiums, air-freight
-multipliers, etc.) all calibrated from industry reports. See `DATA_SOURCES.md`
+multipliers, etc.) all calibrated from industry reports. See `docs/core/DATA_SOURCES.md`
 in the parent SupplyMind repo for ≥40 citations.
 
 ## Compliance

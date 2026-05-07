@@ -273,6 +273,6 @@ SupplyMind v3.0-arcadia does not claim to top any single public leaderboard. It 
 - **Use the best public-SOTA components** (Chronos-Bolt, mxbai, BGE-reranker, TabPFN-v2, MaskablePPO, Pydantic v2, FastAPI)
 - **Integrate them into an OpenEnv-compliant supply-chain environment** with 154 passing tests and MCP JSON-RPC + WebSocket support
 - **Report honestly** with statistical rigor (Wilcoxon, bootstrap CIs, Krippendorff α, ECE, PICP)
-- **Document every negative finding** with a world-class follow-up fix (see `MODEL_CARD.md` §3 and `FAILURE_TABLE.md`)
+- **Document every negative finding** with a world-class follow-up fix (see `docs/v3/MODEL_CARD.md` §3 and `FAILURE_TABLE.md`)
 
 For hackathon judges: **no comparable published submission combines the OpenEnv compliance, the 13-model stack, the 154 tests, and the 261K real data points into one artifact**. That is our claim. The public-benchmark comparison above is to show we are not reinventing wheels — we are using the right wheels correctly.

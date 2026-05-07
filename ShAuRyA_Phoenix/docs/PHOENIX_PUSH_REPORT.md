@@ -269,7 +269,7 @@ Pre-push autonomous work measurably moved the needle on three axes:
 8. **Open Alibaba/ROLL PR** (§2.4). ~3 min.
 9. **Fix DPO** (§3.1, Option A = upgrade trl). ~30 min including retrain.
 10. **Record demo video** on your Mac per `DEMO_VIDEO_SCRIPT_V5.md`. ~2-3 hours.
-11. **HF Space deploy** per `DEPLOY_HF_SPACE.md`. ~1-2 hours.
+11. **HF Space deploy** per `docs/v3/DEPLOY_HF_SPACE.md`. ~1-2 hours.
 12. **Final rehearsal + travel prep.**
 
 Total runway needed: ~7-8 hours of your attention before finals. The long pole is #10 (video recording) and #11 (HF deploy). Everything else is < 30 min per item.

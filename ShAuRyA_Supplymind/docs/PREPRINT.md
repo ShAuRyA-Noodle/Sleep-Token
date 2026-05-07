@@ -63,7 +63,7 @@ Adapted from Karpathy's `karpathy/autoresearch`: the agent reads `program.md` (t
 6. Optional live ingestion: `python -m ShAuRyA_Supplymind.realtime.ingestor --once` (needs `.env` keys).
 7. Optional autoresearch: `python -m ShAuRyA_Supplymind.autoresearch.orchestrator --budget 6h`.
 
-Every headline number is reproducible from the committed JSONs with a single `jq` command; see `RESULTS.md` §"Verify any number in under 60 seconds."
+Every headline number is reproducible from the committed JSONs with a single `jq` command; see `docs/v3/RESULTS.md` §"Verify any number in under 60 seconds."
 
 ## 6. Honest limitations (explicit)
 
@@ -75,7 +75,7 @@ Every headline number is reproducible from the committed JSONs with a single `jq
 
 ## 7. Positioning vs public benchmarks
 
-See `BENCHMARKS_VS_PUBLIC.md` for side-by-side positioning against M5 (forecasting), BEIR / MTEB (retrieval), MuJoCo / Meta-World (RL), Kaggle DataCo (tabular), RewardBench / MT-Bench (LLM-as-judge), and the conformal prediction literature. We do **not** claim leaderboard dominance; we claim that no comparable published submission integrates OpenEnv compliance + the 13-model stack + 173 tests + 261 K real data points + live geopolitical ingestion into a single artifact.
+See `docs/v3/BENCHMARKS_VS_PUBLIC.md` for side-by-side positioning against M5 (forecasting), BEIR / MTEB (retrieval), MuJoCo / Meta-World (RL), Kaggle DataCo (tabular), RewardBench / MT-Bench (LLM-as-judge), and the conformal prediction literature. We do **not** claim leaderboard dominance; we claim that no comparable published submission integrates OpenEnv compliance + the 13-model stack + 173 tests + 261 K real data points + live geopolitical ingestion into a single artifact.
 
 ## 8. Citation
 

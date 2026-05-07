@@ -6,7 +6,7 @@
 
 This card covers **every model, every benchmark, every honest finding** across the SupplyMind codebase — the v1 simulated baseline, the v2 real-data retrain, and the v3 SOTA-stack rebuild. For raw results, see `v3_arcadia/results/`. For v2 history, see `docs/legacy/MODEL_CARD_V2.md`.
 
-**Companion docs**: [`BENCHMARKS_VS_PUBLIC.md`](BENCHMARKS_VS_PUBLIC.md) · [`EXTERNAL_CREDIBILITY.md`](EXTERNAL_CREDIBILITY.md) · [`PYTORCH_STORY.md`](PYTORCH_STORY.md) · [`FAILURE_TABLE.md`](FAILURE_TABLE.md) · [`AUDIT_PLAN.md`](AUDIT_PLAN.md) · [`FINAL_DEMO.md`](FINAL_DEMO.md) · [`DEPLOY_HF_SPACE.md`](DEPLOY_HF_SPACE.md) · [`demo/DEMO_TRANSCRIPT.md`](demo/DEMO_TRANSCRIPT.md) · [`challenges/R4_RUBRIC_CHALLENGE.md`](challenges/R4_RUBRIC_CHALLENGE.md).
+**Companion docs**: [`docs/v3/BENCHMARKS_VS_PUBLIC.md`](docs/v3/BENCHMARKS_VS_PUBLIC.md) · [`docs/core/EXTERNAL_CREDIBILITY.md`](docs/core/EXTERNAL_CREDIBILITY.md) · [`docs/v3/PYTORCH_STORY.md`](docs/v3/PYTORCH_STORY.md) · [`FAILURE_TABLE.md`](FAILURE_TABLE.md) · [`docs/v4/AUDIT_PLAN.md`](docs/v4/AUDIT_PLAN.md) · [`docs/v3/FINAL_DEMO.md`](docs/v3/FINAL_DEMO.md) · [`docs/v3/DEPLOY_HF_SPACE.md`](docs/v3/DEPLOY_HF_SPACE.md) · [`demo/DEMO_TRANSCRIPT.md`](demo/DEMO_TRANSCRIPT.md) · [`challenges/R4_RUBRIC_CHALLENGE.md`](challenges/R4_RUBRIC_CHALLENGE.md).
 
 ---
 

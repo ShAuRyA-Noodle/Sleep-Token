@@ -27,7 +27,7 @@ curl https://shaurya-noodle-supplymind.hf.space/live/health
 curl -X POST https://shaurya-noodle-supplymind.hf.space/reset?task_id=easy_typhoon_response
 ```
 
-## 7-item smoke checklist (copy-paste from FINAL_DEMO.md §7)
+## 7-item smoke checklist (copy-paste from docs/v3/FINAL_DEMO.md §7)
 
 - [ ] `/health` returns 200
 - [ ] `/tasks` lists 3 tasks
@@ -65,4 +65,4 @@ curl -X POST https://shaurya-noodle-supplymind.hf.space/reset?task_id=easy_typho
 4. **Missing secrets**: HF Space Settings → Variables — add the 4 env vars.
 5. **Repo type wrong**: must be `sdk: docker` (not gradio/streamlit).
 
-See `DEPLOY_HF_SPACE.md` (root) for the full v3 deploy doc we inherit.
+See `docs/v3/DEPLOY_HF_SPACE.md` (root) for the full v3 deploy doc we inherit.
