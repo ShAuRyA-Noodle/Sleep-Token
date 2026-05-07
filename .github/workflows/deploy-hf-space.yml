@@ -43,10 +43,11 @@ jobs:
         run: pip install -U "huggingface_hub>=0.25"
 
       - name: Upload to HF Space (skips _dump, .git, .github, large notebooks)
+        id: hf_upload
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          python - <<'PY'
+          python - 2>&1 | tee /tmp/hf_deploy.log <<'PY'
           import os, sys, traceback
           from huggingface_hub import HfApi
           token = os.environ.get("HF_TOKEN")
@@ -112,6 +113,14 @@ jobs:
               traceback.print_exc()
               sys.exit(1)
           PY
+
+      - name: Upload deploy log as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hf-deploy-log
+          path: /tmp/hf_deploy.log
+          retention-days: 7
 
       - name: Smoke test
         if: success()
