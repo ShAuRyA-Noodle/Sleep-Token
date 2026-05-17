@@ -26,6 +26,12 @@ dependencies = [
     "httpx>=0.25.0",
     "openai>=1.0.0",
     "openenv-core>=0.2.3",
+    # Security pins (transitive advisory chain): bump to the first patched
+    # version of each, otherwise uv.lock pulls in the vulnerable line.
+    "authlib>=1.6.12",
+    "cryptography>=46.0.7",
+    "python-multipart>=0.0.27",
+    "urllib3>=2.7.0",
 ]
 
 [project.scripts]
@@ -36,7 +42,7 @@ baseline = [
     "openai>=1.0.0",
 ]
 dev = [
-    "pytest>=7.0.0",
+    "pytest>=9.0.3",
     "pytest-asyncio>=0.21.0",
     "httpx>=0.25.0",
 ]
