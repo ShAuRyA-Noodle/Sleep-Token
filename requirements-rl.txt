@@ -36,7 +36,7 @@ ollama>=0.1.0
 # RAG
 chromadb==0.4.24
 sentence-transformers>=2.2.0
-PyPDF2>=3.0.0
+PyPDF2>=3.0.1
 
 # Forecasting
 pytorch-forecasting==1.0.0
