@@ -1603,10 +1603,23 @@ async def v3_end_to_end(request: E2ERequest):
     # ---------------------------------------------------------------------
     try:
         import onnxruntime as _ort
-        _safe_task_id = _validated_task_id(request.task_id)
-        onnx_path = Path(__file__).parent.parent / "v3_arcadia" / "checkpoints" / "onnx_bundle" / f"ppo_{_safe_task_id}.onnx"
+        import re as _re_local
+        # Inline-regex guard so CodeQL's taint tracker sees the sanitization at
+        # the use site (a helper indirection can confuse the static analyzer).
+        if not _re_local.fullmatch(r"[A-Za-z0-9_-]{1,64}", str(request.task_id or "")):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=400, detail="invalid task_id")
+        _safe_task_id = str(request.task_id)
+        _ckpt_root = (Path(__file__).parent.parent / "v3_arcadia" / "checkpoints").resolve()
+        _candidate = (_ckpt_root / "onnx_bundle" / f"ppo_{_safe_task_id}.onnx").resolve()
+        if not str(_candidate).startswith(str(_ckpt_root) + "/"):
+            raise HTTPException(status_code=400, detail="invalid task_id")
+        onnx_path = _candidate
         if not onnx_path.exists():
-            onnx_path = Path(__file__).parent.parent / "v3_arcadia" / "checkpoints" / "gethsemane" / f"ppo_{_safe_task_id}.onnx"
+            _candidate = (_ckpt_root / "gethsemane" / f"ppo_{_safe_task_id}.onnx").resolve()
+            if not str(_candidate).startswith(str(_ckpt_root) + "/"):
+                raise HTTPException(status_code=400, detail="invalid task_id")
+            onnx_path = _candidate
         obs_source = "unknown"
         try:
             _env = SupplyMindEnvironment()
