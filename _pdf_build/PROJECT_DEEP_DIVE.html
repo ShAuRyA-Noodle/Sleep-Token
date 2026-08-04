@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Shaurya · workwithshaurya10@gmail.com" />
+  <meta name="dcterms.date" content="2026-04-25" />
+  <title>Supplymind Project Deep Dive</title>
+  <style>
+
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">@page { size: A4; margin: 18mm 14mm 18mm 14mm; }
+body {
+font-family: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+font-size: 10pt;
+line-height: 1.45;
+color: #111;
+max-width: none;
+margin: 0;
+padding: 0;
+}
+h1 {
+font-size: 18pt;
+margin-top: 24pt;
+margin-bottom: 8pt;
+border-bottom: 2px solid #333;
+padding-bottom: 4pt;
+page-break-before: always;
+}
+h1:first-of-type { page-break-before: avoid; }
+h2 {
+font-size: 13pt;
+margin-top: 14pt;
+margin-bottom: 6pt;
+color: #222;
+}
+h3 {
+font-size: 11pt;
+margin-top: 10pt;
+margin-bottom: 4pt;
+color: #333;
+}
+p { margin: 4pt 0; }
+ul, ol { margin: 4pt 0 4pt 18pt; padding: 0; }
+li { margin: 2pt 0; }
+table {
+border-collapse: collapse;
+width: 100%;
+margin: 8pt 0;
+font-size: 9pt;
+}
+th, td {
+border: 1px solid #888;
+padding: 3pt 5pt;
+text-align: left;
+vertical-align: top;
+}
+th { background: #f0f0f0; font-weight: bold; }
+code {
+font-family: "SF Mono", Menlo, Consolas, monospace;
+font-size: 8.5pt;
+background: #f3f3f3;
+padding: 1pt 3pt;
+border-radius: 2pt;
+}
+pre {
+background: #f6f6f6;
+border: 1px solid #ddd;
+padding: 6pt;
+border-radius: 3pt;
+overflow-x: auto;
+font-size: 8.5pt;
+line-height: 1.3;
+}
+pre code { background: none; padding: 0; }
+blockquote { border-left: 3px solid #888; padding-left: 8pt; color: #444; margin: 6pt 0; }
+hr { border: none; border-top: 1px solid #ccc; margin: 12pt 0; }
+strong { color: #000; }
+#TOC { page-break-after: always; }
+#TOC ul { list-style: none; }
+header#title-block-header { text-align: center; padding: 24pt 0; }
+header#title-block-header h1.title { border: none; font-size: 22pt; }
+header#title-block-header p.subtitle { font-size: 14pt; color: #555; }
+header#title-block-header p.author, header#title-block-header p.date { font-size: 10pt; color: #555; }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Supplymind Project Deep Dive</h1>
+<p class="subtitle">OpenEnv Grand Finale Submission · Solo Build · 803
+Files · 250 Tests</p>
+<p class="author">Shaurya · workwithshaurya10@gmail.com</p>
+<p class="date">2026-04-25</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#cover" id="toc-cover">COVER</a></li>
+<li><a href="#part-0-honest-coverage-report" id="toc-part-0-honest-coverage-report">PART 0 — HONEST COVERAGE
+REPORT</a></li>
+<li><a href="#part-1-explain-like-youre-10" id="toc-part-1-explain-like-youre-10">PART 1 — EXPLAIN LIKE YOU’RE
+10</a>
+<ul>
+<li><a href="#what-did-shaurya-build" id="toc-what-did-shaurya-build">What did Shaurya build?</a></li>
+<li><a href="#why-is-it-special" id="toc-why-is-it-special">Why is it
+special?</a></li>
+<li><a href="#whats-the-even-in-arcadia-thing" id="toc-whats-the-even-in-arcadia-thing">What’s the “Even in Arcadia”
+thing?</a></li>
+<li><a href="#whats-the-killer-demo-moment" id="toc-whats-the-killer-demo-moment">What’s the killer demo
+moment?</a></li>
+<li><a href="#whats-phoenix" id="toc-whats-phoenix">What’s
+“Phoenix”?</a></li>
+</ul></li>
+<li><a href="#part-2-the-5-phase-project-study" id="toc-part-2-the-5-phase-project-study">PART 2 — THE 5-PHASE PROJECT
+STUDY</a>
+<ul>
+<li><a href="#phase-1-vision-narrative-credibility" id="toc-phase-1-vision-narrative-credibility">Phase 1 — Vision,
+Narrative &amp; Credibility</a></li>
+<li><a href="#phase-2-the-openenv-environment" id="toc-phase-2-the-openenv-environment">Phase 2 — The OpenEnv
+Environment</a></li>
+<li><a href="#phase-3-rlml-training-stack-rl" id="toc-phase-3-rlml-training-stack-rl">Phase 3 — RL/ML Training Stack
+(<code>rl/</code>)</a></li>
+<li><a href="#phase-4-v3_arcadia-research-journey-phoenix" id="toc-phase-4-v3_arcadia-research-journey-phoenix">Phase 4 —
+v3_arcadia Research Journey + Phoenix</a></li>
+<li><a href="#phase-5-supplymind-v4-product-12-frontier-judge-panel" id="toc-phase-5-supplymind-v4-product-12-frontier-judge-panel">Phase 5 —
+Supplymind v4 Product + 12-Frontier Judge Panel</a></li>
+</ul></li>
+<li><a href="#part-3-win-chances-honest-assessment" id="toc-part-3-win-chances-honest-assessment">PART 3 — WIN-CHANCES
+HONEST ASSESSMENT</a>
+<ul>
+<li><a href="#the-strengths-real-and-rare" id="toc-the-strengths-real-and-rare">The strengths (real and
+rare)</a></li>
+<li><a href="#the-weaknesses-also-real" id="toc-the-weaknesses-also-real">The weaknesses (also real)</a></li>
+<li><a href="#the-unknowns-out-of-your-control" id="toc-the-unknowns-out-of-your-control">The unknowns (out of your
+control)</a></li>
+<li><a href="#my-honest-probability-estimate" id="toc-my-honest-probability-estimate">My honest probability
+estimate</a></li>
+<li><a href="#the-5-things-that-would-2-your-win-probability" id="toc-the-5-things-that-would-2-your-win-probability">The 5 things
+that would 2× your win probability</a></li>
+<li><a href="#the-single-biggest-risk" id="toc-the-single-biggest-risk">The single biggest risk</a></li>
+<li><a href="#the-single-biggest-opportunity" id="toc-the-single-biggest-opportunity">The single biggest
+opportunity</a></li>
+</ul></li>
+<li><a href="#part-4-risk-factors-open-issues" id="toc-part-4-risk-factors-open-issues">PART 4 — RISK FACTORS &amp;
+OPEN ISSUES</a></li>
+<li><a href="#appendices-file-by-file-inventory" id="toc-appendices-file-by-file-inventory">APPENDICES — FILE-BY-FILE
+INVENTORY</a></li>
+<li><a href="#appendix-a-rl-file-inventory-182-files" id="toc-appendix-a-rl-file-inventory-182-files">APPENDIX A —
+<code>rl/</code> FILE INVENTORY (182 files)</a>
+<ul>
+<li><a href="#a.1-rlcheckpoints-45-files" id="toc-a.1-rlcheckpoints-45-files">A.1 <code>rl/checkpoints/</code> (45
+files)</a></li>
+<li><a href="#a.2-rlanalysis-33-files" id="toc-a.2-rlanalysis-33-files">A.2 <code>rl/analysis/</code> (33
+files)</a></li>
+<li><a href="#a.3-rldata-23-files" id="toc-a.3-rldata-23-files">A.3
+<code>rl/data/</code> (23 files)</a></li>
+<li><a href="#a.4-rllegacy-10-files" id="toc-a.4-rllegacy-10-files">A.4
+<code>rl/legacy/</code> (10 files)</a></li>
+<li><a href="#a.5-rllora-7-files" id="toc-a.5-rllora-7-files">A.5
+<code>rl/lora/</code> (7 files)</a></li>
+<li><a href="#a.6-rlsurrogate-5-files" id="toc-a.6-rlsurrogate-5-files">A.6 <code>rl/surrogate/</code> (5
+files)</a></li>
+<li><a href="#a.7-rloffline-5-files" id="toc-a.7-rloffline-5-files">A.7
+<code>rl/offline/</code> (5 files)</a></li>
+<li><a href="#a.8-rlforecasting-4-files" id="toc-a.8-rlforecasting-4-files">A.8 <code>rl/forecasting/</code> (4
+files)</a></li>
+<li><a href="#a.9-rlcuda-4-files" id="toc-a.9-rlcuda-4-files">A.9
+<code>rl/cuda/</code> (4 files)</a></li>
+<li><a href="#a.10-rldecision_transformer-3-files" id="toc-a.10-rldecision_transformer-3-files">A.10
+<code>rl/decision_transformer/</code> (3 files)</a></li>
+<li><a href="#a.11-rldistributional-3-files" id="toc-a.11-rldistributional-3-files">A.11
+<code>rl/distributional/</code> (3 files)</a></li>
+<li><a href="#a.12-rlpareto-rlmulti_agent-rlfederated-rlrag-rlinterpretability-rlgnn-15-files" id="toc-a.12-rlpareto-rlmulti_agent-rlfederated-rlrag-rlinterpretability-rlgnn-15-files">A.12
+<code>rl/pareto/</code>, <code>rl/multi_agent/</code>,
+<code>rl/federated/</code>, <code>rl/rag/</code>,
+<code>rl/interpretability/</code>, <code>rl/gnn/</code> (15
+files)</a></li>
+<li><a href="#a.13-rlfast_engine-4-files" id="toc-a.13-rlfast_engine-4-files">A.13 <code>rl/fast_engine/</code> (4
+files)</a></li>
+<li><a href="#a.14-top-level-rl.py-20-files" id="toc-a.14-top-level-rl.py-20-files">A.14 Top-level
+<code>rl/*.py</code> (20 files)</a></li>
+</ul></li>
+<li><a href="#appendix-b-v3_arcadia-file-inventory-177-files" id="toc-appendix-b-v3_arcadia-file-inventory-177-files">APPENDIX B —
+<code>v3_arcadia/</code> FILE INVENTORY (177 files)</a>
+<ul>
+<li><a href="#b.1-root-training-blocks-5-files" id="toc-b.1-root-training-blocks-5-files">B.1 Root training blocks (5
+files)</a></li>
+<li><a href="#b.2-00_emergence-16-files" id="toc-b.2-00_emergence-16-files">B.2 <code>00_emergence/</code> (16
+files)</a></li>
+<li><a href="#b.3-10_caramel-5-files" id="toc-b.3-10_caramel-5-files">B.3 <code>10_caramel/</code> (5
+files)</a></li>
+<li><a href="#b.4-20_past_self-7-files" id="toc-b.4-20_past_self-7-files">B.4 <code>20_past_self/</code> (7
+files)</a></li>
+<li><a href="#b.5-30_dangerous-6-files" id="toc-b.5-30_dangerous-6-files">B.5 <code>30_dangerous/</code> (6
+files)</a></li>
+<li><a href="#b.6-40_granite-6-files" id="toc-b.6-40_granite-6-files">B.6 <code>40_granite/</code> (6
+files)</a></li>
+<li><a href="#b.7-50_gethsemane-9-files" id="toc-b.7-50_gethsemane-9-files">B.7 <code>50_gethsemane/</code> (9
+files)</a></li>
+<li><a href="#b.8-60_euclidian-2-files" id="toc-b.8-60_euclidian-2-files">B.8 <code>60_euclidian/</code> (2
+files)</a></li>
+<li><a href="#b.9-70_provider-3-files" id="toc-b.9-70_provider-3-files">B.9 <code>70_provider/</code> (3
+files)</a></li>
+<li><a href="#b.10-80_aqua_regia-3-files" id="toc-b.10-80_aqua_regia-3-files">B.10 <code>80_aqua_regia/</code> (3
+files)</a></li>
+<li><a href="#b.11-85_infinite_baths-90_damocles-95_arcadia-utils-4-files" id="toc-b.11-85_infinite_baths-90_damocles-95_arcadia-utils-4-files">B.11
+<code>85_infinite_baths/</code>, <code>90_damocles/</code>,
+<code>95_arcadia/</code>, <code>utils/</code> (4 files)</a></li>
+<li><a href="#b.12-results-45-files-the-ledger" id="toc-b.12-results-45-files-the-ledger">B.12 <code>results/</code> (45
+files — the ledger)</a></li>
+<li><a href="#b.13-checkpoints-42-files" id="toc-b.13-checkpoints-42-files">B.13 <code>checkpoints/</code> (42
+files)</a></li>
+<li><a href="#b.14-plots-23-files" id="toc-b.14-plots-23-files">B.14
+<code>plots/</code> (23 files)</a></li>
+</ul></li>
+<li><a href="#appendix-c-shaurya_phoenix-file-inventory-124-files" id="toc-appendix-c-shaurya_phoenix-file-inventory-124-files">APPENDIX C
+— <code>ShAuRyA_Phoenix/</code> FILE INVENTORY (124 files)</a>
+<ul>
+<li><a href="#c.1-root-framework" id="toc-c.1-root-framework">C.1 Root +
+framework</a></li>
+<li><a href="#c.2-receipts_v2-45-files-20-receipt-pairs-framework" id="toc-c.2-receipts_v2-45-files-20-receipt-pairs-framework">C.2
+<code>receipts_v2/</code> (45 files: 20 receipt pairs +
+framework)</a></li>
+<li><a href="#c.3-autoresearch_fixed-21-files" id="toc-c.3-autoresearch_fixed-21-files">C.3
+<code>autoresearch_fixed/</code> (21 files)</a></li>
+<li><a href="#c.4-arena-5-files" id="toc-c.4-arena-5-files">C.4
+<code>arena/</code> (5 files)</a></li>
+<li><a href="#c.5-counterfactual_twin-3-files" id="toc-c.5-counterfactual_twin-3-files">C.5
+<code>counterfactual_twin/</code> (3 files)</a></li>
+<li><a href="#c.6-roll_integration-16-files" id="toc-c.6-roll_integration-16-files">C.6
+<code>roll_integration/</code> (16 files)</a></li>
+<li><a href="#c.7-supplymind_skills-5-files" id="toc-c.7-supplymind_skills-5-files">C.7
+<code>supplymind_skills/</code> (5 files)</a></li>
+<li><a href="#c.8-realtime_v5-5-files" id="toc-c.8-realtime_v5-5-files">C.8 <code>realtime_v5/</code> (5
+files)</a></li>
+<li><a href="#c.9-server-2-files" id="toc-c.9-server-2-files">C.9
+<code>server/</code> (2 files)</a></li>
+<li><a href="#c.10-upstream_prs-6-files" id="toc-c.10-upstream_prs-6-files">C.10 <code>upstream_prs/</code> (6
+files)</a></li>
+<li><a href="#c.11-experiments-4-files" id="toc-c.11-experiments-4-files">C.11 <code>experiments/</code> (4
+files)</a></li>
+<li><a href="#c.12-docs-8-files" id="toc-c.12-docs-8-files">C.12
+<code>docs/</code> (8 files)</a></li>
+<li><a href="#c.13-tests-2-files" id="toc-c.13-tests-2-files">C.13
+<code>tests/</code> (2 files)</a></li>
+<li><a href="#c.14-scripts-1-file" id="toc-c.14-scripts-1-file">C.14
+<code>scripts/</code> (1 file)</a></li>
+</ul></li>
+<li><a href="#appendix-d-shaurya_supplymind-file-inventory-122-files" id="toc-appendix-d-shaurya_supplymind-file-inventory-122-files">APPENDIX
+D — <code>ShAuRyA_Supplymind/</code> FILE INVENTORY (122 files)</a>
+<ul>
+<li><a href="#d.1-root-4-files" id="toc-d.1-root-4-files">D.1 Root (4
+files)</a></li>
+<li><a href="#d.2-features-35-files" id="toc-d.2-features-35-files">D.2
+<code>features/</code> (35 files)</a></li>
+<li><a href="#d.3-autoresearch-14-files" id="toc-d.3-autoresearch-14-files">D.3 <code>autoresearch/</code> (14
+files)</a></li>
+<li><a href="#d.4-realtime-11-files-sources" id="toc-d.4-realtime-11-files-sources">D.4 <code>realtime/</code> (11
+files + sources/)</a></li>
+<li><a href="#d.5-scenarios-1-file" id="toc-d.5-scenarios-1-file">D.5
+<code>scenarios/</code> (1 file)</a></li>
+<li><a href="#d.6-tests-18-files-76-new-v4-tests" id="toc-d.6-tests-18-files-76-new-v4-tests">D.6 <code>tests/</code> (18
+files, 76 new v4 tests)</a></li>
+<li><a href="#d.7-docs-5-files" id="toc-d.7-docs-5-files">D.7
+<code>docs/</code> (5 files)</a></li>
+<li><a href="#d.8-deploy-2-files" id="toc-d.8-deploy-2-files">D.8
+<code>deploy/</code> (2 files)</a></li>
+<li><a href="#d.9-receipts-32-files-index-15-.reproduce.sh-receipts" id="toc-d.9-receipts-32-files-index-15-.reproduce.sh-receipts">D.9
+<code>receipts/</code> (32 files: INDEX + 15 .reproduce.sh +
+receipts)</a></li>
+</ul></li>
+<li><a href="#appendix-e-scripts-benchmark-tests-dashboard-notebooks-demo-docs-_dump-.github-client-challenges-server-root-242-files" id="toc-appendix-e-scripts-benchmark-tests-dashboard-notebooks-demo-docs-_dump-.github-client-challenges-server-root-242-files">APPENDIX
+E — <code>scripts/</code>, <code>benchmark/</code>, <code>tests/</code>,
+<code>dashboard/</code>, <code>notebooks/</code>, <code>demo/</code>,
+<code>docs/</code>, <code>_dump/</code>, <code>.github/</code>,
+<code>client/</code>, <code>challenges/</code>, <code>server/</code>,
+ROOT (242 files)</a>
+<ul>
+<li><a href="#e.1-scripts-45-files" id="toc-e.1-scripts-45-files">E.1
+<code>scripts/</code> (45 files)</a></li>
+<li><a href="#e.2-benchmark-36-files" id="toc-e.2-benchmark-36-files">E.2 <code>benchmark/</code> (36
+files)</a></li>
+<li><a href="#e.3-tests-12-files-173-passing" id="toc-e.3-tests-12-files-173-passing">E.3 <code>tests/</code> (12
+files, 173 passing)</a></li>
+<li><a href="#e.4-dashboard-5-files" id="toc-e.4-dashboard-5-files">E.4
+<code>dashboard/</code> (5 files)</a></li>
+<li><a href="#e.5-notebooks-6-files" id="toc-e.5-notebooks-6-files">E.5
+<code>notebooks/</code> (6 files)</a></li>
+<li><a href="#e.6-demo-7-files" id="toc-e.6-demo-7-files">E.6
+<code>demo/</code> (7 files)</a></li>
+<li><a href="#e.7-docs-12-files" id="toc-e.7-docs-12-files">E.7
+<code>docs/</code> (12 files)</a></li>
+<li><a href="#e.8-_dump-4-files" id="toc-e.8-_dump-4-files">E.8
+<code>_dump/</code> (4 files)</a></li>
+<li><a href="#e.9-.github-3-files" id="toc-e.9-.github-3-files">E.9
+<code>.github/</code> (3 files)</a></li>
+<li><a href="#e.10-client-2-files" id="toc-e.10-client-2-files">E.10
+<code>client/</code> (2 files)</a></li>
+<li><a href="#e.11-challenges-1-file" id="toc-e.11-challenges-1-file">E.11 <code>challenges/</code> (1
+file)</a></li>
+<li><a href="#e.12-server-26-files" id="toc-e.12-server-26-files">E.12
+<code>server/</code> (26 files)</a></li>
+<li><a href="#e.13-root-30-files" id="toc-e.13-root-30-files">E.13 ROOT
+(~30 files)</a></li>
+</ul></li>
+<li><a href="#end-of-document" id="toc-end-of-document">END OF
+DOCUMENT</a></li>
+</ul>
+</nav>
+<h1 id="cover">COVER</h1>
+<p><strong>Project</strong>: Supplymind v3.0-arcadia (+
+v4.0-arcadia-live + v5.0-phoenix) <strong>Author</strong>: Shaurya —
+solo developer, Mac + Alienware RTX 4080 <strong>Hackathon</strong>:
+Meta PyTorch × Scaler OpenEnv Grand Finale, Bangalore on-campus,
+2026-04-25/26 <strong>Repo size</strong>: <strong>803 files</strong>
+(excluding <code>.git</code>, <code>__pycache__</code>,
+<code>chroma_db</code> blobs) <strong>Tag</strong>:
+<code>v3.0-arcadia</code> · Latest commit: <code>fe96fa8</code>
+(2026-04-24) <strong>Test suite</strong>: 250 passing, 0 skipped, 0
+failed in ~2m38s <strong>Reproducibility receipts</strong>: 15 (v4) + 20
+(Phoenix v5) = 35 one-bash-command claims</p>
+<hr />
+<h1 id="part-0-honest-coverage-report">PART 0 — HONEST COVERAGE
+REPORT</h1>
+<p>You said ~535 files. <strong>Real number is 803.</strong> I am not
+going to round that down for you.</p>
+<p>After two passes (initial 5-agent dispatch + this deep 5-agent
+file-by-file sweep), <strong>~792 of 803 files were itemized</strong>
+(~98.6%). The 11 unread are mostly:</p>
+<ul>
+<li>Binary <code>.npz</code> numpy buffers (schemas noted, contents
+skipped)</li>
+<li>Binary <code>.pt</code>/<code>.zip</code> checkpoints (sizes +
+filenames noted, weights skipped)</li>
+<li><code>events.db</code> SQLite blob (schema noted, rows skipped)</li>
+<li>ChromaDB persistent vectors (intentionally skipped per
+directive)</li>
+<li>A handful of legacy plot PNGs (filenames noted, pixels skipped)</li>
+</ul>
+<p><strong>Code, JSON, YAML, Markdown, and shell files: ~99% read
+end-to-end.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th style="text-align: right;">Files</th>
+<th style="text-align: right;">Itemized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>rl/</code></td>
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">180</td>
+</tr>
+<tr>
+<td><code>v3_arcadia/</code></td>
+<td style="text-align: right;">177</td>
+<td style="text-align: right;">177</td>
+</tr>
+<tr>
+<td><code>ShAuRyA_Phoenix/</code></td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">124</td>
+</tr>
+<tr>
+<td><code>ShAuRyA_Supplymind/</code></td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">121</td>
+</tr>
+<tr>
+<td><code>scripts/</code></td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">44</td>
+</tr>
+<tr>
+<td><code>benchmark/</code></td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr>
+<td><code>server/</code></td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">26</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td><code>docs/</code></td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td><code>demo/</code></td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td><code>notebooks/</code></td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr>
+<td><code>dashboard/</code></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><code>_dump/</code></td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr>
+<td><code>.github/</code></td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr>
+<td><code>client/</code></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr>
+<td>Root + misc</td>
+<td style="text-align: right;">~40</td>
+<td style="text-align: right;">~40</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><strong>803</strong></td>
+<td style="text-align: right;"><strong>~792</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="part-1-explain-like-youre-10">PART 1 — EXPLAIN LIKE YOU’RE
+10</h1>
+<h2 id="what-did-shaurya-build">What did Shaurya build?</h2>
+<p>Imagine the world’s supply chain like a giant Lego city. There are
+factories making chips (TSMC in Taiwan), giant ships carrying boxes
+(Suez canal, Red Sea), warehouses storing inventory (Long Beach,
+Rotterdam), and stores selling stuff (Apple, Toyota, Samsung).</p>
+<p>Now imagine a typhoon hits Taiwan. Or a ship gets stuck in the Suez
+canal. Or Iran threatens to close the Strait of Hormuz. <strong>Bad
+things start cascading.</strong> Chips don’t ship. Cars can’t be built.
+Phones get delayed. Companies lose billions.</p>
+<p>Shaurya built a <strong>video game where an AI agent has to manage
+this Lego city when bad things happen</strong>. The AI gets a budget
+(say $5 million), sees a typhoon coming in 72 hours, and has 7 buttons
+it can press:</p>
+<ol type="1">
+<li><strong>Activate backup supplier</strong> ($150K)</li>
+<li><strong>Reroute shipment via different port</strong> (~$35K per
+port)</li>
+<li><strong>Increase safety stock</strong> (storage cost)</li>
+<li><strong>Expedite by air</strong> (10× sea cost)</li>
+<li><strong>Hedge commodity prices</strong> (6% premium)</li>
+<li><strong>Send alert to supplier</strong> (free!)</li>
+<li><strong>Do nothing</strong></li>
+</ol>
+<p>The AI learns by playing thousands of times. The “world” it plays in
+is calibrated to <strong>real data</strong>: actual TSMC numbers, actual
+ship routes, actual oil prices, actual storms NOAA recorded since
+1884.</p>
+<p>That’s the core idea. <strong>It’s a flight simulator for
+supply-chain crisis managers, except the pilot is an AI.</strong></p>
+<h2 id="why-is-it-special">Why is it special?</h2>
+<p>Most hackathon projects use fake data. Shaurya used <strong>261,175
+real data points</strong> from 8 public sources (Kaggle DataCo, NOAA
+storms, FRED economic, World Bank governance, USGS earthquakes, SEC 10-K
+filings, Wikipedia crises, policy PDFs).</p>
+<p>He also got <strong>15 different AI judges to grade his AI</strong> —
+3 running on his own laptop (Qwen, Mistral, DeepSeek) and 12 borrowed
+from OpenRouter for free (Nemotron, Hermes, Llama, Gemma, etc.). They
+mostly agree (Krippendorff α = 0.75 on the best 2 of 3 local judges),
+which is rare in AI evaluation.</p>
+<p>And he wrote <strong>250 tests</strong> that all pass in 2 minutes 38
+seconds. <strong>Every claim</strong> he makes is verifiable in 30
+seconds — there’s a folder called <code>receipts/</code> with 35 bash
+scripts, and you run one to check any number he quotes.</p>
+<h2 id="whats-the-even-in-arcadia-thing">What’s the “Even in Arcadia”
+thing?</h2>
+<p>Sleep Token (a band) released an album in 2025 called <em>Even in
+Arcadia</em>. Arcadia is the imaginary peaceful pastoral place. The
+thesis: <strong>even in a peaceful well-managed supply chain,
+disruptions happen.</strong> Every research stage
+(<code>v3_arcadia/00_emergence</code>, <code>10_caramel</code>,
+<code>20_past_self</code>, <code>30_dangerous</code>,
+<code>40_granite</code>, <code>50_gethsemane</code>,
+<code>60_euclidian</code>, <code>70_provider</code>,
+<code>80_aqua_regia</code>, <code>85_infinite_baths</code>,
+<code>90_damocles</code>, <code>95_arcadia</code>) is named after a
+track from that album. It’s not branding — it’s the organizing
+narrative.</p>
+<h2 id="whats-the-killer-demo-moment">What’s the killer demo
+moment?</h2>
+<p>On 2026-04-21 (right before submitting), Shaurya pointed his system
+at NewsAPI and asked it to look at real news headlines from that week.
+<strong>It found a real April 2026 incident — the US Navy seizing an
+Iranian cargo ship in the Gulf of Oman — and matched it to the
+pre-loaded Iran/Hormuz crisis library at 0.99 similarity in
+seconds.</strong> Then it computed: “If you do nothing, you lose $324M.
+If you activate this hedge plan, you lose $65M. <strong>Savings: 80%,
+$259M.</strong>”</p>
+<p>That’s not a scripted demo. The system actually read live news, found
+a historical analog from its library, and ran a counterfactual
+simulation. <strong>That’s the showstopper.</strong></p>
+<h2 id="whats-phoenix">What’s “Phoenix”?</h2>
+<p>Shaurya finished v3 (the main submission) and v4 (the live ingestion
+layer). Then he kept going and built <strong>Phoenix v5</strong> as an
+“ascensionism” layer on top — Karpathy-style autonomous research loop,
+Arena leaderboard, counterfactual digital twin, ROLL framework
+integration, upstream PRs ready to send to Meta and Alibaba. The rule:
+<strong>if Phoenix breaks, v3+v4 still ship as a top-10
+submission</strong>. Each layer is independently submission-grade.</p>
+<hr />
+<h1 id="part-2-the-5-phase-project-study">PART 2 — THE 5-PHASE PROJECT
+STUDY</h1>
+<h2 id="phase-1-vision-narrative-credibility">Phase 1 — Vision,
+Narrative &amp; Credibility</h2>
+<p><strong>Hackathon framing</strong> (from <code>JUDGES.md</code>,
+<code>EXTERNAL_CREDIBILITY.md</code>): - Primary theme: #3.1 World
+Modeling — Professional Tasks (75% env quality, 25% trained agents) -
+Secondary: #4 Self-Improvement (Karpathy autoresearch) - 4-minute judge
+path: README → 3-min video → <code>/live/hormuz-closure</code> → pitch →
+optional deep-dive - 15 reproducible bash receipts</p>
+<p><strong>Origin story</strong> — 7 named research rounds (R1-R7) over
+~6 months, each mapped to a Sleep Token album track:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Round</th>
+<th>Stage</th>
+<th>Commit</th>
+<th>What shipped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td>Emergence</td>
+<td><code>acc19d8</code></td>
+<td>13 SOTA foundation models verified local</td>
+</tr>
+<tr>
+<td>R2</td>
+<td>Caramel</td>
+<td><code>b35f15e</code></td>
+<td>TabPFN + XGB/LGB/CAT tabular stack</td>
+</tr>
+<tr>
+<td>R3</td>
+<td>Past Self</td>
+<td><code>c2d0798</code></td>
+<td>Chronos + TimesFM + ARIMA + Prophet, 20-fold backtest</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Dangerous</td>
+<td><code>8f14607</code></td>
+<td>3-judge LLM panel on 26 scenarios</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>Granite</td>
+<td><code>ca7a57d</code></td>
+<td>8-pipeline RAG, mxbai P@1=0.962</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>Gethsemane→Damocles</td>
+<td><code>ea282c4</code></td>
+<td>MaskablePPO + GCN + conformal + FastAPI</td>
+</tr>
+<tr>
+<td>R6b</td>
+<td>Euclidian</td>
+<td><code>badf3cc</code></td>
+<td>10,800-episode bootstrap CI95</td>
+</tr>
+<tr>
+<td>R7</td>
+<td>Arcadia</td>
+<td><code>v3.0-arcadia</code></td>
+<td>Final synthesis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Headline metrics (full)</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Foundation models verified</td>
+<td>13/13</td>
+<td><code>R1_VERIFIED.json</code></td>
+</tr>
+<tr>
+<td>Real data points</td>
+<td>261,175</td>
+<td><code>DATA_SOURCES.md:237-250</code></td>
+</tr>
+<tr>
+<td>RAG P@1 (mxbai bi-encoder)</td>
+<td>0.962</td>
+<td><code>R5_GRANITE.json</code></td>
+</tr>
+<tr>
+<td>RAG nDCG@10 (Snowflake OOD)</td>
+<td>0.971</td>
+<td><code>R5_GRANITE.json</code></td>
+</tr>
+<tr>
+<td>RAG MRR</td>
+<td>0.978</td>
+<td><code>R5_GRANITE.json</code></td>
+</tr>
+<tr>
+<td>2-judge Krippendorff α</td>
+<td>0.750</td>
+<td><code>R4_DANGEROUS_V2.json</code></td>
+</tr>
+<tr>
+<td>12-frontier judge α</td>
+<td>0.567</td>
+<td><code>README.md:89</code></td>
+</tr>
+<tr>
+<td>15-judge combined α</td>
+<td>0.358</td>
+<td><code>README.md:90</code></td>
+</tr>
+<tr>
+<td>Cohen κ (Qwen × Mistral)</td>
+<td>0.747</td>
+<td><code>R4_DANGEROUS_V2.json</code></td>
+</tr>
+<tr>
+<td>MaskablePPO masking lift (easy)</td>
+<td>+26.8%</td>
+<td><code>R6_GETHSEMANE_MASKING_ABLATION.json</code></td>
+</tr>
+<tr>
+<td>GNN MAE reduction (hard)</td>
+<td>−64%</td>
+<td><code>R6_PROVIDER.json</code></td>
+</tr>
+<tr>
+<td>Conformal WTI dev @ 95%</td>
+<td>0.024</td>
+<td><code>R6_AQUA_REGIA.json</code></td>
+</tr>
+<tr>
+<td>Euclidian CI95 (hard trained)</td>
+<td>[2.596, 2.708]</td>
+<td><code>R6_EUCLIDIAN.json</code></td>
+</tr>
+<tr>
+<td>Tests</td>
+<td>250 passing</td>
+<td><code>RELEASE_V4_TAG.md</code></td>
+</tr>
+<tr>
+<td>Live Hormuz demo match</td>
+<td>0.99 similarity</td>
+<td><code>README.md:76</code></td>
+</tr>
+<tr>
+<td>Counterfactual savings</td>
+<td>80% ($324M → $65M)</td>
+<td><code>RELEASE_V4_TAG.md:77-85</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data inventory</strong> — zero synthetic:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Source</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DataCo Supply Chain (Kaggle)</td>
+<td>180,519 orders / 20,652 customers / 164 countries</td>
+</tr>
+<tr>
+<td>NOAA IBTRACS</td>
+<td>243,495 storm records / 4,289 typhoons (1884-2024)</td>
+</tr>
+<tr>
+<td>FRED</td>
+<td>17,011 economic data points (DCOILWTICO, PCOPPUSDM, PPICMM,
+etc.)</td>
+</tr>
+<tr>
+<td>World Bank WGI</td>
+<td>214 countries × 6 dimensions × 24 years</td>
+</tr>
+<tr>
+<td>USGS</td>
+<td>live earthquake feed</td>
+</tr>
+<tr>
+<td>SEC 10-K</td>
+<td>25 Fortune 500 filings</td>
+</tr>
+<tr>
+<td>Wikipedia crises</td>
+<td>26 articles</td>
+</tr>
+<tr>
+<td>Policy PDFs</td>
+<td>3 (FRBSF, BIS, FRBNY)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="phase-2-the-openenv-environment">Phase 2 — The OpenEnv
+Environment</h2>
+<p><strong>Files</strong>: <code>openenv.yaml</code>,
+<code>server/</code> (26 files), <code>tests/</code> (12 files),
+<code>benchmark/</code> (36 files), <code>dashboard/</code> (5 files),
+<code>client/</code> (2 files), root
+<code>baseline.py</code>/<code>scripted_agent.py</code>/<code>inference.py</code>/<code>models.py</code>/<code>client.py</code>.</p>
+<p><strong>Contract</strong>: - Spec version 0.1, environment_id
+<code>supplymind</code>, FastAPI port 8000 - Observation:
+<code>current_day</code>, <code>days_remaining</code>,
+<code>active_signals[]</code>, <code>node_statuses[]</code>,
+<code>financials</code>, <code>situation_summary</code> (~1500 tokens
+NL), <code>compact_summary</code> (100-200 tokens), <code>reward</code>,
+<code>done</code> - Action: 7 types, MultiDiscrete([7, 40]) → flattened
+to Discrete(280) - Reward: dense [-1.0, 1.0]</p>
+<p><strong>Three tasks</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Task</th>
+<th>Days</th>
+<th>Budget</th>
+<th>Design</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>easy_typhoon_response</code></td>
+<td>30</td>
+<td>$5M</td>
+<td>Single typhoon disrupts TSMC, 72h warning</td>
+</tr>
+<tr>
+<td><code>medium_multi_front</code></td>
+<td>45</td>
+<td>$8M</td>
+<td>3 concurrent crises, budget covers ~2, forces triage</td>
+</tr>
+<tr>
+<td><code>hard_cascading_crisis</code></td>
+<td>60</td>
+<td>$10M</td>
+<td>Taiwan Strait cascade vs $2B+ at risk</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Crisis library</strong> (5 historical disruptions in
+<code>benchmark/crisis_library/</code>): - Tohoku 2011 ($235B, 180-day
+recovery) - Suez 2021 ($9.6B/day) - Chip shortage 2020 (commodity
+multipliers) - Ukraine neon 2022 (lithography supply) - Red Sea 2023
+(Houthi attacks)</p>
+<p><strong>Engine</strong> (<code>server/engine/simulation.py</code>) —
+per-step pipeline: 1. Validate + apply action with budget check 2. Real
+cost constants (ISM/CSCMP/IATA-calibrated) 3. Disruption lifecycle:
+sigmoid (warning) → bell (active) → exp decay (recovery) 4. BFS
+propagation, <code>SEVERITY_DECAY_PER_HOP = 0.20</code> 5. Commodity
+price effects 6. Monte Carlo p50/p95 projection (Numba JIT, &lt;0.01ms
+warm) 7. 7-component dense reward</p>
+<p><strong>Anti-reward-hacking</strong>
+(<code>tests/test_reward_hacking_adversarial.py</code>): 6 attacks
+tested, all rejected by different layered defenses. Receipt at
+<code>tests/receipts/adversarial_reward_audit.json</code>.</p>
+<p><strong>Benchmark headline</strong> (<code>FINAL_RESULTS.json</code>)
+— 9 agents × 3 tasks × 5 seeds × 20 episodes:</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Agent</th>
+<th style="text-align: right;">Easy</th>
+<th style="text-align: right;">Med</th>
+<th style="text-align: right;">Hard</th>
+<th style="text-align: right;">Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random</td>
+<td style="text-align: right;">0.709</td>
+<td style="text-align: right;">0.598</td>
+<td style="text-align: right;">0.727</td>
+<td style="text-align: right;">0.678</td>
+</tr>
+<tr>
+<td>Scripted</td>
+<td style="text-align: right;">0.336</td>
+<td style="text-align: right;">0.207</td>
+<td style="text-align: right;">0.571</td>
+<td style="text-align: right;">0.371</td>
+</tr>
+<tr>
+<td>BC</td>
+<td style="text-align: right;">0.663</td>
+<td style="text-align: right;">0.500</td>
+<td style="text-align: right;">0.610</td>
+<td style="text-align: right;">0.591</td>
+</tr>
+<tr>
+<td>CQL</td>
+<td style="text-align: right;">0.688</td>
+<td style="text-align: right;">0.629</td>
+<td style="text-align: right;">0.655</td>
+<td style="text-align: right;">0.657</td>
+</tr>
+<tr>
+<td>IQL</td>
+<td style="text-align: right;">0.689</td>
+<td style="text-align: right;">0.629</td>
+<td style="text-align: right;">0.656</td>
+<td style="text-align: right;">0.658</td>
+</tr>
+<tr>
+<td>TD3+BC</td>
+<td style="text-align: right;">0.678</td>
+<td style="text-align: right;">0.629</td>
+<td style="text-align: right;">0.656</td>
+<td style="text-align: right;">0.654</td>
+</tr>
+<tr>
+<td><strong>QR-DQN specialist</strong></td>
+<td style="text-align: right;"><strong>0.863</strong></td>
+<td style="text-align: right;"><strong>0.844</strong></td>
+<td style="text-align: right;"><strong>0.671</strong></td>
+<td style="text-align: right;"><strong>0.793</strong></td>
+</tr>
+</tbody>
+</table>
+<p>All pairwise Wilcoxon p &lt; 1e-50.</p>
+<h2 id="phase-3-rlml-training-stack-rl">Phase 3 — RL/ML Training Stack
+(<code>rl/</code>)</h2>
+<p><strong>21+ techniques</strong> in pure PyTorch:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Module</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MaskablePPO</td>
+<td><code>train_ppo.py</code></td>
+<td>32 envs, 2M steps, ~8min RTX 4080</td>
+</tr>
+<tr>
+<td>Constrained PPO</td>
+<td><code>constrained_ppo.py</code></td>
+<td>Lagrangian budget guarantee</td>
+</tr>
+<tr>
+<td>QR-DQN</td>
+<td><code>distributional/qr_dqn.py</code></td>
+<td>51 quantiles, CVaR-optimal</td>
+</tr>
+<tr>
+<td>HER</td>
+<td><code>her_agent.py</code></td>
+<td>SAC + hindsight relabeling</td>
+</tr>
+<tr>
+<td>Decision Transformer</td>
+<td><code>decision_transformer/</code></td>
+<td>GPT-2 backbone, RTG conditioning</td>
+</tr>
+<tr>
+<td>TFT</td>
+<td><code>forecasting/tft.py</code></td>
+<td>MAE $7.83/bbl on WTI</td>
+</tr>
+<tr>
+<td>BC/CQL/TD3+BC/IQL</td>
+<td><code>offline/baselines.py</code></td>
+<td>Pure PyTorch, no d3rlpy</td>
+</tr>
+<tr>
+<td>TGN</td>
+<td><code>gnn/tgn.py</code></td>
+<td>Per-node memory + GRU</td>
+</tr>
+<tr>
+<td>RAG</td>
+<td><code>rag/indexer.py</code></td>
+<td>Ollama nomic-embed + ChromaDB</td>
+</tr>
+<tr>
+<td>MC Dropout</td>
+<td><code>uncertainty.py</code></td>
+<td>Q1: 99.76% acc, Q4: 55.92%</td>
+</tr>
+<tr>
+<td>SHAP</td>
+<td><code>interpretability/</code></td>
+<td>Weather 60.1% importance</td>
+</tr>
+<tr>
+<td>Federated</td>
+<td><code>federated/fedavg.py</code></td>
+<td>+263% full / +77% type accuracy</td>
+</tr>
+<tr>
+<td>LoRA</td>
+<td><code>lora/finetune.py</code></td>
+<td>Qwen2.5-1.5B adapters</td>
+</tr>
+<tr>
+<td>Pareto NSGA2</td>
+<td><code>pareto/frontier.py</code></td>
+<td>3-objective frontier</td>
+</tr>
+<tr>
+<td>Autoresearch</td>
+<td><code>autoresearch.py</code></td>
+<td>10 experiments, best 0.680 avg</td>
+</tr>
+<tr>
+<td>Specialist router</td>
+<td><code>specialist_router.py</code></td>
+<td>Per-task best checkpoint</td>
+</tr>
+<tr>
+<td>ONNX export</td>
+<td><code>export_onnx.py</code></td>
+<td>&lt;5e-5 roundtrip error</td>
+</tr>
+<tr>
+<td>Numba MC</td>
+<td><code>fast_engine/fast_monte_carlo.py</code></td>
+<td>10-50× speedup</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key results</strong>: - TFT MAE: $7.83/bbl (P50, WTI) - MC
+Dropout Q1 acc 99.76% vs Q4 55.92% - SHAP: NOAA weather 60.1%, node
+features 21.8%, FRED 8.5% - Federated round 0→49: full acc 8.5%→31.0%,
+type acc 42.7%→75.8% - Autoresearch best: experiment_003 (lr=1e-3, CVaR
+α=0.5, hidden=256) → 0.680 avg - Pareto: Africa cost 177.5 / resilience
+0.454 / carbon 6504 (best) - ONNX: BC 3.05e-5, CQL 5.22e-8, IQL 3.05e-5,
+TD3+BC 1.53e-5</p>
+<h2 id="phase-4-v3_arcadia-research-journey-phoenix">Phase 4 —
+v3_arcadia Research Journey + Phoenix</h2>
+<p><strong>12 numbered stages = 12 album tracks</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What</th>
+<th>Headline result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00 Emergence</td>
+<td>13 models verified</td>
+<td>All operational, Q4_K_M quantization</td>
+</tr>
+<tr>
+<td>10 Caramel</td>
+<td>TabPFN bagging + SHAP fairness</td>
+<td>XGB late_delivery acc 0.8369</td>
+</tr>
+<tr>
+<td>20 Past Self</td>
+<td>TimesFM/Chronos/ARIMA forecasting</td>
+<td>DIR_ACC 0.59-0.62, MAE 1.45 USD/bbl (h7)</td>
+</tr>
+<tr>
+<td>30 Dangerous</td>
+<td>3-judge LLM panel</td>
+<td>α=0.750, Cohen κ=0.747, 26 scenarios</td>
+</tr>
+<tr>
+<td>40 Granite</td>
+<td>8-pipeline RAG</td>
+<td>mxbai P@1=0.962, +46pp vs v3 Block 4</td>
+</tr>
+<tr>
+<td>50 Gethsemane</td>
+<td>MaskablePPO training</td>
+<td>Hard mean 2.674, 0 violations</td>
+</tr>
+<tr>
+<td>60 Euclidian</td>
+<td>10,800-episode bootstrap</td>
+<td>Hard CI95 [2.596, 2.708] vs greedy [-1.48, -1.35]</td>
+</tr>
+<tr>
+<td>70 Provider</td>
+<td>Custom 3-layer GAT</td>
+<td>F1 0.964 hard, MAE −64% vs MLP</td>
+</tr>
+<tr>
+<td>80 Aqua Regia</td>
+<td>Split-conformal</td>
+<td>WTI dev=0.024, coverage 91.2-95.5%</td>
+</tr>
+<tr>
+<td>85 Infinite Baths</td>
+<td>Streamlit dashboard</td>
+<td>Live trained policies</td>
+</tr>
+<tr>
+<td>90 Damocles</td>
+<td>FastAPI service</td>
+<td>/assess, /forecast, /rag, /rl/act</td>
+</tr>
+<tr>
+<td>95 Arcadia</td>
+<td>Final README</td>
+<td>Complete synthesis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Phoenix v5 layer</strong> (<code>ShAuRyA_Phoenix/</code>): -
+Autoresearch 5 experiments: s1 ACCEPTED, s2 ACCEPTED, <strong>s3
+curriculum BEST (CI95 [0.552, 0.761])</strong>, s4 RecurrentPPO
+REJECTED, s5 diversity REJECTED - Counterfactual Twin: severity=0.85 +
+Brent=$123 → trained $187M loss vs no-action $367M = <strong>$178.7M
+saved (48%)</strong> - Arena: 6 baselines, MaskablePPO #1 at mean=2.209
+- ROLL integration: GiGPO + DPO + 3-judge reward worker - 20 receipts
+(13 v4 + 7 v5) - Upstream PRs to Meta OpenEnv + Alibaba ROLL ready</p>
+<h2 id="phase-5-supplymind-v4-product-12-frontier-judge-panel">Phase 5 —
+Supplymind v4 Product + 12-Frontier Judge Panel</h2>
+<p><strong>v4 release</strong> (2026-04-21, Sleep Token “Rain”): purely
+additive on frozen v3, 76 new tests = 249 total in 2m38s.</p>
+<p><strong>Feature ledger</strong> (full numbers):</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Headline metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R9 Analyst v5 vs base Qwen</td>
+<td>Exact-risk acc</td>
+<td>80% v5 / 0% base</td>
+</tr>
+<tr>
+<td>R6 SPOF v2 (articulation-point fix)</td>
+<td>Mean F1</td>
+<td>1.000 (vs 0.949 v1)</td>
+</tr>
+<tr>
+<td>R15 Stacking v2</td>
+<td>AUC vs WV</td>
+<td>+0.0045 (honest null vs best single)</td>
+</tr>
+<tr>
+<td>F2 Multi-agent demo</td>
+<td>Apple PnL</td>
+<td>+$2.74M (winner)</td>
+</tr>
+<tr>
+<td>F4 DT risk slider</td>
+<td>Conservative→aggressive return</td>
+<td>0.62 → 0.77</td>
+</tr>
+<tr>
+<td>F6 Conformal RL</td>
+<td>95% CI95 width</td>
+<td>2.36 → ABSTAIN</td>
+</tr>
+<tr>
+<td>F9 Pareto carbon</td>
+<td>Frontier ratio</td>
+<td>11/20 = 55%</td>
+</tr>
+<tr>
+<td>F14 CUDA kernel</td>
+<td>PyTorch fallback</td>
+<td>0.028ms (1833× over Python)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The 12-frontier panel</strong>
+(<code>scripts/run_frontier_judge_panel.py</code>):</p>
+<p>12 OpenRouter models: Nemotron-3-Super 120B, Ling-2.6-1T,
+Hermes-3-405B, GPT-OSS-120B, Gemma-4-31B, Gemma-4-26B-A4B,
+Qwen3-Next-80B, GLM-4.5-Air, Llama-3.3-70B, Nemotron-3-Nano-30B,
+MiniMax-M2.5, Nemotron-Nano-9B + 3 local (DeepSeek-R1, Qwen2.5:14b,
+Mistral-Nemo) = <strong>15 judges total</strong>.</p>
+<p>Rate limit policy: 18 req/min, 950 req/day. Free tier mostly; ~$0.04
+paid total. Honest α disclosure ladder: - Raw 3-local panel:
+<strong>0.210</strong> - 2-judge ablation: <strong>0.750</strong> -
+12-frontier: <strong>0.567</strong> - 15-judge combined:
+<strong>0.358</strong></p>
+<p><strong>Live Hormuz scenario</strong>
+(<code>scenarios/iran_israel_hormuz_2024_2026.json</code>) — 8 real
+events with 26 citations: 1. Iran True Promise 1 (2024-04-13) — Brent
+90.7→92.2 2. Iran True Promise 2 (2024-10-01) — Brent 71.8→78.2 3.
+Houthi Red Sea (2023-11-19 ongoing 884 days) — Brent 82.1→92.2 peak 4.
+Op Poseidon Archer (2024-01-11) — Brent 77.6→81.0 5. Haifa port missile
+(2024-10-07) — Brent 74.2→78.2 6. Houthi Yaffa Tel Aviv (2024-07-19) —
+Brent 85.4→87.1 7. <strong>Hormuz Trump cargo (2026-04-18) LIVE</strong>
+— Brent 119.1→123.3, P95=168 8. Ukraine neon shock (2022-02-24, 310
+days) — Brent 96.8→127.6 peak</p>
+<p><strong>Notebooks</strong> (6): 1. environment_quickstart (CPU,
+&lt;10min) 2. training_your_own_agent 3. reproducing_benchmarks 4.
+v3_quickstart_colab 5. <strong>v4_hormuz_live</strong> — the headline
+demo, ~5min Colab CPU, no GPU/Ollama/keys 6. trl_training_colab</p>
+<p><strong>Receipts ledger</strong>
+(<code>ShAuRyA_Supplymind/receipts/INDEX.md</code>) — 15 one-line bash
+commands:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Claim</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>RAG mxbai P@1</td>
+<td>0.9623</td>
+</tr>
+<tr>
+<td>2</td>
+<td>RAG mxbai MRR</td>
+<td>0.9780</td>
+</tr>
+<tr>
+<td>3</td>
+<td>BEIR Snowflake nDCG@10</td>
+<td>0.9710</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2-judge Krippendorff α</td>
+<td><strong>0.7500</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cohen κ Qwen×Mistral</td>
+<td>0.7474</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Masking ablation easy lift</td>
+<td>26.77%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GCN easy MAE vs MLP</td>
+<td>48.02%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Aqua Regia WTI dev95</td>
+<td>0.0238</td>
+</tr>
+<tr>
+<td>9</td>
+<td>TimesFM CP WTI dev95</td>
+<td>0.0500</td>
+</tr>
+<tr>
+<td>10</td>
+<td>V4 SPOF V2 F1</td>
+<td><strong>1.0</strong></td>
+</tr>
+<tr>
+<td>11</td>
+<td>V4 Stacking V2 lift vs WV</td>
+<td>0.0045</td>
+</tr>
+<tr>
+<td>12</td>
+<td>V4 Live Brent 2026-04</td>
+<td><strong>123.28</strong></td>
+</tr>
+<tr>
+<td>13</td>
+<td>V4 Tests Total</td>
+<td>250</td>
+</tr>
+<tr>
+<td>14</td>
+<td>V4 Analyst V5 Exact Acc</td>
+<td><strong>0.8</strong></td>
+</tr>
+<tr>
+<td>15</td>
+<td>V4 Autoresearch Best CI95</td>
+<td><strong>0.5514</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="part-3-win-chances-honest-assessment">PART 3 — WIN-CHANCES
+HONEST ASSESSMENT</h1>
+<p>I’m going to be brutally honest with you because that’s what you
+asked for.</p>
+<h2 id="the-strengths-real-and-rare">The strengths (real and rare)</h2>
+<ol type="1">
+<li><p><strong>Volume of evidence</strong> — 803 files, ~6 months of
+work, 250 tests passing, 35 reproducible receipts. Most hackathon teams
+have &lt;100 files and 0-20 tests. <strong>This alone puts you in the
+top 10%.</strong></p></li>
+<li><p><strong>Real data discipline</strong> — 261,175 verified data
+points, zero synthetic. Every cost constant cited (ISM, CSCMP, IATA,
+McKinsey, Lloyd’s, SemiAnalysis, AlixPartners). Most hackathons fake
+this.</p></li>
+<li><p><strong>OpenEnv compliance is unambiguous</strong> — 19 formal
+compliance tests in 2 seconds. The framework is unambiguous about what
+counts; you have it.</p></li>
+<li><p><strong>PyTorch mastery</strong> — custom 3-layer GCN with
+<code>index_add_</code>, MaskablePPO discrete wrapper, conformal
+prediction wrappers, ONNX export at &lt;5e-5 error, Numba JIT. This is
+engineering, not library stacking.</p></li>
+<li><p><strong>Honesty as a weapon</strong> — published α=0.210 then
+improved to α=0.750 instead of cherry-picking. Published stacking-v2
+honest null. Published RecurrentPPO REJECTION. This is rare and judges
+with research backgrounds will notice.</p></li>
+<li><p><strong>The Hormuz 0.99 match</strong> — if it lands live, it’s
+the single best demo moment. Real news, real analog, real $259M
+counterfactual.</p></li>
+<li><p><strong>Reproducibility receipts</strong> — every claim is one
+bash command. Judges can verify in 30s. Most hackathons can’t.</p></li>
+<li><p><strong>Phoenix as safety net</strong> — three independent layers
+(v3, v4, v5). Even if v5 breaks live, v3 still ships
+submission-grade.</p></li>
+<li><p><strong>Upstream PRs ready</strong> — Meta OpenEnv + Alibaba ROLL
+drafts. Says “I built this <em>for the ecosystem</em>, not just the
+prize.”</p></li>
+<li><p><strong>Solo-dev narrative is sympathetic</strong> — judges know
+what 6 months of solo work looks like.</p></li>
+</ol>
+<h2 id="the-weaknesses-also-real">The weaknesses (also real)</h2>
+<ol type="1">
+<li><p><strong>QR-DQN specialist hits 0.793 avg, not crushing
+it.</strong> 0.86 easy and 0.84 medium are strong but 0.67 hard is mid.
+Some judges will see “67%” and not be impressed even though that’s a
+hard task.</p></li>
+<li><p><strong>Krippendorff α=0.21 raw</strong> is a real number that
+exists in your repo. Yes the 2-judge ablation gets it to 0.75, but a
+hostile judge can point to 0.21 and 0.567 (12-frontier) and say “judges
+don’t agree.”</p></li>
+<li><p><strong>CUDA kernel didn’t compile on Windows.</strong> F14
+reports honest fallback. Some judges will read this as “couldn’t ship.”
+The 1833× speedup over naive Python is real but the speedup is
+<strong>not over PyTorch</strong> — PyTorch fallback already does it.
+F14 framing matters.</p></li>
+<li><p><strong>LoRA training deferred to v4.1.</strong> Dry-run only.
+Some judges will count this against the “Self-Improvement”
+theme.</p></li>
+<li><p><strong>R15 stacking v2</strong> is a published null (+0.0045 AUC
+vs WV, −0.0002 vs best single). You frame it as “honest null on
+saturated task” — that’s correct, but a hostile judge will read it as
+“didn’t work.”</p></li>
+<li><p><strong>DeepSeek-R1 31% accuracy reframed as devil’s
+advocate.</strong> Honest framing, but a skeptical judge will hear “your
+most expensive judge is wrong 70% of the time.”</p></li>
+<li><p><strong>RecurrentPPO collapsed (s4 REJECTED).</strong> Documented
+honestly, but it’s still a negative result in the deck.</p></li>
+<li><p><strong>One-person presentation team.</strong> No specialization,
+no team rehearsal, no Q&amp;A backup. You answer everything alone for 4
+minutes.</p></li>
+<li><p><strong>HF Space cold start 15-25s.</strong> If a judge clicks
+<code>/live/hormuz-closure</code> and waits &gt;10 seconds during a
+4-min review, that’s a problem.</p></li>
+<li><p><strong>OpenRouter free-tier rate limits</strong> (18 req/min)
+mean if a judge tries to re-run the 12-frontier panel during demo, it’ll
+get throttled.</p></li>
+</ol>
+<h2 id="the-unknowns-out-of-your-control">The unknowns (out of your
+control)</h2>
+<ul>
+<li><strong>Hackathon size</strong>: Bangalore on-campus. Likely 50-200
+teams. Top-3 means beating 47-197 others.</li>
+<li><strong>Judge taste</strong>: Researchers will love rigor. Investors
+will love story. Engineers will love compliance. If your judges are
+mostly investors, the Hormuz demo wins. If mostly researchers, the
+receipts win. If mostly engineers, the OpenEnv compliance wins.</li>
+<li><strong>Other competitors</strong>: Unknown. Possible some teams
+have GPU clusters and team-of-5 polish. Unlikely many have your level of
+rigor + receipts. Almost certainly nobody has your Sleep Token
+narrative.</li>
+<li><strong>Live demo execution</strong>: Every live system has 5-10%
+chance of breaking on stage. Have a backup video.</li>
+</ul>
+<h2 id="my-honest-probability-estimate">My honest probability
+estimate</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Outcome</th>
+<th>Probability</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Top 50%</strong></td>
+<td>~95%</td>
+<td>Tests pass, demo works, stack is real. Floor is high.</td>
+</tr>
+<tr>
+<td><strong>Top 25%</strong></td>
+<td>~85%</td>
+<td>The volume + rigor + receipts most teams won’t have.</td>
+</tr>
+<tr>
+<td><strong>Top 10%</strong></td>
+<td>~55%</td>
+<td>Real-data discipline + OpenEnv compliance + 250 tests is rare.</td>
+</tr>
+<tr>
+<td><strong>Top 3</strong></td>
+<td>~25%</td>
+<td>Depends on judge taste, demo execution, what others bring.</td>
+</tr>
+<tr>
+<td><strong>Win (1st)</strong></td>
+<td><strong>~10%</strong></td>
+<td>Hackathon outcomes have noise; one team with similar rigor + better
+polish could beat it.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-5-things-that-would-2-your-win-probability">The 5 things
+that would 2× your win probability</h2>
+<ol type="1">
+<li><p><strong>Practice the 4-minute path 10 times before
+stage.</strong> Memorize: open README → click HF Space → POST
+<code>/live/hormuz-closure</code> → show 0.99 match → show $259M savings
+→ say “every number is one bash command, here’s the receipts
+folder.”</p></li>
+<li><p><strong>Pre-record a 3-minute backup video.</strong> If
+<code>/live/</code> fails on stage, fall back to video. This is the #1
+demo risk.</p></li>
+<li><p><strong>Lead with the Hormuz match, not the
+architecture.</strong> Story first. Most judges will tune out
+architecture diagrams; nobody tunes out “real news from this week, 0.99
+match, $259M saved.”</p></li>
+<li><p><strong>Have one slide that says “I am one person and built this
+in 6 months.”</strong> Solo-dev narrative is genuinely sympathetic and
+most teams won’t have it.</p></li>
+<li><p><strong>End with the receipts folder open on screen.</strong>
+Say: “Click any of these 35 bash scripts and verify any number I just
+claimed in 30 seconds. Judge me on rigor.”</p></li>
+</ol>
+<h2 id="the-single-biggest-risk">The single biggest risk</h2>
+<p><strong>The live demo.</strong> You have a deployed HF Space. You
+have a <code>/live/hormuz-closure</code> endpoint that needs NewsAPI +
+GDELT + FRED + Ollama + 3 LLMs. <strong>Any one of these failing during
+the 4-minute review window is a 5-15% probability event.</strong> Have
+the offline replay (<code>replay_cache_latest.json</code>) wired and one
+keypress away. The Phoenix <code>freeze_cache.py</code> exists for this
+reason — use it.</p>
+<h2 id="the-single-biggest-opportunity">The single biggest
+opportunity</h2>
+<p><strong>The 0.99 Hormuz match is genuinely surprising.</strong> Most
+judges have never seen a hackathon project ingest real news from this
+week and find a 0.99-similar historical analog with a real-dollar
+counterfactual. <strong>Lead with that.</strong> It’s your moat.</p>
+<hr />
+<h1 id="part-4-risk-factors-open-issues">PART 4 — RISK FACTORS &amp;
+OPEN ISSUES</h1>
+<p>(Pulled from <code>_dump/FAILURE_TABLE.md</code> and the deep
+audit)</p>
+<p><strong>Resolved (8)</strong>: - PPO action mask shape (280 vs 47) →
+FlatDiscreteEnv wrapper - QR-DQN signature mismatch → standardized -
+TD3BC CUDA OOM → batch reduction + Q4_K_M quantization - ONNX
+SentenceTransformer init hang → explicit <code>backend=&quot;torch&quot;</code> -
+PyTorch 2.11 GradScaler rename → pinned 2.5.1+cu121 -
+<code>weights_only=True</code> regression → explicit
+<code>weights_only=False</code> - v4 autoresearch crashed all seeds →
+Phoenix rebuilt from artifacts - Curriculum learning save→load fix
+(MaskablePPO cached action_dims)</p>
+<p><strong>Deferred (6, not failures)</strong>: - CUDA kernel compile on
+Windows (MSVC <code>cl.exe</code> blocker; Python fallback ships) - HER
+port (env uses MultiDiscrete, deferred) - Online PPO/QR-DQN full
+real-data retrain - Optuna 100-trial HPO (10 autoresearch experiments
+instead) - GNN GATConv/TGN advanced variants (custom 3-layer GCN ships)
+- Qwen-2.5-VL port imagery full inference (heuristic mode ships)</p>
+<p><strong>Honest negative findings retained (8)</strong>: 1. TabPFN 10K
+cap caused stack &lt; best single → fixed in v2 pre-cache 2. Inverse-MAE
+ensemble &lt; best single → v2 Bates-Granger constrained stacking 3.
+Krippendorff α=0.210 on raw 3-judge → 2-judge ablation α=0.750 4.
+Reranker hurts on easy → hard-query redemption +5pp 5. AquaRegia
+conformal under-covers → per-horizon v2 hits nominal 6. Provider
+easy-graph F1=1.000 trivial → arrival-time regression v2 7. IQL_real +
+TD3+BC_real collapse → valuable negative on domain transfer 8.
+DeepSeek-R1 31% accuracy → reframed as devil’s-advocate role</p>
+<hr />
+<h1 id="appendices-file-by-file-inventory">APPENDICES — FILE-BY-FILE
+INVENTORY</h1>
+<p>The following appendices itemize ~792 of 803 files. They are dense
+reference. Skim by header.</p>
+<h1 id="appendix-a-rl-file-inventory-182-files">APPENDIX A —
+<code>rl/</code> FILE INVENTORY (182 files)</h1>
+<h2 id="a.1-rlcheckpoints-45-files">A.1 <code>rl/checkpoints/</code> (45
+files)</h2>
+<p><strong>Result JSONs</strong> (read in full): -
+<code>autoresearch_final.json</code> — 10 experiments aggregated. Best:
+<code>experiment_003</code> grade_avg=0.6801, lr=0.001, cvar_alpha=0.5,
+hidden_dim=256. - <code>mc_dropout_eval.json</code> — n_eval=5000,
+n_passes=50, mean_posterior_accuracy=0.851, mean_epistemic=0.328. Q1
+(low_unc): 0.9976 acc / 0.205 ε; Q4: 0.5592 / 0.504. -
+<code>shap_real.json</code> — Top-20 features. Lead: node0_risk (2.077),
+status (1.413), node0_inv (1.079). Group: NOAA 60.1%, node 21.8%, status
+9.7%, FRED 8.5%. - <code>specialist_router_real.json</code> —
+easy→bc_best_real_v2.pt, medium→cql_best_real_v2.pt,
+hard→iql_best_real_v2.pt, ensemble DT/BC weights 0.3/0.7. -
+<code>phase_k_results.json</code> — Federated 4 rounds; round-0
+global_acc=0.0119, round-9 0.0363; per-bucket Q1=0.9976→Q4=0.5592. -
+<code>phase_x_results.json</code> — CUDA compile status, federated_full
+50 rounds (round-0 0.0854 → round-49 0.3101), pareto 3 markets, fast_mc
+active, optuna_cql 12 trials best lr=0.000354 cw=1.579. -
+<code>ensemble_v2.json</code> — BC=0.374, CQL=0.375, IQL=0.371,
+TD3BC=0.371; mv_acc=0.374, wv_acc=0.375. -
+<code>optuna_cql_v2.json</code> — 12 trials, best value=0.376. -
+<code>onnx_roundtrip.json</code> — BC 3.05e-5, CQL 5.22e-8, IQL 3.05e-5,
+TD3BC 1.53e-5; all verified. - <code>pareto_results.json</code> — 5
+policies, 2 Pareto-optimal (mask [T,T,F,F,F]), 3 objectives
+(cost/resilience_loss/carbon). - <code>pareto_frontier_v2.json</code> —
+Africa cost=177.5/res=0.454/carbon=6504; LATAM
+cost=179/res=0.456/carbon=28781; USCA cost=176.5/res=0.452/carbon=14676.
+- <code>explainer_stress_v2.json</code> — n_test=50, passed=50,
+pass_rate=1.0; 50 scenarios, lengths 700-980 tokens. -
+<code>mc_dropout_v2.json</code> — BC_v2 acc=0.369, type_acc=0.862,
+ECE_full=0.0229. - <code>tft_v2_metrics.json</code> — 3-target FRED
+(DCOILWTICO/PCOPPUSDM/PPICMM); params=513,534, best_val_qloss=0.0245,
+fold-0 MAE 504.6. - <code>tft_real_metrics.json</code> — DCOILWTICO;
+mae_p50_usd=7.83, best_val_quantile_loss=0.071, enc_len=60, horizon=14.
+- <code>federated_v2_metrics.json</code> — 50 rounds; round-0
+(val_full=0.0854, val_type=0.427), round-49 (0.3101, 0.758). -
+<code>federated_real_metrics.json</code> — 4 rounds + clients [Pacific
+Asia, Europe, LATAM]. - <code>shap_cql_v2.json</code> —
+n_background=1000, n_explained=1000; lead node0_inv (5.06), status
+(3.818), node0_risk (2.865). - <code>world_model_v2_rollout.json</code>
+— 1-step loss 0.00328, 5-step 0.00583, 15-step 3607.3.</p>
+<p><strong>Model checkpoints (.pt/.zip/.npz)</strong>: -
+<code>federated_real.pt</code> 682K, <code>bc_best_real_v2.pt</code>
+681K, <code>qrdqn_v2_easy.pt</code> 7.6M, <code>cql_v2.pt</code> 3.8M,
+<code>rssm_real.pt</code> 3.5M, <code>iql_v2.pt</code> 7.9M,
+<code>cql_best_real_v2.pt</code> 1.9M, <code>dt_best_real_v2.pt</code>
+2.8M, <code>dqn_her_v2.pt</code> 756K, <code>qrdqn_v2_hard.pt</code>
+7.6M, <code>td3bc_best_real_v2.pt</code> 2.8M,
+<code>qrdqn_v2_medium.pt</code> 7.6M, <code>world_model_real.pt</code>
+2.3M, <code>iql_best_real_v2.pt</code> 3.2M, <code>td3bc_v2.pt</code>
+2.4M, <code>bc_v2.pt</code> 2.4M. - <code>ensemble_tuning.npz</code>
+918B, <code>constrained_ppo_stats_easy/medium/hard.npz</code> 564-612B.
+- <code>ppo_best_easy/best_model.zip</code> 1.1M,
+<code>ppo_best_medium/best_model.zip</code> 3.3M,
+<code>ppo_best_hard/best_model.zip</code> 3.3M. - <code>onnx/</code>
+subdirectory — production ONNX exports.</p>
+<h2 id="a.2-rlanalysis-33-files">A.2 <code>rl/analysis/</code> (33
+files)</h2>
+<p><strong>Top-level Python</strong>: - <code>__init__.py</code> — empty
+marker. - <code>trained_models.py</code> — Phase J: 5 data-driven
+models. political_risk GBR R²=0.994 / MAE=0.0095, dependency_scoring MLP
+acc=0.974, financial_impact Ridge R²=0.736 / MAE=26.04, confidence
+isotonic ECE=0.0017, safety_stock empirical lead-time. -
+<code>confidence.py</code> — 4-level alert (RED ≥0.8 / AMBER ≥0.5 /
+YELLOW ≥0.3 / GREEN &lt;0.3) via prediction<em>0.5 + historical</em>0.3
++ corroboration_bonus. - <code>financial_impact.py</code> — EBITDA:
+lost_margin + expedite_premium + sla_penalties + reputation_cost.
+McKinsey constants (gross_margin=35%, expedite_mult=3.0, sla=$25K/day).
+- <code>dependency_scoring.py</code> — 4-component criticality (0-100):
+single_source 40 + revenue 30 + lead_time 15 + geo_concentration 15
+(Taiwan=14, China=12). - <code>political_risk.py</code> — 8-component
+index: governance 15% + fragile_state 10% + ease_of_business 5% +
+conflict 20% + gdelt_tone 15% + sanctions 15% + travel 10% + currency
+10%. - <code>safety_stock.py</code> — risk_adj_lead = base × (1 +
+disrupt_prob × dur / base). Multipliers: conservative 2.5 / moderate 1.5
+/ aggressive 1.0. - <code>spof.py</code> — NetworkX articulation-point
+detection on supply-chain DAG.</p>
+<p><strong><code>trained/</code> subdirectory</strong>: -
+<code>analysis_v2_metrics.json</code> — wgi_temporal MSE=0.00037,
+safety_stock_seasonal p95=[0.747-0.792], spof_gnn F1=0.0 (n=8),
+financial_impact_mae_ci95=[24.8-26.5]. -
+<code>phase_j_results.json</code> — political_risk MAE=0.0095/R²=0.994
+(214 countries), dependency_scoring acc=0.974 (144K), financial_impact
+MAE=26.04, confidence ECE=0.0017, safety_stock mean_lt=3.50±1.62. -
+<code>*.pkl</code> — 7 sklearn models (confidence_isotonic,
+dependency_scoring_mlp, financial_impact_ridge, political_risk_gbr,
+political_risk_lstm, safety_stock_empirical, safety_stock_seasonal).</p>
+<p><strong><code>trained/v3/</code> subdirectory</strong>: -
+<code>benefit_per_order_metrics.json</code> — Regression.
+n_train=126374, val=27067, test=27078, 111 features. XGB MAE=54.4, LGB
+54.3, CatBoost 54.4, stacked 54.2 with R²~0.02. -
+<code>shipping_mode_metrics.json</code>,
+<code>delivery_status_metrics.json</code>,
+<code>late_delivery_risk_metrics.json</code> — 3-model ensemble + stack.
+- 12 .pkl files (per-task XGB/LGB/Cat models).</p>
+<h2 id="a.3-rldata-23-files">A.3 <code>rl/data/</code> (23 files)</h2>
+<ul>
+<li><code>build_unified_buffer.py</code> — Phase A: fuses DataCo (180K)
++ NOAA + USGS + FRED → real_unified.npz with 70/15/15 stratified
+splits.</li>
+<li><code>build_unified_buffer_v2.py</code> — Phase M: per-storm NOAA,
+time-windowed USGS, full WGI timeseries, fred_extended,
+leading_indicators as taxonomy, dataco_access_logs, learned financial
+reward, multi-step via customer_id.</li>
+<li><code>real_train.npz</code>, <code>real_val.npz</code>,
+<code>real_test.npz</code> — Phase A splits.</li>
+<li><code>real_train_v2.npz</code>, <code>real_val_v2.npz</code>,
+<code>real_test_v2.npz</code> — Phase M splits.</li>
+<li><code>real_unified.npz</code>, <code>real_unified_v2.npz</code> —
+full buffers.</li>
+<li><code>dataco_statistics.json</code> — 180,519 orders, 20,652
+customers, late_delivery_rate=0.573, avg_profit_ratio=0.121.</li>
+<li><code>noaa_real_calibration.json</code> — 4,289 storms, 140-year
+coverage.</li>
+<li><code>taiwan_strait_calibration.json</code> — TSMC 54% foundry, 92%
+advanced nodes.</li>
+<li><code>red_sea_calibration.json</code> — +10 transit days via Cape,
++25% fuel.</li>
+<li><code>disruption_taxonomy.json</code> — 15+ types with
+prevalence.</li>
+<li><code>fred_cache.json</code> — 7-series, 17K data points,
+date→7-vec.</li>
+<li><code>fred_extended.json</code> — 5 additional series (PPI, IP,
+interest rate).</li>
+<li><code>leading_indicators.json</code> — 15 indicators with
+correlations.</li>
+<li><code>fred_state_features.json</code> — state[400:407] price
+vectors.</li>
+<li><code>lora_training_data.json</code> — 225 instruction/output
+pairs.</li>
+<li><code>explanations_cache.json</code> — 50 pre-computed
+state→explanation pairs.</li>
+<li><code>real_unified_v2_meta.json</code> — n_total=180519
+(126360/27076/27083), 164 unique_actions, 20652 customers,
+multi_step_fraction=0.886, schema map.</li>
+</ul>
+<h2 id="a.4-rllegacy-10-files">A.4 <code>rl/legacy/</code> (10
+files)</h2>
+<ul>
+<li><code>buffers/offline_buffer_simulated.npz</code> — pre-Phase A
+simulator buffer.</li>
+<li><code>fallbacks/__init__.py</code> — empty.</li>
+<li><code>fallbacks/financial_impact.py</code> — formula-only legacy
+(superseded by Ridge).</li>
+<li><code>fallbacks/confidence.py</code> — legacy formula scoring.</li>
+<li><code>fallbacks/dependency_scoring.py</code> — legacy formula
+scorer.</li>
+<li><code>fallbacks/political_risk.py</code> — legacy formula +
+pre-computed country data.</li>
+<li><code>fallbacks/safety_stock.py</code> — legacy formula
+calculator.</li>
+<li><code>fallbacks/explainer_heuristic.py</code> — heuristic fallback
+if Ollama down.</li>
+<li><code>fallbacks/rag_indexer_with_fallback.py</code> — RAG with
+hardcoded precedent fallback (production has none).</li>
+</ul>
+<h2 id="a.5-rllora-7-files">A.5 <code>rl/lora/</code> (7 files)</h2>
+<ul>
+<li><code>__init__.py</code> — empty.</li>
+<li><code>create_ollama_model.py</code> — Builds Modelfile from system
+prompt + 5 real training examples, qwen2.5:14b base.</li>
+<li><code>finetune.py</code> — PEFT LoRA fine-tune on Qwen2.5-1.5B; TRL
++ bitsandbytes; .venv311 required; outputs to checkpoints/lora/.</li>
+<li><code>Modelfile</code>, <code>Modelfile.v2</code>,
+<code>Modelfile.v3</code>, <code>Modelfile.v4</code> — Ollama
+Modelfiles. v1: TSMC (54%/92%), Red Sea (+10d/+25%), action costs, SLA
+$25K/day, 5 examples.</li>
+</ul>
+<h2 id="a.6-rlsurrogate-5-files">A.6 <code>rl/surrogate/</code> (5
+files)</h2>
+<ul>
+<li><code>__init__.py</code> — empty.</li>
+<li><code>world_model.py</code> —
+Linear(688→512)→ReLU→Linear(512→256)→ReLU→(state/reward/done) heads.
+500K transitions, ~4min GPU. Enables 100K MC &lt;80ms.</li>
+<li><code>rssm.py</code> — DreamerV3-style: encoder(408→latent),
+GRUCell, decoder. 15-step latent rollouts.</li>
+<li><code>counterfactual.py</code> — Replays do_nothing from snapshot;
+“without action, additional loss = $X”.</li>
+<li><code>gpu_monte_carlo.py</code> — GPU MC: 1 state → 100K with noise
+linspace(0.01, 0.3), one pass, returns p5/p50/p95/p99/cvar_10.</li>
+</ul>
+<h2 id="a.7-rloffline-5-files">A.7 <code>rl/offline/</code> (5
+files)</h2>
+<ul>
+<li><code>__init__.py</code> — empty.</li>
+<li><code>baselines.py</code> — Pure PyTorch BC/TD3+BC/CQL/IQL. BC
+~5min, TD3+BC ~12min, CQL ~15min on 100K offline_buffer.npz.</li>
+<li><code>baselines_v2.py</code> — Updated implementations.</li>
+<li><code>dataset.py</code> — Generates offline_buffer.npz: scripted
+(good) + random (exploration); injects FRED prices.</li>
+<li><code>iql_agent.py</code> — IQL entry redirector to
+baselines.py.</li>
+</ul>
+<h2 id="a.8-rlforecasting-4-files">A.8 <code>rl/forecasting/</code> (4
+files)</h2>
+<ul>
+<li><code>__init__.py</code> — empty.</li>
+<li><code>tft.py</code> — Temporal Fusion Transformer.
+pytorch-forecasting, QuantileLoss [0.1/0.5/0.9], hidden=16, attn=1,
+enc=90, pred=30, ~20min/100 epochs GPU.</li>
+<li><code>mc_dropout_eval.py</code> — Phase D: 50 stochastic passes,
+mean±2σ per action, on real_test.npz (27K).</li>
+<li><code>train_tft_real.py</code> — TFT training on real FRED.</li>
+</ul>
+<h2 id="a.9-rlcuda-4-files">A.9 <code>rl/cuda/</code> (4 files)</h2>
+<ul>
+<li><code>__init__.py</code> — empty.</li>
+<li><code>action_mask_kernel.py</code> — PyTorch wrapper for CUDA
+kernel; <code>apply_action_mask()</code> and
+<code>masked_argmax()</code> with fallback.</li>
+<li><code>action_mask_kernel.cu</code> — CUDA source.</li>
+<li><code>action_mask.dll</code> — compiled Windows DLL.</li>
+</ul>
+<h2 id="a.10-rldecision_transformer-3-files">A.10
+<code>rl/decision_transformer/</code> (3 files)</h2>
+<ul>
+<li><code>__init__.py</code> — empty.</li>
+<li><code>model.py</code> — GPT-2 backbone. (rtg, state, action)
+interleave. Embeds: rtg(1→128), state(408→128), action(280→128),
+timestep(60→128). n_embd=128, n_layer=3, n_head=1, ctx=20.</li>
+<li><code>train.py</code> — DT training script.</li>
+</ul>
+<h2 id="a.11-rldistributional-3-files">A.11
+<code>rl/distributional/</code> (3 files)</h2>
+<ul>
+<li><code>__init__.py</code> — empty.</li>
+<li><code>qr_dqn.py</code> — Quantile regression DQN. 51 quantiles →
+CVaR-optimal worst-10%. 408→256→128→(280×51).</li>
+<li><code>train.py</code> — QR-DQN training loop.</li>
+</ul>
+<h2 id="a.12-rlpareto-rlmulti_agent-rlfederated-rlrag-rlinterpretability-rlgnn-15-files">A.12
+<code>rl/pareto/</code>, <code>rl/multi_agent/</code>,
+<code>rl/federated/</code>, <code>rl/rag/</code>,
+<code>rl/interpretability/</code>, <code>rl/gnn/</code> (15 files)</h2>
+<ul>
+<li><code>pareto/__init__.py</code>, <code>pareto/frontier.py</code> —
+3-objective NSGA2 via pymoo. Carbon factors (kg CO2/tonne-km): air 0.82,
+sea 0.013, rail 0.028, road 0.096.</li>
+<li><code>multi_agent/__init__.py</code>,
+<code>multi_agent/competitive.py</code> — Apple/Samsung/Toyota
+archetypes; shared supplier capacity FCFS.</li>
+<li><code>federated/__init__.py</code>, <code>federated/fedavg.py</code>
+— 3 simulated companies, 20 rounds × 5 local epochs, optional DP
+(noise_std=0.1). +23% over individual.</li>
+<li><code>rag/__init__.py</code>, <code>rag/indexer.py</code>,
+<code>rag/build_corpus.py</code> — Ollama nomic-embed (768d), ChromaDB
+persistent, min_score=0.60. Indexes crisis_library + NOAA top-200 storms
++ USGS + DataCo summaries.</li>
+<li><code>interpretability/__init__.py</code>,
+<code>interpretability/shap_real.py</code>,
+<code>interpretability/shap_analysis.py</code> — Phase F: DeepExplainer
+on real BC; bg=500, explain=200. Per-group aggregates + global
+top-20.</li>
+<li><code>gnn/__init__.py</code>, <code>gnn/tgn.py</code>,
+<code>gnn/attention.py</code> — TGNMemory + TransformerConv.
+memory_dim=64, time_dim=8, 2 heads. PyG ≥2.3. ~2× slower than
+static.</li>
+</ul>
+<h2 id="a.13-rlfast_engine-4-files">A.13 <code>rl/fast_engine/</code> (4
+files)</h2>
+<ul>
+<li><code>__init__.py</code> — empty.</li>
+<li><code>fast_monte_carlo.py</code> — Numba <span class="citation" data-cites="njit">@njit</span> MC hotloop. 10-50× speedup. Falls back to
+Python if Numba unavailable.</li>
+<li><code>benchmark.py</code> — Performance harness.</li>
+<li><code>README.md</code> — Documentation.</li>
+</ul>
+<h2 id="a.14-top-level-rl.py-20-files">A.14 Top-level
+<code>rl/*.py</code> (20 files)</h2>
+<ul>
+<li><code>train_ppo.py</code> — MaskablePPO. 32 envs, VecNormalize,
+n_steps=2048, batch=512, lr=3e-4, 2M steps ~8min RTX 4080.
+cudnn.benchmark=True, allow_tf32=True. MLflow + W&amp;B.</li>
+<li><code>constrained_ppo.py</code> — PPO + Lagrangian. λ self-tuning.
+Mathematically guaranteed budget adherence.</li>
+<li><code>her_agent.py</code> — SAC + HER. GoalEnv wrapper. +30-50% on
+hard. 500K steps.</li>
+<li><code>specialist_router.py</code> — Per-task best-checkpoint
+dispatch. Scripted fallback.</li>
+<li><code>hpo.py</code> — Optuna 50 trials × 500K PPO. Tunes lr,
+n_steps, clip, ent_coef, gamma, gae, net_arch.</li>
+<li><code>autoresearch.py</code> — Karpathy-style. 10-20 experiments
+varying lr, cvar_α, reward shape, network size. Outputs
+autoresearch_final.json.</li>
+<li><code>autoresearch_summary.py</code> — Aggregates: best_overall,
+best_per_family, MD summary.</li>
+<li><code>real_world_benchmark.py</code> — Eval on 180K DataCo + NOAA +
+USGS. Compares predicted late_rate (57.3% actual).</li>
+<li><code>leaderboard.py</code> — HF Spaces Gradio app. Displays
+rankings + agent submission.</li>
+<li><code>record_video.py</code> — MP4 of 3 agents (scripted, PPO,
+QR-DQN CVaR). Gymnasium RecordVideo + matplotlib.</li>
+<li><code>export_onnx.py</code> — QR-DQN → ONNX opset=17. dummy=(1,408).
+Output supplymind_policy.onnx.</li>
+<li><code>ensemble.py</code> — DT + QR-DQN. ensemble_logits = w·DT +
+(1-w)·QR. Grid search w ∈ [0.1, 0.9].</li>
+<li><code>gym_env.py</code> — Gymnasium wrapper. state=(408,),
+action=MultiDiscrete([7,40]), reward=[-1,1].</li>
+<li><code>real_data_pipeline.py</code> — DataCo encoding, NOAA/USGS/FRED
+injection, splits.</li>
+<li><code>real_data_integration.py</code> — RealWorldCalibrator. Every
+constant has a URL.</li>
+<li><code>explainer.py</code> — Local Ollama qwen2.5:14b.
+~3-4s/explanation. 4-section (state/action/reward/shap/cf/rag). Caches
+50 common.</li>
+<li><code>dataco_integration.py</code> — DataCoAnalyzer extracts
+patterns from 180K. Delays, segments, margins, SLA.</li>
+<li><code>uncertainty.py</code> — MC Dropout. model.train() at
+inference. 50 passes. mean+std epistemic.</li>
+<li><code>__init__.py</code> — Gymnasium register.
+SupplyMind-Easy/Medium/Hard-v1, max_steps=30/45/60.</li>
+<li><code>autoresearch_final.json</code> — see A.1.</li>
+</ul>
+<h1 id="appendix-b-v3_arcadia-file-inventory-177-files">APPENDIX B —
+<code>v3_arcadia/</code> FILE INVENTORY (177 files)</h1>
+<h2 id="b.1-root-training-blocks-5-files">B.1 Root training blocks (5
+files)</h2>
+<ul>
+<li><code>train_v3_block1_real_labels.py</code> — Leak-free 4-task
+tabular: late_delivery_risk, shipping_mode, delivery_status,
+benefit_per_order. 4-model stack (XGB/LGB/Cat/TabPFN). Bootstrap 95% CI,
+ECE, Brier. 109 features × 180K DataCo rows.</li>
+<li><code>train_v3_block2_forecasting.py</code> — Foundation zero-shot
+on 8 FRED targets (DCOILWTICO, PCOPPUSDM, DEXTAUS, DEXKOUS, DEXJPUS,
+DEXUSEU, DEXCHUS, PPICMM) × 3 horizons. Chronos-Bolt + TimesFM + Prophet
++ ARIMA + BigTFT. 20-fold rolling-origin. Inverse-MAE weighting.</li>
+<li><code>train_v3_block3_llm.py</code> — 4-LLM panel via Ollama.
+supplymind-analyst:v4 Modelfile + 10-shot. 50 scenario A/B with 3-judge
+majority. JSON-mode validated.</li>
+<li><code>train_v3_block4_rag.py</code> — 8 pipelines on 6,483 chunks ×
+53 queries. P@1/3/5, R@5/10, MRR, nDCG@10.</li>
+<li><code>train_v3_block5_rl.py</code> — MaskablePPO 500K × 3 tasks,
+RecurrentPPO LSTM 300K, DQN+HER 2000ep, SAC-Discrete. Mask-shape fix at
+line 72-86.</li>
+</ul>
+<h2 id="b.2-00_emergence-16-files">B.2 <code>00_emergence/</code> (16
+files)</h2>
+<ul>
+<li><code>verify_embedders_chronos.py</code> — 5 embedders + Chronos.
+BGE-M3 dim=1024 score 0.638, mxbai 1024 score 0.736, Snowflake 1024
+score 0.582.</li>
+<li><code>verify_qwen_vl.py</code> — Qwen-2.5-VL-7B via transformers +
+qwen-vl-utils, 224×224 image.</li>
+<li><code>verify_tabpfn.py</code> — TabPFN-v2 clf+reg from local ckpts,
+200×12 binary + regression.</li>
+<li><code>verify_timesfm.py</code> — TimesFM-2: 50 layers, 1280 dims, 16
+heads, 2048 context.</li>
+<li><code>verify_mistral_nemo.py</code> — 3 tests: reasoning (180 tok),
+long-ctx (120 tok), JSON-mode (200 tok).</li>
+<li><code>verify_qwen14b.py</code> — 3 tests: factual, reasoning,
+JSON-mode.</li>
+<li><code>verify_qwen_coder.py</code> — code_gen (250 tok), code_review
+(300 tok), JSON-mode (150 tok).</li>
+<li><code>r1_qwen_vl_downstream.py</code> — Synthetic GOES-16-style
+512×512 satellite (storm + coastline). Full HF pipeline, 400-token
+gen.</li>
+<li><code>deepseek-r1.Modelfile</code> — temp 0.1, top_p 0.9, ctx 32K,
+512-tok limit.</li>
+<li><code>qwen25-14b.Modelfile</code> — Analyst v3 base. SYSTEM with
+TSMC/Tohoku/Suez/chip-shortage facts.</li>
+<li><code>qwen25-coder-14b.Modelfile</code> — JSON-mode for code
+analysis.</li>
+<li><code>fetch_extra_data.py</code> — UN COMTRADE (5 countries), IMF
+IFS (5 indicators × 5), Wikipedia (26 crisis articles).</li>
+<li><code>convert_bge_to_safetensors.py</code> — Bypass torch.load
+weights_only on torch &lt;2.6, ~2GB output.</li>
+<li><code>mem_check.ps1</code>, <code>ram_check.ps1</code> — Windows
+PowerShell diagnostics.</li>
+<li>(extra Modelfile / verification artifacts)</li>
+</ul>
+<h2 id="b.3-10_caramel-5-files">B.3 <code>10_caramel/</code> (5
+files)</h2>
+<ul>
+<li><code>train_caramel.py</code> — 4 DataCo targets. BASE_NUM (16
+numeric) + CAT_COLS (7). XGB hist 1000 trees / LGB 1500 / Cat 1500 /
+TabPFN-v2. CIs + ECE + Brier. Late_delivery: XGB acc=0.8369,
+AUC=0.916.</li>
+<li><code>r2_tabpfn_bagging.py</code> — Random-subsample TabPFN
+ensemble, predict_proba averaging.</li>
+<li><code>r2_tabpfn_bagging_full.py</code> — CV folds, per-fold
+metrics.</li>
+<li><code>shap_fairness_calibration.py</code> — TreeExplainer +
+groupwise calibration (Market × Segment × Late_risk). Equalized-odds
+parity.</li>
+<li><code>fix_benefit_regression.py</code> — MAE objective vs MSE (+13%
+improvement). Log-target tested.</li>
+</ul>
+<h2 id="b.4-20_past_self-7-files">B.4 <code>20_past_self/</code> (7
+files)</h2>
+<ul>
+<li><code>train_past_self.py</code> — 8 FRED × 3 horizons. 2,883
+business days. 20-fold rolling-origin. Chronos predict_quantiles,
+TimesFM point only, Prophet weekly+yearly, ARIMA(5,1,0). Inverse-MAE
+weighting. Krippendorff α for ensemble disagreement.</li>
+<li><code>r3_timesfm_residual_quantile.py</code> — Quantile regressors
+(P10/P50/P90) on TimesFM residuals.</li>
+<li><code>r3_point_stacking.py</code> — Ridge stacking, alpha=1.0.</li>
+<li><code>r3_constrained_stacking.py</code> — Non-negative weights,
+sum-to-one via LinearConstraint.</li>
+<li><code>r3_bigtft_integration.py</code> — Custom BigTFT v2 as 5th
+member.</li>
+<li><code>plot_r3_summary.py</code> — 8×3×4 MAE heatmap + dir-acc
+scatter + PICP coverage bars.</li>
+<li><code>plot_timesfm_quantile.py</code> — Actual + point + P10/P90
+bands per horizon.</li>
+</ul>
+<h2 id="b.5-30_dangerous-6-files">B.5 <code>30_dangerous/</code> (6
+files)</h2>
+<ul>
+<li><code>r4_judge_layer.py</code> — 26 Wikipedia scenarios × 3 judges
+parallel via requests.post(OLLAMA_URL). JSON extraction. Krippendorff α
+(line 129-141), Jaccard semantic (144-149). Escalation rubric.</li>
+<li><code>r4_v2_beast.py</code> — 26 × 4 LLMs. DeepSeek two-pass (free
+reasoning → Qwen extraction) bypasses CoT leakage. 100% parse.
+Latencies: DeepSeek 17s, Qwen 6s, Mistral 6.6s. Majority GT acc 69.2%.
+Cohen κ(Qwen, Mistral)=0.747.</li>
+<li><code>r4_ablation_and_baseline.py</code> — Per-judge
+contribution.</li>
+<li><code>r4_live_scenario.py</code> — Real-time invocation with latency
+tracking.</li>
+<li><code>plot_r4_summary.py</code> — 3×3 agreement heatmap, confusion,
+latency boxplot, calibration.</li>
+<li><code>plot_r4_v2.py</code> — Per-scenario escalation codes, semantic
+Jaccard heatmap.</li>
+</ul>
+<h2 id="b.6-40_granite-6-files">B.6 <code>40_granite/</code> (6
+files)</h2>
+<ul>
+<li><code>r5_rag_beast.py</code> — 8 pipelines: P1-P3 bi
+(BGE-M3/mxbai/Snowflake), P4-P6 +reranker, P7 RRF, P8 HyDE. 6,483
+chunks. chunk_words=256, overlap=32. top-k=50, rerank=10. 53
+queries.</li>
+<li><code>r5_mteb_subset.py</code> — MTEB external validation.</li>
+<li><code>r5_hard_queries.py</code> — 20 hardest queries (low-recall
+analysis).</li>
+<li><code>r5_manual_beir.py</code> — BEIR subset eval vs published
+numbers.</li>
+<li><code>plot_r5_summary.py</code> — P@1/3/5/MRR per pipeline; mxbai
+(P2) wins P@1=0.962.</li>
+<li><code>plot_r5_hard_redemption.py</code> — Latency vs MRR scatter
+showing trade-off.</li>
+</ul>
+<h2 id="b.7-50_gethsemane-9-files">B.7 <code>50_gethsemane/</code> (9
+files)</h2>
+<ul>
+<li><code>train_rl_beast.py</code> — MaskablePPO 3 tasks. Mask shape fix
+line 77-86 (concat type [7] + node [40] = 47). 100K timesteps.
+batch=256, lr=3e-4, γ=0.99, ent=0.01. 4 envs DummyVecEnv +
+VecNormalize.</li>
+<li><code>r6_medium_300k.py</code> — 300K extended training on
+medium.</li>
+<li><code>r6_unmasked_ablation.py</code> — Same env w/o masking;
+constraint violations tracked.</li>
+<li><code>r6_unmasked_ablation_alltasks.py</code> — All 3 tasks
+unmasked.</li>
+<li><code>plot_learning_curves.py</code> — Mean reward + std per
+10K-step checkpoint.</li>
+<li><code>plot_r6_gethsemane.py</code> — PPO vs random vs greedy box
+plots per task.</li>
+<li><code>plot_masking_ablation.py</code> — Constraint violations:
+masked=0, unmasked ~5-20.</li>
+<li><code>export_v3_ppo_onnx.py</code> — <code>.zip</code> →
+<code>.onnx</code> via skl2onnx/onnxruntime.</li>
+<li><code>r6_algo_comparison.py</code> —
+PPO/RecurrentPPO/A2C/SAC-Discrete comparison.</li>
+</ul>
+<h2 id="b.8-60_euclidian-2-files">B.8 <code>60_euclidian/</code> (2
+files)</h2>
+<ul>
+<li><code>r6_massive_benchmark.py</code> — 10,800-episode bootstrap. 3
+tasks × 4 policies × 900 episodes. Per-100-episode rolling.</li>
+<li><code>plot_r6_euclidian.py</code> — Episodes vs mean reward + 95% CI
+shaded bands per policy.</li>
+</ul>
+<h2 id="b.9-70_provider-3-files">B.9 <code>70_provider/</code> (3
+files)</h2>
+<ul>
+<li><code>r6_gnn.py</code> — 3-layer GCN on real graphs (25+ nodes).
+Edges weighted by lead-time. 5-step disruption propagation. Adam, 1000
+epochs, early stop.</li>
+<li><code>r6_gnn_arrival_time.py</code> — Arrival-time impact
+regression.</li>
+<li><code>plot_r6_provider.py</code> — Network with critical nodes +
+edge weights + disruption heatmap.</li>
+</ul>
+<h2 id="b.10-80_aqua_regia-3-files">B.10 <code>80_aqua_regia/</code> (3
+files)</h2>
+<ul>
+<li><code>r6_conformal.py</code> — Split-conformal on Chronos + ARIMA. α
+∈ {0.1, 0.05, 0.2}. Heteroscedastic via Ridge on calibration set.</li>
+<li><code>r6_per_horizon_conformal.py</code> — Per-horizon α;
+uncertainty grows with h.</li>
+<li><code>plot_r6_aqua_regia.py</code> — Coverage actual vs nominal,
+width vs horizon, per-target heatmap.</li>
+</ul>
+<h2 id="b.11-85_infinite_baths-90_damocles-95_arcadia-utils-4-files">B.11
+<code>85_infinite_baths/</code>, <code>90_damocles/</code>,
+<code>95_arcadia/</code>, <code>utils/</code> (4 files)</h2>
+<ul>
+<li><code>85_infinite_baths/dashboard.py</code> — Streamlit aggregator.
+6 tabs (R1-R6). Metric cards + plots + filterable tables.
+localhost:8501.</li>
+<li><code>90_damocles/app.py</code> — FastAPI 4 endpoints (/assess,
+/forecast, /rag, /rl/act). JWT auth. Uvicorn 0.0.0.0:8765. Models
+pre-loaded.</li>
+<li><code>95_arcadia/README.md</code> — Master doc. Architecture, phase
+log, decisions, instructions, hackathon thesis. Honest findings
+explicit.</li>
+<li><code>utils/conformal_smoke_check.py</code> — Quick coverage
+validation on synthetic series.</li>
+<li><code>utils/__init__.py</code> — empty.</li>
+</ul>
+<h2 id="b.12-results-45-files-the-ledger">B.12 <code>results/</code> (45
+files — the ledger)</h2>
+<p><strong>Verification (7)</strong>: embedders_chronos, qwen_vl,
+tabpfn, timesfm, mistral_nemo, qwen14b, qwen_coder.</p>
+<p><strong>Core (7)</strong>: - <code>R1_VERIFIED.json</code> — 13 SOTA
+all OK. RTX 4080 12GB, torch 2.5.1+cu121, free_disk=100GB. Q4_K_M,
+safetensors, torch backend. - <code>R2_CARAMEL.json</code> — 4 tasks × 4
+models. Late_delivery: XGB acc=0.8369 [0.832, 0.841] AUC=0.916
+ECE=0.0837. LGB acc=0.8280 AUC=0.919. CAT acc=0.7983. -
+<code>R3_PAST_SELF.json</code> — 8 targets × 3 horizons × 4 models.
+DCOILWTICO h7: Chronos MAE=2.792 dir=0.45 PICP80=0.693. TimesFM
+MAE=2.780 dir=0.628. ARIMA MAE=2.677 PICP80=0.721. Prophet MAE=8.496.
+Ensemble mean=1.455, weighted=2.350. - <code>R4_DANGEROUS_V2.json</code>
+— 26 × 3 judges + critic. Tohoku: deepseek=HIGH/0.5, qwen=CRITICAL/0.95,
+mistral=CRITICAL/0.95 → majority CRITICAL → C_SUITE_IMMEDIATE. α=0.210,
+weighted κ=0.747. - <code>R5_GRANITE.json</code> — 8 pipelines × 53
+queries. Corpus: wiki 564, sec 5790, policy 129. P1_bge_m3:
+P@1=0.924/MRR=0.962/lat=48ms. <strong>P2_mxbai:
+P@1=0.962/MRR=0.978/lat=35ms (BEST)</strong>. P4-P6 reranked: P@3 drops
+to 0.862-0.868, latency 1.1-1.8s. - <code>R6_GETHSEMANE.json</code> — 3
+tasks × 3 policies × 50 eval. Easy: ppo=1.201±0.199, random=0.780,
+greedy=0.980, train=389s. Medium: ppo=2.775, random=-1.110,
+greedy=-1.796, train=1028s. Hard: ppo=2.674, random=-1.222,
+greedy=-1.413, train=1360s. Total 48.65min. -
+<code>R6_EUCLIDIAN.json</code> — 10,800 ep bootstrap. Hard PPO CI95
+[2.596, 2.708] vs greedy [-1.48, -1.35] non-overlapping.</p>
+<p><strong>Secondary (11)</strong>: R2_BENEFIT_FIX, R2_SHAP_FAIRNESS,
+R3_TIMESFM_QUANTILE, R3_STACKING_V2, R3_STACKING_V3_POINTLEVEL,
+R3_BIGTFT_INTEGRATION,
+R4_DANGEROUS_V1/V2_ABLATION/V2_LIVE/V2_HUMAN_BASELINE,
+R4_FRONTIER_PANEL_V2, per-judge JSONs, phase caches.</p>
+<p><strong>Specialized (8)</strong>: R5_GRANITE_HARD (20 paraphrased),
+R5_BEIR_MANUAL, R6_GETHSEMANE_MASKING_ABLATION (+26.8% / +15.1% /
+13.64→0 violations), R6_GETHSEMANE_MASKING_ABLATION_ALLTASKS,
+R6_GETHSEMANE_ONNX_EXPORT, R6_PROVIDER (F1 0.964 hard, MAE −48/−49/−64%
+vs MLP), R6_PROVIDER_V2 (arrival-time), R6_AQUA_REGIA (conformal),
+R6_AQUA_REGIA_V2 (per-horizon), R6_ALGO_COMPARISON.</p>
+<p><strong>Reports (2)</strong>: <code>R4_DANGEROUS_V2_REPORT.md</code>,
+<code>R5_GRANITE_REPORT.md</code>.</p>
+<p><strong>Metadata (2)</strong>: <code>ONNX_BUNDLE_MANIFEST.json</code>
+(4 ONNX files: ppo_easy/medium/hard 948KB each, gcn_arrival 10KB),
+<code>R1_QWEN_VL_DOWNSTREAM.json</code>.</p>
+<p><strong>Image (1)</strong>: <code>r1_qwen_vl_test_image.png</code> —
+synthetic GOES-16 512×512.</p>
+<h2 id="b.13-checkpoints-42-files">B.13 <code>checkpoints/</code> (42
+files)</h2>
+<p><strong>Caramel (15 .pkl, 284 MB)</strong>: per-task XGB/LGB/CatBoost
+models. Late_delivery: cat 8.3MB, lgb 13MB, xgb 16MB. Shipping_mode:
+21/52/63MB. Delivery_status: 21/53/58MB. Benefit: 550KB-2.3MB.</p>
+<p><strong>Gethsemane (15 zip/onnx, 74 MB)</strong>: PPO easy/med/hard
+<code>.zip</code> 4.8MB each + variants (typhoon, UNMASKED), onnx 948KB.
+RecurrentPPO easy 20MB. A2C 3.2MB. MaskablePPO 4.8MB.</p>
+<p><strong>Granite (2, ~600 MB)</strong>: corpus_chunks.pkl (6,483
+chunks), hyde_cache.json (Qwen-14B HyDE for 53 queries).</p>
+<p><strong>Provider (6 .pt, 444 KB)</strong>: gnn_easy/med/hard.pt +
+gnn_arrival_easy/med/hard.pt, 74KB each.</p>
+<p><strong>ONNX bundle (4)</strong>: ppo_easy/med/hard.onnx 948KB each,
+gcn_arrival.onnx 10KB.</p>
+<h2 id="b.14-plots-23-files">B.14 <code>plots/</code> (23 files)</h2>
+<ul>
+<li><code>make_hero_card.py</code> — 4-panel composite (R2 model, R3
+ensemble heatmap, R4 risk dist, R5 P@1).</li>
+<li><code>hero_result_card.png</code> — output card.</li>
+<li><code>caramel/reliability.png</code> — calibration curves.</li>
+<li><code>dangerous/r4_summary.png</code>,
+<code>r4v2_ablation.png</code>, <code>r4v2_calibration.png</code>,
+<code>r4v2_confusion.png</code>, <code>r4v2_escalation.png</code>,
+<code>r4v2_heatmap.png</code>, <code>r4v2_latency.png</code> — 7 R4
+viz.</li>
+<li><code>granite/r5_corpus.png</code>,
+<code>r5_hard_redemption.png</code>, <code>r5_latency_vs_mrr.png</code>,
+<code>r5_metrics.png</code>, <code>r5_per_query_heatmap.png</code> — 5
+R5 viz.</li>
+<li><code>gethsemane/learning_curves.png</code>,
+<code>r6_gethsemane.png</code>, <code>r6_masking_ablation.png</code> — 3
+R6 RL viz.</li>
+<li><code>past_self/r3_summary.png</code>,
+<code>r3_timesfm_quantile.png</code> — 2 R3 viz.</li>
+<li><code>provider/r6_provider.png</code> — network graph.</li>
+<li><code>euclidian/r6_euclidian.png</code> — bootstrap CI.</li>
+<li><code>aqua_regia/r6_aqua_regia.png</code> — coverage.</li>
+</ul>
+<h1 id="appendix-c-shaurya_phoenix-file-inventory-124-files">APPENDIX C
+— <code>ShAuRyA_Phoenix/</code> FILE INVENTORY (124 files)</h1>
+<h2 id="c.1-root-framework">C.1 Root + framework</h2>
+<ul>
+<li><code>README.md</code> — Master Phoenix v5 doc. Three invariants
+(v3/v4 untouched, copy-before-edit, <code>.venv-roll/</code>). Phase
+0/1/2 gates. Tag <code>v5.0-phoenix-ascensionism</code>.</li>
+</ul>
+<h2 id="c.2-receipts_v2-45-files-20-receipt-pairs-framework">C.2
+<code>receipts_v2/</code> (45 files: 20 receipt pairs + framework)</h2>
+<p>Framework: every claim →
+<code>{command, extraction, expected, actual, match, stdout_sha256, hardware, runtime_s, timestamp_utc}</code>.</p>
+<p><strong>13 v4 carryovers</strong>: 1. R5_GRANITE_mxbai_P1 = 0.9622 2.
+R5_GRANITE_mxbai_MRR = 0.9780 3. R5_BEIR_snowflake_nDCG10 = 0.971 4.
+R4_2JUDGE_Krippendorff_alpha = <strong>0.7499</strong> 5.
+R4_Cohen_kappa_QwenMistral = 0.747 6. R6_MaskingAblation_easy_lift =
+26.77% 7. R6_GCN_easy_MAE_vs_MLP = 48.0247% 8. R6_AquaRegia_WTI_dev95 =
+0.0238 9. R3_TimesFM_CP_WTI_dev95 = 0.050 10. V4_SPOF_V2_F1 = 1.0 11.
+V4_STACKING_V2_lift_vs_WV = ≤ 0.001 12. V4_Live_Brent_202604 = in [60,
+250] USD/bbl 13. V4_Tests_Total = 249 passed</p>
+<p><strong>7 v5 new</strong> (all matched 2026-04-22): 14.
+V5_Autoresearch_best_experiment = <code>s3_curriculum_learning</code>
+15. V5_Autoresearch_CI95_lift = +0.0967 ≥ +0.05 16.
+V5_Arena_baseline_leaderboard = 6 baselines, MaskablePPO #1 17.
+V5_Twin_savings_gt_zero = $178,684,200 (48% pct) 18.
+V5_DPO_JUDGE_preference_pairs_built = 21 ≥ 20 19. V5_Skill_pack_shipped
+= 4 files (3 SKILL.md + plugin.json) 20. V5_Phoenix_tests_green = 15
+passed (1 expected fail on autoresearch state coherence)</p>
+<p>Framework files: - <code>framework.py</code> (271 lines) — Receipt
+class, run() executor, SHA256, 5 comparators (==, &gt;=, &lt;=,
+in_range, regex), tiny YAML parser (no PyYAML dep). -
+<code>register.py</code> (284 lines) — Registry split V4_CARRYOVERS (13)
++ V5_NEW (7). stub_all(), regenerate(), build_index(). -
+<code>INDEX.json</code> — 20-entry array. - <code>INDEX.md</code> —
+Human-readable table. “Total receipts: 20 | v4: 13 | v5: 7”.</p>
+<h2 id="c.3-autoresearch_fixed-21-files">C.3
+<code>autoresearch_fixed/</code> (21 files)</h2>
+<ul>
+<li><code>state.json</code> — Master ledger rebuilt
+2026-04-22T06:51:52Z. Best <code>s3_curriculum_learning</code>
+mean=0.646 / CI95_lower=0.5515. 5 experiments:
+<ul>
+<li><strong>s1_bigger_network</strong> ACCEPTED — [256,256]+ReLU,
+lr=3e-4, ent=0.01. Mean=0.5841, CI95=[0.4035, 0.7390]. Wall 122.68s.
+First baseline.</li>
+<li><strong>s2_higher_entropy</strong> ACCEPTED — ent=0.1. Mean=0.6066,
+CI95=[0.4548, 0.7520]. Wall 135.79s. Δ +0.0513.</li>
+<li><strong>s3_curriculum_learning</strong> ACCEPTED — [128,128]
+easy→med→hard 40/30/30. Mean=0.646, CI95=[0.5515, 0.7610]. Wall 216.85s.
+Δ +0.0967 (BEST). Phoenix fix: save→load instead of set_env (MaskablePPO
+action_dims caching).</li>
+<li><strong>s4_recurrent_ppo</strong> REJECTED — LSTM-128. Mean=0.301,
+CI95=[0.2583, 0.3329]. Wall 193.97s. Δ −0.2932.</li>
+<li><strong>s5_action_diversity</strong> REJECTED — k=5 bonus=0.02.
+Mean=0.6574, CI95=[0.5528, 0.7588]. Wall 129.73s. Δ +0.0013
+(noise).</li>
+</ul></li>
+<li><code>README.md</code> — Karpathy autoresearch loop: program.md →
+LLM agent → candidate_train.py diff → fixed-budget runner → CI95
+evaluator → accept/reject → notebook. Safety guards: 10-min wall,
+OOM/NaN guards, test gate, ≤150 LOC diff, signature lock.</li>
+<li><code>lab_notebook.md</code> — S1 (bimodal flagged), S2 (+0.07
+medium-task lift), S3 (Phoenix save→load fix), S4 (recurrent rejected),
+S5 (diversity rejected).</li>
+<li>5× <code>experiments/{name}/result.json</code> — grader_scores,
+wall_clock, total_steps, architecture summary, training_seed.</li>
+<li><code>program.md</code>, <code>candidate_train.py</code>,
+<code>hypothesis_engine.py</code>, <code>evaluator.py</code>,
+<code>orchestrator.py</code>, <code>runner.py</code>,
+<code>seed_experiments.py</code>, <code>rebuild_state.py</code>,
+<code>rerun_seeds.py</code>, <code>__init__.py</code> — Framework
+components.</li>
+<li><code>seed1000_candidate/</code>, <code>seed1001_candidate/</code> —
+checkpoint backups.</li>
+</ul>
+<h2 id="c.4-arena-5-files">C.4 <code>arena/</code> (5 files)</h2>
+<ul>
+<li><code>runner.py</code> — Policy eval harness. Accepts sb3.PPO,
+sb3_contrib.MaskablePPO, or torch.load nn.Module. TaskResult +
+ArenaResult dataclasses. Defaults: 50 ep/task, 200 max steps.</li>
+<li><code>leaderboard.py</code> (99 lines) — 6 baselines: MaskablePPO-v3
+(mean=2.209, CI95=[2.178, 2.239], v=0), RecurrentPPO-v3 (1.081, [0.98,
+1.18], 14.9), PPO-v3 unmasked (0.947, [0.89, 1.01], 13.6), A2C-v3
+(0.874, [0.81, 0.94], 13.9), Greedy (-0.749, 0), Random (-0.511,
+0).</li>
+<li><code>leaderboard.json</code> — generated 2026-04-22T07:09:06Z.
+n_submissions=0, n_baselines=6.</li>
+<li><code>gradio_app.py</code>, <code>router.py</code>,
+<code>__init__.py</code> — Arena API.</li>
+</ul>
+<h2 id="c.5-counterfactual_twin-3-files">C.5
+<code>counterfactual_twin/</code> (3 files)</h2>
+<ul>
+<li><p><code>twin.py</code> — 100-rollout MC with severity ∈ [0,1] +
+brent_usd inputs. REVENUE_AT_RISK_USD: easy $200M / med $320M / hard
+$400M. TwinReport with median/p95/savings/CI95/pct.</p>
+<p>Receipt run actual: hard task, severity=0.85, brent=$123, 30 rollouts
+→ trained median $187.38M, no_action $366.77M, <strong>savings $178.68M
+[177.74M, 179.52M], 48% pct</strong>, generated
+2026-04-22T20:37:23Z.</p></li>
+<li><p><code>router.py</code>, <code>__init__.py</code> — API.</p></li>
+</ul>
+<h2 id="c.6-roll_integration-16-files">C.6
+<code>roll_integration/</code> (16 files)</h2>
+<ul>
+<li><code>README.md</code> — 3 paths: DPO judge fine-tune (with trl
+fallback), SupplyMind as ROLL env, 3-judge reward bridge. Qwen-2.5-3B
+with LoRA r=8. Expected delta +5 to +15 pp R4 acc.</li>
+<li><code>configs/dpo_qwen25_3b_supplymind.yaml</code> —
+Qwen/Qwen2.5-3B-Instruct. dpo_beta=0.1, sigmoid loss. LoRA r=8 α=16.
+strategy=hf (NOT megatron). save_adapter_only (~20MB).</li>
+<li><code>configs/agentic_supplymind_gigpo.yaml</code> — GiGPO
+step-wise. env=supplymind_crisis. 3 tools: forecast, rag, rl_act.
+reward=supplymind_3judge.</li>
+<li><code>dpo_judge/prepare_preference_data.py</code> — Build pairs from
+R4 GT vs DeepSeek/Mistral/Qwen judges. Receipt actual=21 pairs.</li>
+<li><code>dpo_judge/train_dpo_trl.py</code>,
+<code>train_dpo_roll.py</code>, <code>train_grpo_env.py</code>,
+<code>train_grpo_live_env.py</code>, <code>evaluate_delta.py</code> —
+Training pipeline.</li>
+<li><code>reward_bridge/supplymind_judge_worker.py</code> —
+LLMJudgeRewardWorker subclass. Class exists even without ROLL.</li>
+<li><code>trl_fallback/README.md</code> — Standalone DPO fallback.</li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<h2 id="c.7-supplymind_skills-5-files">C.7
+<code>supplymind_skills/</code> (5 files)</h2>
+<ul>
+<li><code>plugin.json</code> — Claude Code skill pack manifest. v1.0.0.
+3 skills.</li>
+<li><code>autoresearch-experiment/SKILL.md</code> (132 lines) — Iron
+law: “ONE MUTABLE FILE. ONE METRIC. BOOTSTRAP CI95. NOTEBOOK BEFORE
+DECISION.” 6-file setup. Loop: orchestrator → mutator → runner →
+evaluator (Δ &gt; 0.005 CI95 lower).</li>
+<li><code>benchmark-runner/SKILL.md</code> (113 lines) — Iron law: “NO
+PERFORMANCE CLAIM WITHOUT A PAIRED BENCHMARK RECEIPT.” RED→GREEN cycle.
+5 stages.</li>
+<li><code>live-demo-orchestrator/SKILL.md</code> (127 lines) — Iron law:
+“EVERY LIVE FEATURE HAS AN OFFLINE REPLAY.” 3 phases: pre-demo (10-item
+checklist), during (4-step recovery), post (receipt).</li>
+<li><code>README.md</code> — Skill pack overview.</li>
+</ul>
+<h2 id="c.8-realtime_v5-5-files">C.8 <code>realtime_v5/</code> (5
+files)</h2>
+<ul>
+<li><code>replay_cache_latest.json</code> — n_events=8. Per event:
+scenario_input, top_analog (similarity ≥0.99), risk_level, confidence,
+recommended_actions, escalation_tier, counterfactual (no_action_loss,
+with_plan_loss, savings, savings_pct), oil_impact_usd_bbl, judges
+(qwen/mistral/deepseek).</li>
+<li><code>replay_cache_2026_04_22.json</code> — Timestamped
+snapshot.</li>
+<li><code>freeze_cache.py</code>, <code>replay_adapter.py</code>,
+<code>__init__.py</code> — Cache mgmt. status() returns
+cache_exists=True, n_events≥8.</li>
+</ul>
+<h2 id="c.9-server-2-files">C.9 <code>server/</code> (2 files)</h2>
+<ul>
+<li><code>phoenix_app.py</code> — FastAPI v5 entry. Imports v4’s
+server.app (frozen). Mounts /arena, /twin, /replay routers. Graceful
+degradation. /phoenix/status endpoint.</li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<h2 id="c.10-upstream_prs-6-files">C.10 <code>upstream_prs/</code> (6
+files)</h2>
+<ul>
+<li><code>meta_openenv/PR.md</code> — Title: “Add SupplyMind: real-data
+supply-chain risk env (3 tasks, Pydantic-v2, Docker)”. 8-item compliance
+checklist. openenv-core ≥0.2.0.</li>
+<li><code>meta_openenv/README.supplymind.md</code>,
+<code>build_pr_branch.sh</code> — Supporting.</li>
+<li><code>alibaba_roll/PR.md</code> — Title: “Add
+examples/supplymind_crisis: agentic RL (GiGPO, 3-judge reward,
+Qwen-2.5)”. Single-GPU 12GB ergonomics, LoRA, LLMJudgeRewardWorker.</li>
+<li><code>alibaba_roll/README.crisis.md</code>,
+<code>build_pr_branch.sh</code> — Supporting.</li>
+</ul>
+<h2 id="c.11-experiments-4-files">C.11 <code>experiments/</code> (4
+files)</h2>
+<ul>
+<li><code>arena/leaderboard.json</code> — generated
+2026-04-22T07:09:06Z. 6 baselines.</li>
+<li><code>dpo_judge_v1/train_dpo.sh</code> — Shell.</li>
+<li><code>roll_install/phase_a.sh</code> — Windows-native ROLL
+install.</li>
+<li><code>twin/V5_receipt_run.json</code> — Twin receipt output.</li>
+</ul>
+<h2 id="c.12-docs-8-files">C.12 <code>docs/</code> (8 files)</h2>
+<ul>
+<li><code>README_V5_OPENENV_FIRST.md</code> — Architecture
+overview.</li>
+<li><code>JUDGES_V5.md</code> — 4-min judges quick reference. 30-sec
+pitch (13 local, 261K data, 256+ tests, 20 receipts, live pipeline,
+autoresearch, DPO, Arena, upstream PRs). Live demo + Arena CLI.</li>
+<li><code>PREPRINT_V5.md</code> — Full preprint. Abstract, env design,
+foundation stack.</li>
+<li><code>PITCH_DECK_V5.md</code> — 8-slide keynote. Slide 3 headline
+numbers (mxbai 0.9622, Snowflake 0.971, α 0.7499, masking +26.77%, GCN
+−48%, conformal 0.024, 249 tests, autoresearch +0.051).</li>
+<li><code>DEMO_VIDEO_SCRIPT_V5.md</code>,
+<code>PHOENIX_COMPLETION_AUDIT.md</code>,
+<code>PHOENIX_PUSH_REPORT.md</code> — Supporting.</li>
+</ul>
+<h2 id="c.13-tests-2-files">C.13 <code>tests/</code> (2 files)</h2>
+<ul>
+<li><code>test_smoke.py</code> (172 lines) — 16 smoke tests &lt;10s no
+GPU/Ollama:
+<ol type="1">
+<li>test_phoenix_skeleton_exists (12 subdirs)</li>
+<li>test_receipts_indexed (≥20)</li>
+<li>test_autoresearch_state_coherent (best in {s2, s3}, CI95≥0.45)</li>
+<li>test_replay_cache_built (≥8 events)</li>
+<li>test_skill_pack_complete (3 SKILL.md + frontmatter)</li>
+<li>test_receipt_framework_importable</li>
+<li>test_arena_leaderboard_importable (≥6 baselines, MaskablePPO
+present)</li>
+<li>test_arena_runner_importable</li>
+<li>test_twin_importable</li>
+<li>test_dpo_judge_preference_builder_importable</li>
+<li>test_roll_env_wrapper_importable (skip if missing deps)</li>
+<li>test_reward_bridge_importable_without_roll</li>
+<li>test_replay_adapter_status</li>
+<li>test_phoenix_app_builds</li>
+<li>test_upstream_pr_drafts_present</li>
+<li>test_docs_suite_complete (5 files &gt;500 chars)</li>
+</ol></li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<h2 id="c.14-scripts-1-file">C.14 <code>scripts/</code> (1 file)</h2>
+<ul>
+<li><code>push_all_upstream.sh</code> — Convenience script.</li>
+</ul>
+<h1 id="appendix-d-shaurya_supplymind-file-inventory-122-files">APPENDIX
+D — <code>ShAuRyA_Supplymind/</code> FILE INVENTORY (122 files)</h1>
+<h2 id="d.1-root-4-files">D.1 Root (4 files)</h2>
+<ul>
+<li><code>README.md</code> — v4.0-arcadia-live staging. Phase map L1-L5.
+Finals Apr 25-26 Bangalore.</li>
+<li><code>__init__.py</code> —
+<code>&quot;&quot;&quot;ShAuRyA_Supplymind — v4.0-arcadia-live staging directory.&quot;&quot;&quot;</code></li>
+<li><code>RELEASE_NOTES_V4.md</code> — 2026-04-21. v3.0-arcadia frozen.
+Adds Karpathy autoresearch, live geo pipeline, 8 Hormuz events, 15
+features F1-F10 + G-fixes, 76 new tests = 249 total.</li>
+<li><code>RELEASE_V4_TAG.md</code> — GitHub Release. Tag
+<code>v4.0-arcadia-live</code> (Sleep Token “Rain”). v5 80% acc, 5
+seeds, Qwen-VL 7 ports, stacking +0.0045, SPOF 1.000, FRED Brent
+$123.28, 250 tests.</li>
+</ul>
+<h2 id="d.2-features-35-files">D.2 <code>features/</code> (35
+files)</h2>
+<p><strong>JSONs (9 + 3 subdirs)</strong>:</p>
+<ul>
+<li><code>F2_MULTI_AGENT_DEMO.json</code> — 2021 chip auction. Apple
++$2.74M (615.4 wafers), Samsung -$11.5M, Toyota -$7.37M. 2-phase bidding
+1000 wafers @ $16.5K base.</li>
+<li><code>F4_DT_RISK_SLIDER.json</code> — DT slider
+conservative/balanced/aggressive returns 0.6196 / 0.765 / 0.765 on easy.
+Conservative 55% do_nothing. Balanced 55% safety_stock. Aggressive 50%
+hedge. Wall 1.0s.</li>
+<li><code>F6_CONFORMAL_RL.json</code> — 3 α levels (0.05, 0.05, 0.1). 5
+actions, intervals [lo, hi]. CI95 width range 1.447-2.361.
+Conservative/balanced abstain on width &gt;0.5.</li>
+<li><code>F9_PARETO_CARBON.json</code> — 20 plans, 11 Pareto. Carbon
+factors: air 0.82, express_sea 0.02, sea 0.013, rail 0.028, road 0.096
+kg-CO2/tonne-km. Best under 3 weight schemes: reroute_rail_panama
+($180K, 70 res, 0 carbon).</li>
+<li><code>F14_CUDA_KERNEL.json</code> — Win-10 CUDA 12.1, torch
+2.5.1+cu121. JIT failed (MSVC blocker). PyTorch fallback 0.0284ms vs
+naive 52.16ms = 1833.7× speedup. No JIT results — partial.</li>
+<li><code>R6_SPOF_V2.json</code> — 3 graphs (12/25/40 nodes). v1 mean
+F1=0.949, v2=1.000. Hard fixed (0.846→1.000). Top-5 SPOFs per graph with
+mitigation (FAC_PHOENIX 3 downstream, WH_TAIWAN 10 downstream, TSMC $18B
+at risk).</li>
+<li><code>R9_ANALYST_AB_V5.json</code> — v5 vs base Qwen on 10
+scenarios. <strong>v5: 80% exact, 90% partial, 91.7% evidence</strong>.
+Base: 0% / 5% / 0%. Lifts: +0.80 / +0.85. Latencies 12-27s.
+Hormuz_2026_04 → CRITICAL exact.</li>
+<li><code>R15_STACKING_V2.json</code> — 60K DataCo, 6 base learners.
+<strong>LGB best single AUC 0.9818</strong>. Stacking AUC 0.9816.
+Stacking +0.0045 vs WV (0.9771), −0.0002 vs best single (honest null at
+0.97+ ceiling).</li>
+<li><code>counterfactual_cache.json</code> — 7 memoized counterfactuals
+(no LLM). hedge_commodity saves 40% of $36.9M (Iran), reroute_shipment
+saves 60% of $76.5M (Houthi).</li>
+</ul>
+<p><strong><code>gcn_attn/</code> (4 files)</strong>: -
+<code>SUMMARY.json</code> — Easy: target FAC_PHOENIX, top edge
+PORT_LONG_BEACH→WH_US_WEST grad 0.8625. Medium: target FAC_SUZHOU, top
+edge WH_THAILAND→FAC_SUZHOU 0.9. Hard: target FAC_TOYOTA_AICHI,
+WH_JAPAN→PORT_YOKOHAMA 0.6. - <code>gcn_attn_easy_graph.json</code> +
+<code>.png</code> 132KB. - <code>gcn_attn_medium_graph.json</code> +
+<code>.png</code> 247KB. - <code>gcn_attn_hard_graph.json</code> +
+<code>.png</code> 351KB.</p>
+<p><strong><code>port_imagery/</code></strong> (1 file): -
+<code>assessments.json</code> — 7 critical ports: Kaohsiung, Shanghai,
+Long Beach, Rotterdam, Jebel Ali, Haifa, Hodeidah. Risk 0.501-0.502.
+Confidence 0.35 (heuristic mode). Highest-risk: Shanghai.</p>
+<p><strong><code>provenance/</code></strong> (1 file): -
+<code>demo.json</code> — Query “Why is TSMC SPOF for advanced semis?”. 5
+chunks. 5-tier classifier (regulatory 1.0, academic 0.5, reference
+0.333, industry 0.25). Provenance score 0.47.</p>
+<p><strong>Python drivers (16 files)</strong>: -
+<code>receipts.py</code> — F10 receipt system with RECEIPT_SPECS list. -
+<code>multi_agent_demo.py</code> — F2/G4 auction simulator. Agent +
+Auction classes. - <code>dt_risk_slider.py</code> — F4/G6 DT surrogate.
+Target return ∈ {0.3, 0.55, 0.8}. Saves F4 JSON. -
+<code>spof_v2.py</code> — G8 articulation_points() on 3 graphs. Saves R6
+JSON. - <code>stacking_v2.py</code> — G15 5-fold CV + Ridge meta. Saves
+R15 JSON. - <code>analyst_ab_bench.py</code> — G9 A/B harness,
+deterministic rubric, Ollama+stub fallback. -
+<code>conformal_rl.py</code> — F6 split-conformal Q-value intervals. -
+<code>pareto_carbon.py</code> — F9 multi-objective optimizer. -
+<code>rag_provenance.py</code> — F8 5-tier classifier. -
+<code>counterfactual_explainer.py</code> — F3 7 templates with
+historical analog. - <code>leaderboard.py</code> — F5 Gradio submission
+scoreboard. - <code>gcn_attention_viz.py</code> — F7 attention gradient
+→ PNG. - <code>qwen_vl_port_imagery.py</code> — G3+F1 7-port heuristic
+risk. - <code>cuda_kernel_verify.py</code> — G14 JIT attempt + fallback
+benchmark. - <code>lora_train.py</code> — G7 PEFT 4-bit NF4 dry-run. -
+<code>Modelfile.analyst_v5</code> — Ollama Modelfile for v5 (8
+hard-negative few-shots, calibrated system prompt).</p>
+<h2 id="d.3-autoresearch-14-files">D.3 <code>autoresearch/</code> (14
+files)</h2>
+<ul>
+<li><code>orchestrator.py</code> — Karpathy loop. propose → apply → run
+→ evaluate → accept/reject → log. _parse_budget (6h→21600s),
+_load_state, _save_state, _history_summaries (last 20 only).
+MAX_CONSECUTIVE_REJECTS=50.</li>
+<li><code>state.json</code> — <strong>Best:
+s3_curriculum_learning_rerun</strong>, CI95_lower=0.5514, mean=0.646,
+std=0.1634 (9 runs). MaskablePPO [128,128] curriculum 40/30/30. 10
+history entries.</li>
+<li><code>AUTORESEARCH_LAB_NOTEBOOK.md</code> — 3 accepted: s1 (CI95
++0.4035, 125.4s), s2 (+0.0513, 138.7s), s3_rerun (+0.0966, 219.7s,
+BEST).</li>
+<li><code>candidate_train.py</code> — Mutable training script with
+safe-to-modify markers.</li>
+<li><code>hypothesis_engine.py</code> — LLM agent (Qwen-14B local or
+Claude). Reads last-20 + program.md.</li>
+<li><code>runner.py</code> — Isolated subprocess. 10-min timeout, VRAM
+guard, NaN catch, test gate.</li>
+<li><code>evaluator.py</code> — Bootstrap CI95 lower on 9 grader scores.
+Threshold Δ &gt; 0.005.</li>
+<li><code>lab_notebook.py</code> — Markdown auto-logger.</li>
+<li><code>seed_experiments.py</code> — 5 hand-crafted seeds: s1-s5.</li>
+<li><code>rerun_seeds.py</code> — Rerun failed seeds.</li>
+<li><code>program.md</code> — Task spec + frozen metric (CI95 lower on
+hard 50K steps).</li>
+<li><code>README.md</code> — Module entry.</li>
+<li><code>AUTORESEARCH_REJECTED.md</code> — Rejected hypotheses
+log.</li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<h2 id="d.4-realtime-11-files-sources">D.4 <code>realtime/</code> (11
+files + sources/)</h2>
+<ul>
+<li><code>store.py</code> — SQLite event store. Schema: events (id,
+source, ts_iso, ts_unix, event_type, severity, region, raw_text,
+text_hash, urls, entities, meta_json, ingested_at). Indices: (source,
+text_hash), ts_unix, region, event_type. Dedup 24h.</li>
+<li><code>hormuz_endpoint.py</code> — <code>/live/*</code> FastAPI
+router. 5 endpoints: GET /health, /recent-events, /signal-counts; POST
+/hormuz-closure (main), /analog-match. Pipeline: 24h events → match
+scenario → interpolate Brent → 3-judge panel → action
+recommendations.</li>
+<li><code>crisis_library.py</code> — Loads 8 events, embeds via mxbai.
+find_analogs(), interpolate_projection().</li>
+<li><code>ingestor.py</code> — Polls 5 sources, dedupes. 150+ events on
+2026-04-21 (80 NewsAPI, 60 GDELT, 19 USGS, 1 FRED).</li>
+<li><code>sources/newsapi.py</code> — 5 regional queries, 7-day
+lookback.</li>
+<li><code>sources/gdelt.py</code> — GDELT 2.0 Doc API, 15-min refresh,
+tone severity.</li>
+<li><code>sources/usgs.py</code> — M4.5+/24h, 6 region boxes.</li>
+<li><code>sources/fred_brent.py</code> — DCOILBRENTEU daily.</li>
+<li><code>sources/marinetraffic.py</code> — AIS snapshot, fallback to
+JSON if no key.</li>
+<li><code>sources/__init__.py</code>.</li>
+<li><code>events.db</code> — SQLite binary (schema only).</li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<h2 id="d.5-scenarios-1-file">D.5 <code>scenarios/</code> (1 file)</h2>
+<p><code>iran_israel_hormuz_2024_2026.json</code> — schema v1.0, 8
+events:</p>
+<ol type="1">
+<li><strong>iran_true_promise_1_2024_04</strong> (2024-04-13) — sev
+0.80, Brent 90.7→92.2→87.3, reroute 2d, 3 cites.</li>
+<li><strong>iran_true_promise_2_2024_10</strong> (2024-10-01) — sev
+0.90, Brent 71.8→78.2→74.4, reroute 3d, 3 cites.</li>
+<li><strong>houthi_red_sea_campaign_2023_ongoing</strong> (884d) — sev
+0.85, Brent 82.1→92.2 peak, Suez −50%, Tesla Berlin paused 2024-01,
+reroute 12d, 4 cites.</li>
+<li><strong>us_uk_operation_poseidon_archer_2024_01</strong> (2d) — sev
+0.65, Brent 77.6→81.0→78.2, reroute 1d, 3 cites.</li>
+<li><strong>haifa_port_missile_2024_10</strong> (24d) — sev 0.60, Brent
+74.2→78.2→75.5, war-risk +50-100bps, Tower Semi delays, 3 cites.</li>
+<li><strong>houthi_yaffa_tel_aviv_2024_07</strong> (3d) — sev 0.70,
+Brent 85.4→87.1→85.9, reroute 2d, 3 cites.</li>
+<li><strong>hormuz_trump_cargo_ship_2026_04</strong> (4d, LIVE) — sev
+0.82, Brent 119.1→123.3→P95=168, 20%+ global crude through Hormuz,
+reroute 14d, 4 cites.</li>
+<li><strong>ukraine_neon_palladium_shock_2022_context</strong> (310d) —
+sev 0.88, Brent 96.8→127.6 peak→104.9, neon 70% / palladium 37% / nickel
++250%, TSMC/Samsung/Intel +3mo lead, 3 cites.</li>
+</ol>
+<h2 id="d.6-tests-18-files-76-new-v4-tests">D.6 <code>tests/</code> (18
+files, 76 new v4 tests)</h2>
+<ul>
+<li><code>test_hormuz_endpoint.py</code> (60 lines, 8 tests):
+library_has_eight_events, every_event_has_required_fields,
+analog_match_finds_hormuz_event, projection_interpolation,
+endpoint_scenario_call, endpoint_fallback_without_ollama,
+endpoint_counterfactual_math, endpoint_live_signal_join.</li>
+<li><code>test_receipts.py</code> (45 lines, 4 tests):
+receipts_dir_exists, receipt_specs_are_structured (≥10),
+jqlike_helper_generates_python_snippet,
+receipt_dataclass_serializes.</li>
+<li><code>test_spof_v2.py</code> — F1=1.000 on all 3 graphs.</li>
+<li><code>test_stacking_v2.py</code> — 5-fold CV, OOF shape, AUC 0.9816
+vs WV 0.9771, best-single tiebreak.</li>
+<li><code>test_analyst_ab_bench.py</code> — 10 scenarios, exact 0.8,
+partial 0.9, evidence 0.917.</li>
+<li><code>test_conformal_rl.py</code> — 3 α levels, CI95 nominal
+coverage.</li>
+<li><code>test_pareto_carbon.py</code> — 20 plans→11 Pareto, weighted
+scheme→reroute_rail_panama.</li>
+<li><code>test_dt_risk_slider.py</code> — 3 positions, ~1s wall, DT flag
+set.</li>
+<li><code>test_multi_agent_demo.py</code> — 3 agents, Apple wins,
+2-phase, PnL.</li>
+<li><code>test_gcn_attention_viz.py</code> — PNG outputs, JSON, top
+edges.</li>
+<li><code>test_qwen_vl_port_imagery.py</code> — 7 ports, 0.50-0.51 risk,
+0.35 confidence.</li>
+<li><code>test_cuda_kernel_verify.py</code> — JIT log, fallback 0.028ms,
+naive 52.16ms.</li>
+<li><code>test_lora_train.py</code> — Dry-run validation.</li>
+<li><code>test_rag_provenance.py</code> — 5 chunks, 5-tier, score.</li>
+<li><code>test_counterfactual_explainer.py</code> — 7 templates
+verified.</li>
+<li><code>test_leaderboard.py</code> — HTTP submission reachable.</li>
+<li><code>test_server_live_router.py</code> — /live/health 200,
+recent-events, signal-counts.</li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<h2 id="d.7-docs-5-files">D.7 <code>docs/</code> (5 files)</h2>
+<ul>
+<li><code>LIVE_DEMO_HORMUZ.md</code> (96 lines) — 90-second demo. Hook,
+pre-demo (server, ingestor 150 events, health), 3-command demo (scenario
+→ analog 0.99 → 3-judge HIGH/CRITICAL → Brent $110-125 → 5 actions →
+counterfactual $324M→$65M = 80% / $259M).</li>
+<li><code>PREPRINT.md</code> (95 lines) — Arxiv-style. 261,175 data, 8
+sources, 3 sequential releases, v4 adds 12 contributions, explicit
+limitations, 5-step reproducibility.</li>
+<li><code>EXTERNAL_OUTREACH.md</code> — G11 LinkedIn/press playbook + 3
+email templates.</li>
+<li><code>SECRETS_ROTATION.md</code> — G12 .env hygiene.</li>
+<li><code>PHOENIX_PLAN_V5.md</code> — Post-release roadmap.</li>
+</ul>
+<h2 id="d.8-deploy-2-files">D.8 <code>deploy/</code> (2 files)</h2>
+<ul>
+<li><code>HF_DEPLOY_V4.md</code> (69 lines) — One-command deploy. pytest
+→ <code>git push hf main</code> → 5-8 min build → smoke test (/health,
+/tasks, /reset, /live/health, /live/hormuz-closure, /docs, GitHub
+Release). 7-item checklist. &lt;2GB container, 6-8 min build, 15-25s
+cold start, 2-3GB steady RAM.</li>
+<li><code>PITCH_DECK_V4.md</code> — Investor outline.</li>
+</ul>
+<h2 id="d.9-receipts-32-files-index-15-.reproduce.sh-receipts">D.9
+<code>receipts/</code> (32 files: INDEX + 15 .reproduce.sh +
+receipts)</h2>
+<p><code>INDEX.json</code> — 15 receipts as PART 2 Phase 5 table.
+<code>INDEX.md</code> — copy-paste table. 13× <code>.reproduce.sh</code>
+one-liners using <code>python -c &quot;json.load&quot;</code> or sqlite
+queries.</p>
+<h1 id="appendix-e-scripts-benchmark-tests-dashboard-notebooks-demo-docs-_dump-.github-client-challenges-server-root-242-files">APPENDIX
+E — <code>scripts/</code>, <code>benchmark/</code>, <code>tests/</code>,
+<code>dashboard/</code>, <code>notebooks/</code>, <code>demo/</code>,
+<code>docs/</code>, <code>_dump/</code>, <code>.github/</code>,
+<code>client/</code>, <code>challenges/</code>, <code>server/</code>,
+ROOT (242 files)</h1>
+<h2 id="e.1-scripts-45-files">E.1 <code>scripts/</code> (45 files)</h2>
+<p><strong>Top-level (9)</strong>: - <code>openrouter_client.py</code>
+(11.7 KB) — Async HTTP client. 18+ frontier LLMs. Token-bucket 18
+req/min. Exp backoff on 429. OPENROUTER_API_KEY env. Logs to
+.openrouter_usage.jsonl. - <code>run_frontier_judge_panel.py</code>
+(11.2 KB) — 18-model panel on 26 scenarios. JSON parse + Krippendorff α
++ Cohen κ + ECE + majority vote. Saves R4_FRONTIER_*.json. -
+<code>compute_panel_agreement.py</code> (7.5 KB) — Krippendorff ordinal
+α + Fleiss κ + Cohen weighted κ + pairwise confusion. Publishes API.
+Saves R4_DANGEROUS_V2_ABLATION.json. -
+<code>verify_openrouter_models.py</code> (2.4 KB) — Smoke test
+endpoints, validates slugs. - <code>build_pitch_html.py</code> (3.2 KB)
+— demo/PITCH_DECK.md → SupplyMind_pitch.html (reveal.js). -
+<code>check_benchmarks.py</code> (2.3 KB) — Validates all
+benchmark/results/ JSONs against schema. - <code>run_all.py</code> (4.0
+KB) — Master: pytest → benchmark → OpenRouter panel → statistics →
+visualize → report. - <code>export_all_onnx.py</code> (7.3 KB) — Exports
+all RL policies (MaskablePPO, QR-DQN, DT) to ONNX 0.97MB each,
+roundtrip-verifies. - <code>reproduce.md</code> — Setup-to-verification
+guide.</p>
+<p><strong><code>scripts/legacy/</code> (~36 files)</strong> — Pre-v3
+deprecated scripts, training_report_v2.json, phase_b_results.json, etc.
+Preserved for audit trail.</p>
+<h2 id="e.2-benchmark-36-files">E.2 <code>benchmark/</code> (36
+files)</h2>
+<p><strong>Top-level (7)</strong>: - <code>__init__.py</code> — empty. -
+<code>run_benchmark.py</code> — 9 agents × 3 tasks × 5 seeds × 20 ep =
+300 ep/agent. CSV + Wilcoxon. - <code>run_full_benchmark.py</code> —
+Extended + MLflow tracking. Dual eval (Gymnasium reward + grader score).
+- <code>ablation.py</code> — Component contribution. Progressive
+disclosure. - <code>backtesting.py</code> — Calibration error vs real
+2021 chip / 2021 Suez / 2023 Red Sea. - <code>visualize.py</code> —
+Plots all results. - <code>statistics.py</code> — Wilcoxon signed-rank +
+Friedman + bootstrap CI95.</p>
+<p><strong><code>crisis_library/</code> (5 files)</strong>: -
+<code>tohoku_2011.json</code> — M9.0, 2011-03-11, 600K+ deaths, 6-mo
+disruption, automotive + semi nodes, 180-day recovery. -
+<code>suez_2021.json</code> — Ever Given grounding, 6 days, $9.6B/day,
+regional Suez, 1-2 wk recovery. - <code>chip_shortage_2020.json</code> —
+Multi-year, sev 0.85, 180+ days, CRITICAL. -
+<code>ukraine_neon_2022.json</code> — Neon 45-65% global, 2022-02
+invasion, geopolitical, semi-affected. - <code>red_sea_2023.json</code>
+— Houthi attacks, 3500+ nm Cape, +10 days, +25% fuel, +200-300%
+rates.</p>
+<p><strong><code>results/</code> (~14 files)</strong>: -
+<code>FINAL_RESULTS.json</code> — v1 sim, 300 ep/agent. QR-DQN 0.793
+avg, Wilcoxon p &lt; 1e-50. - <code>GRAND_BENCHMARK_V2.json</code> — v2
+real DataCo. Offline-RL + v1 QR-DQN. - <code>R3_PAST_SELF.json</code> —
+4-forecaster ensemble, 20-fold backtest (also in v3_arcadia/results). -
+<code>R4_DANGEROUS_V2.json</code> — 3-judge + critic, parse 100%,
+α/κ/ECE/GT acc 69.2%. - <code>R4_DANGEROUS_V2_ABLATION.json</code> —
+2-judge α=0.750, rubric baseline 61.5%, 3-judge α=0.210. -
+<code>R5_GRANITE.json</code> + <code>R5_GRANITE_HARD.json</code> +
+<code>R5_BEIR_MANUAL.json</code> — RAG. -
+<code>R6_GETHSEMANE.json</code> +
+<code>R6_GETHSEMANE_MASKING_ABLATION.json</code> +
+<code>R6_EUCLIDIAN.json</code> + <code>R6_PROVIDER_V2.json</code> +
+<code>R6_AQUA_REGIA_V2.json</code> — RL/GNN/conformal. -
+<code>backtesting_results.json</code> — Calibration error % on 3
+historical crises. - <code>statistical_tests.json</code>,
+<code>PAIRWISE_WILCOXON_V2.json</code>, <code>STATS_V2.json</code> —
+Statistical machinery. - <code>real_world_benchmark.json</code> — v2
+DataCo eval on 27K held-out. - <code>fast_mc_benchmark.json</code> —
+Numba JIT MC &lt;0.01ms warm.</p>
+<p><strong><code>legacy/</code> (~9 files)</strong>:
+BENCHMARK_REAL_V2.json, AB_ANALYST_V3.json, REAL_DATA_PIPELINE.json,
+FINAL_RESULTS_simulated_V1.json + README. Deprecation notes.</p>
+<h2 id="e.3-tests-12-files-173-passing">E.3 <code>tests/</code> (12
+files, 173 passing)</h2>
+<ul>
+<li><code>test_openenv_compliance.py</code> — 19 formal checks: Pydantic
+v2 models, openenv.yaml, HTTP endpoints, MCP+WS, reproducibility (5×
+same-seed), dense reward, action validation, episode termination.</li>
+<li><code>test_engine.py</code> — Sim engine: graph init, disruption
+lifecycle, financial impacts, reward calc, MC projection.</li>
+<li><code>test_graders.py</code> — Episode grading: action_coverage,
+active_mitigation, cost_efficiency, health_score, SLA.</li>
+<li><code>test_reward_hacking_adversarial.py</code> — 6 attacks all
+rejected. Receipt at tests/receipts/adversarial_reward_audit.json.</li>
+<li><code>test_models.py</code> — Pydantic v2 validation.</li>
+<li><code>test_server.py</code> — FastAPI endpoints.</li>
+<li><code>test_tasks.py</code> — Registry: 3 tasks load correctly.</li>
+<li><code>test_upgrades.py</code> — v2→v3 backward compat.</li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<p><strong><code>tests/receipts/</code> (3)</strong>:
+openrouter_liveness.json, adversarial_reward_audit.json (8/8 rejected),
+frontier_panel_alpha.json.</p>
+<h2 id="e.4-dashboard-5-files">E.4 <code>dashboard/</code> (5
+files)</h2>
+<ul>
+<li><code>app.py</code> (~500 lines) — Streamlit 12-panel: network graph
+(Plotly), return distribution violin, counterfactual panel, agent
+reasoning log (Ollama), agent comparison, risk-appetite slider (DT RTG),
+SHAP, TFT fan chart, what-if builder, live ingestion, GNN attention,
+Pareto frontier.</li>
+<li><code>scenario_builder.py</code> (~100 lines) — What-if: crisis
+dropdown (7 types), severity slider, region dropdown, duration slider.
+10 pre-cached templates.</li>
+<li><code>crisis_ingestion.py</code> (~100 lines) — LiveCrisis feeder.
+NewsAPI cached, real-time risk update, RL response, counterfactual vs
+LLM agent dollar-difference.</li>
+<li><code>app.py.SHIM_NOTICE.md</code> — Shimmed to v3 Damocles
+API.</li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<h2 id="e.5-notebooks-6-files">E.5 <code>notebooks/</code> (6
+files)</h2>
+<ul>
+<li><code>01_environment_quickstart.ipynb</code> — Hello-world: reset 3
+tasks, step loop, observation structure. &lt;10 min CPU.</li>
+<li><code>02_training_your_own_agent.ipynb</code> — PPO from scratch:
+Gymnasium wrapper, SubprocVecEnv, sb3, hyperparams.</li>
+<li><code>03_reproducing_benchmarks.ipynb</code> — Exact code per number
+with seeds. Loads JSONs, plots, statistical tests.</li>
+<li><code>04_v3_quickstart_colab.ipynb</code> — v3 walkthrough.</li>
+<li><code>05_v4_hormuz_live.ipynb</code> — <strong>THE HEADLINE
+DEMO</strong>. 11 cells, ~5 min Colab CPU, no GPU/Ollama/keys. Live
+Hormuz pipeline → 0.99 analog → 5 actions → 8 receipts verified → smoke
+test.</li>
+<li><code>06_trl_training_colab.ipynb</code> — TRL DPOTrainer on 21
+preference pairs, Qwen-2.5-0.5B, Unsloth FastLanguageModel 4-bit NF4,
+&lt;15 min free T4.</li>
+</ul>
+<h2 id="e.6-demo-7-files">E.6 <code>demo/</code> (7 files)</h2>
+<ul>
+<li><code>DEMO_VIDEO_SCRIPT.md</code> (130 lines) — 8-scene 3-min: Hook
+(Suez $9.6B/day), Stack (ollama list, torch.cuda, mxbai), 4 endpoints
+(/assess, /forecast, /rag, /rl/act), Dashboard, CTA. Timestamps
+0:00-3:00.</li>
+<li><code>DEMO_TRANSCRIPT.md</code> — Read-aloud transcript.</li>
+<li><code>PITCH_DECK.md</code> — 5-slide MD: problem ($184B, 94% F1000),
+solution (13 SOTA local), benchmarks (0.971 nDCG, α=0.75), honest
+findings, CTA.</li>
+<li><code>LANDING_PAGE.md</code> — 1-page HF Space intro.</li>
+<li><code>CHECKLIST.md</code> — Pre-demo: Ollama running, models loaded,
+FastAPI up, Streamlit up, API healthy, network graph renders, video
+plays.</li>
+<li><code>social.md</code> — Twitter/LinkedIn/HN drafts.</li>
+<li><code>SupplyMind_pitch.html</code> — Rendered pitch.</li>
+</ul>
+<h2 id="e.7-docs-12-files">E.7 <code>docs/</code> (12 files)</h2>
+<ul>
+<li><code>CLONE_AND_STUDY.md</code> — Onboarding for fresh clones.</li>
+<li><code>FINAL_AUDIT_REPORT.md</code> — Honest component-by-component
+audit + action items.</li>
+<li><code>MULTI_TURN_GRPO_ROADMAP.md</code> — Future v4 multi-turn GRPO
+design.</li>
+<li><code>legacy/supplymind_plan.md</code> — v1 design (archived).</li>
+<li><code>legacy/REPORT_REAL_DATA.md</code> — v2 real-data report
+(DataCo 180K).</li>
+<li><code>legacy/REPORT_SIMULATED_DATA.md</code> — v1 sim report (QR-DQN
+0.793).</li>
+<li><code>legacy/REPORT_REAL_V2.md</code> — v2 production retrain
+(CQL_real_v2 37.4%).</li>
+<li><code>legacy/adaptive-tickling-bubble.md</code> — v1 narrative.</li>
+<li><code>legacy/AUTORESEARCH_SUMMARY.md</code> — v2 autoresearch.</li>
+<li><code>legacy/MODEL_CARD_V2.md</code> +
+<code>MODEL_CARD_REAL.md</code> — v2 cards (archived).</li>
+<li><code>legacy/README.md</code> — v2 README.</li>
+</ul>
+<h2 id="e.8-_dump-4-files">E.8 <code>_dump/</code> (4 files)</h2>
+<ul>
+<li><code>FAILURE_TABLE.md</code> — 22-item ledger: 8 resolved + 6
+deferred + 8 honest negatives.</li>
+<li><code>R2_TABPFN_BAGGING_DEMO.json</code> — Demo bagging output.</li>
+<li><code>R6_GETHSEMANE_MEDIUM_300K.json</code> — 300K extended training
+results.</li>
+<li>(1 misc).</li>
+</ul>
+<h2 id="e.9-.github-3-files">E.9 <code>.github/</code> (3 files)</h2>
+<ul>
+<li><code>workflows/ci.yml</code> — pytest tests/ on push, OpenEnv
+compliance check.</li>
+<li><code>workflows/benchmark-regression.yml</code> — Nightly benchmark,
+floor breach email.</li>
+<li><code>workflows/deploy-hf-space.yml</code> — Deploy to HF on tagged
+release.</li>
+</ul>
+<h2 id="e.10-client-2-files">E.10 <code>client/</code> (2 files)</h2>
+<ul>
+<li><code>supplymind_client.py</code> — HTTP client for deployed server.
+Zero <code>from server</code> imports. health/reset/step/grade.</li>
+<li><code>__init__.py</code>.</li>
+</ul>
+<h2 id="e.11-challenges-1-file">E.11 <code>challenges/</code> (1
+file)</h2>
+<ul>
+<li><code>R4_RUBRIC_CHALLENGE.md</code> (111 lines) — Open challenge:
+match 2-judge α=0.750 / 61.5% acc on 26 Wikipedia crises. Deterministic
+GT rubric. PR submission with solution.py + results.json + README.
+Reference impl in v3_arcadia/30_dangerous/.</li>
+</ul>
+<h2 id="e.12-server-26-files">E.12 <code>server/</code> (26 files)</h2>
+<p><strong>Top-level (5)</strong>: - <code>app.py</code> (145 lines) —
+FastAPI. Lifespan (pre-warm), CORS, endpoints (/health, /reset, /step,
+/state, /tasks, /grader, /baseline). v4 router mount. -
+<code>supply_environment.py</code> (80 lines) — SupplyMindEnvironment
+class. reset/step/grade. Episode history. -
+<code>openenv_adapter.py</code> — OpenEnv v2 interface. WebSocket + MCP
+routes. - <code>integrated_agent.py</code> — Agent interface for
+scripted baseline. - <code>__init__.py</code>.</p>
+<p><strong><code>engine/</code> (6 files)</strong>: -
+<code>simulation.py</code> (60 lines) — SimulationEngine orchestrator. -
+<code>graph.py</code> — SupplyChainGraph. Node types
+(supplier/warehouse/port/factory/customer). Lead-time edges. Backup
+relationships. BFS propagation with 0.20 decay. -
+<code>disruptions.py</code> — Lifecycle (warning sigmoid → active bell →
+recovery exp). Affected_nodes. Cascade injection. -
+<code>financial.py</code> — Budget, costs, revenue loss, SLA penalties,
+backup premiums, health score. ISM/CSCMP/IATA-calibrated constants. -
+<code>rewards.py</code> — 7-component dense reward (35% revenue, 25%
+stockout, 15% proactive, 10% cost, 5% unnecessary, 5% health, 5% SLA). -
+<code>monte_carlo.py</code> — 10K scenarios/step. Beta-severity +
+Lognormal-duration. P50/P95. - <code>__init__.py</code>.</p>
+<p><strong><code>tasks/</code> (5 files)</strong>: -
+<code>registry.py</code> — TaskRegistry, 3 built-ins. -
+<code>task_easy.py</code> — 12 nodes, $5M, 30 steps, typhoon. -
+<code>task_medium.py</code> — 25 nodes, $8M, 45 steps, multi-front. -
+<code>task_hard.py</code> — 40 nodes, $10M, 60 steps, cascading. -
+<code>__init__.py</code>.</p>
+<p><strong><code>graders/</code> (2 files)</strong>: -
+<code>grader.py</code> — EpisodeGrader. action_coverage,
+active_mitigation, cost_efficiency, health_score, SLA. Zero-variance
+across 5 runs. - <code>__init__.py</code>.</p>
+<p><strong><code>data/</code> (8 files)</strong>: -
+<code>graphs/easy.json</code>, <code>medium.json</code>,
+<code>hard.json</code> — 12/25/40 nodes. Real names (TSMC, Samsung,
+Foxconn). Tier structure. Lead-times (SemiAnalysis/SEC). Single-source
+flags. Revenue contributions. - <code>disruptions/easy.json</code>,
+<code>medium.json</code>, <code>hard.json</code> — Scripted timelines +
+jitter for seed variation. - <code>commodities/</code> — FRED price
+cache (WTI, copper, FX pairs).</p>
+<h2 id="e.13-root-30-files">E.13 ROOT (~30 files)</h2>
+<ul>
+<li><code>README.md</code> (40KB) — Master entry. Headline metrics.
+Architecture. Tasks. RL stack. Production. HF Space.</li>
+<li><code>EXECUTIVE_SUMMARY.md</code> — v2 historical summary.</li>
+<li><code>AUDIT_PLAN.md</code> (22KB) — 11 directives, 12 batches.</li>
+<li><code>ALIENWARE_KICKOFF.md</code> (53KB) — 80-item RL training
+checklist.</li>
+<li><code>BENCHMARKS_VS_PUBLIC.md</code> — Honest positioning vs
+M5/MTEB/MuJoCo/Kaggle/MT-Bench/ogbn-products.</li>
+<li><code>comparison.md</code> — Hackathon vs other-env-types.</li>
+<li><code>DATA_SOURCES.md</code> — 40+ real-world citations.</li>
+<li><code>DEMO_SCRIPT.md</code>, <code>FINAL_DEMO.md</code> — Demo
+plans.</li>
+<li><code>DEPLOY_HF_SPACE.md</code> — HF deploy guide.</li>
+<li><code>EXTERNAL_CREDIBILITY.md</code> — Authority quotes.</li>
+<li><code>JUDGES.md</code> — 4-min path, 15 receipts.</li>
+<li><code>MODEL_CARD.md</code> (19KB) — Unified v3 model card.</li>
+<li><code>PYTORCH_STORY.md</code> — 11 non-trivial PyTorch
+contributions.</li>
+<li><code>RESULTS.md</code> — 1-page hero metrics.</li>
+<li><code>SUPPLYMIND_BLUEPRINT.md</code> (81KB) — Master design
+doc.</li>
+<li><code>LICENSE</code> — MIT.</li>
+<li><code>baseline.py</code> — Scripted heuristic agent.</li>
+<li><code>client.py</code> — Example HTTP client usage.</li>
+<li><code>inference.py</code> — Competition entry. OpenAI-compatible.
+Stdout <code>[START]/[STEP]/[END]</code> format.</li>
+<li><code>models.py</code> — Pydantic v2 contract.</li>
+<li><code>scripted_agent.py</code> — Scripted logic.</li>
+<li><code>openenv.yaml</code> — OpenEnv manifest.</li>
+<li><code>docker-compose.yml</code> — 3 services (api, dashboard,
+damocles).</li>
+<li><code>Dockerfile</code>, <code>Dockerfile.damocles</code>,
+<code>Dockerfile.dashboard</code> — Multi-stage builds.</li>
+<li><code>pyproject.toml</code> — Project config.</li>
+<li><code>requirements.txt</code>, <code>requirements-rl.txt</code>,
+<code>requirements-damocles.txt</code> — Deps.</li>
+<li><code>uv.lock</code> (~15.7 MB) — Deterministic lock.</li>
+<li><code>.env.example</code> — Template (OPENROUTER_API_KEY, HF_TOKEN,
+etc.).</li>
+<li><code>.gitignore</code>, <code>.dockerignore</code> — Excludes.</li>
+<li><code>wgidataset_with_sourcedata-2025.xlsx</code> (10.4MB) — World
+Bank governance indicators.</li>
+<li><code>.claude/settings.local.json</code> — Claude Code
+permissions.</li>
+</ul>
+<hr />
+<h1 id="end-of-document">END OF DOCUMENT</h1>
+</body>
+</html>
